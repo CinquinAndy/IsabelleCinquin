@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <!-- todo google analytics -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assistante Maternelle - Nounou - Cinquin Isabelle</title>
+    <meta name="description" content="Livret d'accueil, Nounou sciez">
+    <link rel="icon" type="image/png" href="images/favIcon.png"/>
+    <link rel="stylesheet" href="stylesheets.css">
+    <link rel="stylesheet" href="https://use.typekit.net/wjt6gwy.css">
+    <script src="https://kit.fontawesome.com/58f998f035.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="fonction.js"></script>
+</head>
+
+<body>
+<!-- Nav Bar -->
+<header class="topAccueil">
+    <div id="navTop">
+        <a href="#"><img src="images/ourson.png" alt="logo"></a>
+        <a href="#" class="disabled" onclick="clickNavBtn();">
+            <div id="navBtn"></div>
+        </a>
+    </div>
+    <div id="navHidden">
+        <nav>
+            <ul>
+                <li>&nbsp;</li>
+                <li>&nbsp;</li>
+                <li><a href="#" onclick="clickNavBtn();">Présentation</a></li>
+                <li>
+                    <hr class="hrShort">
+                </li>
+                <li><a href="#" onclick="clickNavBtn();">Objectifs</a></li>
+                <li>
+                    <hr class="hrShort">
+                </li>
+                <li><a href="#" onclick="clickNavBtn();">Adaptation</a></li>
+                <li>
+                    <hr class="hrShort">
+                </li>
+                <li><a href="#" onclick="clickNavBtn();">Organisation</a></li>
+                <li>
+                    <hr class="hrShort">
+                </li>
+                <li><a href="#" onclick="clickNavBtn();">Activités</a></li>
+                <li>
+                    <hr class="hrShort">
+                </li>
+                <li><a href="#" onclick="clickNavBtn();">Tarifs</a></li>
+                <li>
+                    <hr class="hrShort">
+                </li>
+                <li><a href="#" onclick="clickNavBtn();">Charte</a></li>
+                <li>
+                    <hr class="hrShort">
+                </li>
+                <li><a href="#" onclick="clickNavBtn();">Contact</a></li>
+                <li>
+                    <hr class="hrLong">
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!-- Background Accueil -->
+<section id="sectionBackground">
+    <!--    todo background animé avec petit coeur volant -->
+    <div class="background">
+        <img id="imageAccueil" src="images/BackgroundPhone.jpg" alt="logoAnimee">
+    </div>
+</section>
+<!-- Section Accueil -->
+<section id="motIntro">
+    <header>
+        Accueil
+    </header>
+    <!--    todo MAMAN description accueil -->
+    <article>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        <br>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+    </article>
+    <article class="imagePresentation">
+        <!--        todo image de presentation maman & papa , bonne qualité ! -->
+        <img src="" alt="">
+    </article>
+</section>
+<!-- Section Présentation -->
+<section id="presentationNounou">
+    <!--    todo MAMAN faire textes presentation-->
+    <header>
+        Presentation
+    </header>
+    <article>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        <br>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+    </article>
+    <article class="middle">
+        <div id="slider">
+            <figure>
+                <img id="premiereImageCarroussel" src="images/presentationKylian.jpg" alt="Presentation Kylian">
+                <a href="https://www.cinquin-maeva.com"><img id="deuxiemeImageCarroussel"
+                                                             src="images/presentationMaeva.jpg"
+                                                             alt="Prise note conseil"></a>
+                <img id="troisiemeImageCarroussel" src="images/presentationOrlane.jpg" alt="Presentation Orlane">
+                <a href="https://www.andy-cinquin.fr"></a><img id="quatriemeImageCarroussel"
+                                                               src="images/presentationAndy.jpg"
+                                                               alt="Presentation Andy">
+                <img id="cinquiemeImageCarroussel" src="images/presentationChats.jpg" alt="Presentation Chats">
+                <img id="sixiemeImageCarroussel" src="images/presentationChien.jpg" alt="Presentation Chien">
+            </figure>
+        </div>
+    </article>
+</section>
+<!-- Section Présentation Lieu de vie -->
+<section id="lieuDeVie">
+    <header>
+        Lieu de vie
+    </header>
+    <!--    todo MAMAN description lieu de vie -->
+    <article>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        <br>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+    </article>
+    <article>
+        <!--        todo vidéo de présentation de la maison  -->
+        <img src="" alt="">
+    </article>
+</section>
+<!-- Section Objectifs-->
+<section id="mesObjectifs">
+    <!--    todo MAMAN description objectifs et placement des éléments-->
+    <header>
+        Mes objectifs
+    </header>
+    <article>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        <br>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+    </article>
+    <div class="titleObjectifs">
+        <h2>L'éveil</h2>
+        &nbsp;
+<!--        todo taille logo -->
+        <i class="fas fa-baby"></i>
+    </div>
+    <article>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        <br>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+    </article>
+    <div class="titleObjectifs">
+        <h2>Le respect</h2>
+        &nbsp;
+        <!--        todo taille logo -->
+        <i class="fas fa-hands-helping"></i>
+    </div>
+    <article>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        <br>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+    </article>
+</section>
+<!-- Section Période d'adaptation -->
+<section id="adaptation">
+    <!--    todo MAMAN description Adaptation-->
+    <header>
+        Période d'adaptation
+    </header>
+    <article>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        <br>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+    </article>
+</section>
+<!-- Section Organisation des affaires -->
+<section id="organisation">
+    <header>
+        Organisation des affaires
+    </header>
+    <h2>- Dans le sac à langer -</h2>
+    <div>
+        <article>
+            <div>
+                <ul>
+                    <li>Le carnet de santé</li>
+                    <li>Des vêtements de rechange</li>
+                    <li>Doudou</li>
+                    <li>Des tétines</li>
+                    <li>De la crème solaire</li>
+                </ul>
+            </div>
+        </article>
+        <aside>
+            <img src="images/sacLangerGroupement.svg" alt="à mettre dans le sac à langer">
+        </aside>
+    </div>
+    <h2>- Chez nounou -</h2>
+    <div>
+        <article>
+            <div>
+                <ul>
+                    <li>Des couches</li>
+                    <li>Un Biberon</li>
+                    <li>Du lait</li>
+                    <li>Une turbulette</li>
+                    <li>Des chaussons</li>
+                </ul>
+            </div>
+        </article>
+        <aside>
+            <img src="images/chezNounouGroupement.svg" alt="à garder chez nounou">
+        </aside>
+    </div>
+</section>
+<!-- Section organisation d'une journée -->
+<section id="organisationJournee">
+    <!--    todo MAMAN description Adaptation-->
+    <header>
+        Organisation d'une journée
+    </header>
+    <h2>Matin</h2>
+    <article>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        <br>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+    </article>
+    <h2>Midi</h2>
+    <article>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        <br>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+    </article>
+    <h2>Après-midi</h2>
+    <article>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        <br>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+    </article>
+    <h2>Fin de journée</h2>
+    <article>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        <br>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+    </article>
+</section>
+<!-- Section activités proposées -->
+<section id="activiteeProposees">
+    <header>Activités proposées</header>
+    <article class="middle">
+        <div id="sliderActivitee">
+            <figure>
+                <img id="premiereImageCarrousselActivite" src="images/deguisements.jpg" alt="Activitée déguisements">
+                <img id="deuxiemeImageCarrousselActivite" src="images/balade.jpg" alt="Activitées balades">
+                <img id="troisiemeImageCarrousselActivite" src="images/piscine.jpg" alt="Activitées piscine">
+                <img id="quatriemeImageCarrousselActivite" src="images/peinturePropre.jpg"
+                     alt="Activitées peinture propre">
+                <img id="cinquiemeImageCarrousselActivite" src="images/fetesDesMeres.jpg"
+                     alt="Activitées fêtes de mères">
+                <img id="sixiemeImageCarrousselActivite" src="images/jeuDehors.jpg" alt="Activitées jeux dehors">
+                <img id="septiemeImageCarrousselActivite" src="images/relaiAssmat.jpg" alt="Activitées relai assmat">
+                <img id="huitiemeImageCarrousselActivite" src="images/tapisEveil.jpg" alt="Activitées tapis éveil">
+                <img id="neuviemeImageCarrousselActivite" src="images/trotteur.jpg" alt="Activitées trotteur">
+                <img id="dixiemeImageCarrousselActivite" src="images/etc.jpg" alt="et encore plus d'activitées...">
+            </figure>
+        </div>
+    </article>
+    <article>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        <br>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+    </article>
+</section>
+<!-- Section tarifs -->
+<section id="tarifs">
+    <!--    todo MAMAN description tarifs -->
+    <header>
+        Tarifs
+    </header>
+    <article>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        <br>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+    </article>
+</section>
+<!-- Section Charte de vie -->
+<section id="charteDeVie">
+    <!--    todo MAMAN description charte de vie -->
+    <header>
+        Charte de vie
+    </header>
+    <article>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        <br>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+    </article>
+    <article>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        <br>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+    </article>
+    <article>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        <br>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+    </article>
+    <article>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        <br>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat,
+        <br>sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        <br>no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr,
+        <br>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+    </article>
+</section>
+<!-- Section Contact -->
+<section id="contact">
+    <header>
+        <div>Contact</div>
+    </header>
+    <article>
+        <div><a href="mailto:andorma@gmail.com"><i
+                class="fas fa-envelope iconHover"></i>&nbsp;&nbsp;andorma@gmail.com</a>
+        </div>
+    </article>
+    <article>
+        <div><a href="tel:+33603286906"><i class="fas fa-mobile-alt iconHover"></i>&nbsp;&nbsp;06 03 28 69 06</a></div>
+    </article>
+    <article>
+        <div><a href="tel:+33450728192"><i class="fas fa-phone iconHover"></i>&nbsp;&nbsp;04 50 72 81 92</a></div>
+    </article>
+    <article id="googleMap">
+        <div id="frameGoogleMap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2754.0221652731407!2d6.397748051564308!3d46.34910448187832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c3ff7ae04fae7%3A0xf7fdf630b094e594!2s1250%20Chemin%20de%20la%20Renouill%C3%A8re%2C%2074140%20Sciez!5e0!3m2!1sfr!2sfr!4v1595233331534!5m2!1sfr!2sfr"
+                    width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                    tabindex="0"></iframe>
+        </div>
+    </article>
+</section>
+<!-- Footer -->
+<footer>
+    <div id="copyright">Website developed by Cinquin Andy - <a href="mentionsLegales.html">Mentions légales</a></div>
+</footer>
+<!-- Script Lottie & bodymovin ae -->
+</body>
+<script src="lottie.js"></script>
+<script src="navBtn.js"></script>
+<!-- Script Perso -->
+<script>
+    var navBarBtn = 0;
+
+    function clickNavBtn() {
+        animationNavBtn.play();
+        if (navBarBtn === 0) {
+            document.getElementById("navHidden").style.zIndex = '2';
+            document.getElementById("navHidden").style.opacity = '100%';
+        } else {
+            document.getElementById("navHidden").style.opacity = '0%';
+        }
+        setTimeout(swapingAnimation, 350)
+    }
+
+    function swapingAnimation() {
+        if (navBarBtn === 0) {
+            animationNavBtn.pause();
+            animationNavBtn.setDirection(-1);
+            navBarBtn = 1;
+        } else {
+            animationNavBtn.pause();
+            document.getElementById("navHidden").style.zIndex = '-1';
+            animationNavBtn.setDirection(1);
+            navBarBtn = 0;
+        }
+    }
+
+
+    $('.disabled').click(function (e) {
+        e.preventDefault();
+    });
+    window.onresize = function () {
+        changementtaillefenetre();
+    };
+    window.onload = function () {
+        changementtaillefenetre();
+    };
+</script>
+</html>
