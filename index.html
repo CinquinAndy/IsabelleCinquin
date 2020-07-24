@@ -1,7 +1,15 @@
 <!doctype html>
 <html lang="fr">
 <head>
-    <!-- todo google analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173493426-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-173493426-1');
+    </script>
 <!-- todo minify js & css -->
 <!--    todo tiny png / jpg -->
 
@@ -16,7 +24,11 @@
     <link rel="stylesheet" href="https://use.typekit.net/wjt6gwy.css">
     <script src="https://kit.fontawesome.com/58f998f035.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Script perso -->
     <script src="fonction.js"></script>
+    <!-- Script Lottie & bodymovin ae -->
+    <script src="lottie.js"></script>
+    <script src="navBtn.js"></script>
 </head>
 
 <body>
@@ -71,7 +83,6 @@
 </header>
 <!-- Background Accueil -->
 <section id="sectionBackground">
-    <!--    todo background animé avec petit coeur volant -->
     <div class="background">
         <img id="imageAccueil" src="images/BackgroundPhone.jpg" alt="logoAnimee">
     </div>
@@ -534,10 +545,7 @@
 <footer>
     <div id="copyright">Website developed by Cinquin Andy - <a href="mentionsLegales.html">Mentions légales</a></div>
 </footer>
-<!-- Script Lottie & bodymovin ae -->
 </body>
-<script src="lottie.js"></script>
-<script src="navBtn.js"></script>
 <!-- Script Perso -->
 <script>
     var navBarBtn = 0;
