@@ -6,6 +6,7 @@ function changementtaillefenetre() {
     let quatriemeImage = document.getElementById("quatriemeImageCarroussel");
     let cinquiemeImage = document.getElementById("cinquiemeImageCarroussel");
     let sixiemeImage = document.getElementById("sixiemeImageCarroussel");
+    let septiemeImage = document.getElementById("septiemeImageCarroussel");
 
     let premiereImageActivite = document.getElementById("premiereImageCarrousselActivite");
     let deuxiemeImageActivite = document.getElementById("deuxiemeImageCarrousselActivite");
@@ -26,8 +27,9 @@ function changementtaillefenetre() {
         deuxiemeImage.src = 'images/presentationMaevaDesktop.jpg';
         troisiemeImage.src = 'images/presentationOrlaneDesktop.jpg';
         quatriemeImage.src = 'images/presentationAndyDesktop.jpg';
-        cinquiemeImage.src = 'images/presentationChatsDesktop.jpg';
-        sixiemeImage.src = 'images/presentationChienDesktop.jpg';
+        cinquiemeImage.src = 'images/presentationFredericDesktop.jpg';
+        sixiemeImage.src = 'images/presentationChatsDesktop.jpg';
+        septiemeImage.src = 'images/presentationChienDesktop.jpg';
 
         premiereImageActivite.src = 'images/deguisementsDesktop.jpg';
         deuxiemeImageActivite.src = 'images/baladeDesktop.jpg';
@@ -48,8 +50,9 @@ function changementtaillefenetre() {
         deuxiemeImage.src = 'images/presentationMaeva.jpg';
         troisiemeImage.src = 'images/presentationOrlane.jpg';
         quatriemeImage.src = 'images/presentationAndy.jpg';
-        cinquiemeImage.src = 'images/presentationChats.jpg';
-        sixiemeImage.src = 'images/presentationChien.jpg';
+        cinquiemeImage.src = 'images/presentationFrederic.jpg';
+        sixiemeImage.src = 'images/presentationChats.jpg';
+        septiemeImage.src = 'images/presentationChien.jpg';
 
         premiereImageActivite.src = 'images/deguisements.jpg';
         deuxiemeImageActivite.src = 'images/balade.jpg';

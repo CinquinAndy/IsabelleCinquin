@@ -160,6 +160,26 @@ ul {
     width: 100%;
 }
 
+.imagePresentation{
+    width: 100%;
+}
+.imagePresentation div{
+    width: 100%;
+    padding: 1.5em;
+}
+.imagePresentation div img{
+    width: 100%;
+}
+.titleObjectifs{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.titleObjectifs h2{
+    padding-right: 0.5em;
+}
 #googleMap{
     margin-top: 1em;
     width: 100%;
@@ -266,8 +286,8 @@ a:hover div, article:hover .iconHover, a:hover {
 }
 
 #slider figure {
-    width: 600%;
-    animation: 21s slidy infinite;
+    width: 700%;
+    animation: 24.5s slidy infinite;
 }
 
 #sliderActivitee figure {
@@ -281,7 +301,7 @@ a:hover div, article:hover .iconHover, a:hover {
 }
 
 #slider figure img {
-    width: 16.66%;
+    width: 14.28%;
 }
 
 #sliderActivitee figure img {
