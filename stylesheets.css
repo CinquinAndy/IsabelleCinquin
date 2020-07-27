@@ -31,6 +31,7 @@ section, header, footer, h1, h2 {
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    font-weight: bold;
 }
 
 section {
@@ -150,8 +151,8 @@ ul {
 }
 
 #sectionBackground {
-    padding: 1em 0 0 0;
-    margin: 0;
+    padding: 0;
+    margin: 10vh 0 0 0;
     width: 100%;
 }
 
@@ -162,6 +163,9 @@ ul {
 
 .imagePresentation{
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .imagePresentation div{
     width: 100%;
@@ -264,11 +268,15 @@ section > article {
 }
 
 .middle {
-    width: 100%
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 a:hover div, article:hover .iconHover, a:hover {
-    color: #9a4ea6
+    color: #9a4ea6;
+    transition: all ease 0.3s;
 }
 
 .iconHover {
@@ -312,6 +320,9 @@ a:hover div, article:hover .iconHover, a:hover {
     width: 100%;
     text-align: center;
     overflow: hidden;
+}
+#mentionLegales{
+    margin-top: 10vh;
 }
 
 /*Calculé pour 6 Images*/
@@ -468,22 +479,14 @@ a:hover div, article:hover .iconHover, a:hover {
     #organisation img{
         width: auto
     }
+    .imagePresentation div{
+        width: 70%;
+    }
 }
 
-@media (min-width: 1440px) {
-    section {
-        /*flex-wrap: wrap;*/
-        /*flex-direction: row;*/
-        /*width: 100%*/
-    }
-
+@media (min-width: 1200px) {
     section > header {
-        /*margin: 1em;*/
-        /*width: 100%*/
-    }
-
-    section > article {
-        /*width: 33.3%*/
+        width: 100%;
     }
     #organisation>div{
         width: 40%;
@@ -492,4 +495,29 @@ a:hover div, article:hover .iconHover, a:hover {
         width: 100%;
         justify-content: center;
     }
+    .imagePresentation div{
+        width: 50%;
+    }
+    #motIntro{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    #motIntro header{
+        width: 100%;
+    }
+    #motIntro article:nth-child(2){
+        width: 50%;
+    }
+    #motIntro article:nth-child(3){
+        width: 50%;
+    }
+    #slider{
+        width: 50%;
+    }
+    #sliderActivitee{
+        width: 50%;
+    }
+
 }

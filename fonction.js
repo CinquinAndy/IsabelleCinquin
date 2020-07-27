@@ -39,7 +39,7 @@ function changementtaillefenetre() {
         sixiemeImageActivite.src = 'images/jeuDehorsDesktop.jpg';
         septiemeImageActivite.src = 'images/relaiAssmatDesktop.jpg';
         huitiemeImageActivite.src = 'images/tapisEveilDesktop.jpg';
-        neuviemeImageActivite.src = 'images/trotteurDesktop.jpg';
+        neuviemeImageActivite.src = 'images/siege360Desktop.jpg';
         dixiemeImageActivite.src = 'images/etcDesktop.jpg';
 
 
@@ -62,7 +62,7 @@ function changementtaillefenetre() {
         sixiemeImageActivite.src = 'images/jeuDehors.jpg';
         septiemeImageActivite.src = 'images/relaiAssmat.jpg';
         huitiemeImageActivite.src = 'images/tapisEveil.jpg';
-        neuviemeImageActivite.src = 'images/trotteur.jpg';
+        neuviemeImageActivite.src = 'images/siege360.jpg';
         dixiemeImageActivite.src = 'images/etc.jpg';
     }
 }
