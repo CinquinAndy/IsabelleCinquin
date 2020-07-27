@@ -329,7 +329,7 @@ a:hover div, article:hover .iconHover, a:hover {
     width: 100vw;
     height: 100vh;
     background: #3E2B66;
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     position: fixed;
