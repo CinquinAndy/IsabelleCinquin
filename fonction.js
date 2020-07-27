@@ -19,6 +19,9 @@ function changementtaillefenetre() {
     let neuviemeImageActivite = document.getElementById("neuviemeImageCarrousselActivite");
     let dixiemeImageActivite = document.getElementById("dixiemeImageCarrousselActivite");
 
+    let animationPresMaisonPhone = document.getElementById("animationPresentationMaisonPhone");
+    let animationPresMaisonDesktop = document.getElementById("animationPresentationMaisonDesktop");
+
 
     if (document.body.clientWidth >= 680) {
         imageBackground.src = 'images/BackgroundDesktop.jpg';
@@ -42,6 +45,8 @@ function changementtaillefenetre() {
         neuviemeImageActivite.src = 'images/siege360Desktop.jpg';
         dixiemeImageActivite.src = 'images/etcDesktop.jpg';
 
+        animationPresMaisonDesktop.style.display = "block";
+        animationPresMaisonPhone.style.display = "none";
 
     } else if (document.body.clientWidth < 680) {
         imageBackground.src = 'images/BackgroundPhone.jpg';
@@ -64,6 +69,9 @@ function changementtaillefenetre() {
         huitiemeImageActivite.src = 'images/tapisEveil.jpg';
         neuviemeImageActivite.src = 'images/siege360.jpg';
         dixiemeImageActivite.src = 'images/etc.jpg';
+
+        animationPresMaisonDesktop.style.display = "none";
+        animationPresMaisonPhone.style.display = "block";
     }
 }
 

@@ -14,9 +14,6 @@
 
         gtag('config', 'UA-173493426-1');
     </script>
-    <!-- todo minify js & css -->
-    <!--    todo tiny png / jpg -->
-    <!-- todo SEO -->
     <!--    todo description & images sur analytics + validation search console -->
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -189,7 +186,7 @@
 </section>
 <!-- Section Présentation Lieu de vie -->
 <section id="lieuDeVie">
-    <header>
+    <header id="presentationMaison">
         Lieu de vie
     </header>
     <article>
@@ -206,9 +203,9 @@
         <br>3 lits en bois à barreau
         <br>2 sièges auto isofix bébé confort
     </article>
-    <article>
-        <!--        todo vidéo de présentation de la maison - prendre les photos & faire l'animation -->
-        <img src="" alt="">
+    <article id="containPresentationMaison">
+        <div id="animationPresentationMaisonPhone"></div>
+        <div id="animationPresentationMaisonDesktop"></div>
     </article>
 </section>
 <!-- Section Objectifs-->
@@ -530,9 +527,22 @@
 <!-- Script Lottie & bodymovin ae -->
 <script src="lottie.js"></script>
 <script src="navBtn.js"></script>
+<script src="animationPresentationMaisonPhone.js"></script>
+<script src="animationPresentationMaisonDesktop.js"></script>
 <!-- Script Perso -->
 <script>
     var navBarBtn = 0;
+    presentationMaison = document.getElementById("presentationMaison");
+
+    var dansLaFenetre = function (element) {
+        var position = element.getBoundingClientRect();
+        return (
+            position.top >= 0 &&
+            position.left >= 0 &&
+            position.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            position.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    };
 
     function clickNavBtn() {
         animationNavBtn.play();
@@ -558,6 +568,12 @@
         }
     }
 
+    window.onscroll = function () {
+        if (dansLaFenetre(presentationMaison)) {
+            animationPresentationMaisonPhone.play();
+            animationPresentationMaisonDesktop.play();
+        }
+    };
 
     $('.disabled').click(function (e) {
         e.preventDefault();
@@ -567,6 +583,10 @@
     };
     window.onload = function () {
         changementtaillefenetre();
+        if (dansLaFenetre(presentationMaison)) {
+            animationPresentationMaisonPhone.play();
+            animationPresentationMaisonDesktop.play();
+        }
         setTimeout(function(){document.getElementById("loader").style.display = 'none';},500);
     };
 </script>
