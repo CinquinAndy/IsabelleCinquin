@@ -35,6 +35,9 @@
 </head>
 
 <body>
+<div id="loader">
+<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+</div>
 <!-- Nav Bar -->
 <header class="topAccueil">
     <div id="navTop">
@@ -564,6 +567,7 @@
     };
     window.onload = function () {
         changementtaillefenetre();
+        setTimeout(function(){document.getElementById("loader").style.display = 'none';},500);
     };
 </script>
 </html>
