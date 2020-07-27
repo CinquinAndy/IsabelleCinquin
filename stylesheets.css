@@ -162,7 +162,7 @@ ul {
 }
 
 .imagePresentation{
-    width: 100%;
+    width: 75%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -317,7 +317,7 @@ a:hover div, article:hover .iconHover, a:hover {
 }
 
 #slider, #sliderActivitee {
-    width: 100%;
+    width: 75%;
     text-align: center;
     overflow: hidden;
 }
@@ -422,43 +422,49 @@ a:hover div, article:hover .iconHover, a:hover {
 }
 
 
-/*Calculé pour 6 Images*/
+/*Calculé pour 7 Images*/
 @keyframes slidy {
     0% {
         left: 0;
     }
-    11.66% {
+    9.28% {
         left: 0;
     }
-    16.66% {
+    14.28% {
         left: -100%;
     }
-    28.33% {
+    23.56% {
         left: -100%;
     }
-    33.33% {
+    28.56% {
         left: -200%;
     }
-    45% {
+    37.84% {
         left: -200%;
     }
-    50% {
+    42.84% {
         left: -300%;
     }
-    61.66% {
+    52.12% {
         left: -300%;
     }
-    66.66% {
+    57.12% {
         left: -400%;
     }
-    78.33% {
+    66.4% {
         left: -400%;
     }
-    83.33% {
+    71.4% {
         left: -500%;
     }
-    95.00% {
+    80.68% {
         left: -500%;
+    }
+    85.68% {
+        left: -600%;
+    }
+    94.96% {
+        left: -600%;
     }
     100% {
         left: 0;
