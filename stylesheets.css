@@ -620,21 +620,29 @@ a:hover, a:hover div, article:hover .iconHover {
     }
 
     #organisation > div {
-        width: 70%
+        width: 70%;
+        margin: 0;
+        padding: 0;
     }
 
     #organisation > div > article {
         width: 50%;
-        justify-content: center
+        justify-content: center;
+        margin: 0;
+        padding: 0;
     }
 
     #organisation > div > aside {
         width: 50%;
-        flex-direction: row-reverse
+        flex-direction: row-reverse;
+        margin: 0;
+        padding: 0;
     }
 
     #organisation img {
-        width: 80%
+        width: 80%;
+        margin: 0;
+        padding: 0;
     }
 
     .imagePresentation div {
