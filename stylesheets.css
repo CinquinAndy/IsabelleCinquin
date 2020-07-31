@@ -612,17 +612,24 @@ a:hover, a:hover div, article:hover .iconHover {
     #organisation > div > article > div > ul {
         justify-content: center;
         flex-direction: column;
-        margin: 0
+        margin: 0;
+        padding: 0;
+        height: auto;
     }
 
     #organisation aside {
-        width: 80%
+        width: 80%;
+        height: auto;
     }
 
     #organisation > div {
         width: 70%;
         margin: 0;
         padding: 0;
+        height: auto;
+    }
+    #organisation h3 {
+        padding: 1em 0;
     }
 
     #organisation > div > article {
@@ -630,6 +637,7 @@ a:hover, a:hover div, article:hover .iconHover {
         justify-content: center;
         margin: 0;
         padding: 0;
+        height: auto;
     }
 
     #organisation > div > aside {
@@ -637,12 +645,14 @@ a:hover, a:hover div, article:hover .iconHover {
         flex-direction: row-reverse;
         margin: 0;
         padding: 0;
+        height: auto;
     }
 
     #organisation img {
         width: 80%;
         margin: 0;
         padding: 0;
+        height: auto;
     }
 
     .imagePresentation div {
