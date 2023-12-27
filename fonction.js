@@ -22,7 +22,6 @@ function changementtaillefenetre() {
     let animationPresMaisonPhone = document.getElementById("animationPresentationMaisonPhone");
     let animationPresMaisonDesktop = document.getElementById("animationPresentationMaisonDesktop");
 
-
     if (document.body.clientWidth >= 680) {
         imageBackground.src = 'images/BackgroundDesktop.jpg';
 
