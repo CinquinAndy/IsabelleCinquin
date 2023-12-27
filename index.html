@@ -29,13 +29,39 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Script perso -->
     <script src="fonction.js"></script>
-    <link rel="canonical" href="https://isabelle-cinquin.fr/" />
+    <link rel="canonical" href="https://isabelle-cinquin.fr/"/>
 </head>
 
 <body>
 <div id="loader">
-<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 </div>
+<!-- modal unavailable -->
+<div id="modal" class="unavailable-modal">
+    <div class="modal-content">
+        <button id="modal-button">
+            x
+        </button>
+        <div class="modal-body">
+            <h2>
+                Nounou actuellement indisponible, merci de votre compréhension.
+            </h2>
+            <p>
+                Je reviens dès 2026 !
+            </p>
+        </div>
+    </div>
+</div>
+
 <!-- Nav Bar -->
 <header class="topAccueil">
     <div id="navTop">
@@ -546,6 +572,15 @@
 <script src="animationPresentationMaisonDesktop.js"></script>
 <!-- Script Perso -->
 <script>
+    let modal = document.getElementById("modal")
+    let modal_button = document.getElementById("modal-button")
+
+    function swapModalState() {
+        modal.classList.toggle("is-hidden")
+    }
+
+    modal_button.addEventListener("click", swapModalState)
+
     var navBarBtn = 0;
     presentationMaison = document.getElementById("presentationMaison");
 
@@ -602,8 +637,12 @@
             animationPresentationMaisonPhone.play();
             animationPresentationMaisonDesktop.play();
         }
-        setTimeout(function(){document.getElementById("loader").style.opacity = '0%';},100);
-        setTimeout(function(){document.getElementById("loader").style.display = 'none';},900);
+        setTimeout(function () {
+            document.getElementById("loader").style.opacity = '0%';
+        }, 100);
+        setTimeout(function () {
+            document.getElementById("loader").style.display = 'none';
+        }, 900);
     };
 </script>
 </html>
