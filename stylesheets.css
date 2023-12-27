@@ -711,3 +711,68 @@ a:hover, a:hover div, article:hover .iconHover {
         width: 50%
     }
 }
+
+.is-hidden {
+    display: none !important;
+}
+
+.unavailable-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.unavailable-modal .modal-content {
+    position: relative;
+    padding: 30px;
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.unavailable-modal .modal-content .modal-body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.unavailable-modal .modal-content .modal-body * {
+    color: #fff;
+}
+
+#modal-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    outline: none;
+    border: none;
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 15px;
+    font-size: 1.4rem;
+}
+
+#modal-button:hover {
+    cursor: pointer;
+}
