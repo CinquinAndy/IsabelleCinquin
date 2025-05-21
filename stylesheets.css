@@ -717,8 +717,11 @@ a:hover, a:hover div, article:hover .iconHover {
 }
 
 .unavailable-modal {
-    display: none;
-    position: absolute;
+    /* fixme: remove this when the nounou is again available */
+    /* display: none; */
+    /* position: absolute; */
+    display: flex;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 9999;
