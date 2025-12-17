@@ -52,8 +52,9 @@ export async function POST(req: NextRequest) {
 			const doc = await payload.findByID({ collection: collectionSlug, id: documentId })
 			updateTarget = { collection: collectionSlug, id: documentId }
 
-            // Need to map collection types here when we create them
-			switch (collectionSlug) {
+			// Need to map collection types here when we create them
+			switch (
+				collectionSlug
 				// case 'activities':
 				// 	pageContext = {
 				// 		pageType: 'service',
@@ -61,6 +62,7 @@ export async function POST(req: NextRequest) {
 				// 		description: doc.shortDescription || '',
 				// 	}
 				// 	break
+			) {
 			}
 		}
 
@@ -73,11 +75,7 @@ export async function POST(req: NextRequest) {
 
 		// Update the document/global with generated SEO
 		if (updateTarget.global) {
-			const globalSlug = updateTarget.global as
-				| 'homepage'
-				| 'faq-page'
-				| 'contact-page'
-				| 'mentions-legales-page'
+			const globalSlug = updateTarget.global as 'homepage' | 'faq-page' | 'contact-page' | 'mentions-legales-page'
 
 			await payload.updateGlobal({
 				slug: globalSlug,

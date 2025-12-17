@@ -82,7 +82,7 @@ Focus: nounou Sciez, assistante maternelle agréée, garde enfant.`
 ${context.description ? `Description: ${context.description}` : ''}
 Focus: activité enfant, éveil, jeux, promenade.`
 			break
-            
+
 		case 'faq':
 			specificContext = `Page: **Questions fréquentes**
 Page répondant aux questions des parents sur l'accueil, les tarifs, le contrat.
@@ -100,9 +100,9 @@ Focus: contact nounou Sciez, disponibilité, coordonnées.`
 Page d'information légale.
 Focus: simple et factuel.`
 			break
-            
-        default:
-             specificContext = `Page: **${context.title || 'Page'}**`
+
+		default:
+			specificContext = `Page: **${context.title || 'Page'}**`
 	}
 
 	if (context.content) {

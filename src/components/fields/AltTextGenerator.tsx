@@ -1,6 +1,6 @@
 'use client'
 
-import { useDocumentInfo } from '@payloadcms/ui'
+import { useDocumentInfo, useForm } from '@payloadcms/ui'
 import { useEffect, useRef, useState } from 'react'
 import { Button } from '../ui/button'
 
@@ -8,11 +8,11 @@ const AltTextGenerator: React.FC = () => {
 	const [isGenerating, setIsGenerating] = useState(false)
 	const [error, setError] = useState<string | null>(null)
 	const [success, setSuccess] = useState<string | null>(null)
-	const [generatedAlt, setGeneratedAlt] = useState<string | null>(null)
 	const { id } = useDocumentInfo()
+	const { dispatchFields } = useForm()
 	const pollingIntervalRef = useRef<NodeJS.Timeout | null>(null)
 
-	// Cleanup polling on unmount
+	// Clean up polling interval on unmount
 	useEffect(() => {
 		return () => {
 			if (pollingIntervalRef.current) {
@@ -21,44 +21,36 @@ const AltTextGenerator: React.FC = () => {
 		}
 	}, [])
 
-	// Start polling for alt text generation
-	const startPolling = () => {
-		let attempts = 0
-		const maxAttempts = 30 // Poll for up to 30 seconds
+	const pollForAltText = async () => {
+		try {
+			// Fetch the media document to check if alt text has been generated
+			const response = await fetch(`/api/media/${id}`)
+			if (!response.ok) return
 
-		pollingIntervalRef.current = setInterval(async () => {
-			attempts++
+			const media = await response.json()
 
-			try {
-				const response = await fetch(`/api/forvoyez/check-status?mediaId=${id}`)
-				const data = await response.json()
-
-				if (data.hasAlt && data.alt) {
-					// Alt text has been generated!
-					setGeneratedAlt(data.alt)
-					setSuccess(`✅ Alt text généré : "${data.alt}"`)
-					setIsGenerating(false)
-
-					// Stop polling
-					if (pollingIntervalRef.current) {
-						clearInterval(pollingIntervalRef.current)
-						pollingIntervalRef.current = null
-					}
-				} else if (attempts >= maxAttempts) {
-					// Timeout - stop polling
-					setSuccess('⏱️ Génération en cours... Consultez les logs ou réessayez.')
-					setIsGenerating(false)
-
-					if (pollingIntervalRef.current) {
-						clearInterval(pollingIntervalRef.current)
-						pollingIntervalRef.current = null
-					}
+			// Check if alt text exists now
+			if (media.alt && media.alt.trim() !== '') {
+				// Stop polling
+				if (pollingIntervalRef.current) {
+					clearInterval(pollingIntervalRef.current)
+					pollingIntervalRef.current = null
 				}
-			} catch (err) {
-				console.error('Polling error:', err)
-				// Continue polling on error
+
+				// Update the form data with the new alt text
+				dispatchFields({
+					type: 'UPDATE',
+					path: 'alt',
+					value: media.alt,
+				})
+
+				// Update UI
+				setSuccess(`✅ Alt text généré avec succès: "${media.alt}"`)
+				setIsGenerating(false)
 			}
-		}, 1000) // Poll every second
+		} catch (err) {
+			console.error('Polling error:', err)
+		}
 	}
 
 	const handleGenerate = async () => {
@@ -87,10 +79,20 @@ const AltTextGenerator: React.FC = () => {
 			}
 
 			// Show success message - generation is happening in background
-			setSuccess(`🔄 Génération en cours pour "${data.filename}"...`)
+			setSuccess(`⏳ Génération en cours pour "${data.filename}"... Le champ sera mis à jour automatiquement.`)
 
-			// Start polling to check when alt text is ready
-			startPolling()
+			// Start polling for the generated alt text (every 2 seconds)
+			pollingIntervalRef.current = setInterval(pollForAltText, 2000)
+
+			// Stop polling after 30 seconds (timeout)
+			setTimeout(() => {
+				if (pollingIntervalRef.current) {
+					clearInterval(pollingIntervalRef.current)
+					pollingIntervalRef.current = null
+					setIsGenerating(false)
+					setSuccess('⚠️ La génération prend plus de temps que prévu. Vérifiez les logs du serveur.')
+				}
+			}, 30000)
 		} catch (err) {
 			setError(err instanceof Error ? err.message : 'An error occurred')
 			setIsGenerating(false)

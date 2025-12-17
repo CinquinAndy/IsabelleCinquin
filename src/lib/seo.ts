@@ -79,7 +79,8 @@ export function generateSEOMetadata(
 	}
 
 	// Ensure description doesn't exceed 155 characters
-	const description = rawDescription && rawDescription.length > 155 ? truncateText(rawDescription, 155) : rawDescription || ''
+	const description =
+		rawDescription && rawDescription.length > 155 ? truncateText(rawDescription, 155) : rawDescription || ''
 
 	// Generate canonical URL
 	const canonicalUrl = `${SITE_URL}${pathname}`
