@@ -25,9 +25,9 @@ export function Hero({ children }: HeroProps) {
 	useCloudShader(canvasRef)
 
 	return (
-		<section className="relative h-screen w-full overflow-hidden bg-primary">
+		<section className="relative h-screen w-full overflow-hidden bg-primary z-20">
 			{/* SVG Layers Container - Both SVGs share the same sizing/positioning */}
-			<div className="pointer-events-none absolute inset-0">
+			<div className="pointer-events-none absolute inset-0 z-20">
 				{/* WebGL Canvas with mask.svg as luminance mask (white = visible, grays = partial) */}
 				<div
 					className="absolute inset-0"
@@ -54,15 +54,15 @@ export function Hero({ children }: HeroProps) {
 					src="/mask_deco.svg"
 					alt=""
 					aria-hidden="true"
-					className="z-10"
+					className="z-20"
 					style={svgOverlayStyle}
 					width={100}
 					height={100}
 				/>
 			</div>
 
-			{/* Overlay Content */}
-			<div className="relative z-20 flex h-full w-full flex-col items-center justify-center">{children}</div>
+			{/* Overlay Content - z-10 to be inside/behind the mask */}
+			<div className="relative z-10 flex h-full w-full flex-col items-center justify-center">{children}</div>
 		</section>
 	)
 }

@@ -115,18 +115,18 @@ export default async function HomePage() {
 					<Image
 						src="/0.png"
 						alt="Mask Deco"
-						width={800}
-						height={800}
-						className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+						width={1200}
+						height={1200}
+						className="absolute bottom-0 left-1/2 -translate-x-1/2 -z-10 translate-y-80"
 					/>
-					<h1 className="mb-4 text-5xl md:text-7xl font-bold text-white drop-shadow-lg">Nounou Sciez</h1>
-					<p className="text-xl md:text-2xl text-white/90 drop-shadow-md max-w-2xl mx-auto">
+					<h1 className="mb-4 text-5xl md:text-7xl font-bold text-white drop-shadow-lg z-10">Nounou Sciez</h1>
+					<p className="text-xl md:text-2xl text-white/90 drop-shadow-md max-w-2xl mx-auto z-10">
 						Isabelle Cinquin - Assistante Maternelle
 					</p>
-					<p className="mt-4 text-lg text-white/80 drop-shadow-md">
+					<p className="mt-4 text-lg text-white/80 drop-shadow-md z-10">
 						Un accueil chaleureux pour vos enfants au bord du Lac Léman
 					</p>
-					<div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+					<div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center z-10">
 						<Link
 							href="#contact"
 							className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-primary shadow-lg transition-all hover:bg-white/90 hover:scale-105"
