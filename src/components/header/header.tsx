@@ -1,13 +1,9 @@
 'use client'
 
 import { useState } from 'react'
+import { SlideTabs } from '@/components/ui/slide-tabs'
 
-interface NavItem {
-	label: string
-	href: string
-}
-
-const navItems: NavItem[] = [
+const navItems = [
 	{ label: 'Accueil', href: '#' },
 	{ label: 'À propos', href: '#about' },
 	{ label: 'Services', href: '#services' },
@@ -18,9 +14,9 @@ export function Header() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
 
 	return (
-		<header className="fixed top-0 left-0 right-0 z-50">
+		<header className="fixed top-0 left-0 right-0 z-50 py-4">
 			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-				<div className="flex h-20 items-center justify-between">
+				<div className="flex items-center justify-between">
 					{/* Logo */}
 					<a
 						href="#"
@@ -29,26 +25,15 @@ export function Header() {
 						Isabelle Cinquin
 					</a>
 
-					{/* Desktop Navigation */}
+					{/* Desktop Navigation with SlideTabs */}
 					<nav className="hidden md:block">
-						<ul className="flex items-center gap-8">
-							{navItems.map((item) => (
-								<li key={item.href}>
-									<a
-										href={item.href}
-										className="font-sans text-sm font-medium text-white/90 drop-shadow-md transition-colors hover:text-white"
-									>
-										{item.label}
-									</a>
-								</li>
-							))}
-						</ul>
+						<SlideTabs items={navItems} />
 					</nav>
 
 					{/* Mobile Menu Button */}
 					<button
 						type="button"
-						className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 backdrop-blur-sm transition-colors hover:bg-white/20 md:hidden"
+						className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm transition-colors hover:bg-white/20 md:hidden"
 						onClick={() => setIsMenuOpen(!isMenuOpen)}
 						aria-expanded={isMenuOpen}
 						aria-label={isMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
@@ -81,13 +66,13 @@ export function Header() {
 
 				{/* Mobile Navigation */}
 				{isMenuOpen && (
-					<nav className="animate-in fade-in slide-in-from-top-2 rounded-xl bg-white/10 p-4 backdrop-blur-md md:hidden">
-						<ul className="flex flex-col gap-2">
+					<nav className="mt-4 animate-in fade-in slide-in-from-top-2 rounded-2xl bg-white/10 p-4 backdrop-blur-md md:hidden">
+						<ul className="flex flex-col gap-1">
 							{navItems.map((item) => (
 								<li key={item.href}>
 									<a
 										href={item.href}
-										className="block rounded-lg px-4 py-3 font-sans text-sm font-medium text-white transition-colors hover:bg-white/10"
+										className="block rounded-xl px-4 py-3 font-sans text-sm font-medium text-white transition-colors hover:bg-white/10"
 										onClick={() => setIsMenuOpen(false)}
 									>
 										{item.label}
