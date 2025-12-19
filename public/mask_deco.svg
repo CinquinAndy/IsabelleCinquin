@@ -3,28 +3,8 @@
   <!-- Generator: Adobe Illustrator 29.8.2, SVG Export Plug-In . SVG Version: 2.1.1 Build 3)  -->
   <defs>
     <style>
-      .st0 {
-        fill: #8b8b8b;
-      }
-
-      .st1 {
-        fill: #848484;
-      }
-
-      .st2 {
-        fill: #888;
-      }
-
-      .st3 {
-        fill: #858585;
-      }
-
-      .st4 {
-        fill: #868686;
-      }
-
-      .st5 {
-        fill: #878787;
+      .st0, .st1, .st2, .st3, .st4, .st5 {
+        fill: #453073;
       }
     </style>
   </defs>
