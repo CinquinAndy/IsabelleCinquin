@@ -101,15 +101,6 @@ interface TabProps {
 
 const Tab = React.forwardRef<HTMLLIElement, TabProps>(
 	({ children, href, hasCursor, isSelected, setPosition, onClick, onHover }, ref) => {
-		// Text color logic:
-		// - If cursor is here (white bg) → dark text for contrast
-		// - If no cursor (dark bg) → white text for contrast
-		const textColorClass = hasCursor
-			? 'text-secondary font-semibold' // Dark text on white cursor
-			: isSelected
-				? 'text-white/90' // Selected but cursor moved away
-				: 'text-white/70 hover:text-white/90' // Default state
-
 		return (
 			<li
 				ref={ref}
@@ -135,7 +126,13 @@ const Tab = React.forwardRef<HTMLLIElement, TabProps>(
 			>
 				<a
 					href={href}
-					className={`block rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 md:px-5 md:py-2.5 md:text-base ${textColorClass}`}
+					className={`block rounded-full px-4 py-2 text-sm font-medium transition-colors duration-150 md:px-5 md:py-2.5 md:text-base ${
+						hasCursor
+							? 'text-secondary' // Dark text on white cursor - good contrast
+							: isSelected
+								? 'text-white' // Selected tab without cursor
+								: 'text-white/80' // Default - slightly muted
+					}`}
 				>
 					{children}
 				</a>

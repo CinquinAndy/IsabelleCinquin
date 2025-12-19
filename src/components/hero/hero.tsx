@@ -27,19 +27,23 @@ export function Hero({ children }: HeroProps) {
 		<section className="relative h-screen w-full overflow-hidden bg-primary">
 			{/* SVG Layers Container - Both SVGs share the same sizing/positioning */}
 			<div className="pointer-events-none absolute inset-0">
-				{/* WebGL Canvas with mask.svg as luminance mask (black = visible) */}
+				{/* WebGL Canvas with mask.svg as luminance mask (white = visible, grays = partial) */}
 				<div
 					className="absolute inset-0"
-					style={{
-						maskImage: 'url(/mask.svg)',
-						WebkitMaskImage: 'url(/mask.svg)',
-						maskSize: 'cover',
-						WebkitMaskSize: 'cover',
-						maskPosition: 'center',
-						WebkitMaskPosition: 'center',
-						maskRepeat: 'no-repeat',
-						WebkitMaskRepeat: 'no-repeat',
-					}}
+					style={
+						{
+							maskImage: 'url(/mask.svg)',
+							WebkitMaskImage: 'url(/mask.svg)',
+							maskMode: 'luminance',
+							WebkitMaskMode: 'luminance',
+							maskSize: 'cover',
+							WebkitMaskSize: 'cover',
+							maskPosition: 'center',
+							WebkitMaskPosition: 'center',
+							maskRepeat: 'no-repeat',
+							WebkitMaskRepeat: 'no-repeat',
+						} as React.CSSProperties
+					}
 				>
 					<canvas ref={canvasRef} className="h-full w-full" tabIndex={-1} />
 				</div>
