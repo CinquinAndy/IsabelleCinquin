@@ -87,3 +87,5 @@ export function Activities({ posts }: ActivitiesProps) {
 		</SectionWrapper>
 	)
 }
+
+

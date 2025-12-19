@@ -16,7 +16,7 @@ export function Hero({ children }: HeroProps) {
 			{/* Decorative Ticks - Above everything */}
 			{/* eslint-disable-next-line @next/next/no-img-element */}
 			<img
-				src="/ticks.svg"
+				src="/mask_deco.svg"
 				alt=""
 				aria-hidden="true"
 				className="pointer-events-none absolute inset-x-0 top-0 z-100 h-auto w-full scale-100"

@@ -71,3 +71,5 @@ export function Family({ members }: FamilyProps) {
 		</SectionWrapper>
 	)
 }
+
+

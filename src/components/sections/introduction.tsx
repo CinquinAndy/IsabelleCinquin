@@ -62,3 +62,5 @@ export function Introduction({ title, content, image }: IntroductionProps) {
 		</SectionWrapper>
 	)
 }
+
+

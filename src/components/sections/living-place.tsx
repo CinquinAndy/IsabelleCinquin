@@ -61,3 +61,5 @@ export function LivingPlace({ images }: LivingPlaceProps) {
 		</SectionWrapper>
 	)
 }
+
+

@@ -54,3 +54,5 @@ export function Trainings({ trainings }: TrainingsProps) {
 		</SectionWrapper>
 	)
 }
+
+

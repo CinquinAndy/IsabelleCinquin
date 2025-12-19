@@ -36,3 +36,5 @@ export function AvailabilityBanner({ isAvailable, message, returnDate }: Availab
 		</div>
 	)
 }
+
+

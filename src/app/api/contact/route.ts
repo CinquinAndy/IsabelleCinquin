@@ -61,3 +61,5 @@ export async function POST(request: Request) {
 		return NextResponse.json({ error: 'Une erreur est survenue' }, { status: 500 })
 	}
 }
+
+

@@ -48,3 +48,5 @@ export function Equipment({ equipment }: EquipmentProps) {
 		</SectionWrapper>
 	)
 }
+
+

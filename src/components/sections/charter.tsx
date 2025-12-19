@@ -112,3 +112,5 @@ export function Charter({ rules }: CharterProps) {
 		</SectionWrapper>
 	)
 }
+
+
