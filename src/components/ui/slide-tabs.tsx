@@ -20,7 +20,6 @@ export function SlideTabs({ items, className = '' }: SlideTabsProps) {
 		opacity: 0,
 	})
 	const [selected, setSelected] = useState(0)
-	const [hovered, setHovered] = useState<number | null>(null)
 	const tabsRef = useRef<(HTMLLIElement | null)[]>([])
 
 	useEffect(() => {
@@ -35,41 +34,21 @@ export function SlideTabs({ items, className = '' }: SlideTabsProps) {
 		}
 	}, [selected])
 
-	// The cursor follows: hovered tab if hovering, otherwise selected tab
-	const cursorIndex = hovered !== null ? hovered : selected
-
 	return (
-		<ul
-			onMouseLeave={() => {
-				setHovered(null)
-				const selectedTab = tabsRef.current[selected]
-				if (selectedTab) {
-					const { width } = selectedTab.getBoundingClientRect()
-					setPosition({
-						left: selectedTab.offsetLeft,
-						width,
-						opacity: 1,
-					})
-				}
-			}}
-			className={`relative mx-auto flex w-fit rounded-full border-2 border-white/20 bg-secondary/60 p-1 backdrop-blur-md ${className}`}
-		>
+		<ul className={`relative mx-auto flex w-fit rounded-full border-2 border-white/20 bg-secondary/60 p-1 backdrop-blur-md ${className}`}>
 			{items.map((item, i) => (
-					<Tab
-						key={item.href}
-						ref={el => {
-							tabsRef.current[i] = el
-						}}
-						href={item.href}
-						hasCursor={i === cursorIndex}
-						isSelected={i === selected}
-						setPosition={setPosition}
-						onClick={() => setSelected(i)}
-						onHover={() => setHovered(i)}
-					>
-						{item.label}
-					</Tab>
-				))}
+				<Tab
+					key={item.href}
+					ref={el => {
+						tabsRef.current[i] = el
+					}}
+					href={item.href}
+					isSelected={i === selected}
+					onClick={() => setSelected(i)}
+				>
+					{item.label}
+				</Tab>
+			))}
 			<Cursor position={position} />
 		</ul>
 	)
@@ -78,60 +57,35 @@ export function SlideTabs({ items, className = '' }: SlideTabsProps) {
 interface TabProps {
 	children: React.ReactNode
 	href: string
-	hasCursor: boolean
 	isSelected: boolean
-	setPosition: React.Dispatch<
-		React.SetStateAction<{
-			left: number
-			width: number
-			opacity: number
-		}>
-	>
 	onClick: () => void
-	onHover: () => void
 }
 
-const Tab = React.forwardRef<HTMLLIElement, TabProps>(
-	({ children, href, hasCursor, isSelected, setPosition, onClick, onHover }, ref) => {
-		return (
-			<li
-				ref={ref}
-				onClick={onClick}
-				onKeyDown={e => {
-					if (e.key === 'Enter' || e.key === ' ') {
-						onClick()
-					}
-				}}
-				onMouseEnter={() => {
-					onHover()
-					if (!ref || typeof ref === 'function' || !ref.current) return
-
-					const { width } = ref.current.getBoundingClientRect()
-
-					setPosition({
-						left: ref.current.offsetLeft,
-						width,
-						opacity: 1,
-					})
-				}}
-				className="relative z-10 block cursor-pointer"
+const Tab = React.forwardRef<HTMLLIElement, TabProps>(({ children, href, isSelected, onClick }, ref) => {
+	return (
+		<li
+			ref={ref}
+			onClick={onClick}
+			onKeyDown={e => {
+				if (e.key === 'Enter' || e.key === ' ') {
+					onClick()
+				}
+			}}
+			className="relative z-10 block cursor-pointer"
+		>
+			<a
+				href={href}
+				className={`block rounded-full px-4 py-2 text-sm font-medium transition-colors duration-150 md:px-5 md:py-2.5 md:text-base ${
+					isSelected
+						? 'text-secondary' // Dark text on white cursor
+						: 'text-white/80 hover:text-white' // Light text, brighter on hover
+				}`}
 			>
-				<a
-					href={href}
-					className={`block rounded-full px-4 py-2 text-sm font-medium transition-colors duration-150 md:px-5 md:py-2.5 md:text-base ${
-						hasCursor
-							? 'text-secondary' // Dark text on white cursor - good contrast
-							: isSelected
-								? 'text-white' // Selected tab without cursor
-								: 'text-white/80' // Default - slightly muted
-					}`}
-				>
-					{children}
-				</a>
-			</li>
-		)
-	}
-)
+				{children}
+			</a>
+		</li>
+	)
+})
 
 Tab.displayName = 'Tab'
 
