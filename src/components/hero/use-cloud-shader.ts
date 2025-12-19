@@ -10,11 +10,7 @@ interface ShaderState {
 	resolutionLocation: WebGLUniformLocation
 }
 
-function createShader(
-	gl: WebGL2RenderingContext,
-	type: number,
-	source: string
-): WebGLShader | null {
+function createShader(gl: WebGL2RenderingContext, type: number, source: string): WebGLShader | null {
 	const shader = gl.createShader(type)
 	if (!shader) return null
 
@@ -92,6 +88,7 @@ function initWebGL(canvas: HTMLCanvasElement): ShaderState | null {
 		return null
 	}
 
+	// biome-ignore lint/correctness/useHookAtTopLevel: gl.useProgram is a WebGL method, not a React hook
 	gl.useProgram(program)
 
 	return { gl, program, timeLocation, resolutionLocation }

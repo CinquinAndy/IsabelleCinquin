@@ -2,39 +2,40 @@
 @import "tw-animate-css";
 
 :root {
-	--background: oklch(0.4765 0.1483 294.5078);
-	--foreground: oklch(0.9219 0 0);
-	--card: oklch(0.4765 0.1483 294.5078);
-	--card-foreground: oklch(0.9219 0 0);
-	--popover: oklch(0.4765 0.1483 294.5078);
-	--popover-foreground: oklch(0.9219 0 0);
-	--primary: oklch(0.6009 0.1931 294.0225);
+	/* Violet palette inspired by original site - modernized */
+	--background: oklch(0.98 0.01 285);
+	--foreground: oklch(0.25 0.08 285);
+	--card: oklch(1 0 0);
+	--card-foreground: oklch(0.25 0.08 285);
+	--popover: oklch(1 0 0);
+	--popover-foreground: oklch(0.25 0.08 285);
+	--primary: oklch(0.5 0.16 285); /* #6446a6 - main violet */
 	--primary-foreground: oklch(1 0 0);
-	--secondary: oklch(0.3697 0.1108 294.8493);
-	--secondary-foreground: oklch(0.9219 0 0);
-	--muted: oklch(0.3867 0 0);
-	--muted-foreground: oklch(0.7155 0 0);
-	--accent: oklch(0.7683 0.1817 320.3359);
-	--accent-foreground: oklch(0.9219 0 0);
-	--destructive: oklch(0.6368 0.2078 25.3313);
+	--secondary: oklch(0.4 0.12 285); /* #453073 - darker violet */
+	--secondary-foreground: oklch(1 0 0);
+	--muted: oklch(0.95 0.02 285);
+	--muted-foreground: oklch(0.5 0.05 285);
+	--accent: oklch(0.55 0.18 320); /* #9a4ea6 - pink accent */
+	--accent-foreground: oklch(1 0 0);
+	--destructive: oklch(0.55 0.22 25);
 	--destructive-foreground: oklch(1 0 0);
-	--border: oklch(0.3697 0.1108 294.8493);
-	--input: oklch(0.3697 0.1108 294.8493);
-	--ring: oklch(0.5676 0.2021 283.0838);
-	--chart-1: oklch(0.5676 0.2021 283.0838);
-	--chart-2: oklch(0.5261 0.1705 314.6534);
-	--chart-3: oklch(0.339 0.1793 301.6848);
-	--chart-4: oklch(0.6746 0.1414 261.338);
-	--chart-5: oklch(0.588 0.0993 245.7394);
-	--sidebar: oklch(0.2303 0.0125 264.2926);
-	--sidebar-foreground: oklch(0.9219 0 0);
-	--sidebar-primary: oklch(0.5676 0.2021 283.0838);
+	--border: oklch(0.9 0.03 285);
+	--input: oklch(0.9 0.03 285);
+	--ring: oklch(0.5 0.16 285);
+	--chart-1: oklch(0.5 0.16 285);
+	--chart-2: oklch(0.55 0.18 320);
+	--chart-3: oklch(0.4 0.12 285);
+	--chart-4: oklch(0.65 0.12 260);
+	--chart-5: oklch(0.7 0.08 245);
+	--sidebar: oklch(0.3 0.1 285); /* #3e2b66 */
+	--sidebar-foreground: oklch(0.95 0 0);
+	--sidebar-primary: oklch(0.5 0.16 285);
 	--sidebar-primary-foreground: oklch(1 0 0);
-	--sidebar-accent: oklch(0.6746 0.1414 261.338);
-	--sidebar-accent-foreground: oklch(0.9219 0 0);
-	--sidebar-border: oklch(0.3867 0 0);
-	--sidebar-ring: oklch(0.5676 0.2021 283.0838);
-	--radius: 0.5rem;
+	--sidebar-accent: oklch(0.55 0.18 320);
+	--sidebar-accent-foreground: oklch(1 0 0);
+	--sidebar-border: oklch(0.35 0.08 285);
+	--sidebar-ring: oklch(0.5 0.16 285);
+	--radius: 0.625rem;
 	--shadow-2xs: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
 	--shadow-xs: 0 1px 3px 0 hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
 	--shadow-sm: 0 2px 4px -1px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
@@ -118,4 +119,25 @@
 	h6 {
 		@apply font-display;
 	}
+}
+
+/* Section alternating colors */
+.section-primary {
+	background: oklch(0.5 0.16 285); /* #6446a6 */
+	color: white;
+}
+
+.section-secondary {
+	background: oklch(0.4 0.12 285); /* #453073 */
+	color: white;
+}
+
+.section-light {
+	background: oklch(0.98 0.01 285);
+	color: oklch(0.25 0.08 285);
+}
+
+.section-dark {
+	background: oklch(0.3 0.1 285); /* #3e2b66 */
+	color: white;
 }

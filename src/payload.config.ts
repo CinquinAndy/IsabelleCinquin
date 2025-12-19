@@ -8,8 +8,12 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { s3Storage } from '@payloadcms/storage-s3'
 import { buildConfig } from 'payload'
 import sharp from 'sharp'
+import { Categories } from './collections/Categories'
 import { Media } from './collections/Media'
+import { Posts } from './collections/Posts'
+import { Tags } from './collections/Tags'
 import { Users } from './collections/Users'
+import { Landing } from './globals/Landing'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -27,8 +31,8 @@ export default buildConfig({
 			baseDir: path.resolve(dirname),
 		},
 	},
-	collections: [Users, Media],
-	globals: [],
+	collections: [Users, Media, Posts, Categories, Tags],
+	globals: [Landing],
 	editor: lexicalEditor(),
 	secret: process.env.PAYLOAD_SECRET || '',
 	typescript: {

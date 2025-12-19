@@ -35,8 +35,8 @@ export function SlideTabs({ items, className = '' }: SlideTabsProps) {
 		}
 	}, [selected])
 
-	// The active tab is the one being hovered, or the selected one if nothing is hovered
-	const activeIndex = hovered !== null ? hovered : selected
+	// The cursor follows: hovered tab if hovering, otherwise selected tab
+	const cursorIndex = hovered !== null ? hovered : selected
 
 	return (
 		<ul
@@ -52,24 +52,32 @@ export function SlideTabs({ items, className = '' }: SlideTabsProps) {
 					})
 				}
 			}}
-			className={`relative mx-auto flex w-fit rounded-full border-2 border-white/30 bg-white/10 p-1 backdrop-blur-md ${className}`}
+			className={`relative mx-auto flex w-fit rounded-full border-2 border-white/20 bg-secondary/60 p-1 backdrop-blur-md ${className}`}
 		>
-			{items.map((item, i) => (
-				<Tab
-					key={item.href}
-					ref={(el) => {
-						tabsRef.current[i] = el
-					}}
-					href={item.href}
-					isActive={i === activeIndex}
-					setPosition={setPosition}
-					onClick={() => setSelected(i)}
-					onHover={() => setHovered(i)}
-				>
-					{item.label}
-				</Tab>
-			))}
-			<Cursor position={position} />
+			{items.map((item, i) => {
+				const isSelected = i === selected
+				const isHovered = i === hovered
+				const hasCursor = i === cursorIndex
+
+				return (
+					<Tab
+						key={item.href}
+						ref={el => {
+							tabsRef.current[i] = el
+						}}
+						href={item.href}
+						hasCursor={hasCursor}
+						isSelected={isSelected}
+						isHovered={isHovered}
+						setPosition={setPosition}
+						onClick={() => setSelected(i)}
+						onHover={() => setHovered(i)}
+					>
+						{item.label}
+					</Tab>
+				)
+			})}
+			<Cursor position={position} isHovering={hovered !== null} />
 		</ul>
 	)
 }
@@ -77,7 +85,9 @@ export function SlideTabs({ items, className = '' }: SlideTabsProps) {
 interface TabProps {
 	children: React.ReactNode
 	href: string
-	isActive: boolean
+	hasCursor: boolean
+	isSelected: boolean
+	isHovered: boolean
 	setPosition: React.Dispatch<
 		React.SetStateAction<{
 			left: number
@@ -90,12 +100,21 @@ interface TabProps {
 }
 
 const Tab = React.forwardRef<HTMLLIElement, TabProps>(
-	({ children, href, isActive, setPosition, onClick, onHover }, ref) => {
+	({ children, href, hasCursor, isSelected, setPosition, onClick, onHover }, ref) => {
+		// Text color logic:
+		// - If cursor is here (white bg) → dark text for contrast
+		// - If no cursor (dark bg) → white text for contrast
+		const textColorClass = hasCursor
+			? 'text-secondary font-semibold' // Dark text on white cursor
+			: isSelected
+				? 'text-white/90' // Selected but cursor moved away
+				: 'text-white/70 hover:text-white/90' // Default state
+
 		return (
 			<li
 				ref={ref}
 				onClick={onClick}
-				onKeyDown={(e) => {
+				onKeyDown={e => {
 					if (e.key === 'Enter' || e.key === ' ') {
 						onClick()
 					}
@@ -116,9 +135,7 @@ const Tab = React.forwardRef<HTMLLIElement, TabProps>(
 			>
 				<a
 					href={href}
-					className={`block px-4 py-2 text-sm font-medium transition-colors duration-200 md:px-5 md:py-2.5 md:text-base ${
-						isActive ? 'text-secondary' : 'text-white'
-					}`}
+					className={`block rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 md:px-5 md:py-2.5 md:text-base ${textColorClass}`}
 				>
 					{children}
 				</a>
@@ -135,9 +152,10 @@ interface CursorProps {
 		width: number
 		opacity: number
 	}
+	isHovering: boolean
 }
 
-function Cursor({ position }: CursorProps) {
+function Cursor({ position, isHovering }: CursorProps) {
 	return (
 		<motion.li
 			animate={{
@@ -148,8 +166,7 @@ function Cursor({ position }: CursorProps) {
 				stiffness: 500,
 				damping: 30,
 			}}
-			className="absolute z-0 h-9 rounded-full bg-white md:h-11"
+			className={`absolute z-0 h-9 rounded-full md:h-11 ${isHovering ? 'bg-white/95' : 'bg-white'}`}
 		/>
 	)
 }
-

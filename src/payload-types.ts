@@ -69,6 +69,9 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    posts: Post;
+    categories: Category;
+    tags: Tag;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -78,6 +81,9 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    posts: PostsSelect<false> | PostsSelect<true>;
+    categories: CategoriesSelect<false> | CategoriesSelect<true>;
+    tags: TagsSelect<false> | TagsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -87,8 +93,12 @@ export interface Config {
     defaultIDType: number;
   };
   fallbackLocale: null;
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    landing: Landing;
+  };
+  globalsSelect: {
+    landing: LandingSelect<false> | LandingSelect<true>;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -161,6 +171,73 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: number;
+  title: string;
+  /**
+   * URL de l'article (auto-généré depuis le titre)
+   */
+  slug: string;
+  /**
+   * Court résumé affiché dans les listes
+   */
+  excerpt: string;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  featuredImage: number | Media;
+  categories?: (number | Category)[] | null;
+  tags?: (number | Tag)[] | null;
+  /**
+   * Afficher dans la section Activités de la landing page
+   */
+  isImportant?: boolean | null;
+  status?: ('draft' | 'published') | null;
+  publishedAt?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories".
+ */
+export interface Category {
+  id: number;
+  name: string;
+  /**
+   * URL-friendly identifier (ex: activites, conseils, actualites)
+   */
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tags".
+ */
+export interface Tag {
+  id: number;
+  name: string;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -190,6 +267,18 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'posts';
+        value: number | Post;
+      } | null)
+    | ({
+        relationTo: 'categories';
+        value: number | Category;
+      } | null)
+    | ({
+        relationTo: 'tags';
+        value: number | Tag;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -275,6 +364,44 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts_select".
+ */
+export interface PostsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  excerpt?: T;
+  content?: T;
+  featuredImage?: T;
+  categories?: T;
+  tags?: T;
+  isImportant?: T;
+  status?: T;
+  publishedAt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories_select".
+ */
+export interface CategoriesSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tags_select".
+ */
+export interface TagsSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv_select".
  */
 export interface PayloadKvSelect<T extends boolean = true> {
@@ -312,6 +439,372 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "landing".
+ */
+export interface Landing {
+  id: number;
+  introduction?: {
+    title?: string | null;
+    content?: {
+      root: {
+        type: string;
+        children: {
+          type: any;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    } | null;
+    image?: (number | null) | Media;
+  };
+  presentation?: {
+    content?: {
+      root: {
+        type: string;
+        children: {
+          type: any;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    } | null;
+    agreementInfo?: string | null;
+  };
+  familyMembers?:
+    | {
+        image: number | Media;
+        firstName: string;
+        lastName?: string | null;
+        description: string;
+        /**
+         * Lien vers un site ou réseau social
+         */
+        link?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  trainings?:
+    | {
+        title: string;
+        /**
+         * Ex: 2018 - 2020
+         */
+        period?: string | null;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  sleep?: {
+    content?: {
+      root: {
+        type: string;
+        children: {
+          type: any;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    } | null;
+  };
+  livingPlace?: {
+    content?: {
+      root: {
+        type: string;
+        children: {
+          type: any;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    } | null;
+    images?:
+      | {
+          image: number | Media;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  equipment?:
+    | {
+        name: string;
+        /**
+         * Optionnel
+         */
+        quantity?: number | null;
+        id?: string | null;
+      }[]
+    | null;
+  objectives?:
+    | {
+        title: string;
+        icon?:
+          | (
+              | 'baby'
+              | 'hand-helping'
+              | 'utensils'
+              | 'heart-pulse'
+              | 'shield-check'
+              | 'star'
+              | 'sun'
+              | 'home'
+              | 'book-open'
+              | 'palette'
+            )
+          | null;
+        content?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
+  adaptation?: {
+    content?: {
+      root: {
+        type: string;
+        children: {
+          type: any;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    } | null;
+  };
+  organization?: {
+    bagItems?:
+      | {
+          item: string;
+          id?: string | null;
+        }[]
+      | null;
+    bagImage?: (number | null) | Media;
+    nounouItems?:
+      | {
+          item: string;
+          id?: string | null;
+        }[]
+      | null;
+    nounouImage?: (number | null) | Media;
+  };
+  dailySchedule?:
+    | {
+        /**
+         * Ex: 7h30, Matin, Après-midi...
+         */
+        time?: string | null;
+        activity: string;
+        id?: string | null;
+      }[]
+    | null;
+  charter?:
+    | {
+        ruleNumber: number;
+        /**
+         * Ex: 1ère règle de Nounou
+         */
+        title?: string | null;
+        content?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
+  settings?: {
+    /**
+     * Décocher pour afficher le message d'indisponibilité
+     */
+    isAvailable?: boolean | null;
+    unavailableMessage?: string | null;
+    /**
+     * Ex: 2026
+     */
+    returnDate?: string | null;
+    email?: string | null;
+    phone?: string | null;
+    landline?: string | null;
+    address?: string | null;
+    nounouTopLink?: string | null;
+    openingHours?: string | null;
+    mapLat?: number | null;
+    mapLng?: number | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "landing_select".
+ */
+export interface LandingSelect<T extends boolean = true> {
+  introduction?:
+    | T
+    | {
+        title?: T;
+        content?: T;
+        image?: T;
+      };
+  presentation?:
+    | T
+    | {
+        content?: T;
+        agreementInfo?: T;
+      };
+  familyMembers?:
+    | T
+    | {
+        image?: T;
+        firstName?: T;
+        lastName?: T;
+        description?: T;
+        link?: T;
+        id?: T;
+      };
+  trainings?:
+    | T
+    | {
+        title?: T;
+        period?: T;
+        description?: T;
+        id?: T;
+      };
+  sleep?:
+    | T
+    | {
+        content?: T;
+      };
+  livingPlace?:
+    | T
+    | {
+        content?: T;
+        images?:
+          | T
+          | {
+              image?: T;
+              id?: T;
+            };
+      };
+  equipment?:
+    | T
+    | {
+        name?: T;
+        quantity?: T;
+        id?: T;
+      };
+  objectives?:
+    | T
+    | {
+        title?: T;
+        icon?: T;
+        content?: T;
+        id?: T;
+      };
+  adaptation?:
+    | T
+    | {
+        content?: T;
+      };
+  organization?:
+    | T
+    | {
+        bagItems?:
+          | T
+          | {
+              item?: T;
+              id?: T;
+            };
+        bagImage?: T;
+        nounouItems?:
+          | T
+          | {
+              item?: T;
+              id?: T;
+            };
+        nounouImage?: T;
+      };
+  dailySchedule?:
+    | T
+    | {
+        time?: T;
+        activity?: T;
+        id?: T;
+      };
+  charter?:
+    | T
+    | {
+        ruleNumber?: T;
+        title?: T;
+        content?: T;
+        id?: T;
+      };
+  settings?:
+    | T
+    | {
+        isAvailable?: T;
+        unavailableMessage?: T;
+        returnDate?: T;
+        email?: T;
+        phone?: T;
+        landline?: T;
+        address?: T;
+        nounouTopLink?: T;
+        openingHours?: T;
+        mapLat?: T;
+        mapLng?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

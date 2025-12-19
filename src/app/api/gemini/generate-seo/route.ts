@@ -49,7 +49,7 @@ export async function POST(req: NextRequest) {
 			}
 		} else if (collectionSlug && documentId) {
 			// Collection document
-			const doc = await payload.findByID({ collection: collectionSlug, id: documentId })
+			await payload.findByID({ collection: collectionSlug, id: documentId })
 			updateTarget = { collection: collectionSlug, id: documentId }
 
 			// Need to map collection types here when we create them

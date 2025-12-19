@@ -12,18 +12,26 @@ export function Hero({ children }: HeroProps) {
 	useCloudShader(canvasRef)
 
 	return (
-		<section className="relative h-screen w-full overflow-hidden">
-			{/* WebGL Canvas Background */}
-			<canvas
-				ref={canvasRef}
-				className="absolute inset-0 h-full w-full"
-				aria-hidden="true"
-			/>
+		<section className="relative h-screen w-full overflow-hidden bg-primary">
+			{/* WebGL Canvas Background with SVG Blob Mask */}
+			<div
+				className="absolute inset-0"
+				style={{
+					maskImage: 'url(/mask.svg)',
+					WebkitMaskImage: 'url(/mask.svg)',
+					maskSize: 'cover',
+					WebkitMaskSize: 'cover',
+					maskPosition: 'center',
+					WebkitMaskPosition: 'center',
+					maskRepeat: 'no-repeat',
+					WebkitMaskRepeat: 'no-repeat',
+				}}
+			>
+				<canvas ref={canvasRef} className="h-full w-full" tabIndex={-1} />
+			</div>
 
 			{/* Overlay Content */}
-			<div className="relative z-10 flex h-full w-full flex-col items-center justify-center">
-				{children}
-			</div>
+			<div className="relative z-10 flex h-full w-full flex-col items-center justify-center">{children}</div>
 		</section>
 	)
 }
