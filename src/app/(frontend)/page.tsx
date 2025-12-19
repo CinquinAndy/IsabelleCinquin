@@ -1,24 +1,25 @@
-import { getPayload } from 'payload'
 import config from '@payload-config'
+import Image from 'next/image'
+import Link from 'next/link'
+import { getPayload } from 'payload'
+import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
 import { Hero } from '@/components/hero'
-import { Footer } from '@/components/footer'
-import { AvailabilityBanner } from '@/components/availability-banner'
 import {
-	Introduction,
-	Presentation,
-	Family,
-	Trainings,
-	Sleep,
-	LivingPlace,
-	Equipment,
-	Objectives,
-	Adaptation,
-	Organization,
-	DailySchedule,
 	Activities,
+	Adaptation,
 	Charter,
 	ContactPreview,
+	DailySchedule,
+	Equipment,
+	Family,
+	Introduction,
+	LivingPlace,
+	Objectives,
+	Organization,
+	Presentation,
+	Sleep,
+	Trainings,
 } from '@/components/sections'
 import type { Media } from '@/payload-types'
 
@@ -75,7 +76,6 @@ interface Post {
 async function getLandingData(): Promise<LandingData | null> {
 	try {
 		const payload = await getPayload({ config })
-		// @ts-expect-error - landing global not in generated types yet
 		const landing = await payload.findGlobal({ slug: 'landing' })
 		return landing as LandingData
 	} catch {
@@ -87,7 +87,6 @@ async function getImportantPosts(): Promise<Post[]> {
 	try {
 		const payload = await getPayload({ config })
 		const posts = await payload.find({
-			// @ts-expect-error - posts collection not in generated types yet
 			collection: 'posts',
 			where: {
 				isImportant: { equals: true },
@@ -109,18 +108,17 @@ export default async function HomePage() {
 
 	return (
 		<>
-			{settings && (
-				<AvailabilityBanner
-					isAvailable={settings.isAvailable ?? true}
-					message={settings.unavailableMessage}
-					returnDate={settings.returnDate}
-				/>
-			)}
-
 			<Header />
 
 			<Hero>
-				<div className="text-center px-4">
+				<div className="text-center px-4 w-full h-full flex flex-col items-center justify-center relative">
+					<Image
+						src="/0.png"
+						alt="Mask Deco"
+						width={800}
+						height={800}
+						className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+					/>
 					<h1 className="mb-4 text-5xl md:text-7xl font-bold text-white drop-shadow-lg">Nounou Sciez</h1>
 					<p className="text-xl md:text-2xl text-white/90 drop-shadow-md max-w-2xl mx-auto">
 						Isabelle Cinquin - Assistante Maternelle
@@ -129,18 +127,18 @@ export default async function HomePage() {
 						Un accueil chaleureux pour vos enfants au bord du Lac Léman
 					</p>
 					<div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-						<a
+						<Link
 							href="#contact"
 							className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-primary shadow-lg transition-all hover:bg-white/90 hover:scale-105"
 						>
 							Me contacter
-						</a>
-						<a
+						</Link>
+						<Link
 							href="#introduction"
 							className="inline-flex items-center justify-center rounded-full border-2 border-white/50 bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20 hover:scale-105"
 						>
 							En savoir plus
-						</a>
+						</Link>
 					</div>
 				</div>
 			</Hero>

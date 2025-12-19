@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import React, { useEffect, useRef, useState } from 'react'
 
 interface NavItem {
@@ -73,7 +74,7 @@ const Tab = React.forwardRef<HTMLLIElement, TabProps>(({ children, href, isSelec
 			}}
 			className="relative z-10 block cursor-pointer"
 		>
-			<a
+			<Link
 				href={href}
 				className={`block rounded-full px-4 py-2 text-sm font-medium transition-colors duration-150 md:px-5 md:py-2.5 md:text-base ${
 					isSelected
@@ -82,7 +83,7 @@ const Tab = React.forwardRef<HTMLLIElement, TabProps>(({ children, href, isSelec
 				}`}
 			>
 				{children}
-			</a>
+			</Link>
 		</li>
 	)
 })

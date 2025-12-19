@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useRef } from 'react'
 import { useCloudShader } from './use-cloud-shader'
 
@@ -49,8 +50,15 @@ export function Hero({ children }: HeroProps) {
 				</div>
 
 				{/* Decorative elements from mask_deco.svg - overlaid on top */}
-				{/* eslint-disable-next-line @next/next/no-img-element */}
-				<img src="/mask_deco.svg" alt="" aria-hidden="true" className="z-10" style={svgOverlayStyle} />
+				<Image
+					src="/mask_deco.svg"
+					alt=""
+					aria-hidden="true"
+					className="z-10"
+					style={svgOverlayStyle}
+					width={100}
+					height={100}
+				/>
 			</div>
 
 			{/* Overlay Content */}
