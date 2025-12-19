@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <!-- Organic brush strokes around the cloud -->
+  
+  <!-- Top left - like eyebrows/accents -->
+  <path d="M95,340 C130,290 180,285 210,330" fill="none" stroke="#453073" stroke-width="10" stroke-linecap="round"/>
+  
+  <!-- Top area - scattered accents -->
+  <path d="M520,65 C560,40 610,50 640,85" fill="none" stroke="#453073" stroke-width="8" stroke-linecap="round"/>
+  <path d="M1320,80 C1360,55 1410,60 1440,95" fill="none" stroke="#453073" stroke-width="9" stroke-linecap="round"/>
+  
+  <!-- Right side -->
+  <path d="M1780,280 C1820,320 1830,380 1795,420" fill="none" stroke="#453073" stroke-width="9" stroke-linecap="round"/>
+  <path d="M1850,620 C1875,670 1870,730 1840,770" fill="none" stroke="#453073" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Bottom right -->
+  <path d="M1680,920 C1720,960 1680,1010 1630,1000" fill="none" stroke="#453073" stroke-width="9" stroke-linecap="round"/>
+  
+  <!-- Bottom area -->
+  <path d="M1150,1030 C1190,1060 1250,1055 1280,1020" fill="none" stroke="#453073" stroke-width="8" stroke-linecap="round"/>
+  <path d="M680,1015 C720,1045 780,1040 810,1005" fill="none" stroke="#453073" stroke-width="9" stroke-linecap="round"/>
+  
+  <!-- Bottom left -->
+  <path d="M280,940 C240,980 180,970 160,920" fill="none" stroke="#453073" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Left side -->
+  <path d="M70,700 C40,650 50,590 90,550" fill="none" stroke="#453073" stroke-width="9" stroke-linecap="round"/>
+  <path d="M140,180 C100,220 95,280 130,320" fill="none" stroke="#453073" stroke-width="8" stroke-linecap="round"/>
+</svg>

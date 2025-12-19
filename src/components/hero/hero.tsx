@@ -13,6 +13,15 @@ export function Hero({ children }: HeroProps) {
 
 	return (
 		<section className="relative h-screen w-full overflow-hidden bg-primary">
+			{/* Decorative Ticks - Above everything */}
+			{/* eslint-disable-next-line @next/next/no-img-element */}
+			<img
+				src="/ticks.svg"
+				alt=""
+				aria-hidden="true"
+				className="pointer-events-none absolute inset-x-0 top-0 z-100 h-auto w-full scale-100"
+			/>
+
 			{/* WebGL Canvas Background with SVG Blob Mask */}
 			<div
 				className="absolute inset-0"
