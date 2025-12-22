@@ -1,19 +1,30 @@
+'use client'
+
+import NumberFlow from '@number-flow/react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 interface AboutSectionProps {
 	imageSrc?: string
 	imageAlt?: string
 }
 
-export function AboutSection({ imageSrc = '/bear.png', imageAlt = 'Photo Isabelle' }: AboutSectionProps) {
+export function AboutSection({ imageSrc = '/isabelle.jpg', imageAlt = 'Photo Isabelle' }: AboutSectionProps) {
+	const [isVisible, setIsVisible] = useState(false)
+
+	useEffect(() => {
+		const timer = setTimeout(() => setIsVisible(true), 300)
+		return () => clearTimeout(timer)
+	}, [])
+
 	return (
 		<section id="presentation" className="relative w-full py-20 md:py-28 px-4 md:px-8 bg-secondary">
 			<div className="max-w-7xl mx-auto">
 				<div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
 					{/* Image - 40% */}
-					<div className="w-full lg:w-[40%] flex items-center justify-center">
-						<div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl">
+					<div className="w-full lg:w-[40%] flex items-center justify-center relative">
+						<div className="relative z-20 w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-white shadow-2xl">
 							<Image
 								src={imageSrc}
 								alt={imageAlt}
@@ -22,6 +33,20 @@ export function AboutSection({ imageSrc = '/bear.png', imageAlt = 'Photo Isabell
 								sizes="(max-width: 768px) 256px, 320px"
 							/>
 						</div>
+                            <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary/75 w-64 h-64 md:w-96 md:h-96 
+                            rounded-full m-6 z-10'/>
+                        <div className='absolute bottom-0 left-1/2 -translate-x-1/2 z-30'>
+                            <Image src="/icons/scribbbles/1/SVG/Fichier 46.svg" alt="Scribble" width={100} height={100} 
+                            className='-translate-x-24 translate-y-12' />
+                        </div>
+                        <div className='absolute top-0 right-1/2 -translate-x-1/2 z-30'>
+                            <Image src="/icons/scribbbles/1/SVG/Fichier 48.svg" alt="Scribble" width={150} height={150} 
+                            className='translate-x-84 translate-y-20' />
+                        </div>
+                        <div className='absolute top-0 left-0 z-30'>
+                            <Image src="/icons/scribbbles/1/SVG/Fichier 12.svg" alt="Scribble" width={75} height={75} 
+                            className='translate-x-40 -translate-y-10' />
+                        </div>
 					</div>
 
 					{/* Content - 60% */}
@@ -48,38 +73,33 @@ export function AboutSection({ imageSrc = '/bear.png', imageAlt = 'Photo Isabell
 								un accueil personnalisé, adapté à son rythme et à ses besoins.
 							</p>
 
-							<div className="flex flex-col sm:flex-row gap-6 mt-8 pt-6 border-t border-white/20">
-								<div className="flex-1 text-center sm:text-left">
-									<div className="text-4xl font-bold text-white">3</div>
-									<div className="text-sm font-medium text-white/90">enfants le jour</div>
-									<div className="text-xs text-white/70">7h - 19h</div>
+							{/* Stats Cards - Style like screenshot */}
+							<div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10">
+								<div className="bg-sidebar border border-white/10 rounded-2xl p-6 text-center">
+									<div className="text-3xl md:text-5xl font-handwriting text-accent">
+										<NumberFlow value={isVisible ? 3 : 0} />
+									</div>
+									<h3 className="text-base font-light text-white/70 mt-4 uppercase tracking-wider">
+										enfants le jour
+									</h3>
 								</div>
-								<div className="flex-1 text-center sm:text-left">
-									<div className="text-4xl font-bold text-white">1</div>
-									<div className="text-sm font-medium text-white/90">enfant la nuit</div>
-									<div className="text-xs text-white/70">18h - 7h</div>
+								<div className="bg-sidebar border border-white/10 rounded-2xl p-6 text-center">
+									<div className="text-3xl md:text-5xl font-handwriting text-accent">
+										<NumberFlow value={isVisible ? 1 : 0} />
+									</div>
+									<h3 className="text-base font-light text-white/70 mt-4 uppercase tracking-wider">
+										enfant la nuit
+									</h3>
 								</div>
-								<div className="flex-1 text-center sm:text-left">
-									<div className="text-4xl font-bold text-white">20+</div>
-									<div className="text-sm font-medium text-white/90">ans d'expérience</div>
-									<div className="text-xs text-white/70">avec les tout-petits</div>
+								<div className="bg-sidebar border border-white/10 rounded-2xl p-6 text-center">
+									<div className="text-3xl md:text-5xl font-handwriting text-accent">
+										<NumberFlow value={isVisible ? 20 : 0} suffix="+" />
+									</div>
+									<h3 className="text-base font-light text-white/70 mt-4 uppercase tracking-wider">
+										années d'expérience
+									</h3>
 								</div>
 							</div>
-						</div>
-
-						<div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-							<Link
-								href="#contact"
-								className="inline-flex items-center justify-center rounded-full bg-accent px-8 py-3 text-sm font-bold text-white shadow-lg transition-all hover:bg-accent/90 hover:scale-105"
-							>
-								Me contacter
-							</Link>
-							<Link
-								href="#famille"
-								className="inline-flex items-center justify-center rounded-full border-2 border-white bg-white/10 px-8 py-3 text-sm font-bold text-white transition-all hover:bg-white/20 hover:scale-105"
-							>
-								Découvrir la famille
-							</Link>
 						</div>
 					</div>
 				</div>

@@ -85,6 +85,7 @@
 	/* Fonts - CSS variables injected by Next.js font loader */
 	--font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 	--font-display: var(--font-display), ui-serif, Georgia, serif;
+	--font-handwriting: var(--font-handwriting), cursive;
 	--font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
 	/* Radius */
