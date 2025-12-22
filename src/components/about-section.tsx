@@ -8,53 +8,12 @@ interface AboutSectionProps {
 
 export function AboutSection({ imageSrc = '/bear.png', imageAlt = 'Photo Isabelle' }: AboutSectionProps) {
 	return (
-		<section id="presentation" className="relative w-full py-20 md:py-28 px-4 md:px-8 bg-secondary overflow-hidden">
+		<section id="presentation" className="relative w-full py-20 md:py-28 px-4 md:px-8 bg-secondary">
 			<div className="max-w-7xl mx-auto">
 				<div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-					{/* Image side - 40% width with all decorative elements */}
-					<div className="relative w-full lg:w-[40%] flex items-center justify-center">
-						{/* Decorative scribbles around image */}
-						<Image
-							src="/icons/scribbbles/1/SVG/Fichier 2.svg"
-							alt=""
-							width={180}
-							height={110}
-							className="absolute -top-8 -left-4 md:left-0 opacity-70 rotate-12"
-							aria-hidden="true"
-						/>
-						<Image
-							src="/icons/scribbbles/1/SVG/Fichier 5.svg"
-							alt=""
-							width={140}
-							height={90}
-							className="absolute -top-4 -right-4 md:right-0 opacity-60 -rotate-6"
-							aria-hidden="true"
-						/>
-						<Image
-							src="/icons/scribbbles/4/SVG/Fichier 10.svg"
-							alt=""
-							width={100}
-							height={70}
-							className="absolute -bottom-6 -left-2 md:left-4 opacity-70 rotate-45"
-							aria-hidden="true"
-						/>
-						<Image
-							src="/icons/scribbbles/3/SVG/Fichier 10.svg"
-							alt=""
-							width={120}
-							height={80}
-							className="absolute -bottom-4 -right-2 md:right-4 opacity-60 -rotate-12"
-							aria-hidden="true"
-						/>
-
-						{/* Decorative circles behind image */}
-						<div className="absolute -top-6 -left-6 w-72 h-72 md:w-80 md:h-80 rounded-full border-4 border-white/20" />
-						<div className="absolute -bottom-8 -right-8 w-24 h-24 rounded-full bg-accent" />
-						<div className="absolute top-1/2 -translate-y-1/2 -right-12 w-16 h-16 rounded-full bg-white/30" />
-						<div className="absolute -top-2 right-1/4 w-8 h-8 rounded-full bg-accent/60" />
-
-						{/* Main image */}
-						<div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl z-10">
+					{/* Image - 40% */}
+					<div className="w-full lg:w-[40%] flex items-center justify-center">
+						<div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl">
 							<Image
 								src={imageSrc}
 								alt={imageAlt}
@@ -63,22 +22,11 @@ export function AboutSection({ imageSrc = '/bear.png', imageAlt = 'Photo Isabell
 								sizes="(max-width: 768px) 256px, 320px"
 							/>
 						</div>
-
-						{/* Small decorative scribble below image */}
-						<Image
-							src="/icons/scribbbles/1/SVG/Fichier 2.svg"
-							alt=""
-							width={100}
-							height={60}
-							className="absolute -bottom-6 left-1/2 -translate-x-1/2 opacity-80 z-20"
-							aria-hidden="true"
-						/>
 					</div>
 
-					{/* Content side - 60% width */}
+					{/* Content - 60% */}
 					<div className="w-full lg:w-[60%] text-center lg:text-left">
-						{/* Label with high contrast */}
-						<span className="inline-block bg-white text-secondary font-bold text-sm uppercase tracking-widest px-4 py-2 rounded-full mb-6 shadow-md">
+						<span className="inline-block bg-white text-secondary font-bold text-sm uppercase tracking-widest px-4 py-2 rounded-full mb-6">
 							À propos
 						</span>
 
@@ -128,7 +76,7 @@ export function AboutSection({ imageSrc = '/bear.png', imageAlt = 'Photo Isabell
 							</Link>
 							<Link
 								href="#famille"
-								className="inline-flex items-center justify-center rounded-full border-2 border-white bg-white/10 px-8 py-3 text-sm font-bold text-white backdrop-blur-sm transition-all hover:bg-white/20 hover:scale-105"
+								className="inline-flex items-center justify-center rounded-full border-2 border-white bg-white/10 px-8 py-3 text-sm font-bold text-white transition-all hover:bg-white/20 hover:scale-105"
 							>
 								Découvrir la famille
 							</Link>
