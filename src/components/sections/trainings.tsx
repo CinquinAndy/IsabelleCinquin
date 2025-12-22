@@ -41,7 +41,7 @@ function TrainingCard({ training, index }: { training: Training; index: number }
 			{/* Content layer */}
 			<div className="relative z-10 p-6 md:p-8 flex gap-5">
 				{/* Icon */}
-				<div className="flex-shrink-0">
+				<div className="shrink-0">
 					<div
 						className={`w-14 h-14 rounded-2xl flex items-center justify-center ${
 							isEven ? 'bg-accent/40' : 'bg-white/20'
