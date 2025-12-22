@@ -14,11 +14,9 @@ import {
 	DailySchedule,
 	Equipment,
 	Family,
-	Introduction,
 	LivingPlace,
 	Objectives,
 	Organization,
-	Presentation,
 	Sleep,
 	Trainings,
 } from '@/components/sections'
@@ -133,7 +131,7 @@ export default async function HomePage() {
 							Me contacter
 						</Link>
 						<Link
-							href="#introduction"
+							href="#presentation"
 							className="inline-flex items-center justify-center rounded-full border-2 border-white/50 bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20 hover:scale-105"
 						>
 							En savoir plus
@@ -142,22 +140,7 @@ export default async function HomePage() {
 				</div>
 			</Hero>
 
-			<AboutSection
-				imageSrc="/bear.png"
-				subtitle="À PROPOS"
-				title="Un accueil chaleureux pour vos enfants"
-				description="Assistante maternelle agréée depuis plusieurs années, j'accueille vos enfants dans un cadre familial et bienveillant au bord du magnifique Lac Léman. Mon objectif est d'accompagner chaque enfant dans son développement tout en respectant son rythme."
-				buttonText="Découvrir mon parcours"
-				buttonHref="#presentation"
-			/>
-
-			<Introduction
-				title={landing?.introduction?.title}
-				content={landing?.introduction?.content}
-				image={landing?.introduction?.image}
-			/>
-
-			<Presentation content={landing?.presentation?.content} agreementInfo={landing?.presentation?.agreementInfo} />
+			<AboutSection />
 
 			<Family members={landing?.familyMembers} />
 
