@@ -1,10 +1,10 @@
 'use client'
 
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Moon } from 'lucide-react'
-import { SectionWrapper } from '@/components/ui/section-wrapper'
+import Image from 'next/image'
 import { SectionTitle } from '@/components/ui/section-title'
+import { SectionWrapper } from '@/components/ui/section-wrapper'
 
 interface SleepProps {
 	content?: unknown
@@ -23,39 +23,67 @@ export function Sleep(_props: SleepProps) {
 					viewport={{ once: true }}
 					transition={{ duration: 0.6 }}
 				>
-					<div className="relative flex flex-col md:flex-row items-center gap-8 p-8 md:p-12">
+					<div className="relative flex flex-col md:flex-row items-center gap-24 p-8 md:p-12">
 						{/* Left: Icon/Illustration */}
 						<div className="relative shrink-0">
 							{/* Circle background */}
-							<div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full bg-secondary/50 flex items-center justify-center">
+							<div className="relative w-44 h-44 md:w-52 md:h-52 rounded-full bg-secondary/50 flex items-center justify-center">
 								{/* SVG Illustration */}
 								<Image
 									src="/icons/scribbbles/7/SVG/Fichier 2.svg"
 									alt="Illustration lit enfant"
-									width={150}
-									height={150}
+									width={130}
+									height={130}
 									className="relative z-10 drop-shadow-lg"
 								/>
 							</div>
+
+							{/* Floating tags */}
+							<motion.div
+								className="absolute -top-2 right-0 bg-white/15 backdrop-blur-md rounded-full px-3 py-1.5 border border-white/20"
+								initial={{ opacity: 0, scale: 0.8 }}
+								whileInView={{ opacity: 1, scale: 1 }}
+								viewport={{ once: true }}
+								transition={{ delay: 0.3 }}
+							>
+								<span className="text-xs font-medium text-white">Confort</span>
+							</motion.div>
+
+							<motion.div
+								className="absolute bottom-4 -left-4 bg-white/15 backdrop-blur-md rounded-full px-3 py-1.5 border border-white/20"
+								initial={{ opacity: 0, scale: 0.8 }}
+								whileInView={{ opacity: 1, scale: 1 }}
+								viewport={{ once: true }}
+								transition={{ delay: 0.4 }}
+							>
+								<span className="text-xs font-medium text-white">Sérénité</span>
+							</motion.div>
+
+							<motion.div
+								className="absolute top-1/2 -right-6 bg-accent/80 rounded-full px-3 py-1.5"
+								initial={{ opacity: 0, scale: 0.8 }}
+								whileInView={{ opacity: 1, scale: 1 }}
+								viewport={{ once: true }}
+								transition={{ delay: 0.5 }}
+							>
+								<span className="text-xs font-bold text-white">Calme</span>
+							</motion.div>
 						</div>
 
 						{/* Right: Content */}
 						<div className="flex-1 text-center md:text-left">
 							{/* Small icon badge */}
-							<div className="inline-flex items-center gap-3 mb-5">
-								<div className="w-10 h-10 rounded-xl bg-accent/30 flex items-center justify-center">
-									<Moon className="w-5 h-5 text-white" />
+							<div className="inline-flex items-center gap-3 mb-4">
+								<div className="w-9 h-9 rounded-xl bg-accent/30 flex items-center justify-center">
+									<Moon className="w-4 h-4 text-white" />
 								</div>
-								<span className="text-sm font-semibold text-white/60 uppercase tracking-widest">
-									Les siestes
-								</span>
+								<span className="text-xs font-semibold text-white/60 uppercase tracking-widest">Les siestes</span>
 							</div>
 
-							<p className="text-xl md:text-2xl text-white font-medium leading-relaxed">
-								Chez nounou, les enfants dorment dans un{' '}
-								<span className="text-accent font-bold">lit à barreaux</span>, chacun dans une{' '}
-								<span className="text-accent font-bold">chambre séparée</span> pour plus de confort et de
-								sérénité.
+							<p className="text-lg md:text-xl text-white leading-relaxed">
+								Chez nounou, les enfants dorment dans un <span className="text-accent font-bold">lit à barreaux</span>,
+								chacun dans une <span className="text-accent font-bold">chambre séparée</span> pour plus de confort et
+								de sérénité.
 							</p>
 						</div>
 					</div>
