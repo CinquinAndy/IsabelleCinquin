@@ -1,7 +1,6 @@
 'use client'
 
 import { Backpack, Home } from 'lucide-react'
-import Image from 'next/image'
 import { Compare } from '@/components/ui/compare'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 import type { Media } from '@/payload-types'
@@ -45,74 +44,72 @@ export function Organization({ bagItems, nounouItems }: OrganizationProps) {
 					</p>
 				</div>
 
-				{/* Compare Section */}
-				<div className="flex justify-center">
+				{/* Compare with images */}
+				<div className="flex justify-center mb-12">
 					<div className="relative">
-						{/* Compare Component with styled cards */}
-						<Compare
-							firstImage="/sac-langer.png"
-							secondImage="/chez-nounou.png"
-							className="h-[400px] w-full max-w-[800px] md:h-[500px] rounded-3xl border border-white/20"
-							slideMode="drag"
-							showHandlebar={true}
-							initialSliderPercentage={50}
-							sliderColor="hsl(285, 60%, 50%)"
-						/>
-
-						{/* Overlay Cards for Lists */}
-						<div className="absolute inset-0 pointer-events-none flex">
-							{/* Left Card - Sac à langer */}
-							<div className="w-1/2 p-4 md:p-8 flex flex-col">
-								<div className="bg-black/40 backdrop-blur-md rounded-2xl p-4 md:p-6 border border-white/20 h-full">
-									<div className="flex items-center gap-3 mb-4">
-										<div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-pink-500/30 flex items-center justify-center">
-											<Backpack className="w-5 h-5 md:w-6 md:h-6 text-pink-300" />
-										</div>
-										<h3 className="text-lg md:text-xl font-bold text-white">Dans le sac</h3>
-									</div>
-									<ul className="space-y-2 md:space-y-3">
-										{bagList.map(item => (
-											<li key={item} className="flex items-center gap-2 md:gap-3 text-sm md:text-base">
-												<span className="w-2 h-2 rounded-full bg-pink-400 flex-shrink-0" />
-												<span className="text-white/90">{item}</span>
-											</li>
-										))}
-									</ul>
-								</div>
+						{/* Labels */}
+						<div className="flex justify-between mb-4 px-4">
+							<div className="flex items-center gap-2">
+								<Backpack className="w-5 h-5 text-pink-300" />
+								<span className="text-white font-semibold">Dans le sac</span>
 							</div>
-
-							{/* Right Card - Chez nounou */}
-							<div className="w-1/2 p-4 md:p-8 flex flex-col">
-								<div className="bg-black/40 backdrop-blur-md rounded-2xl p-4 md:p-6 border border-white/20 h-full">
-									<div className="flex items-center gap-3 mb-4">
-										<div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-emerald-500/30 flex items-center justify-center">
-											<Home className="w-5 h-5 md:w-6 md:h-6 text-emerald-300" />
-										</div>
-										<h3 className="text-lg md:text-xl font-bold text-white">Chez nounou</h3>
-									</div>
-									<ul className="space-y-2 md:space-y-3">
-										{nounouList.map(item => (
-											<li key={item} className="flex items-center gap-2 md:gap-3 text-sm md:text-base">
-												<span className="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0" />
-												<span className="text-white/90">{item}</span>
-											</li>
-										))}
-									</ul>
-								</div>
+							<div className="flex items-center gap-2">
+								<span className="text-white font-semibold">Chez nounou</span>
+								<Home className="w-5 h-5 text-emerald-300" />
 							</div>
+						</div>
+						
+						<div className="p-4 border rounded-3xl bg-white/5 border-white/10">
+							<Compare
+								firstImage="/sac-langer.png"
+								secondImage="/chez-nounou.png"
+								firstImageClassName="object-cover"
+								secondImageClassname="object-cover"
+								className="h-[300px] w-[300px] md:h-[400px] md:w-[500px] rounded-2xl"
+								slideMode="hover"
+								showHandlebar={true}
+								initialSliderPercentage={50}
+							/>
 						</div>
 					</div>
 				</div>
 
-				{/* Legend */}
-				<div className="flex justify-center gap-8 mt-8">
-					<div className="flex items-center gap-2">
-						<span className="w-3 h-3 rounded-full bg-pink-400" />
-						<span className="text-white/70 text-sm">À apporter</span>
+				{/* Two cards below */}
+				<div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+					{/* Sac à langer */}
+					<div className="bg-white/10 rounded-2xl p-6 border border-white/10">
+						<div className="flex items-center gap-3 mb-6">
+							<div className="w-12 h-12 rounded-full bg-pink-500/20 flex items-center justify-center">
+								<Backpack className="w-6 h-6 text-pink-300" />
+							</div>
+							<h3 className="text-xl font-bold text-white">Dans le sac à langer</h3>
+						</div>
+						<ul className="space-y-3">
+							{bagList.map(item => (
+								<li key={item} className="flex items-center gap-3">
+									<span className="w-2 h-2 rounded-full bg-pink-400" />
+									<span className="text-white/90">{item}</span>
+								</li>
+							))}
+						</ul>
 					</div>
-					<div className="flex items-center gap-2">
-						<span className="w-3 h-3 rounded-full bg-emerald-400" />
-						<span className="text-white/70 text-sm">Fourni par nounou</span>
+
+					{/* Chez nounou */}
+					<div className="bg-white/10 rounded-2xl p-6 border border-white/10">
+						<div className="flex items-center gap-3 mb-6">
+							<div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+								<Home className="w-6 h-6 text-emerald-300" />
+							</div>
+							<h3 className="text-xl font-bold text-white">Chez nounou</h3>
+						</div>
+						<ul className="space-y-3">
+							{nounouList.map(item => (
+								<li key={item} className="flex items-center gap-3">
+									<span className="w-2 h-2 rounded-full bg-emerald-400" />
+									<span className="text-white/90">{item}</span>
+								</li>
+							))}
+						</ul>
 					</div>
 				</div>
 			</div>
