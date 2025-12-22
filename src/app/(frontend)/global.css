@@ -109,6 +109,10 @@
 	* {
 		@apply border-border;
 	}
+	a,
+	button {
+		@apply cursor-pointer;
+	}
 	body {
 		@apply bg-background text-foreground font-sans antialiased;
 	}
