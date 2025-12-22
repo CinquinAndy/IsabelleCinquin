@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
+import { useState } from 'react'
 import { SlideTabs } from '@/components/ui/slide-tabs'
 
 const navItems = [

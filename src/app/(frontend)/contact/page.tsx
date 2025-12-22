@@ -1,12 +1,12 @@
-import type { Metadata } from 'next'
-import { getPayload } from 'payload'
 import config from '@payload-config'
+import { ArrowLeft, Clock, ExternalLink, Mail, MapPin, Phone } from 'lucide-react'
+import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowLeft, Mail, Phone, MapPin, Clock, ExternalLink } from 'lucide-react'
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
+import { getPayload } from 'payload'
 import { AvailabilityBanner } from '@/components/availability-banner'
 import { ContactForm, LocationMap } from '@/components/contact'
+import { Footer } from '@/components/footer'
+import { Header } from '@/components/header'
 
 export const metadata: Metadata = {
 	title: 'Contact',

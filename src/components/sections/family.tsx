@@ -22,7 +22,7 @@ interface FamilyProps {
 	members?: FamilyMember[] | null
 }
 
-function MemberCard({ member, index }: { member: FamilyMember; index: number }) {
+function MemberCard({ member }: { member: FamilyMember }) {
 	const mediaUrl = typeof member.image === 'object' && member.image?.url ? member.image.url : null
 	const mediaAlt =
 		typeof member.image === 'object' && member.image?.alt ? member.image.alt : `Photo de ${member.firstName}`
@@ -36,13 +36,17 @@ function MemberCard({ member, index }: { member: FamilyMember; index: number }) 
 			transition={{ type: 'spring', stiffness: 300, damping: 20 }}
 		>
 			{/* Hover wave effect */}
-			<div className="absolute bottom-0 left-0 right-0 h-1/2 origin-bottom scale-y-0 rounded-t-full 
-			bg-linear-to-t from-accent/30 to-transparent transition-transform duration-500 ease-out group-hover:scale-y-100" />
+			<div
+				className="absolute bottom-0 left-0 right-0 h-1/2 origin-bottom scale-y-0 rounded-t-full 
+			bg-linear-to-t from-accent/30 to-transparent transition-transform duration-500 ease-out group-hover:scale-y-100"
+			/>
 
 			{/* Member Image */}
-			<div className="relative z-10 h-24 w-24 md:h-32 md:w-32 overflow-hidden rounded-full 
+			<div
+				className="relative z-10 h-24 w-24 md:h-32 md:w-32 overflow-hidden rounded-full 
 			border-4 border-white/30 bg-white/10 transition-all duration-500 ease-out group-hover:border-accent 
-			group-hover:scale-105">
+			group-hover:scale-105"
+			>
 				{mediaUrl ? (
 					<Image
 						src={mediaUrl}
@@ -79,7 +83,7 @@ function MemberCard({ member, index }: { member: FamilyMember; index: number }) 
 
 	if (hasLink) {
 		return (
-			<Link href={member.link!} target="_blank" rel="noopener noreferrer" className="block flex-shrink-0">
+			<Link href={member.link!} target="_blank" rel="noopener noreferrer" className="block shrink-0">
 				{CardContent}
 			</Link>
 		)
@@ -126,7 +130,7 @@ export function Family({ members }: FamilyProps) {
 					style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
 				>
 					{members.map((member, index) => (
-						<MemberCard key={member.id || index} member={member} index={index} />
+						<MemberCard key={member.id || index} member={member} />
 					))}
 				</div>
 

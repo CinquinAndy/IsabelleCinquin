@@ -1,7 +1,7 @@
-import Image from 'next/image'
 import { Backpack, Home } from 'lucide-react'
-import { SectionWrapper } from '@/components/ui/section-wrapper'
+import Image from 'next/image'
 import { SectionTitle } from '@/components/ui/section-title'
+import { SectionWrapper } from '@/components/ui/section-wrapper'
 import type { Media } from '@/payload-types'
 
 interface OrganizationItem {

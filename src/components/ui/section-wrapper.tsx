@@ -23,5 +23,3 @@ export function SectionWrapper({ id, variant = 'light', className, children }: S
 		</section>
 	)
 }
-
-

@@ -2,7 +2,6 @@
 
 import NumberFlow from '@number-flow/react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 interface AboutSectionProps {
@@ -33,20 +32,37 @@ export function AboutSection({ imageSrc = '/isabelle.jpg', imageAlt = 'Photo Isa
 								sizes="(max-width: 768px) 256px, 320px"
 							/>
 						</div>
-                            <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary/75 w-64 h-64 md:w-96 md:h-96 
-                            rounded-full m-6 z-10'/>
-                        <div className='absolute bottom-0 left-1/2 -translate-x-1/2 z-30'>
-                            <Image src="/icons/scribbbles/1/SVG/Fichier 46.svg" alt="Scribble" width={100} height={100} 
-                            className='-translate-x-24 translate-y-12' />
-                        </div>
-                        <div className='absolute top-0 right-1/2 -translate-x-1/2 z-30'>
-                            <Image src="/icons/scribbbles/1/SVG/Fichier 48.svg" alt="Scribble" width={150} height={150} 
-                            className='translate-x-84 translate-y-20' />
-                        </div>
-                        <div className='absolute top-0 left-0 z-30'>
-                            <Image src="/icons/scribbbles/1/SVG/Fichier 12.svg" alt="Scribble" width={75} height={75} 
-                            className='translate-x-40 -translate-y-10' />
-                        </div>
+						<div
+							className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary/75 w-64 h-64 md:w-96 md:h-96 
+                            rounded-full m-6 z-10"
+						/>
+						<div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-30">
+							<Image
+								src="/icons/scribbbles/1/SVG/Fichier 46.svg"
+								alt="Scribble"
+								width={100}
+								height={100}
+								className="-translate-x-24 translate-y-12"
+							/>
+						</div>
+						<div className="absolute top-0 right-1/2 -translate-x-1/2 z-30">
+							<Image
+								src="/icons/scribbbles/1/SVG/Fichier 48.svg"
+								alt="Scribble"
+								width={150}
+								height={150}
+								className="translate-x-84 translate-y-20"
+							/>
+						</div>
+						<div className="absolute top-0 left-0 z-30">
+							<Image
+								src="/icons/scribbbles/1/SVG/Fichier 12.svg"
+								alt="Scribble"
+								width={75}
+								height={75}
+								className="translate-x-40 -translate-y-10"
+							/>
+						</div>
 					</div>
 
 					{/* Content - 60% */}
@@ -79,17 +95,13 @@ export function AboutSection({ imageSrc = '/isabelle.jpg', imageAlt = 'Photo Isa
 									<div className="text-3xl md:text-5xl font-handwriting text-accent">
 										<NumberFlow value={isVisible ? 3 : 0} />
 									</div>
-									<h3 className="text-base font-light text-white/70 mt-4 uppercase tracking-wider">
-										enfants le jour
-									</h3>
+									<h3 className="text-base font-light text-white/70 mt-4 uppercase tracking-wider">enfants le jour</h3>
 								</div>
 								<div className="bg-sidebar border border-white/10 rounded-2xl p-6 text-center">
 									<div className="text-3xl md:text-5xl font-handwriting text-accent">
 										<NumberFlow value={isVisible ? 1 : 0} />
 									</div>
-									<h3 className="text-base font-light text-white/70 mt-4 uppercase tracking-wider">
-										enfant la nuit
-									</h3>
+									<h3 className="text-base font-light text-white/70 mt-4 uppercase tracking-wider">enfant la nuit</h3>
 								</div>
 								<div className="bg-sidebar border border-white/10 rounded-2xl p-6 text-center">
 									<div className="text-3xl md:text-5xl font-handwriting text-accent">

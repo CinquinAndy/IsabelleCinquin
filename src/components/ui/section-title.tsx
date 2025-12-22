@@ -14,5 +14,3 @@ export function SectionTitle({ children, className, subtitle }: SectionTitleProp
 		</div>
 	)
 }
-
-

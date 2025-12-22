@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
 import { X } from 'lucide-react'
+import { useState } from 'react'
 
 interface AvailabilityBannerProps {
 	isAvailable: boolean
@@ -36,5 +36,3 @@ export function AvailabilityBanner({ isAvailable, message, returnDate }: Availab
 		</div>
 	)
 }
-
-

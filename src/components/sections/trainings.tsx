@@ -59,9 +59,7 @@ function TrainingCard({ training, index }: { training: Training; index: number }
 							{training.period}
 						</span>
 					)}
-					{training.description && (
-						<p className="text-base text-white/80 leading-relaxed">{training.description}</p>
-					)}
+					{training.description && <p className="text-base text-white/80 leading-relaxed">{training.description}</p>}
 				</div>
 			</div>
 		</motion.div>

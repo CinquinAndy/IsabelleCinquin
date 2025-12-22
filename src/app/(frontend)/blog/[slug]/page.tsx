@@ -1,12 +1,12 @@
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
-import { getPayload } from 'payload'
 import config from '@payload-config'
+import { ArrowLeft, ArrowRight, Calendar, Tag } from 'lucide-react'
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, Calendar, Tag } from 'lucide-react'
-import { Header } from '@/components/header'
+import { notFound } from 'next/navigation'
+import { getPayload } from 'payload'
 import { Footer } from '@/components/footer'
+import { Header } from '@/components/header'
 import type { Media } from '@/payload-types'
 
 interface BlogPostPageProps {

@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useRef, useCallback } from 'react'
-import { vertexShaderSource, fragmentShaderSource } from './cloud-shader'
+import { useCallback, useEffect, useRef } from 'react'
+import { fragmentShaderSource, vertexShaderSource } from './cloud-shader'
 
 interface ShaderState {
 	gl: WebGL2RenderingContext

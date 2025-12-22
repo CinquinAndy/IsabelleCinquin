@@ -36,7 +36,9 @@ export function SlideTabs({ items, className = '' }: SlideTabsProps) {
 	}, [selected])
 
 	return (
-		<ul className={`relative mx-auto flex w-fit rounded-full border-2 border-white/20 bg-secondary/60 p-1 backdrop-blur-md ${className}`}>
+		<ul
+			className={`relative mx-auto flex w-fit rounded-full border-2 border-white/20 bg-secondary/60 p-1 backdrop-blur-md ${className}`}
+		>
 			{items.map((item, i) => (
 				<Tab
 					key={item.href}

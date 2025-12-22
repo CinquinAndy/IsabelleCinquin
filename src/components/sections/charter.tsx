@@ -1,9 +1,9 @@
 'use client'
 
-import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
-import { SectionWrapper } from '@/components/ui/section-wrapper'
+import { useState } from 'react'
 import { SectionTitle } from '@/components/ui/section-title'
+import { SectionWrapper } from '@/components/ui/section-wrapper'
 import { cn } from '@/lib/utils'
 
 interface CharterRule {
@@ -112,5 +112,3 @@ export function Charter({ rules }: CharterProps) {
 		</SectionWrapper>
 	)
 }
-
-

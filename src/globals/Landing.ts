@@ -448,5 +448,3 @@ export const Landing: GlobalConfig = {
 		},
 	],
 }
-
-

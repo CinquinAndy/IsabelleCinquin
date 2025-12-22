@@ -1,6 +1,6 @@
 import { Clock } from 'lucide-react'
-import { SectionWrapper } from '@/components/ui/section-wrapper'
 import { SectionTitle } from '@/components/ui/section-title'
+import { SectionWrapper } from '@/components/ui/section-wrapper'
 
 interface ScheduleItem {
 	id?: string
@@ -92,5 +92,3 @@ export function DailySchedule({ schedule }: DailyScheduleProps) {
 		</SectionWrapper>
 	)
 }
-
-

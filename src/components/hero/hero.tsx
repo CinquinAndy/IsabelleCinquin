@@ -46,23 +46,13 @@ export function Hero({ children }: HeroProps) {
 			</div>
 
 			{/* Layer 2 (z-10): Content masked - title + image visible only in center */}
-			<div
-				className="absolute inset-0 z-10 flex h-full w-full flex-col items-center justify-center"
-				style={maskStyle}
-			>
+			<div className="absolute inset-0 z-10 flex h-full w-full flex-col items-center justify-center" style={maskStyle}>
 				{children}
 			</div>
 
 			{/* Layer 3 (z-20): Decorative elements */}
 			<div className="pointer-events-none absolute inset-0 z-20">
-				<Image
-					src="/mask_deco.svg"
-					alt=""
-					aria-hidden="true"
-					style={svgOverlayStyle}
-					width={100}
-					height={100}
-				/>
+				<Image src="/mask_deco.svg" alt="" aria-hidden="true" style={svgOverlayStyle} width={100} height={100} />
 			</div>
 		</section>
 	)

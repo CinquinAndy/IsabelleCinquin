@@ -1,5 +1,5 @@
-import { SectionWrapper } from '@/components/ui/section-wrapper'
 import { SectionTitle } from '@/components/ui/section-title'
+import { SectionWrapper } from '@/components/ui/section-wrapper'
 
 interface PresentationProps {
 	content?: unknown
@@ -36,5 +36,3 @@ export function Presentation({ agreementInfo }: PresentationProps) {
 		</SectionWrapper>
 	)
 }
-
-

@@ -1,9 +1,9 @@
 'use client'
 
+import { motion } from 'framer-motion'
+import { ArrowRight, Moon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { Moon, ArrowRight } from 'lucide-react'
 
 interface SleepCardProps {
 	title?: string
@@ -38,7 +38,7 @@ export function SleepCard({
 					<div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full bg-gradient-to-br from-secondary/20 to-primary/20 backdrop-blur-sm flex items-center justify-center">
 						{/* Inner glow */}
 						<div className="absolute inset-4 rounded-full bg-white/40 backdrop-blur-sm" />
-						
+
 						{/* SVG Illustration */}
 						<Image
 							src="/icons/scribbbles/7/SVG/Fichier 2.svg"
@@ -88,18 +88,12 @@ export function SleepCard({
 						<div className="w-8 h-8 rounded-lg bg-secondary/20 flex items-center justify-center">
 							<Moon className="w-4 h-4 text-secondary" />
 						</div>
-						<span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-							Service de nuit
-						</span>
+						<span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Service de nuit</span>
 					</div>
 
-					<h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-						{title}
-					</h3>
+					<h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">{title}</h3>
 
-					<p className="text-muted-foreground leading-relaxed mb-5 max-w-md">
-						{description}
-					</p>
+					<p className="text-muted-foreground leading-relaxed mb-5 max-w-md">{description}</p>
 
 					{/* CTA */}
 					<Link
@@ -118,4 +112,3 @@ export function SleepCard({
 		</motion.div>
 	)
 }
-

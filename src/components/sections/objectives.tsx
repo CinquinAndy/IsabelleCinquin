@@ -1,6 +1,6 @@
-import { Baby, HandHelping, Utensils, HeartPulse, ShieldCheck, Star, Sun, Home, BookOpen, Palette } from 'lucide-react'
-import { SectionWrapper } from '@/components/ui/section-wrapper'
+import { Baby, BookOpen, HandHelping, HeartPulse, Home, Palette, ShieldCheck, Star, Sun, Utensils } from 'lucide-react'
 import { SectionTitle } from '@/components/ui/section-title'
+import { SectionWrapper } from '@/components/ui/section-wrapper'
 
 const iconMap = {
 	baby: Baby,

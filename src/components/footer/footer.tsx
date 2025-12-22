@@ -53,5 +53,3 @@ export function Footer({ settings }: FooterProps) {
 		</footer>
 	)
 }
-
-

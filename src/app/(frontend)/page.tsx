@@ -152,21 +152,21 @@ export default async function HomePage() {
 									id: '1',
 									firstName: 'Isabelle',
 									description: '(moi, Maman, et nounou)',
-									image: { url: '/isabelle.jpg', alt: 'Photo Isabelle' } as any,
+									image: { url: '/isabelle.jpg', alt: 'Photo Isabelle' },
 								},
 								// Frederic (mari)
 								{
 									id: '6',
 									firstName: 'Frederic',
 									description: 'Mari de nounou depuis 27 ans',
-									image: { url: '/frederic.jpg', alt: 'Photo Frederic' } as any,
+									image: { url: '/frederic.jpg', alt: 'Photo Frederic' },
 								},
 								// Andy (ingénieur)
 								{
 									id: '3',
 									firstName: 'Andy',
 									description: 'Le plus grand, et ingénieur en Informatique',
-									image: { url: '/andy.jpg', alt: 'Photo Andy' } as any,
+									image: { url: '/andy.jpg', alt: 'Photo Andy' },
 									link: 'https://andy-cinquin.fr/',
 								},
 								// Orlane (Maitresse des écoles)
@@ -174,14 +174,14 @@ export default async function HomePage() {
 									id: '8',
 									firstName: 'Orlane',
 									description: 'Maîtresse des écoles',
-									image: { url: '/orlane.jpg', alt: 'Photo Orlane' } as any,
+									image: { url: '/orlane.jpg', alt: 'Photo Orlane' },
 								},
 								// Maeva (maquilleuse)
 								{
 									id: '2',
 									firstName: 'Maeva',
 									description: 'Maquilleuse professionnelle',
-									image: { url: '/maeva.jpg', alt: 'Photo Maeva' } as any,
+									image: { url: '/maeva.jpg', alt: 'Photo Maeva' },
 									link: 'https://cinquin-maeva.com/',
 								},
 								// Kylian (petit dernier)
@@ -189,22 +189,22 @@ export default async function HomePage() {
 									id: '7',
 									firstName: 'Kylian',
 									description: 'Le petit dernier de notre tribu',
-									image: { url: '/kylian.jpg', alt: 'Photo Kylian' } as any,
+									image: { url: '/kylian.jpg', alt: 'Photo Kylian' },
 								},
 								// tagada (chat)
 								{
 									id: '4',
 									firstName: 'Tagada',
 									description: 'Un potit chat',
-									image: { url: '/tagada.jpg', alt: 'Photo Tagada' } as any,
+									image: { url: '/tagada.jpg', alt: 'Photo Tagada' },
 								},
-								// sia (chat) 
+								// sia (chat)
 								{
 									id: '5',
 									firstName: 'Sia',
 									description: 'Un potit chat',
-									image: { url: '/sia.jpg', alt: 'Photo Sia' } as any,
-								},																
+									image: { url: '/sia.jpg', alt: 'Photo Sia' },
+								},
 							]
 				}
 			/>
