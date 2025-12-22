@@ -2,6 +2,7 @@ import config from '@payload-config'
 import Image from 'next/image'
 import Link from 'next/link'
 import { getPayload } from 'payload'
+import { AboutSection } from '@/components/about-section'
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
 import { Hero } from '@/components/hero'
@@ -21,6 +22,7 @@ import {
 	Sleep,
 	Trainings,
 } from '@/components/sections'
+
 import type { Media } from '@/payload-types'
 
 // Temporary types until payload generate:types is run
@@ -113,18 +115,15 @@ export default async function HomePage() {
 			<Hero>
 				<div className="text-center px-4 w-full h-full flex flex-col items-center justify-center relative">
 					<Image
-						src="/0.png"
+						src="/bear.png"
 						alt="Mask Deco"
-						width={1200}
-						height={1200}
-						className="absolute bottom-0 left-1/2 -translate-x-1/2 -z-10 translate-y-80"
+						width={1600}
+						height={1600}
+						className="absolute bottom-0 left-1/2 -translate-x-100 -z-10 translate-y-100"
 					/>
-					<h1 className="mb-4 text-5xl md:text-7xl font-bold text-white drop-shadow-lg z-10">Nounou Sciez</h1>
+					<h1 className="mb-4 text-5xl md:text-7xl font-bold text-white drop-shadow-lg z-10">Isabelle Cinquin</h1>
 					<p className="text-xl md:text-2xl text-white/90 drop-shadow-md max-w-2xl mx-auto z-10">
-						Isabelle Cinquin - Assistante Maternelle
-					</p>
-					<p className="mt-4 text-lg text-white/80 drop-shadow-md z-10">
-						Un accueil chaleureux pour vos enfants au bord du Lac Léman
+						Assistante Maternelle au bord du Lac Léman
 					</p>
 					<div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center z-10">
 						<Link
@@ -142,6 +141,15 @@ export default async function HomePage() {
 					</div>
 				</div>
 			</Hero>
+
+			<AboutSection
+				imageSrc="/bear.png"
+				subtitle="À PROPOS"
+				title="Un accueil chaleureux pour vos enfants"
+				description="Assistante maternelle agréée depuis plusieurs années, j'accueille vos enfants dans un cadre familial et bienveillant au bord du magnifique Lac Léman. Mon objectif est d'accompagner chaque enfant dans son développement tout en respectant son rythme."
+				buttonText="Découvrir mon parcours"
+				buttonHref="#presentation"
+			/>
 
 			<Introduction
 				title={landing?.introduction?.title}
