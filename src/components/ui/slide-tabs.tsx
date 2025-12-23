@@ -11,17 +11,25 @@ interface NavItem {
 
 interface SlideTabsProps {
 	items: NavItem[]
+	activeIndex?: number
 	className?: string
 }
 
-export function SlideTabs({ items, className = '' }: SlideTabsProps) {
+export function SlideTabs({ items, activeIndex = 0, className = '' }: SlideTabsProps) {
 	const [position, setPosition] = useState({
 		left: 0,
 		width: 0,
 		opacity: 0,
 	})
-	const [selected, setSelected] = useState(0)
+	const [selected, setSelected] = useState(activeIndex)
 	const tabsRef = useRef<(HTMLLIElement | null)[]>([])
+
+	// Sync with activeIndex from parent (based on pathname)
+	useEffect(() => {
+		if (activeIndex >= 0) {
+			setSelected(activeIndex)
+		}
+	}, [activeIndex])
 
 	useEffect(() => {
 		const selectedTab = tabsRef.current[selected]

@@ -112,12 +112,6 @@ export default async function BlogPage() {
 					<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 						{/* Left: Text content */}
 						<div className="max-w-xl">
-							{/* Badge */}
-							<span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white text-sm mb-6">
-								<span className="w-2 h-2 bg-pink-400 rounded-full animate-pulse" />
-								Notre quotidien
-							</span>
-
 							{/* Title */}
 							<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
 								Le <span className="font-handwriting text-pink-200">Blog</span> de{' '}

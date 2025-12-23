@@ -2,6 +2,7 @@
 
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { SlideTabs } from '@/components/ui/slide-tabs'
 
@@ -12,8 +13,18 @@ const navItems = [
 ]
 
 export function Header() {
+	const pathname = usePathname()
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
-	const [activeItem, setActiveItem] = useState(0)
+
+	// Determine active item based on current pathname
+	const getActiveIndex = () => {
+		if (pathname === '/') return 0
+		if (pathname.startsWith('/blog')) return 1
+		if (pathname.startsWith('/contact')) return 2
+		return -1 // No active item
+	}
+
+	const activeIndex = getActiveIndex()
 
 	return (
 		<header className="fixed top-0 left-0 right-0 z-50 py-4">
@@ -29,7 +40,7 @@ export function Header() {
 
 					{/* Desktop Navigation with SlideTabs */}
 					<nav className="hidden md:block">
-						<SlideTabs items={navItems} />
+						<SlideTabs items={navItems} activeIndex={activeIndex} />
 					</nav>
 
 					{/* Mobile Menu Button */}
@@ -53,7 +64,7 @@ export function Header() {
 					<nav className="mt-4 animate-in fade-in slide-in-from-top-2 rounded-2xl bg-secondary/80 border border-white/20 p-2 backdrop-blur-md md:hidden">
 						<ul className="flex flex-col gap-1">
 							{navItems.map((item, index) => {
-								const isActive = index === activeItem
+								const isActive = index === activeIndex
 								return (
 									<li key={item.href}>
 										<Link
@@ -63,10 +74,7 @@ export function Header() {
 													? 'bg-white text-secondary font-semibold'
 													: 'text-white/80 hover:bg-white/10 hover:text-white'
 											}`}
-											onClick={() => {
-												setActiveItem(index)
-												setIsMenuOpen(false)
-											}}
+											onClick={() => setIsMenuOpen(false)}
 										>
 											{item.label}
 										</Link>
