@@ -103,7 +103,8 @@ export const Landing: GlobalConfig = {
 					name: 'agreementInfo',
 					type: 'textarea',
 					label: "Informations d'agrément",
-					defaultValue: "Mon agrément me permet d'accueillir 3 enfants le jour de 7h à 19h et un enfant la nuit de 18h à 7h.",
+					defaultValue:
+						"Mon agrément me permet d'accueillir 3 enfants le jour de 7h à 19h et un enfant la nuit de 18h à 7h.",
 				},
 			],
 		},
@@ -207,9 +208,7 @@ export const Landing: GlobalConfig = {
 					type: 'array',
 					label: 'Tags flottants',
 					labels: { singular: 'Tag', plural: 'Tags' },
-					fields: [
-						{ name: 'text', type: 'text', label: 'Texte', required: true },
-					],
+					fields: [{ name: 'text', type: 'text', label: 'Texte', required: true }],
 				},
 			],
 		},
@@ -221,7 +220,13 @@ export const Landing: GlobalConfig = {
 			label: 'Lieu de vie',
 			fields: [
 				{ name: 'title', type: 'text', label: 'Titre de section', defaultValue: 'Lieu de vie' },
-				{ name: 'description', type: 'textarea', label: 'Description', defaultValue: "J'accueille vos enfants dans une maison clôturée avec jardin qui se situe au bord du Lac Léman." },
+				{
+					name: 'description',
+					type: 'textarea',
+					label: 'Description',
+					defaultValue:
+						"J'accueille vos enfants dans une maison clôturée avec jardin qui se situe au bord du Lac Léman.",
+				},
 				{ name: 'content', type: 'richText', label: 'Contenu' },
 				{
 					name: 'images',
@@ -239,7 +244,12 @@ export const Landing: GlobalConfig = {
 			label: 'Section Équipements',
 			fields: [
 				{ name: 'title', type: 'text', label: 'Titre de section', defaultValue: 'Les équipements' },
-				{ name: 'subtitle', type: 'text', label: 'Sous-titre', defaultValue: 'Tout le matériel nécessaire pour accueillir vos enfants' },
+				{
+					name: 'subtitle',
+					type: 'text',
+					label: 'Sous-titre',
+					defaultValue: 'Tout le matériel nécessaire pour accueillir vos enfants',
+				},
 				{
 					name: 'items',
 					type: 'array',
@@ -260,7 +270,12 @@ export const Landing: GlobalConfig = {
 			label: 'Section Objectifs',
 			fields: [
 				{ name: 'title', type: 'text', label: 'Titre de section', defaultValue: 'Mes objectifs' },
-				{ name: 'subtitle', type: 'text', label: 'Sous-titre', defaultValue: "Ce qui est important pour moi dans l'accompagnement de vos enfants" },
+				{
+					name: 'subtitle',
+					type: 'text',
+					label: 'Sous-titre',
+					defaultValue: "Ce qui est important pour moi dans l'accompagnement de vos enfants",
+				},
 				{
 					name: 'items',
 					type: 'array',
@@ -300,9 +315,21 @@ export const Landing: GlobalConfig = {
 			label: "Période d'adaptation",
 			fields: [
 				{ name: 'title', type: 'text', label: 'Titre de section', defaultValue: "Période d'adaptation" },
-				{ name: 'subtitle', type: 'textarea', label: 'Sous-titre', defaultValue: "Une période importante pour permettre à l'enfant, aux parents, et à nounou de faire connaissance en douceur." },
+				{
+					name: 'subtitle',
+					type: 'textarea',
+					label: 'Sous-titre',
+					defaultValue:
+						"Une période importante pour permettre à l'enfant, aux parents, et à nounou de faire connaissance en douceur.",
+				},
 				{ name: 'image', type: 'upload', relationTo: 'media', label: 'Image' },
-				{ name: 'keyMessage', type: 'textarea', label: 'Message clé', defaultValue: "La clé d'un accueil réussi : une confiance mutuelle et un dialogue permanent entre les parents et la nounou." },
+				{
+					name: 'keyMessage',
+					type: 'textarea',
+					label: 'Message clé',
+					defaultValue:
+						"La clé d'un accueil réussi : une confiance mutuelle et un dialogue permanent entre les parents et la nounou.",
+				},
 				{
 					name: 'badges',
 					type: 'array',
@@ -335,7 +362,12 @@ export const Landing: GlobalConfig = {
 			label: 'Organisation des affaires',
 			fields: [
 				{ name: 'title', type: 'text', label: 'Titre de section', defaultValue: 'Organisation des affaires' },
-				{ name: 'subtitle', type: 'text', label: 'Sous-titre', defaultValue: "Glissez pour comparer ce qu'il faut apporter et ce qui est fourni" },
+				{
+					name: 'subtitle',
+					type: 'text',
+					label: 'Sous-titre',
+					defaultValue: "Glissez pour comparer ce qu'il faut apporter et ce qui est fourni",
+				},
 				{
 					name: 'bagItems',
 					type: 'array',
@@ -360,7 +392,12 @@ export const Landing: GlobalConfig = {
 			label: 'Section Journée type',
 			fields: [
 				{ name: 'title', type: 'text', label: 'Titre de section', defaultValue: "Organisation d'une journée" },
-				{ name: 'subtitle', type: 'text', label: 'Sous-titre', defaultValue: 'Comment se déroule une journée type chez nounou' },
+				{
+					name: 'subtitle',
+					type: 'text',
+					label: 'Sous-titre',
+					defaultValue: 'Comment se déroule une journée type chez nounou',
+				},
 				{
 					name: 'items',
 					type: 'array',
@@ -381,7 +418,12 @@ export const Landing: GlobalConfig = {
 			label: 'Section Charte de vie',
 			fields: [
 				{ name: 'title', type: 'text', label: 'Titre de section', defaultValue: 'Charte de vie' },
-				{ name: 'subtitle', type: 'text', label: 'Sous-titre', defaultValue: 'Les règles de vie chez nounou, écrites du point de vue de votre enfant 💜' },
+				{
+					name: 'subtitle',
+					type: 'text',
+					label: 'Sous-titre',
+					defaultValue: 'Les règles de vie chez nounou, écrites du point de vue de votre enfant 💜',
+				},
 				{
 					name: 'items',
 					type: 'array',

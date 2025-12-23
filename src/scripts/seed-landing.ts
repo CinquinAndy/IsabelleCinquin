@@ -36,7 +36,8 @@ async function seedLanding() {
 			// ==================== SECTION PRESENTATION ====================
 			presentation: {
 				title: 'Ma présentation',
-				agreementInfo: "Mon agrément me permet d'accueillir 3 enfants le jour de 7h à 19h et un enfant la nuit de 18h à 7h.",
+				agreementInfo:
+					"Mon agrément me permet d'accueillir 3 enfants le jour de 7h à 19h et un enfant la nuit de 18h à 7h.",
 			},
 
 			// ==================== SECTION FORMATIONS ====================
@@ -46,12 +47,14 @@ async function seedLanding() {
 					{
 						title: 'CAP Petite Enfance (AEPE)',
 						period: '2018 - 2020',
-						description: "120 heures de formation - CAP Accompagnant(e) éducatif petite enfance. Formation complète pour l'accueil et l'accompagnement des tout-petits.",
+						description:
+							"120 heures de formation - CAP Accompagnant(e) éducatif petite enfance. Formation complète pour l'accueil et l'accompagnement des tout-petits.",
 					},
 					{
 						title: 'Sauveteur Secouriste du Travail',
 						period: 'Formation continue',
-						description: 'Formation SST - Premiers secours adaptés aux situations avec les enfants. Recyclage régulier.',
+						description:
+							'Formation SST - Premiers secours adaptés aux situations avec les enfants. Recyclage régulier.',
 					},
 				],
 			},
@@ -60,11 +63,7 @@ async function seedLanding() {
 			sleep: {
 				title: 'Le sommeil',
 				subtitle: 'Les siestes',
-				tags: [
-					{ text: 'Confort' },
-					{ text: 'Sérénité' },
-					{ text: 'Calme' },
-				],
+				tags: [{ text: 'Confort' }, { text: 'Sérénité' }, { text: 'Calme' }],
 			},
 
 			// ==================== SECTION LIEU DE VIE ====================
@@ -103,8 +102,10 @@ async function seedLanding() {
 			// ==================== SECTION ADAPTATION ====================
 			adaptation: {
 				title: "Période d'adaptation",
-				subtitle: "Une période importante pour permettre à l'enfant, aux parents, et à nounou de faire connaissance en douceur.",
-				keyMessage: "La clé d'un accueil réussi : une confiance mutuelle et un dialogue permanent entre les parents et la nounou.",
+				subtitle:
+					"Une période importante pour permettre à l'enfant, aux parents, et à nounou de faire connaissance en douceur.",
+				keyMessage:
+					"La clé d'un accueil réussi : une confiance mutuelle et un dialogue permanent entre les parents et la nounou.",
 				badges: [
 					{ text: 'Confiance mutuelle', color: 'pink' },
 					{ text: 'Dialogue permanent', color: 'violet' },
@@ -138,9 +139,16 @@ async function seedLanding() {
 				title: "Organisation d'une journée",
 				subtitle: 'Comment se déroule une journée type chez nounou',
 				items: [
-					{ time: 'Matin', activity: 'Arrivée en douceur, transmission avec les parents, petit déjeuner et petit câlin' },
+					{
+						time: 'Matin',
+						activity: 'Arrivée en douceur, transmission avec les parents, petit déjeuner et petit câlin',
+					},
 					{ time: '9h', activity: "Accompagnement du fils de nounou à l'école" },
-					{ time: 'Matinée', activity: 'Sieste pour les plus petits, jeux et activités (dessins, peinture, sable magique) pour les plus grands' },
+					{
+						time: 'Matinée',
+						activity:
+							'Sieste pour les plus petits, jeux et activités (dessins, peinture, sable magique) pour les plus grands',
+					},
 					{ time: '11h30', activity: 'Promenade vers le lac ou visite au relais de nounou pour mettre en appétit' },
 					{ time: '12h', activity: 'Repas pour tous' },
 					{ time: '13h30', activity: 'Changements de couches puis sieste' },
@@ -154,15 +162,60 @@ async function seedLanding() {
 				title: 'Charte de vie',
 				subtitle: 'Les règles de vie chez nounou, écrites du point de vue de votre enfant 💜',
 				items: [
-					{ ruleNumber: 1, title: 'Ponctualité le matin', content: "Papa, Maman, il est important pour mon rythme et l'organisation de nounou d'arriver bien à l'heure chaque jour. En cas d'imprévu, merci de prévenir Nounou." },
-					{ ruleNumber: 2, title: "Respect de l'espace", content: "Papa, Maman, pensez à bien rester à l'entrée. Car c'est moi qui vais crapahuter ici toute la journée." },
-					{ ruleNumber: 3, title: 'Communication importante', content: "Papa, Maman, je suis trop jeune pour expliquer ma nuit, mon petit déj, le week-end... à nounou. Prenez 5 minutes pour tout raconter à nounou, cela va drôlement l'aider à s'occuper de moi toute cette nouvelle journée." },
-					{ ruleNumber: 4, title: 'Arrivée préparée', content: "Papa, Maman, je me sens bien mieux quand j'arrive chez nounou habillé, débarbouillé, ma couche changée. Merci de respecter chaque jour ces petits gestes qui sont si agréables pour Nounou." },
-					{ ruleNumber: 5, title: 'Questions bienvenues', content: "Papa, Maman, n'hésitez pas à poser à ma nounou des questions qui vous préoccupent concernant mon évolution, alimentation, sommeil, santé, ma vie ici chez nounou..." },
-					{ ruleNumber: 6, title: 'Santé et maladie', content: "Papa, Maman, si je suis malade avec de la fièvre, ne me mettez pas chez Nounou sans avoir pris le soin de m'emmener au préalable chez le docteur. Je reviendrais chez nounou avec le traitement adapté." },
-					{ ruleNumber: 7, title: 'Lieu de vie privé', content: "Papa, Maman, n'oubliez pas, le lieu de travail de Nounou est aussi sa maison, c'est pour cela qu'il faut respecter son environnement et ne pas être trop envahissant." },
-					{ ruleNumber: 8, title: 'Ponctualité le soir', content: "Papa et Maman, le soir, la ponctualité atténue mes angoisses. Pensez à prévenir Nounou d'un retard exceptionnel afin qu'elle puisse me rassurer et m'expliquer. En plus nounou n'est pas que nounou tout le temps, elle peut aussi avoir des rendez-vous persos !" },
-					{ ruleNumber: 9, title: 'Paiement régulier', content: "Tout travail mérite salaire, Papa, Maman, n'oubliez pas de payer Nounou, elle aussi, doit payer son loyer, ses charges..." },
+					{
+						ruleNumber: 1,
+						title: 'Ponctualité le matin',
+						content:
+							"Papa, Maman, il est important pour mon rythme et l'organisation de nounou d'arriver bien à l'heure chaque jour. En cas d'imprévu, merci de prévenir Nounou.",
+					},
+					{
+						ruleNumber: 2,
+						title: "Respect de l'espace",
+						content:
+							"Papa, Maman, pensez à bien rester à l'entrée. Car c'est moi qui vais crapahuter ici toute la journée.",
+					},
+					{
+						ruleNumber: 3,
+						title: 'Communication importante',
+						content:
+							"Papa, Maman, je suis trop jeune pour expliquer ma nuit, mon petit déj, le week-end... à nounou. Prenez 5 minutes pour tout raconter à nounou, cela va drôlement l'aider à s'occuper de moi toute cette nouvelle journée.",
+					},
+					{
+						ruleNumber: 4,
+						title: 'Arrivée préparée',
+						content:
+							"Papa, Maman, je me sens bien mieux quand j'arrive chez nounou habillé, débarbouillé, ma couche changée. Merci de respecter chaque jour ces petits gestes qui sont si agréables pour Nounou.",
+					},
+					{
+						ruleNumber: 5,
+						title: 'Questions bienvenues',
+						content:
+							"Papa, Maman, n'hésitez pas à poser à ma nounou des questions qui vous préoccupent concernant mon évolution, alimentation, sommeil, santé, ma vie ici chez nounou...",
+					},
+					{
+						ruleNumber: 6,
+						title: 'Santé et maladie',
+						content:
+							"Papa, Maman, si je suis malade avec de la fièvre, ne me mettez pas chez Nounou sans avoir pris le soin de m'emmener au préalable chez le docteur. Je reviendrais chez nounou avec le traitement adapté.",
+					},
+					{
+						ruleNumber: 7,
+						title: 'Lieu de vie privé',
+						content:
+							"Papa, Maman, n'oubliez pas, le lieu de travail de Nounou est aussi sa maison, c'est pour cela qu'il faut respecter son environnement et ne pas être trop envahissant.",
+					},
+					{
+						ruleNumber: 8,
+						title: 'Ponctualité le soir',
+						content:
+							"Papa et Maman, le soir, la ponctualité atténue mes angoisses. Pensez à prévenir Nounou d'un retard exceptionnel afin qu'elle puisse me rassurer et m'expliquer. En plus nounou n'est pas que nounou tout le temps, elle peut aussi avoir des rendez-vous persos !",
+					},
+					{
+						ruleNumber: 9,
+						title: 'Paiement régulier',
+						content:
+							"Tout travail mérite salaire, Papa, Maman, n'oubliez pas de payer Nounou, elle aussi, doit payer son loyer, ses charges...",
+					},
 				],
 			},
 
@@ -201,7 +254,7 @@ async function seedLanding() {
 	process.exit(0)
 }
 
-seedLanding().catch((error) => {
+seedLanding().catch(error => {
 	console.error('❌ Seed failed:', error)
 	process.exit(1)
 })

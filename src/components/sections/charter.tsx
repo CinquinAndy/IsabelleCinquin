@@ -47,7 +47,8 @@ const defaultRules: LandingCharterRule[] = Array.from({ length: 9 }, (_, i) => (
 
 export function Charter({ charterSection }: CharterProps) {
 	const title = charterSection?.title || 'Charte de vie'
-	const subtitle = charterSection?.subtitle || 'Les règles de vie chez nounou, écrites du point de vue de votre enfant 💜'
+	const subtitle =
+		charterSection?.subtitle || 'Les règles de vie chez nounou, écrites du point de vue de votre enfant 💜'
 	const rules = charterSection?.items || []
 	const items = rules.length > 0 ? rules : defaultRules
 

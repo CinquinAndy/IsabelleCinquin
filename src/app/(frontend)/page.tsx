@@ -168,9 +168,7 @@ export default async function HomePage() {
 
 			<Adaptation adaptation={landing?.adaptation} />
 
-			<Organization
-				organization={landing?.organization}
-			/>
+			<Organization organization={landing?.organization} />
 
 			<DailySchedule dailyScheduleSection={landing?.dailyScheduleSection} />
 

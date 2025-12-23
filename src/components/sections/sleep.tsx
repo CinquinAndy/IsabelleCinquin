@@ -4,17 +4,21 @@ import { motion } from 'framer-motion'
 import { Moon } from 'lucide-react'
 import Image from 'next/image'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
+import type { LandingSleep } from '@/types/landing'
 
 interface SleepProps {
-	content?: unknown
+	sleepSection?: LandingSleep | null
 }
 
-export function Sleep(_props: SleepProps) {
+export function Sleep({ sleepSection }: SleepProps) {
+	const title = sleepSection?.title || 'Le sommeil'
+
 	return (
 		<SectionWrapper id="sommeil" variant="primary">
 			<div className="text-center mb-12">
 				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-					Le <span className="font-handwriting text-white/80">sommeil</span>
+					{title.split(' ').slice(0, -1).join(' ')}{' '}
+					<span className="font-handwriting text-white/80">{title.split(' ').slice(-1)}</span>
 				</h2>
 			</div>
 

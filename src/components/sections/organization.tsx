@@ -3,13 +3,10 @@
 import { Backpack, Home } from 'lucide-react'
 import { Compare } from '@/components/ui/compare'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
-import type { LandingOrganizationItem, Media } from '@/types/landing'
+import type { LandingOrganization } from '@/types/landing'
 
 interface OrganizationProps {
-	bagItems?: LandingOrganizationItem[] | null
-	bagImage?: Media | number | null
-	nounouItems?: LandingOrganizationItem[] | null
-	nounouImage?: Media | number | null
+	organization?: LandingOrganization | null
 }
 
 const defaultBagItems = [
@@ -22,9 +19,14 @@ const defaultBagItems = [
 
 const defaultNounouItems = ['Des couches', 'Un biberon', 'Du lait', 'Une turbulette', 'Des chaussons']
 
-export function Organization({ bagItems, nounouItems }: OrganizationProps) {
-	const bagList = bagItems && bagItems.length > 0 ? bagItems.map(i => i.item) : defaultBagItems
-	const nounouList = nounouItems && nounouItems.length > 0 ? nounouItems.map(i => i.item) : defaultNounouItems
+export function Organization({ organization }: OrganizationProps) {
+	const title = organization?.title || 'Organisation des affaires'
+	const subtitle = organization?.subtitle || "Glissez pour comparer ce qu'il faut apporter et ce qui est fourni"
+	const bagItems = organization?.bagItems || []
+	const nounouItems = organization?.nounouItems || []
+
+	const bagList = bagItems.length > 0 ? bagItems.map(i => i.item) : defaultBagItems
+	const nounouList = nounouItems.length > 0 ? nounouItems.map(i => i.item) : defaultNounouItems
 
 	return (
 		<SectionWrapper id="organisation" variant="secondary" className="overflow-hidden">
@@ -32,11 +34,10 @@ export function Organization({ bagItems, nounouItems }: OrganizationProps) {
 				{/* Title */}
 				<div className="text-center mb-12">
 					<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-						Organisation des <span className="font-handwriting text-white/80">affaires</span>
+						{title.split(' ').slice(0, -1).join(' ')}{' '}
+						<span className="font-handwriting text-white/80">{title.split(' ').slice(-1)}</span>
 					</h2>
-					<p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto">
-						Glissez pour comparer ce qu'il faut apporter et ce qui est fourni
-					</p>
+					<p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto">{subtitle}</p>
 				</div>
 
 				{/* Compare with images */}

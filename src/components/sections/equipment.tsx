@@ -184,9 +184,9 @@ export function Equipment({ equipmentSection }: EquipmentProps) {
 								{/* Glass background */}
 								<div className="absolute inset-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl" />
 								{/* Inner glow / gradient */}
-								<div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-black/20 rounded-2xl" />
+								<div className="absolute inset-0 bg-linear-to-br from-white/15 via-transparent to-black/20 rounded-2xl" />
 								{/* Top highlight */}
-								<div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+								<div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/40 to-transparent" />
 
 								{/* Icon */}
 								<div className="relative z-10 w-16 h-16 md:w-20 md:h-20 filter drop-shadow-lg transition-transform duration-300 group-hover:scale-110">

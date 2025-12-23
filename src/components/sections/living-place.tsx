@@ -1,27 +1,31 @@
 import { Home } from 'lucide-react'
 import Image from 'next/image'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
-import type { LandingLivingPlaceImage, RichTextContent } from '@/types/landing'
+import type { LandingLivingPlace } from '@/types/landing'
 
 interface LivingPlaceProps {
-	content?: RichTextContent | null
-	images?: LandingLivingPlaceImage[] | null
+	livingPlace?: LandingLivingPlace | null
 }
 
-export function LivingPlace({ images }: LivingPlaceProps) {
+export function LivingPlace({ livingPlace }: LivingPlaceProps) {
+	const title = livingPlace?.title || 'Lieu de vie'
+	const description =
+		livingPlace?.description ||
+		"J'accueille vos enfants dans une maison clôturée avec jardin qui se situe au bord du Lac Léman."
+	const images = livingPlace?.images || []
+
 	return (
 		<SectionWrapper id="lieu-de-vie" variant="primary">
 			<div className="text-center mb-12">
 				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-					Lieu de <span className="font-handwriting text-white/80">vie</span>
+					{title.split(' ').slice(0, -1).join(' ')}{' '}
+					<span className="font-handwriting text-white/80">{title.split(' ').slice(-1)}</span>
 				</h2>
 			</div>
 
 			<div className="max-w-3xl mx-auto">
 				<div className="text-center space-y-4 mb-10">
-					<p className="text-lg leading-relaxed opacity-90">
-						J'accueille vos enfants dans une maison clôturée avec jardin qui se situe au bord du Lac Léman.
-					</p>
+					<p className="text-lg leading-relaxed opacity-90">{description}</p>
 				</div>
 
 				{/* Placeholder for future interactive element */}

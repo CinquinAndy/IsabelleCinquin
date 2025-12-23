@@ -1,34 +1,40 @@
 import Image from 'next/image'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
+import type { LandingAdaptation } from '@/types/landing'
 
 interface AdaptationProps {
-	content?: unknown
+	adaptation?: LandingAdaptation | null
 }
 
-const adaptationBadges = [
-	{
-		text: 'Confiance mutuelle',
-		color: 'bg-gradient-to-r from-pink-500 to-rose-500',
-		icon: '/icons/scribbbles/7/SVG/Fichier 10.svg',
-	},
-	{
-		text: 'Dialogue permanent',
-		color: 'bg-gradient-to-r from-violet-500 to-purple-500',
-		icon: '/icons/scribbbles/7/SVG/Fichier 5.svg',
-	},
-	{
-		text: 'Écoute attentive',
-		color: 'bg-gradient-to-r from-amber-500 to-orange-500',
-		icon: '/icons/scribbbles/7/SVG/Fichier 18.svg',
-	},
-	{
-		text: 'Patience et douceur',
-		color: 'bg-gradient-to-r from-emerald-500 to-teal-500',
-		icon: '/icons/scribbbles/7/SVG/Fichier 3.svg',
-	},
+const badgeColors: Record<string, string> = {
+	pink: 'bg-gradient-to-r from-pink-500 to-rose-500',
+	violet: 'bg-gradient-to-r from-violet-500 to-purple-500',
+	amber: 'bg-gradient-to-r from-amber-500 to-orange-500',
+	emerald: 'bg-gradient-to-r from-emerald-500 to-teal-500',
+}
+
+const badgeIcons = [
+	'/icons/scribbbles/7/SVG/Fichier 10.svg',
+	'/icons/scribbbles/7/SVG/Fichier 5.svg',
+	'/icons/scribbbles/7/SVG/Fichier 18.svg',
+	'/icons/scribbbles/7/SVG/Fichier 3.svg',
 ]
 
-export function Adaptation(_props: AdaptationProps) {
+export function Adaptation({ adaptation }: AdaptationProps) {
+	const title = adaptation?.title || "Période d'adaptation"
+	const subtitle = adaptation?.subtitle || "Une période importante pour permettre à l'enfant, aux parents, et à nounou de faire connaissance en douceur."
+	const keyMessage = adaptation?.keyMessage || "La clé d'un accueil réussi : une confiance mutuelle et un dialogue permanent entre les parents et la nounou."
+	const badges = adaptation?.badges || []
+
+	// Default badges if none provided
+	const defaultBadges = [
+		{ text: 'Confiance mutuelle', color: 'pink' as const },
+		{ text: 'Dialogue permanent', color: 'violet' as const },
+		{ text: 'Écoute attentive', color: 'amber' as const },
+		{ text: 'Patience et douceur', color: 'emerald' as const },
+	]
+	const displayBadges = badges.length > 0 ? badges : defaultBadges
+
 	return (
 		<SectionWrapper id="adaptation" variant="primary" className="overflow-hidden">
 			<div className="max-w-7xl mx-auto">
