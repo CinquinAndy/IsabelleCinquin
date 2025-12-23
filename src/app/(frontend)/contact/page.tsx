@@ -82,7 +82,7 @@ export default async function ContactPage() {
 								<h2 className="text-2xl font-bold mb-6">Informations</h2>
 
 								{settings?.email && (
-									<a
+									<Link
 										href={`mailto:${settings.email}`}
 										className="flex items-start gap-4 p-4 bg-white/10 rounded-xl hover:bg-white/20 transition-colors"
 									>
@@ -93,11 +93,11 @@ export default async function ContactPage() {
 											<p className="font-medium">Email</p>
 											<p className="text-sm opacity-80">{settings.email}</p>
 										</div>
-									</a>
+									</Link>
 								)}
 
 								{settings?.phone && (
-									<a
+									<Link
 										href={`tel:${settings.phone.replace(/\s/g, '')}`}
 										className="flex items-start gap-4 p-4 bg-white/10 rounded-xl hover:bg-white/20 transition-colors"
 									>
@@ -108,7 +108,7 @@ export default async function ContactPage() {
 											<p className="font-medium">Portable</p>
 											<p className="text-sm opacity-80">{settings.phone}</p>
 										</div>
-									</a>
+									</Link>
 								)}
 
 								{settings?.landline && (
@@ -151,7 +151,7 @@ export default async function ContactPage() {
 								)}
 
 								{settings?.nounouTopLink && (
-									<a
+									<Link
 										href={settings.nounouTopLink}
 										target="_blank"
 										rel="noopener noreferrer"
@@ -164,7 +164,7 @@ export default async function ContactPage() {
 											<p className="font-medium">Nounou Top</p>
 											<p className="text-sm opacity-80">Voir mon profil</p>
 										</div>
-									</a>
+									</Link>
 								)}
 							</div>
 

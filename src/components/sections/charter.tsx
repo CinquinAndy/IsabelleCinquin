@@ -1,10 +1,9 @@
 'use client'
 
-import { ChevronDown } from 'lucide-react'
-import { useState } from 'react'
-import { SectionTitle } from '@/components/ui/section-title'
+import { Book, Clock, Heart, Home, MessageCircle, Phone, Stethoscope, Users, Wallet } from 'lucide-react'
+import Link from 'next/link'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
-import { cn } from '@/lib/utils'
 
 interface CharterRule {
 	id?: string
@@ -17,54 +16,23 @@ interface CharterProps {
 	rules?: CharterRule[] | null
 }
 
-const defaultRules: CharterRule[] = [
-	{
-		id: '1',
-		ruleNumber: 1,
-		title: '1ère règle de Nounou',
-	},
-	{
-		id: '2',
-		ruleNumber: 2,
-		title: '2ème règle de Nounou',
-	},
-	{
-		id: '3',
-		ruleNumber: 3,
-		title: '3ème règle de Nounou',
-	},
-	{
-		id: '4',
-		ruleNumber: 4,
-		title: '4ème règle de Nounou',
-	},
-	{
-		id: '5',
-		ruleNumber: 5,
-		title: '5ème règle de Nounou',
-	},
-	{
-		id: '6',
-		ruleNumber: 6,
-		title: '6ème règle de Nounou',
-	},
-	{
-		id: '7',
-		ruleNumber: 7,
-		title: '7ème règle de Nounou',
-	},
-	{
-		id: '8',
-		ruleNumber: 8,
-		title: '8ème règle de Nounou',
-	},
-	{
-		id: '9',
-		ruleNumber: 9,
-		title: '9ème règle de Nounou',
-	},
-]
+// Icons for each rule
+const ruleIcons = [Clock, Home, MessageCircle, Heart, Users, Stethoscope, Home, Clock, Wallet]
 
+// Default rule titles
+const defaultTitles: Record<number, string> = {
+	1: 'Ponctualité le matin',
+	2: 'Respect de l\'espace',
+	3: 'Communication importante',
+	4: 'Arrivée préparée',
+	5: 'Questions bienvenues',
+	6: 'Santé et maladie',
+	7: 'Lieu de vie privé',
+	8: 'Ponctualité le soir',
+	9: 'Paiement régulier',
+}
+
+// Default rule contents
 const defaultContents: Record<number, string> = {
 	1: "Papa, Maman, il est important pour mon rythme et l'organisation de nounou d'arriver bien à l'heure chaque jour. En cas d'imprévu, merci de prévenir Nounou.",
 	2: "Papa, Maman, pensez à bien rester à l'entrée. Car c'est moi qui vais crapahuter ici toute la journée.",
@@ -77,37 +45,70 @@ const defaultContents: Record<number, string> = {
 	9: "Tout travail mérite salaire, Papa, Maman, n'oubliez pas de payer Nounou, elle aussi, doit payer son loyer, ses charges...",
 }
 
+const defaultRules: CharterRule[] = Array.from({ length: 9 }, (_, i) => ({
+	id: String(i + 1),
+	ruleNumber: i + 1,
+	title: defaultTitles[i + 1],
+}))
+
 export function Charter({ rules }: CharterProps) {
-	const [openIndex, setOpenIndex] = useState<number | null>(null)
 	const items = rules && rules.length > 0 ? rules : defaultRules
 
 	return (
-		<SectionWrapper id="charte" variant="secondary">
-			<SectionTitle subtitle="Les règles de vie chez nounou">Charte de vie</SectionTitle>
-
-			<div className="max-w-2xl mx-auto space-y-3">
-				{items.map((rule, index) => {
-					const isOpen = openIndex === index
-
-					return (
-						<div key={rule.id || index} className="bg-white/10 rounded-xl overflow-hidden">
-							<button
-								type="button"
-								onClick={() => setOpenIndex(isOpen ? null : index)}
-								className="w-full flex items-center justify-between p-4 text-left hover:bg-white/5 transition-colors"
-							>
-								<span className="font-bold">{rule.title || `${rule.ruleNumber}ème règle de Nounou`}</span>
-								<ChevronDown className={cn('w-5 h-5 transition-transform', isOpen && 'rotate-180')} />
-							</button>
-
-							<div className={cn('grid transition-all duration-300', isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]')}>
-								<div className="overflow-hidden">
-									<div className="p-4 pt-0 opacity-90">{defaultContents[rule.ruleNumber] || 'Contenu à définir.'}</div>
-								</div>
-							</div>
+		<SectionWrapper id="charte" variant="secondary" className="overflow-hidden">
+			<div className="max-w-7xl mx-auto px-4 md:px-6">
+				<div className="flex flex-col gap-10 md:flex-row md:gap-16">
+					{/* Left side - Title */}
+					<div className="md:w-1/3">
+						<div className="sticky top-24">
+							<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+								Charte de <span className="font-handwriting text-white/80">vie</span>
+							</h2>
+							<p className="text-white/70 mt-4">
+								Les règles de vie chez nounou, écrites du point de vue de votre enfant 💜
+							</p>
+							<p className="text-white/60 mt-4 text-sm">
+								Des questions ?{' '}
+								<Link href="#contact" className="text-white font-medium hover:underline">
+									Contactez-moi
+								</Link>
+							</p>
 						</div>
-					)
-				})}
+					</div>
+
+					{/* Right side - Accordion */}
+					<div className="md:w-2/3">
+						<Accordion type="single" collapsible className="w-full space-y-3">
+							{items.map((rule, index) => {
+								const IconComponent = ruleIcons[index % ruleIcons.length]
+								const title = rule.title || defaultTitles[rule.ruleNumber] || `Règle ${rule.ruleNumber}`
+								const content = defaultContents[rule.ruleNumber] || 'Contenu à définir.'
+
+								return (
+									<AccordionItem
+										key={rule.id || index}
+										value={rule.id || String(index)}
+										className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 px-4 data-[state=open]:bg-white/15 transition-all"
+									>
+										<AccordionTrigger className="cursor-pointer items-center py-5 hover:no-underline text-white">
+											<div className="flex items-center gap-3">
+												<div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-white/20">
+													<IconComponent className="size-4 text-white" />
+												</div>
+												<span className="text-base font-semibold text-white">{title}</span>
+											</div>
+										</AccordionTrigger>
+										<AccordionContent className="pb-5">
+											<div className="pl-11">
+												<p className="text-base text-white/80 leading-relaxed">{content}</p>
+											</div>
+										</AccordionContent>
+									</AccordionItem>
+								)
+							})}
+						</Accordion>
+					</div>
+				</div>
 			</div>
 		</SectionWrapper>
 	)
