@@ -125,7 +125,7 @@ export default async function HomePage() {
 					</p>
 					<div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center z-10">
 						<Link
-							href="#contact"
+							href="/contact"
 							className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-primary shadow-lg transition-all hover:bg-white/90 hover:scale-105"
 						>
 							Me contacter

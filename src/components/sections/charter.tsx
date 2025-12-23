@@ -69,7 +69,7 @@ export function Charter({ rules }: CharterProps) {
 							</p>
 							<p className="text-white/60 mt-4 text-sm">
 								Des questions ?{' '}
-								<Link href="#contact" className="text-white font-medium hover:underline">
+								<Link href="/contact" className="text-white font-medium hover:underline">
 									Contactez-moi
 								</Link>
 							</p>

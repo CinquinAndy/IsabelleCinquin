@@ -1,6 +1,7 @@
 'use client'
 
 import { Menu, X } from 'lucide-react'
+import Link from 'next/link'
 import { useState } from 'react'
 import { SlideTabs } from '@/components/ui/slide-tabs'
 
@@ -8,7 +9,7 @@ const navItems = [
 	{ label: 'Accueil', href: '/' },
 	{ label: 'À propos', href: '#presentation' },
 	{ label: 'Activités', href: '#activites' },
-	{ label: 'Contact', href: '#contact' },
+	{ label: 'Contact', href: '/contact' },
 ]
 
 export function Header() {
@@ -20,12 +21,12 @@ export function Header() {
 			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 				<div className="flex items-center justify-between">
 					{/* Logo */}
-					<a
+					<Link
 						href="/"
 						className="font-display text-2xl font-bold text-white drop-shadow-lg transition-transform hover:scale-105"
 					>
 						Isabelle Cinquin
-					</a>
+					</Link>
 
 					{/* Desktop Navigation with SlideTabs */}
 					<nav className="hidden md:block">
@@ -56,7 +57,7 @@ export function Header() {
 								const isActive = index === activeItem
 								return (
 									<li key={item.href}>
-										<a
+										<Link
 											href={item.href}
 											className={`block rounded-xl px-4 py-3 font-sans text-sm font-medium transition-all ${
 												isActive
@@ -69,7 +70,7 @@ export function Header() {
 											}}
 										>
 											{item.label}
-										</a>
+										</Link>
 									</li>
 								)
 							})}

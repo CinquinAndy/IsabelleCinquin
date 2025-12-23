@@ -21,14 +21,14 @@ export function Footer({ settings }: FooterProps) {
 
 					<div className="flex flex-col md:flex-row items-center gap-4 text-sm">
 						{settings?.email && (
-							<a href={`mailto:${settings.email}`} className="hover:opacity-80 transition-opacity">
+							<Link href={`mailto:${settings.email}`} className="hover:opacity-80 transition-opacity">
 								{settings.email}
-							</a>
+							</Link>
 						)}
 						{settings?.phone && (
-							<a href={`tel:${settings.phone.replace(/\s/g, '')}`} className="hover:opacity-80 transition-opacity">
+							<Link href={`tel:${settings.phone.replace(/\s/g, '')}`} className="hover:opacity-80 transition-opacity">
 								{settings.phone}
-							</a>
+							</Link>
 						)}
 					</div>
 				</div>
@@ -36,14 +36,14 @@ export function Footer({ settings }: FooterProps) {
 				<div className="mt-6 pt-6 border-t border-white/20 flex flex-col md:flex-row items-center justify-between gap-4 text-sm opacity-70">
 					<p>
 						&copy; {currentYear} Nounou Sciez - Site développé par{' '}
-						<a
+						<Link
 							href="https://andy-cinquin.fr"
 							target="_blank"
 							rel="noopener noreferrer"
 							className="underline hover:opacity-80"
 						>
 							Cinquin Andy
-						</a>
+						</Link>
 					</p>
 					<Link href="/mentions-legales" className="hover:opacity-80 transition-opacity">
 						Mentions légales
