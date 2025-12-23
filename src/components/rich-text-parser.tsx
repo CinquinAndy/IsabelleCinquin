@@ -13,8 +13,8 @@ interface RichTextNode {
 }
 
 interface RichTextBlock extends RichTextNode {
-	type: 'paragraph' | 'heading' | 'list'
-	tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'ol' | 'ul'
+	type: 'paragraph' | 'heading' | 'list' | 'quote'
+	tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'ol' | 'ul' | 'blockquote'
 	children: RichTextNode[]
 }
 
@@ -94,6 +94,9 @@ export function RichTextParser({ content, className }: RichTextParserProps) {
 				)
 			}
 			
+			case 'quote':
+				return <blockquote key={key}>{renderChildren(block.children, key)}</blockquote>
+
 			default:
 				return null
 		}

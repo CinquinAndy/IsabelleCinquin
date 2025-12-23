@@ -95,9 +95,11 @@ export interface Config {
   fallbackLocale: null;
   globals: {
     landing: Landing;
+    seo: Seo;
   };
   globalsSelect: {
     landing: LandingSelect<false> | LandingSelect<true>;
+    seo: SeoSelect<false> | SeoSelect<true>;
   };
   locale: null;
   user: User & {
@@ -208,6 +210,26 @@ export interface Post {
   isImportant?: boolean | null;
   status?: ('draft' | 'published') | null;
   publishedAt?: string | null;
+  seo?: {
+    /**
+     * Titre affiché dans les résultats de recherche (laisser vide pour utiliser le titre par défaut)
+     */
+    metaTitle?: string | null;
+    /**
+     * Description courte pour les moteurs de recherche
+     */
+    metaDescription?: string | null;
+    /**
+     * Image affichée lors du partage sur les réseaux sociaux
+     */
+    ogImage?: (number | null) | Media;
+    keywords?:
+      | {
+          keyword?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -377,6 +399,19 @@ export interface PostsSelect<T extends boolean = true> {
   isImportant?: T;
   status?: T;
   publishedAt?: T;
+  seo?:
+    | T
+    | {
+        metaTitle?: T;
+        metaDescription?: T;
+        ogImage?: T;
+        keywords?:
+          | T
+          | {
+              keyword?: T;
+              id?: T;
+            };
+      };
   updatedAt?: T;
   createdAt?: T;
 }
@@ -739,6 +774,79 @@ export interface Landing {
     mapLat?: number | null;
     mapLng?: number | null;
   };
+  seo?: {
+    /**
+     * Titre affiché dans les résultats de recherche (laisser vide pour utiliser le titre par défaut)
+     */
+    metaTitle?: string | null;
+    /**
+     * Description courte pour les moteurs de recherche
+     */
+    metaDescription?: string | null;
+    /**
+     * Image affichée lors du partage sur les réseaux sociaux
+     */
+    ogImage?: (number | null) | Media;
+    keywords?:
+      | {
+          keyword?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "seo".
+ */
+export interface Seo {
+  id: number;
+  blog?: {
+    seo?: {
+      /**
+       * Titre affiché dans les résultats de recherche (laisser vide pour utiliser le titre par défaut)
+       */
+      metaTitle?: string | null;
+      /**
+       * Description courte pour les moteurs de recherche
+       */
+      metaDescription?: string | null;
+      /**
+       * Image affichée lors du partage sur les réseaux sociaux
+       */
+      ogImage?: (number | null) | Media;
+      keywords?:
+        | {
+            keyword?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+  };
+  contact?: {
+    seo?: {
+      /**
+       * Titre affiché dans les résultats de recherche (laisser vide pour utiliser le titre par défaut)
+       */
+      metaTitle?: string | null;
+      /**
+       * Description courte pour les moteurs de recherche
+       */
+      metaDescription?: string | null;
+      /**
+       * Image affichée lors du partage sur les réseaux sociaux
+       */
+      ogImage?: (number | null) | Media;
+      keywords?:
+        | {
+            keyword?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -946,6 +1054,62 @@ export interface LandingSelect<T extends boolean = true> {
         openingHours?: T;
         mapLat?: T;
         mapLng?: T;
+      };
+  seo?:
+    | T
+    | {
+        metaTitle?: T;
+        metaDescription?: T;
+        ogImage?: T;
+        keywords?:
+          | T
+          | {
+              keyword?: T;
+              id?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "seo_select".
+ */
+export interface SeoSelect<T extends boolean = true> {
+  blog?:
+    | T
+    | {
+        seo?:
+          | T
+          | {
+              metaTitle?: T;
+              metaDescription?: T;
+              ogImage?: T;
+              keywords?:
+                | T
+                | {
+                    keyword?: T;
+                    id?: T;
+                  };
+            };
+      };
+  contact?:
+    | T
+    | {
+        seo?:
+          | T
+          | {
+              metaTitle?: T;
+              metaDescription?: T;
+              ogImage?: T;
+              keywords?:
+                | T
+                | {
+                    keyword?: T;
+                    id?: T;
+                  };
+            };
       };
   updatedAt?: T;
   createdAt?: T;

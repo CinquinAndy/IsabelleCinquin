@@ -33,6 +33,7 @@
     "@radix-ui/react-slot": "1.2.4",
     "@tabler/icons-react": "3.36.0",
     "@tailwindcss/postcss": "4.1.18",
+    "@tailwindcss/typography": "^0.5.19",
     "@tsparticles/engine": "3.9.1",
     "@tsparticles/react": "3.0.0",
     "@tsparticles/slim": "3.9.1",

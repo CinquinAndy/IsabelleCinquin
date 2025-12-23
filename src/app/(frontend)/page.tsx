@@ -1,6 +1,20 @@
 import config from '@payload-config'
 import { getPayload } from 'payload'
 import { Footer } from '@/components/footer'
+import { constructMetadata } from '@/lib/metadata'
+
+export async function generateMetadata() {
+	const payload = await getPayload({ config })
+	const landing = await payload.findGlobal({
+		slug: 'landing',
+		depth: 1,
+	})
+
+	return constructMetadata({
+		seo: landing.seo as any,
+	})
+}
+
 import { Hero } from '@/components/hero'
 import {
 	AboutSection,
@@ -15,7 +29,6 @@ import {
 	LivingPlace,
 	Objectives,
 	Organization,
-
 	Sleep,
 	Trainings,
 } from '@/components/sections'
@@ -63,11 +76,7 @@ export default async function HomePage() {
 
 			<AboutSection about={landing?.about} />
 
-			<Family
-				members={
-					landing?.familyMembers
-				}
-			/>
+			<Family members={landing?.familyMembers} />
 
 			<Trainings trainingsSection={landing?.trainingsSection} />
 

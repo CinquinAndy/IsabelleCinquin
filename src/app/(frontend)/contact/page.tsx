@@ -8,10 +8,19 @@ import { ContactForm, LocationMap } from '@/components/contact'
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
 
-export const metadata: Metadata = {
-	title: 'Contact',
-	description:
-		'Contactez Isabelle Cinquin, assistante maternelle à Sciez. Formulaire de contact, téléphone, email et localisation.',
+import { constructMetadata } from '@/lib/metadata'
+
+export async function generateMetadata() {
+	const payload = await getPayload({ config })
+	const seoGlobal = await payload.findGlobal({
+		slug: 'seo',
+	})
+
+	return constructMetadata({
+		seo: seoGlobal.contact?.seo as any,
+		fallbackTitle: 'Contact | Nounou Sciez',
+		fallbackDescription: 'Contactez Isabelle Cinquin, assistante maternelle à Sciez. Formulaire de contact, téléphone, email et localisation.',
+	})
 }
 
 interface Settings {

@@ -70,6 +70,7 @@ async function seedLanding() {
 	const kylianImage = await uploadMedia(payload, 'kylian.jpg', 'Kylian')
 	const tagadaImage = await uploadMedia(payload, 'tagada.jpg', 'Tagada')
 	const siaImage = await uploadMedia(payload, 'sia.jpg', 'Sia')
+	const mapImage = await uploadMedia(payload, 'Home_sweet_home.jpg', 'Plan de la maison')
 
 	// Update the Landing global with all default content
 	await payload.updateGlobal({
@@ -254,6 +255,7 @@ async function seedLanding() {
 			livingPlace: {
 				title: 'Lieu de vie',
 				description: "J'accueille vos enfants dans une maison clôturée avec jardin qui se situe au bord du Lac Léman.",
+				images: mapImage ? [{ image: mapImage.id }] : [],
 			},
 
 			// ==================== SECTION EQUIPEMENTS ====================

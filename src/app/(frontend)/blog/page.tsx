@@ -291,7 +291,19 @@ export default async function BlogPage() {
 	)
 }
 
-export const metadata = {
-	title: 'Blog | Nounou Sciez',
-	description: 'Découvrez les activités et moments de vie chez nounou à Sciez',
+// ... component ending ...
+
+import { constructMetadata } from '@/lib/metadata'
+
+export async function generateMetadata() {
+	const payload = await getPayload({ config: configPromise })
+	const seoGlobal = await payload.findGlobal({
+		slug: 'seo',
+	})
+
+	return constructMetadata({
+		seo: seoGlobal.blog?.seo as any,
+		fallbackTitle: 'Blog | Nounou Sciez',
+		fallbackDescription: 'Découvrez les actualités et moments de vie chez nounou à Sciez',
+	})
 }

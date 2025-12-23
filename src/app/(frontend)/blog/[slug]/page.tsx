@@ -185,7 +185,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 					)}
 
 					{/* Article content from rich text */}
-					<article className="prose prose-invert prose-lg max-w-none">
+					<article className="prose prose-isa prose-invert prose-lg max-w-none">
 						{post.content && <RichTextParser content={post.content} />}
 					</article>
 				</div>
@@ -201,20 +201,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 	)
 }
 
+import { constructMetadata } from '@/lib/metadata'
+
 export async function generateMetadata({ params }: BlogPostPageProps) {
 	const { slug } = await params
 	const post = await getPostBySlug(slug)
 
-	if (!post) {
-		return {
-			title: 'Article non trouvé | Blog Nounou Sciez',
-		}
-	}
-
-	return {
-		title: `${post.title} | Blog Nounou Sciez`,
-		description: post.excerpt,
-	}
+	return constructMetadata({
+		seo: post?.seo as any,
+		fallbackTitle: post ? `${post.title} | Blog Nounou Sciez` : 'Article non trouvé | Blog Nounou Sciez',
+		fallbackDescription: post?.excerpt || undefined,
+	})
 }
 
 // Generate static params for all published posts

@@ -15,7 +15,6 @@ export function LivingPlace({ livingPlace }: LivingPlaceProps) {
 
 	const title = livingPlace.title
 	const description = livingPlace.description
-	const images = livingPlace.images
 
 	return (
 		<SectionWrapper id="lieu-de-vie" variant="primary">
@@ -30,38 +29,15 @@ export function LivingPlace({ livingPlace }: LivingPlaceProps) {
 				<div className="text-center space-y-4 mb-10">
 					<p className="text-lg leading-relaxed opacity-90">{description}</p>
 				</div>
-
-				{/* Placeholder for future interactive element */}
-				{images && images.length > 0 ? (
-					<div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-						{images.map((item, index) => {
-							const mediaUrl = formatMediaUrl(typeof item.image === 'object' && item.image?.url ? item.image.url : null)
-							const mediaAlt =
-								typeof item.image === 'object' && item.image?.alt ? item.image.alt : `Photo lieu de vie ${index + 1}`
-
-							if (!mediaUrl) return null
-
-							return (
-								<div key={item.id || index} className="aspect-video relative rounded-xl overflow-hidden">
-									<Image
-										src={mediaUrl}
-										alt={mediaAlt}
-										fill
-										className="object-cover"
-										sizes="(max-width: 768px) 50vw, 33vw"
-									/>
-								</div>
-							)
-						})}
-					</div>
-				) : (
-					<div className="aspect-video bg-white/10 rounded-2xl flex items-center justify-center">
-						<div className="text-center">
-							<Home className="w-16 h-16 mx-auto opacity-50 mb-4" />
-							<p className="opacity-70">Visite virtuelle à venir</p>
-						</div>
-					</div>
-				)}
+				<div className="aspect-video relative rounded-xl overflow-hidden">
+					<Image
+						src={"/Home_sweet_home.jpg"}
+						alt="Plan de la maison"
+						fill
+						className="object-cover"
+						sizes="(max-width: 768px) 50vw, 33vw"
+					/>
+				</div>
 			</div>
 		</SectionWrapper>
 	)
