@@ -4,10 +4,10 @@ import { Clock, Heart, Home, MessageCircle, Stethoscope, Users, Wallet } from 'l
 import Link from 'next/link'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
-import type { LandingCharterRule } from '@/types/landing'
+import type { LandingCharterRule, LandingCharterSection } from '@/types/landing'
 
 interface CharterProps {
-	rules?: LandingCharterRule[] | null
+	charterSection?: LandingCharterSection | null
 }
 
 // Icons for each rule

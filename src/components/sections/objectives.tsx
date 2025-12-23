@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
-import type { LandingObjective } from '@/types/landing'
+import type { LandingObjective, LandingObjectivesSection } from '@/types/landing'
 
 interface ObjectiveWithUI {
 	id?: string | null
@@ -11,7 +11,7 @@ interface ObjectiveWithUI {
 }
 
 interface ObjectivesProps {
-	objectives?: LandingObjective[] | null
+	objectivesSection?: LandingObjectivesSection | null
 }
 
 const defaultObjectives: ObjectiveWithUI[] = [

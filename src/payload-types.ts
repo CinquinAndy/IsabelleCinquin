@@ -446,6 +446,35 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface Landing {
   id: number;
+  about?: {
+    badge?: string | null;
+    title?: string | null;
+    titleAccent?: string | null;
+    content?: {
+      root: {
+        type: string;
+        children: {
+          type: any;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    } | null;
+    image?: (number | null) | Media;
+    stats?:
+      | {
+          value: number;
+          suffix?: string | null;
+          label: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
   introduction?: {
     title?: string | null;
     content?: {
@@ -466,6 +495,7 @@ export interface Landing {
     image?: (number | null) | Media;
   };
   presentation?: {
+    title?: string | null;
     content?: {
       root: {
         type: string;
@@ -496,18 +526,23 @@ export interface Landing {
         id?: string | null;
       }[]
     | null;
-  trainings?:
-    | {
-        title: string;
-        /**
-         * Ex: 2018 - 2020
-         */
-        period?: string | null;
-        description?: string | null;
-        id?: string | null;
-      }[]
-    | null;
+  trainingsSection?: {
+    title?: string | null;
+    items?:
+      | {
+          title: string;
+          /**
+           * Ex: 2018 - 2020
+           */
+          period?: string | null;
+          description?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
   sleep?: {
+    title?: string | null;
+    subtitle?: string | null;
     content?: {
       root: {
         type: string;
@@ -523,8 +558,16 @@ export interface Landing {
       };
       [k: string]: unknown;
     } | null;
+    tags?:
+      | {
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
   };
   livingPlace?: {
+    title?: string | null;
+    description?: string | null;
     content?: {
       root: {
         type: string;
@@ -547,52 +590,72 @@ export interface Landing {
         }[]
       | null;
   };
-  equipment?:
-    | {
-        name: string;
-        /**
-         * Optionnel
-         */
-        quantity?: number | null;
-        id?: string | null;
-      }[]
-    | null;
-  objectives?:
-    | {
-        title: string;
-        icon?:
-          | (
-              | 'baby'
-              | 'hand-helping'
-              | 'utensils'
-              | 'heart-pulse'
-              | 'shield-check'
-              | 'star'
-              | 'sun'
-              | 'home'
-              | 'book-open'
-              | 'palette'
-            )
-          | null;
-        content?: {
-          root: {
-            type: string;
-            children: {
-              type: any;
+  equipmentSection?: {
+    title?: string | null;
+    subtitle?: string | null;
+    items?:
+      | {
+          name: string;
+          /**
+           * Optionnel
+           */
+          quantity?: number | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  objectivesSection?: {
+    title?: string | null;
+    subtitle?: string | null;
+    items?:
+      | {
+          title: string;
+          description?: string | null;
+          icon?:
+            | (
+                | 'baby'
+                | 'hand-helping'
+                | 'utensils'
+                | 'heart-pulse'
+                | 'shield-check'
+                | 'star'
+                | 'sun'
+                | 'home'
+                | 'book-open'
+                | 'palette'
+              )
+            | null;
+          content?: {
+            root: {
+              type: string;
+              children: {
+                type: any;
+                version: number;
+                [k: string]: unknown;
+              }[];
+              direction: ('ltr' | 'rtl') | null;
+              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+              indent: number;
               version: number;
-              [k: string]: unknown;
-            }[];
-            direction: ('ltr' | 'rtl') | null;
-            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-            indent: number;
-            version: number;
-          };
-          [k: string]: unknown;
-        } | null;
-        id?: string | null;
-      }[]
-    | null;
+            };
+            [k: string]: unknown;
+          } | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
   adaptation?: {
+    title?: string | null;
+    subtitle?: string | null;
+    image?: (number | null) | Media;
+    keyMessage?: string | null;
+    badges?:
+      | {
+          text: string;
+          color?: ('pink' | 'violet' | 'amber' | 'emerald') | null;
+          id?: string | null;
+        }[]
+      | null;
     content?: {
       root: {
         type: string;
@@ -610,6 +673,8 @@ export interface Landing {
     } | null;
   };
   organization?: {
+    title?: string | null;
+    subtitle?: string | null;
     bagItems?:
       | {
           item: string;
@@ -625,41 +690,35 @@ export interface Landing {
       | null;
     nounouImage?: (number | null) | Media;
   };
-  dailySchedule?:
-    | {
-        /**
-         * Ex: 7h30, Matin, Après-midi...
-         */
-        time?: string | null;
-        activity: string;
-        id?: string | null;
-      }[]
-    | null;
-  charter?:
-    | {
-        ruleNumber: number;
-        /**
-         * Ex: 1ère règle de Nounou
-         */
-        title?: string | null;
-        content?: {
-          root: {
-            type: string;
-            children: {
-              type: any;
-              version: number;
-              [k: string]: unknown;
-            }[];
-            direction: ('ltr' | 'rtl') | null;
-            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-            indent: number;
-            version: number;
-          };
-          [k: string]: unknown;
-        } | null;
-        id?: string | null;
-      }[]
-    | null;
+  dailyScheduleSection?: {
+    title?: string | null;
+    subtitle?: string | null;
+    items?:
+      | {
+          /**
+           * Ex: 7h30, Matin, Après-midi...
+           */
+          time?: string | null;
+          activity: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  charterSection?: {
+    title?: string | null;
+    subtitle?: string | null;
+    items?:
+      | {
+          ruleNumber: number;
+          /**
+           * Ex: 1ère règle de Nounou
+           */
+          title?: string | null;
+          content?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
   settings?: {
     /**
      * Décocher pour afficher le message d'indisponibilité
@@ -687,6 +746,23 @@ export interface Landing {
  * via the `definition` "landing_select".
  */
 export interface LandingSelect<T extends boolean = true> {
+  about?:
+    | T
+    | {
+        badge?: T;
+        title?: T;
+        titleAccent?: T;
+        content?: T;
+        image?: T;
+        stats?:
+          | T
+          | {
+              value?: T;
+              suffix?: T;
+              label?: T;
+              id?: T;
+            };
+      };
   introduction?:
     | T
     | {
@@ -697,6 +773,7 @@ export interface LandingSelect<T extends boolean = true> {
   presentation?:
     | T
     | {
+        title?: T;
         content?: T;
         agreementInfo?: T;
       };
@@ -710,22 +787,37 @@ export interface LandingSelect<T extends boolean = true> {
         link?: T;
         id?: T;
       };
-  trainings?:
+  trainingsSection?:
     | T
     | {
         title?: T;
-        period?: T;
-        description?: T;
-        id?: T;
+        items?:
+          | T
+          | {
+              title?: T;
+              period?: T;
+              description?: T;
+              id?: T;
+            };
       };
   sleep?:
     | T
     | {
+        title?: T;
+        subtitle?: T;
         content?: T;
+        tags?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
       };
   livingPlace?:
     | T
     | {
+        title?: T;
+        description?: T;
         content?: T;
         images?:
           | T
@@ -734,29 +826,55 @@ export interface LandingSelect<T extends boolean = true> {
               id?: T;
             };
       };
-  equipment?:
-    | T
-    | {
-        name?: T;
-        quantity?: T;
-        id?: T;
-      };
-  objectives?:
+  equipmentSection?:
     | T
     | {
         title?: T;
-        icon?: T;
-        content?: T;
-        id?: T;
+        subtitle?: T;
+        items?:
+          | T
+          | {
+              name?: T;
+              quantity?: T;
+              id?: T;
+            };
+      };
+  objectivesSection?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
+        items?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              icon?: T;
+              content?: T;
+              id?: T;
+            };
       };
   adaptation?:
     | T
     | {
+        title?: T;
+        subtitle?: T;
+        image?: T;
+        keyMessage?: T;
+        badges?:
+          | T
+          | {
+              text?: T;
+              color?: T;
+              id?: T;
+            };
         content?: T;
       };
   organization?:
     | T
     | {
+        title?: T;
+        subtitle?: T;
         bagItems?:
           | T
           | {
@@ -772,20 +890,32 @@ export interface LandingSelect<T extends boolean = true> {
             };
         nounouImage?: T;
       };
-  dailySchedule?:
+  dailyScheduleSection?:
     | T
     | {
-        time?: T;
-        activity?: T;
-        id?: T;
-      };
-  charter?:
-    | T
-    | {
-        ruleNumber?: T;
         title?: T;
-        content?: T;
-        id?: T;
+        subtitle?: T;
+        items?:
+          | T
+          | {
+              time?: T;
+              activity?: T;
+              id?: T;
+            };
+      };
+  charterSection?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
+        items?:
+          | T
+          | {
+              ruleNumber?: T;
+              title?: T;
+              content?: T;
+              id?: T;
+            };
       };
   settings?:
     | T

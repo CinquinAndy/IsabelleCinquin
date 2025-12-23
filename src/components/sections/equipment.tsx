@@ -3,7 +3,7 @@
 import { Warp } from '@paper-design/shaders-react'
 import Image from 'next/image'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
-import type { LandingEquipment } from '@/types/landing'
+import type { LandingEquipment, LandingEquipmentSection } from '@/types/landing'
 
 interface EquipmentItem extends LandingEquipment {
 	icon: string
@@ -11,7 +11,7 @@ interface EquipmentItem extends LandingEquipment {
 }
 
 interface EquipmentProps {
-	equipment?: LandingEquipment[] | null
+	equipmentSection?: LandingEquipmentSection | null
 }
 
 const defaultEquipmentWithIcons: EquipmentItem[] = [

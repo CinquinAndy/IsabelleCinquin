@@ -156,30 +156,27 @@ export default async function HomePage() {
 				}
 			/>
 
-			<Trainings trainings={landing?.trainings} />
+			<Trainings trainingsSection={landing?.trainingsSection} />
 
-			<Sleep content={landing?.sleep?.content} />
+			<Sleep sleepSection={landing?.sleep} />
 
-			<LivingPlace content={landing?.livingPlace?.content} images={landing?.livingPlace?.images} />
+			<LivingPlace livingPlace={landing?.livingPlace} />
 
-			<Equipment equipment={landing?.equipment} />
+			<Equipment equipmentSection={landing?.equipmentSection} />
 
-			<Objectives objectives={landing?.objectives} />
+			<Objectives objectivesSection={landing?.objectivesSection} />
 
-			<Adaptation content={landing?.adaptation?.content} />
+			<Adaptation adaptation={landing?.adaptation} />
 
 			<Organization
-				bagItems={landing?.organization?.bagItems}
-				bagImage={landing?.organization?.bagImage}
-				nounouItems={landing?.organization?.nounouItems}
-				nounouImage={landing?.organization?.nounouImage}
+				organization={landing?.organization}
 			/>
 
-			<DailySchedule schedule={landing?.dailySchedule} />
+			<DailySchedule dailyScheduleSection={landing?.dailyScheduleSection} />
 
 			<Activities posts={importantPosts} />
 
-			<Charter rules={landing?.charter} />
+			<Charter charterSection={landing?.charterSection} />
 
 			<ContactPreview
 				email={settings?.email}

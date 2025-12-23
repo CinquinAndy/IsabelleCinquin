@@ -3,10 +3,10 @@
 import { motion } from 'framer-motion'
 import { Baby, Clock, Coffee, Moon, School, Sun, Utensils, Waves } from 'lucide-react'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
-import type { LandingDailyScheduleItem } from '@/types/landing'
+import type { LandingDailyScheduleItem, LandingDailyScheduleSection } from '@/types/landing'
 
 interface DailyScheduleProps {
-	schedule?: LandingDailyScheduleItem[] | null
+	dailyScheduleSection?: LandingDailyScheduleSection | null
 }
 
 // Icons for different times of day

@@ -5,15 +5,52 @@
 
 import type { Landing, Media } from '@/payload-types'
 
-// Extract types from Landing for each section
+// ==================== SECTION TYPES ====================
+
+// About section
+export type LandingAbout = NonNullable<Landing['about']>
+export type LandingAboutStat = NonNullable<LandingAbout['stats']>[number]
+
+// Family members
 export type LandingFamilyMember = NonNullable<Landing['familyMembers']>[number]
-export type LandingTraining = NonNullable<Landing['trainings']>[number]
-export type LandingLivingPlaceImage = NonNullable<NonNullable<Landing['livingPlace']>['images']>[number]
-export type LandingEquipment = NonNullable<Landing['equipment']>[number]
-export type LandingObjective = NonNullable<Landing['objectives']>[number]
-export type LandingOrganizationItem = NonNullable<NonNullable<Landing['organization']>['bagItems']>[number]
-export type LandingDailyScheduleItem = NonNullable<Landing['dailySchedule']>[number]
-export type LandingCharterRule = NonNullable<Landing['charter']>[number]
+
+// Trainings section
+export type LandingTrainingsSection = NonNullable<Landing['trainingsSection']>
+export type LandingTraining = NonNullable<LandingTrainingsSection['items']>[number]
+
+// Sleep section
+export type LandingSleep = NonNullable<Landing['sleep']>
+export type LandingSleepTag = NonNullable<LandingSleep['tags']>[number]
+
+// Living place section
+export type LandingLivingPlace = NonNullable<Landing['livingPlace']>
+export type LandingLivingPlaceImage = NonNullable<LandingLivingPlace['images']>[number]
+
+// Equipment section
+export type LandingEquipmentSection = NonNullable<Landing['equipmentSection']>
+export type LandingEquipment = NonNullable<LandingEquipmentSection['items']>[number]
+
+// Objectives section
+export type LandingObjectivesSection = NonNullable<Landing['objectivesSection']>
+export type LandingObjective = NonNullable<LandingObjectivesSection['items']>[number]
+
+// Adaptation section
+export type LandingAdaptation = NonNullable<Landing['adaptation']>
+export type LandingAdaptationBadge = NonNullable<LandingAdaptation['badges']>[number]
+
+// Organization section
+export type LandingOrganization = NonNullable<Landing['organization']>
+export type LandingOrganizationItem = NonNullable<LandingOrganization['bagItems']>[number]
+
+// Daily schedule section
+export type LandingDailyScheduleSection = NonNullable<Landing['dailyScheduleSection']>
+export type LandingDailyScheduleItem = NonNullable<LandingDailyScheduleSection['items']>[number]
+
+// Charter section
+export type LandingCharterSection = NonNullable<Landing['charterSection']>
+export type LandingCharterRule = NonNullable<LandingCharterSection['items']>[number]
+
+// Settings
 export type LandingSettings = NonNullable<Landing['settings']>
 
 // Rich text content type
