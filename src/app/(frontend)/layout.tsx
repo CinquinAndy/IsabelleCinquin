@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import type React from 'react'
 import '@/app/(frontend)/global.css'
 import { Gluten, Nunito_Sans, Rock_Salt } from 'next/font/google'
+import { Header } from '@/components/header/header'
 import { Toaster } from '@/components/ui/sonner'
 
 const gluten = Gluten({
@@ -42,6 +43,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 	return (
 		<html lang="fr" className={`${gluten.variable} ${nunitoSans.variable} ${rockSalt.variable}`}>
 			<body>
+				<Header />
 				<main>{children}</main>
 				<Toaster />
 			</body>

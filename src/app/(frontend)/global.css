@@ -173,29 +173,47 @@
 	color: white;
 }
 
-
-
 body {
-  --sb-track-color: #000000;
-  --sb-thumb-color: #5d4fb9;
-  --sb-size: 14px;
-  
-  /* Firefox */
-  scrollbar-width: thin;
-  scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+	--sb-track-color: #000000;
+	--sb-thumb-color: #5d4fb9;
+	--sb-size: 14px;
+
+	/* Firefox */
+	scrollbar-width: thin;
+	scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
 }
 
 /* Chrome, Edge, Safari */
 body::-webkit-scrollbar {
-  width: var(--sb-size);
+	width: var(--sb-size);
 }
 
 body::-webkit-scrollbar-track {
-  background: var(--sb-track-color);
-  border-radius: 3px;
+	background: var(--sb-track-color);
+	border-radius: 3px;
 }
 
 body::-webkit-scrollbar-thumb {
-  background: var(--sb-thumb-color);
-  border-radius: 3px;
+	background: var(--sb-thumb-color);
+	border-radius: 3px;
+}
+
+/* Blog animations */
+@keyframes subtle-spin {
+	0% {
+		transform: rotate(0deg) scale(1);
+	}
+	25% {
+		transform: rotate(-5deg) scale(1.05);
+	}
+	75% {
+		transform: rotate(5deg) scale(0.95);
+	}
+	100% {
+		transform: rotate(0deg) scale(1);
+	}
+}
+
+.animate-subtle-spin {
+	animation: subtle-spin 4s ease-in-out infinite;
 }

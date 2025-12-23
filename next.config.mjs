@@ -40,6 +40,7 @@ const nextConfig = {
 			{ protocol: 'http', hostname: 'localhost' },
 			{ protocol: 'https', hostname: '*.isabelle-cinquin.fr' },
 			{ protocol: 'https', hostname: 'isabelle-cinquin.fr' },
+			{ protocol: 'https', hostname: '*.unsplash.com' },
 		],
 		qualities: [75, 90, 100],
 	},

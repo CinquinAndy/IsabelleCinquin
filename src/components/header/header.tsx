@@ -7,8 +7,7 @@ import { SlideTabs } from '@/components/ui/slide-tabs'
 
 const navItems = [
 	{ label: 'Accueil', href: '/' },
-	{ label: 'À propos', href: '#presentation' },
-	{ label: 'Activités', href: '#activites' },
+	{ label: 'Activités', href: '/blog' },
 	{ label: 'Contact', href: '/contact' },
 ]
 

@@ -1,239 +1,181 @@
-import config from '@payload-config'
-import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react'
-import type { Metadata } from 'next'
+import configPromise from '@payload-config'
 import Link from 'next/link'
 import { getPayload } from 'payload'
-import { PostCard } from '@/components/blog'
-import { Footer } from '@/components/footer'
-import { Header } from '@/components/header'
+import { LazyImage } from '@/components/ui/lazy-image'
+import { SectionWrapper } from '@/components/ui/section-wrapper'
 
-export const metadata: Metadata = {
-	title: 'Blog',
-	description: 'Découvrez les activités, conseils et actualités de nounou Isabelle à Sciez.',
-}
+// Default blog posts for preview
+const defaultPosts = [
+	{
+		id: 1,
+		title: 'Activités manuelles créatives',
+		slug: 'activites-manuelles',
+		excerpt:
+			'Peinture, dessin, pâte à modeler, sable magique... Des activités pour développer la créativité des enfants !',
+		image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&h=600&auto=format&fit=crop',
+		category: 'Créativité',
+		publishedAt: '2024-01-15',
+		readTime: '3 min',
+	},
+	{
+		id: 2,
+		title: 'Promenades au lac Léman',
+		slug: 'promenades-lac',
+		excerpt: "Découverte de la nature, observation des canards, jeux au bord de l'eau dans un cadre magnifique.",
+		image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&auto=format&fit=crop',
+		category: 'Extérieur',
+		publishedAt: '2024-01-10',
+		readTime: '4 min',
+	},
+	{
+		id: 3,
+		title: 'Jeux et éveil musical',
+		slug: 'jeux-eveil',
+		excerpt: 'Comptines, instruments de musique, danse... Pour éveiller les sens et passer de bons moments.',
+		image: 'https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=800&h=600&auto=format&fit=crop',
+		category: 'Éveil',
+		publishedAt: '2024-01-05',
+		readTime: '5 min',
+	},
+	{
+		id: 4,
+		title: 'La lecture avec les petits',
+		slug: 'lecture-petits',
+		excerpt: 'Histoires du soir, livres imagés, contes... Des moments de calme et de partage autour des livres.',
+		image: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800&h=600&auto=format&fit=crop',
+		category: 'Éveil',
+		publishedAt: '2024-01-02',
+		readTime: '3 min',
+	},
+	{
+		id: 5,
+		title: 'Jeux en plein air',
+		slug: 'jeux-plein-air',
+		excerpt: 'Toboggan, balançoire, bac à sable... Le jardin est un terrain de jeu idéal pour les enfants.',
+		image: 'https://images.unsplash.com/photo-1540479859555-17af45c78602?w=800&h=600&auto=format&fit=crop',
+		category: 'Extérieur',
+		publishedAt: '2023-12-28',
+		readTime: '4 min',
+	},
+	{
+		id: 6,
+		title: 'Cuisine avec les enfants',
+		slug: 'cuisine-enfants',
+		excerpt: "Gâteaux, biscuits, pizzas maison... Apprendre en s'amusant et déguster ensemble.",
+		image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&auto=format&fit=crop',
+		category: 'Créativité',
+		publishedAt: '2023-12-20',
+		readTime: '5 min',
+	},
+]
 
-const POSTS_PER_PAGE = 9
+export default async function BlogPage() {
+	// Try to fetch real posts from CMS
+	let posts: typeof defaultPosts = []
 
-interface BlogPageProps {
-	searchParams: Promise<{
-		page?: string
-		category?: string
-	}>
-}
-
-interface Post {
-	id: number
-	title: string
-	slug: string
-	excerpt: string
-	featuredImage?: { id: number; url?: string | null; alt?: string | null } | number | null
-	categories?: ({ id: number; name: string; slug: string } | number)[] | null
-	publishedAt?: string | null
-}
-
-async function getPosts(page: number, categorySlug?: string) {
 	try {
-		const payload = await getPayload({ config })
-
-		// Build where clause
-		const whereClause: Record<string, { equals?: string; contains?: number }> = {
-			status: { equals: 'published' },
-		}
-
-		if (categorySlug) {
-			// First, find the category by slug
-			const categories = await payload.find({
-				// @ts-expect-error - categories collection not in generated types yet
-				collection: 'categories',
-				where: { slug: { equals: categorySlug } },
-				limit: 1,
-			})
-
-			if (categories.docs.length > 0) {
-				whereClause.categories = { contains: (categories.docs[0] as { id: number }).id }
-			}
-		}
-
-		const posts = await payload.find({
-			// @ts-expect-error - posts collection not in generated types yet
-			collection: 'posts',
-			where: whereClause,
+		const payload = await getPayload({ config: configPromise })
+		const result = await payload.find({
+			collection: 'posts' as any,
+			limit: 20,
 			sort: '-publishedAt',
-			page,
-			limit: POSTS_PER_PAGE,
-			depth: 1,
 		})
 
-		return {
-			docs: posts.docs as unknown as Post[],
-			totalPages: posts.totalPages,
-			page: posts.page,
-			hasNextPage: posts.hasNextPage,
-			hasPrevPage: posts.hasPrevPage,
+		if (result.docs && result.docs.length > 0) {
+			posts = result.docs.map((post: any) => ({
+				id: post.id,
+				title: post.title || 'Sans titre',
+				slug: post.slug || '',
+				excerpt: post.excerpt || '',
+				image: post.featuredImage?.url || null,
+				category: post.category || null,
+				publishedAt: post.publishedAt || null,
+				readTime: post.readTime || '3 min',
+			}))
 		}
-	} catch {
-		return { docs: [] as Post[], totalPages: 0, page: 1, hasNextPage: false, hasPrevPage: false }
+	} catch (error) {
+		// CMS not available, use defaults
+		console.log('Using default posts')
 	}
-}
 
-interface Category {
-	id: number
-	name: string
-	slug: string
-}
-
-async function getCategories(): Promise<Category[]> {
-	try {
-		const payload = await getPayload({ config })
-		const categories = await payload.find({
-			// @ts-expect-error - categories collection not in generated types yet
-			collection: 'categories',
-			limit: 100,
-		})
-		return categories.docs as unknown as Category[]
-	} catch {
-		return []
-	}
-}
-
-export default async function BlogPage({ searchParams }: BlogPageProps) {
-	const params = await searchParams
-	const currentPage = Number(params.page) || 1
-	const categorySlug = params.category
-
-	const [postsData, categories] = await Promise.all([getPosts(currentPage, categorySlug), getCategories()])
-
-	const { docs: posts, totalPages, hasNextPage, hasPrevPage } = postsData
+	// Use defaults if no CMS posts
+	const displayPosts = posts.length > 0 ? posts : defaultPosts
 
 	return (
-		<>
-			<Header />
-
-			<main className="min-h-screen bg-background">
-				{/* Hero section */}
-				<section className="section-primary pt-32 pb-16 px-4">
-					<div className="max-w-5xl mx-auto">
-						<Link
-							href="/"
-							className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-8"
-						>
-							<ArrowLeft className="w-4 h-4" />
-							Retour à l'accueil
-						</Link>
-
-						<h1 className="text-4xl md:text-5xl font-bold mb-4">Blog</h1>
-						<p className="text-xl opacity-90 max-w-2xl">Activités, conseils et actualités de nounou</p>
+		<main className="min-h-screen">
+			<SectionWrapper variant="primary" className="pt-32 pb-16">
+				<div className="max-w-7xl mx-auto">
+					{/* Header */}
+					<div className="space-y-4 px-4 mb-12">
+						<h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+							Le <span className="font-handwriting text-white/80">Blog</span>
+						</h1>
+						<p className="text-lg text-white/70 max-w-2xl">
+							Découvrez nos activités, nos sorties et tous les moments de bonheur partagés avec les enfants.
+						</p>
 					</div>
-				</section>
 
-				{/* Categories filter */}
-				{categories.length > 0 && (
-					<section className="bg-muted py-6 px-4">
-						<div className="max-w-5xl mx-auto">
-							<div className="flex flex-wrap items-center gap-3">
-								<span className="text-sm font-medium text-muted-foreground">Filtrer par :</span>
-								<Link
-									href="/blog"
-									className={`text-sm px-4 py-2 rounded-full transition-colors ${
-										!categorySlug
-											? 'bg-primary text-primary-foreground'
-											: 'bg-white text-foreground hover:bg-primary/10'
-									}`}
-								>
-									Tous
-								</Link>
-								{categories.map(category => (
-									<Link
-										key={category.id}
-										href={`/blog?category=${category.slug}`}
-										className={`text-sm px-4 py-2 rounded-full transition-colors ${
-											categorySlug === category.slug
-												? 'bg-primary text-primary-foreground'
-												: 'bg-white text-foreground hover:bg-primary/10'
-										}`}
-									>
-										{category.name}
-									</Link>
-								))}
-							</div>
-						</div>
-					</section>
-				)}
+					{/* Decorative line */}
+					<div className="border-b border-dashed border-white/20 mx-4 mb-8" />
 
-				{/* Posts grid */}
-				<section className="py-16 px-4">
-					<div className="max-w-5xl mx-auto">
-						{posts.length > 0 ? (
-							<>
-								<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-									{posts.map(post => (
-										<PostCard
-											key={post.id}
-											title={post.title}
-											slug={post.slug}
-											excerpt={post.excerpt}
-											featuredImage={post.featuredImage}
-											publishedAt={post.publishedAt}
-											categories={post.categories}
-										/>
-									))}
-								</div>
-
-								{/* Pagination */}
-								{totalPages > 1 && (
-									<div className="flex items-center justify-center gap-4 mt-12">
-										{hasPrevPage ? (
-											<Link
-												href={`/blog?page=${currentPage - 1}${categorySlug ? `&category=${categorySlug}` : ''}`}
-												className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow hover:shadow-md transition-shadow text-foreground"
-											>
-												<ChevronLeft className="w-4 h-4" />
-												Précédent
-											</Link>
-										) : (
-											<span className="flex items-center gap-2 px-4 py-2 text-muted-foreground opacity-50">
-												<ChevronLeft className="w-4 h-4" />
-												Précédent
-											</span>
+					{/* Blog grid */}
+					<div className="grid gap-6 p-4 md:grid-cols-2 lg:grid-cols-3">
+						{displayPosts.map(post => (
+							<Link
+								href={`/blog/${post.slug}`}
+								key={post.id}
+								className="group flex flex-col gap-3 rounded-2xl p-3 hover:bg-white/10 transition-colors duration-200"
+							>
+								<LazyImage
+									src={post.image}
+									fallback="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&h=600&auto=format&fit=crop"
+									inView={true}
+									alt={post.title}
+									ratio={16 / 9}
+									className="transition-transform duration-500 group-hover:scale-105"
+								/>
+								<div className="space-y-2 px-1 pb-2">
+									{/* Meta info */}
+									<div className="flex items-center gap-2 text-xs text-white/50">
+										{post.category && (
+											<>
+												<span className="text-pink-300 font-medium">{post.category}</span>
+												<div className="bg-white/30 size-1 rounded-full" />
+											</>
 										)}
-
-										<span className="text-sm text-muted-foreground">
-											Page {currentPage} sur {totalPages}
-										</span>
-
-										{hasNextPage ? (
-											<Link
-												href={`/blog?page=${currentPage + 1}${categorySlug ? `&category=${categorySlug}` : ''}`}
-												className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow hover:shadow-md transition-shadow text-foreground"
-											>
-												Suivant
-												<ChevronRight className="w-4 h-4" />
-											</Link>
-										) : (
-											<span className="flex items-center gap-2 px-4 py-2 text-muted-foreground opacity-50">
-												Suivant
-												<ChevronRight className="w-4 h-4" />
-											</span>
+										{post.publishedAt && (
+											<>
+												<span>
+													{new Date(post.publishedAt).toLocaleDateString('fr-FR', {
+														day: 'numeric',
+														month: 'short',
+														year: 'numeric',
+													})}
+												</span>
+												<div className="bg-white/30 size-1 rounded-full" />
+											</>
 										)}
+										<span>{post.readTime}</span>
 									</div>
-								)}
-							</>
-						) : (
-							<div className="text-center py-20">
-								<p className="text-lg text-muted-foreground mb-4">Aucun article pour le moment.</p>
-								{categorySlug && (
-									<Link href="/blog" className="inline-flex items-center gap-2 text-primary hover:underline">
-										<ArrowLeft className="w-4 h-4" />
-										Voir tous les articles
-									</Link>
-								)}
-							</div>
-						)}
-					</div>
-				</section>
-			</main>
 
-			<Footer />
-		</>
+									{/* Title */}
+									<h2 className="text-lg font-semibold text-white leading-snug line-clamp-2 group-hover:text-white/90 transition-colors">
+										{post.title}
+									</h2>
+
+									{/* Excerpt */}
+									<p className="text-sm text-white/60 line-clamp-3">{post.excerpt}</p>
+								</div>
+							</Link>
+						))}
+					</div>
+				</div>
+			</SectionWrapper>
+		</main>
 	)
+}
+
+export const metadata = {
+	title: 'Blog | Nounou Sciez',
+	description: 'Découvrez les activités et moments de vie chez nounou à Sciez',
 }
