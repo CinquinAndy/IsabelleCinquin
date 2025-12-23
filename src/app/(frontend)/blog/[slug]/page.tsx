@@ -1,6 +1,7 @@
 import { ArrowLeft, Calendar, ChevronDown, Clock } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ContactPreview } from '@/components/sections/contact-preview'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 
 // TODO: Connect to Payload CMS to fetch real blog post content
@@ -180,24 +181,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 							</p>
 						))}
 					</article>
-
-					{/* Bottom CTA */}
-					<div className="mt-16 pt-12 border-t border-white/10">
-						<div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 text-center border border-white/10">
-							<h3 className="text-2xl font-handwriting text-white mb-3">Envie d'en savoir plus ?</h3>
-							<p className="text-white/70 mb-6">
-								N'hésitez pas à me contacter pour discuter de l'accueil de votre enfant.
-							</p>
-							<Link
-								href="/contact"
-								className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-full font-semibold hover:bg-white/90 transition-all hover:scale-105 shadow-lg"
-							>
-								Me contacter
-							</Link>
-						</div>
-					</div>
 				</div>
 			</SectionWrapper>
+
+			{/* CTA Section */}
+			<ContactPreview />
 		</main>
 	)
 }

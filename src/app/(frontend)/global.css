@@ -45,6 +45,18 @@
 	--shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.1), 0 8px 10px -6px hsl(0 0% 0% / 0.1);
 	--shadow-2xl: 0 25px 50px -12px hsl(0 0% 0% / 0.25);
 	--spacing: 0.25rem;
+
+	--color-isa-50: #eef1ff;
+	--color-isa-100: #e0e5ff;
+	--color-isa-200: #c7cefe;
+	--color-isa-300: #a5aefc;
+	--color-isa-400: #8184f8;
+	--color-isa-500: #6a63f1;
+	--color-isa-600: #5a45e6;
+	--color-isa-700: #4d38ca;
+	--color-isa-800: #3f30a3;
+	--color-isa-900: #372e81;
+	--color-isa-950: #1f1946;
 }
 
 @theme inline {

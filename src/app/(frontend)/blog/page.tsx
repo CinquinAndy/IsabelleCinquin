@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { getPayload } from 'payload'
+import { ContactPreview } from '@/components/sections/contact-preview'
 import { LazyImage } from '@/components/ui/lazy-image'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 
@@ -254,6 +255,9 @@ export default async function BlogPage() {
 					</div>
 				</div>
 			</SectionWrapper>
+
+			{/* CTA Section */}
+			<ContactPreview />
 		</main>
 	)
 }
