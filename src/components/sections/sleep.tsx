@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import { Moon } from 'lucide-react'
 import Image from 'next/image'
-import { SectionTitle } from '@/components/ui/section-title'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 
 interface SleepProps {

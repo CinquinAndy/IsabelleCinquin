@@ -2,7 +2,6 @@
 
 import { Warp } from '@paper-design/shaders-react'
 import Image from 'next/image'
-import { SectionTitle } from '@/components/ui/section-title'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 
 interface EquipmentItem {
