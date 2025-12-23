@@ -14,43 +14,15 @@ interface CharterProps {
 const ruleIcons = [Clock, Home, MessageCircle, Heart, Users, Stethoscope, Home, Clock, Wallet]
 
 // Default rule titles
-const defaultTitles: Record<number, string> = {
-	1: 'Ponctualité le matin',
-	2: "Respect de l'espace",
-	3: 'Communication importante',
-	4: 'Arrivée préparée',
-	5: 'Questions bienvenues',
-	6: 'Santé et maladie',
-	7: 'Lieu de vie privé',
-	8: 'Ponctualité le soir',
-	9: 'Paiement régulier',
-}
-
-// Default rule contents
-const defaultContents: Record<number, string> = {
-	1: "Papa, Maman, il est important pour mon rythme et l'organisation de nounou d'arriver bien à l'heure chaque jour. En cas d'imprévu, merci de prévenir Nounou.",
-	2: "Papa, Maman, pensez à bien rester à l'entrée. Car c'est moi qui vais crapahuter ici toute la journée.",
-	3: "Papa, Maman, je suis trop jeune pour expliquer ma nuit, mon petit déj, le week-end... à nounou. Prenez 5 minutes pour tout raconter à nounou, cela va drôlement l'aider à s'occuper de moi toute cette nouvelle journée.",
-	4: "Papa, Maman, je me sens bien mieux quand j'arrive chez nounou habillé, débarbouillé, ma couche changée. Merci de respecter chaque jour ces petits gestes qui sont si agréables pour Nounou.",
-	5: "Papa, Maman, n'hésitez pas à poser à ma nounou des questions qui vous préoccupent concernant mon évolution, alimentation, sommeil, santé, ma vie ici chez nounou...",
-	6: "Papa, Maman, si je suis malade avec de la fièvre, ne me mettez pas chez Nounou sans avoir pris le soin de m'emmener au préalable chez le docteur. Je reviendrais chez nounou avec le traitement adapté.",
-	7: "Papa, Maman, n'oubliez pas, le lieu de travail de Nounou est aussi sa maison, c'est pour cela qu'il faut respecter son environnement et ne pas être trop envahissant.",
-	8: "Papa et Maman, le soir, la ponctualité atténue mes angoisses. Pensez à prévenir Nounou d'un retard exceptionnel afin qu'elle puisse me rassurer et m'expliquer. En plus nounou n'est pas que nounou tout le temps, elle peut aussi avoir des rendez-vous persos !",
-	9: "Tout travail mérite salaire, Papa, Maman, n'oubliez pas de payer Nounou, elle aussi, doit payer son loyer, ses charges...",
-}
-
-const defaultRules: LandingCharterRule[] = Array.from({ length: 9 }, (_, i) => ({
-	id: String(i + 1),
-	ruleNumber: i + 1,
-	title: defaultTitles[i + 1],
-}))
-
 export function Charter({ charterSection }: CharterProps) {
-	const title = charterSection?.title || 'Charte de vie'
+	if (!charterSection?.title || !charterSection?.items) {
+		throw new Error('Missing required data for Charter section: title or items')
+	}
+
+	const title = charterSection.title
 	const subtitle =
-		charterSection?.subtitle || 'Les règles de vie chez nounou, écrites du point de vue de votre enfant 💜'
-	const rules = charterSection?.items || []
-	const items = rules.length > 0 ? rules : defaultRules
+		charterSection.subtitle || 'Les règles de vie chez nounou, écrites du point de vue de votre enfant 💜'
+	const items = charterSection.items
 
 	return (
 		<SectionWrapper id="charte" variant="secondary" className="overflow-hidden">
@@ -78,8 +50,12 @@ export function Charter({ charterSection }: CharterProps) {
 						<Accordion type="single" collapsible className="w-full space-y-3">
 							{items.map((rule: LandingCharterRule, index: number) => {
 								const IconComponent = ruleIcons[index % ruleIcons.length]
-								const ruleTitle = rule.title || defaultTitles[rule.ruleNumber] || `Règle ${rule.ruleNumber}`
-								const content = rule.content || defaultContents[rule.ruleNumber] || 'Contenu à définir.'
+								const ruleTitle = rule.title
+								const content = rule.content
+
+								if (!ruleTitle || !content) {
+									throw new Error(`Missing title or content for charter rule ${rule.ruleNumber}`)
+								}
 
 								return (
 									<AccordionItem

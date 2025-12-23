@@ -60,8 +60,12 @@ function TrainingCard({ training, index }: { training: TrainingWithIcon; index: 
 }
 
 export function Trainings({ trainingsSection }: TrainingsProps) {
-	const title = trainingsSection?.title || 'Mes formations'
-	const items = trainingsSection?.items || []
+	if (!trainingsSection?.title || !trainingsSection?.items) {
+		throw new Error('Missing required data for Trainings section: title or items')
+	}
+
+	const title = trainingsSection.title
+	const items = trainingsSection.items
 
 	// Add default icons if not present
 	const trainingsWithIcons: TrainingWithIcon[] = items.map((t, i) => ({

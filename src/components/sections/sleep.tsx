@@ -11,7 +11,11 @@ interface SleepProps {
 }
 
 export function Sleep({ sleepSection }: SleepProps) {
-	const title = sleepSection?.title || 'Le sommeil'
+	if (!sleepSection?.title) {
+		throw new Error('Missing required data for Sleep section')
+	}
+
+	const title = sleepSection.title
 
 	return (
 		<SectionWrapper id="sommeil" variant="primary">

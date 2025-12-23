@@ -22,29 +22,29 @@ const badgeIcons = [
 ]
 
 export function Adaptation({ adaptation }: AdaptationProps) {
-	const title = adaptation?.title || "Période d'adaptation"
+	if (!adaptation?.title || !adaptation?.badges || !adaptation?.image) {
+		throw new Error('Missing required data for Adaptation section')
+	}
+
+	const title = adaptation.title
 	const subtitle =
-		adaptation?.subtitle ||
+		adaptation.subtitle ||
 		"Une période importante pour permettre à l'enfant, aux parents, et à nounou de faire connaissance en douceur."
 	const keyMessage =
-		adaptation?.keyMessage ||
+		adaptation.keyMessage ||
 		"La clé d'un accueil réussi : une confiance mutuelle et un dialogue permanent entre les parents et la nounou."
-	const badges = adaptation?.badges || []
+	const badges = adaptation.badges
 
 	const mediaUrl =
-		formatMediaUrl(typeof adaptation?.image === 'object' && adaptation.image?.url
+		formatMediaUrl(typeof adaptation.image === 'object' && adaptation.image?.url
 			? adaptation.image.url
-			: null) || '/isabelle.jpg'
-	const mediaAlt = typeof adaptation?.image === 'object' && adaptation.image?.alt ? adaptation.image.alt : "Période d'adaptation avec nounou"
+			: null)
+	
+	if (!mediaUrl) throw new Error('Missing image for Adaptation section')
 
-	// Default badges if none provided
-	const defaultBadges = [
-		{ text: 'Confiance mutuelle', color: 'pink' as const },
-		{ text: 'Dialogue permanent', color: 'violet' as const },
-		{ text: 'Écoute attentive', color: 'amber' as const },
-		{ text: 'Patience et douceur', color: 'emerald' as const },
-	]
-	const displayBadges = badges.length > 0 ? badges : defaultBadges
+	const mediaAlt = typeof adaptation.image === 'object' && adaptation.image?.alt ? adaptation.image.alt : "Période d'adaptation"
+
+	const displayBadges = badges
 
 	return (
 		<SectionWrapper id="adaptation" variant="primary" className="overflow-hidden">

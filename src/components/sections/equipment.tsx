@@ -14,51 +14,6 @@ interface EquipmentProps {
 	equipmentSection?: LandingEquipmentSection | null
 }
 
-const defaultEquipmentWithIcons: EquipmentItem[] = [
-	{
-		id: '1',
-		name: 'Poussettes simples et doubles',
-		quantity: 2,
-		icon: '/icons/scribbbles/7/SVG/Fichier 1.svg',
-		gridSpan: 'double',
-	},
-	{
-		id: '2',
-		name: 'Chaises haute',
-		quantity: 4,
-		icon: '/icons/scribbbles/7/SVG/Fichier 10.svg',
-		gridSpan: 'single',
-	},
-	{
-		id: '3',
-		name: 'Transat',
-		quantity: 1,
-		icon: '/icons/scribbbles/7/SVG/Fichier 5.svg',
-		gridSpan: 'single',
-	},
-	{
-		id: '4',
-		name: 'Table à langer',
-		quantity: 1,
-		icon: '/icons/scribbbles/7/SVG/Fichier 18.svg',
-		gridSpan: 'single',
-	},
-	{
-		id: '5',
-		name: 'Lits en bois à barreau',
-		quantity: 3,
-		icon: '/icons/scribbbles/7/SVG/Fichier 20.svg',
-		gridSpan: 'single',
-	},
-	{
-		id: '6',
-		name: 'Sièges auto isofix bébé confort',
-		quantity: 2,
-		icon: '/icons/scribbbles/7/SVG/Fichier 26.svg',
-		gridSpan: 'double',
-	},
-]
-
 // Shader configurations using darker, softer violet palette
 const getShaderConfig = (index: number) => {
 	const configs = [
@@ -127,19 +82,20 @@ const getShaderConfig = (index: number) => {
 }
 
 export function Equipment({ equipmentSection }: EquipmentProps) {
-	const title = equipmentSection?.title || 'Les équipements'
-	const subtitle = equipmentSection?.subtitle || 'Tout le matériel nécessaire pour accueillir vos enfants'
-	const equipment = equipmentSection?.items || []
+	if (!equipmentSection?.title || !equipmentSection?.items) {
+		throw new Error('Missing required data for Equipment section: title or items')
+	}
 
-	// Use provided equipment data or fall back to defaults with icons
-	const items: EquipmentItem[] =
-		equipment.length > 0
-			? equipment.map((item: LandingEquipment, index: number) => ({
-					...item,
-					icon: defaultEquipmentWithIcons[index]?.icon || '/icons/scribbbles/7/SVG/Fichier 1.svg',
-					gridSpan: defaultEquipmentWithIcons[index]?.gridSpan || 'single',
-				}))
-			: defaultEquipmentWithIcons
+	const title = equipmentSection.title
+	const subtitle = equipmentSection.subtitle || 'Tout le matériel nécessaire pour accueillir vos enfants'
+	const equipment = equipmentSection.items
+
+	// Add default icons if not present
+	const items: EquipmentItem[] = equipment.map((item: LandingEquipment, index: number) => ({
+		...item,
+		icon: item.icon || '/icons/scribbbles/7/SVG/Fichier 1.svg',
+		gridSpan: index === 0 || index === 5 ? 'double' : 'single', // Keep grid logic dynamic based on index
+	}))
 
 	return (
 		<SectionWrapper id="equipements" variant="secondary">

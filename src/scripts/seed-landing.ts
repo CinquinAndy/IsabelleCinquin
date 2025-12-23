@@ -203,12 +203,36 @@ async function seedLanding() {
 				title: 'Les équipements',
 				subtitle: 'Tout le matériel nécessaire pour accueillir vos enfants',
 				items: [
-					{ name: 'Poussettes simples et doubles', quantity: 2 },
-					{ name: 'Chaises haute', quantity: 4 },
-					{ name: 'Transat', quantity: 1 },
-					{ name: 'Table à langer', quantity: 1 },
-					{ name: 'Lits en bois à barreau', quantity: 3 },
-					{ name: 'Sièges auto isofix bébé confort', quantity: 2 },
+					{
+						name: 'Poussettes simples et doubles',
+						quantity: 2,
+						icon: '/icons/scribbbles/7/SVG/Fichier 1.svg',
+					},
+					{
+						name: 'Chaises haute',
+						quantity: 4,
+						icon: '/icons/scribbbles/7/SVG/Fichier 10.svg',
+					},
+					{
+						name: 'Transat',
+						quantity: 1,
+						icon: '/icons/scribbbles/7/SVG/Fichier 5.svg',
+					},
+					{
+						name: 'Table à langer',
+						quantity: 1,
+						icon: '/icons/scribbbles/7/SVG/Fichier 18.svg',
+					},
+					{
+						name: 'Lits en bois à barreau',
+						quantity: 3,
+						icon: '/icons/scribbbles/7/SVG/Fichier 20.svg',
+					},
+					{
+						name: 'Sièges auto isofix bébé confort',
+						quantity: 2,
+						icon: '/icons/scribbbles/7/SVG/Fichier 26.svg',
+					},
 				],
 			},
 

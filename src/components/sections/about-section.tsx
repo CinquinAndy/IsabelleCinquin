@@ -19,7 +19,9 @@ export function AboutSection({ about }: AboutSectionProps) {
 		return () => clearTimeout(timer)
 	}, [])
 
-	if (!about) return null
+	if (!about) {
+		throw new Error('Missing required data for About section')
+	}
 
 	const mediaUrl = formatMediaUrl(typeof about.image === 'object' && about.image?.url ? about.image.url : null)
 	const mediaAlt = typeof about.image === 'object' && about.image?.alt ? about.image.alt : 'Photo Isabelle'

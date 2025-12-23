@@ -10,33 +10,32 @@ interface OrganizationProps {
 	organization?: LandingOrganization | null
 }
 
-const defaultBagItems = [
-	'Le carnet de santé',
-	'Des vêtements de rechange',
-	'Doudou',
-	'Des tétines',
-	'De la crème solaire',
-]
-
-const defaultNounouItems = ['Des couches', 'Un biberon', 'Du lait', 'Une turbulette', 'Des chaussons']
-
 export function Organization({ organization }: OrganizationProps) {
-	const title = organization?.title || 'Organisation des affaires'
-	const subtitle = organization?.subtitle || "Glissez pour comparer ce qu'il faut apporter et ce qui est fourni"
-	const bagItems = organization?.bagItems || []
-	const nounouItems = organization?.nounouItems || []
+	if (!organization?.title || !organization?.bagItems || !organization?.nounouItems) {
+		throw new Error('Missing required data for Organization section')
+	}
 
-	const bagList = bagItems.length > 0 ? bagItems.map(i => i.item) : defaultBagItems
-	const nounouList = nounouItems.length > 0 ? nounouItems.map(i => i.item) : defaultNounouItems
+	const title = organization.title
+	const subtitle = organization.subtitle || "Glissez pour comparer ce qu'il faut apporter et ce qui est fourni"
+	const bagItems = organization.bagItems
+	const nounouItems = organization.nounouItems
+
+	const bagList = bagItems.map(i => i.item)
+	const nounouList = nounouItems.map(i => i.item)
 
 	const bagImageUrl =
-		formatMediaUrl(typeof organization?.bagImage === 'object' && organization.bagImage?.url
+		formatMediaUrl(typeof organization.bagImage === 'object' && organization.bagImage?.url
 			? organization.bagImage.url
-			: null) || '/sac-langer.png'
+			: null)
+	
 	const nounouImageUrl =
-		formatMediaUrl(typeof organization?.nounouImage === 'object' && organization.nounouImage?.url
+		formatMediaUrl(typeof organization.nounouImage === 'object' && organization.nounouImage?.url
 			? organization.nounouImage.url
-			: null) || '/chez-nounou.png'
+			: null)
+
+	if (!bagImageUrl || !nounouImageUrl) {
+		throw new Error('Missing required images for Organization section')
+	}
 
 	return (
 		<SectionWrapper id="organisation" variant="secondary" className="overflow-hidden">

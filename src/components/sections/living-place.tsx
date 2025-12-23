@@ -9,11 +9,13 @@ interface LivingPlaceProps {
 }
 
 export function LivingPlace({ livingPlace }: LivingPlaceProps) {
-	const title = livingPlace?.title || 'Lieu de vie'
-	const description =
-		livingPlace?.description ||
-		"J'accueille vos enfants dans une maison clôturée avec jardin qui se situe au bord du Lac Léman."
-	const images = livingPlace?.images || []
+	if (!livingPlace?.title || !livingPlace?.description || !livingPlace?.images) {
+		throw new Error('Missing required data for Living Place section')
+	}
+
+	const title = livingPlace.title
+	const description = livingPlace.description
+	const images = livingPlace.images
 
 	return (
 		<SectionWrapper id="lieu-de-vie" variant="primary">

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Baby, Clock, Coffee, Moon, School, Sun, Utensils, Waves } from 'lucide-react'
+import { Baby, Clock, Moon, School, Sun, Utensils, Waves } from 'lucide-react'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 import type { LandingDailyScheduleItem, LandingDailyScheduleSection } from '@/types/landing'
 
@@ -34,54 +34,14 @@ const dotColors = [
 	'bg-orange-400',
 ]
 
-const defaultSchedule: LandingDailyScheduleItem[] = [
-	{
-		id: '1',
-		time: 'Matin',
-		activity: 'Arrivée en douceur, transmission avec les parents, petit déjeuner et petit câlin',
-	},
-	{
-		id: '2',
-		time: '9h',
-		activity: "Accompagnement du fils de nounou à l'école",
-	},
-	{
-		id: '3',
-		time: 'Matinée',
-		activity: 'Sieste pour les plus petits, jeux et activités (dessins, peinture, sable magique) pour les plus grands',
-	},
-	{
-		id: '4',
-		time: '11h30',
-		activity: 'Promenade vers le lac ou visite au relais de nounou pour mettre en appétit',
-	},
-	{
-		id: '5',
-		time: '12h',
-		activity: 'Repas pour tous',
-	},
-	{
-		id: '6',
-		time: '13h30',
-		activity: 'Changements de couches puis sieste',
-	},
-	{
-		id: '7',
-		time: '15h30',
-		activity: "Réveil en douceur, départ pour chercher le fils de nounou à l'école",
-	},
-	{
-		id: '8',
-		time: '16h',
-		activity: 'Goûter puis jeux ou petite baignade dans la pataugeoire en été',
-	},
-]
-
 export function DailySchedule({ dailyScheduleSection }: DailyScheduleProps) {
-	const title = dailyScheduleSection?.title || "Organisation d'une journée"
-	const subtitle = dailyScheduleSection?.subtitle || 'Comment se déroule une journée type chez nounou'
-	const schedule = dailyScheduleSection?.items || []
-	const items = schedule.length > 0 ? schedule : defaultSchedule
+	if (!dailyScheduleSection?.title || !dailyScheduleSection?.items) {
+		throw new Error('Missing required data for Daily Schedule section: title or items')
+	}
+
+	const title = dailyScheduleSection.title
+	const subtitle = dailyScheduleSection.subtitle || 'Comment se déroule une journée type chez nounou'
+	const items = dailyScheduleSection.items
 
 	return (
 		<SectionWrapper id="journee" variant="primary" className="overflow-hidden">

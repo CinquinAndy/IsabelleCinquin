@@ -98,7 +98,9 @@ function MemberCard({ member }: { member: FamilyMember }) {
 export function Family({ members }: FamilyProps) {
 	const scrollContainerRef = useRef<HTMLDivElement>(null)
 
-	if (!members || members.length === 0) return null
+	if (!members || members.length === 0) {
+		throw new Error('Missing required data for Family section: members')
+	}
 
 	const scroll = (direction: 'left' | 'right') => {
 		if (scrollContainerRef.current) {

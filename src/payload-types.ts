@@ -612,6 +612,10 @@ export interface Landing {
            * Optionnel
            */
           quantity?: number | null;
+          /**
+           * Ex: /icons/scribbbles/7/SVG/Fichier 1.svg
+           */
+          icon?: string | null;
           id?: string | null;
         }[]
       | null;
@@ -866,6 +870,7 @@ export interface LandingSelect<T extends boolean = true> {
           | {
               name?: T;
               quantity?: T;
+              icon?: T;
               id?: T;
             };
       };

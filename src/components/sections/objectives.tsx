@@ -14,60 +14,42 @@ interface ObjectivesProps {
 	objectivesSection?: LandingObjectivesSection | null
 }
 
-const defaultObjectives: ObjectiveWithUI[] = [
-	{
-		id: '1',
-		title: "L'éveil",
-		description: 'Stimuler la curiosité et les sens',
-		icon: '/icons/scribbbles/7/SVG/Fichier 10.svg',
-		accentColor: 'text-purple-400',
-	},
-	{
-		id: '2',
-		title: 'Le respect',
-		description: 'Apprendre à vivre ensemble',
-		icon: '/icons/scribbbles/7/SVG/Fichier 3.svg',
-		accentColor: 'text-pink-400',
-	},
-	{
-		id: '3',
-		title: "L'alimentation",
-		description: 'Repas équilibrés et variés',
-		icon: '/icons/scribbbles/7/SVG/Fichier 18.svg',
-		accentColor: 'text-amber-400',
-	},
-	{
-		id: '4',
-		title: 'Les soins',
-		description: 'Hygiène et bien-être',
-		icon: '/icons/scribbbles/7/SVG/Fichier 5.svg',
-		accentColor: 'text-emerald-400',
-	},
-	{
-		id: '5',
-		title: 'La sécurité',
-		description: 'Environnement protégé',
-		icon: '/icons/scribbbles/7/SVG/Fichier 26.svg',
-		accentColor: 'text-red-400',
-	},
-]
-
 export function Objectives({ objectivesSection }: ObjectivesProps) {
-	const title = objectivesSection?.title || 'Mes objectifs'
-	const subtitle = objectivesSection?.subtitle || "Ce qui est important pour moi dans l'accompagnement de vos enfants"
-	const objectives = objectivesSection?.items || []
+	if (!objectivesSection?.title || !objectivesSection?.items) {
+		throw new Error('Missing required data for Objectives section: title or items')
+	}
 
-	// Use provided objectives data or fall back to defaults
-	const items: ObjectiveWithUI[] =
-		objectives.length > 0
-			? objectives.map((obj: LandingObjective, index: number) => ({
-					id: obj.id,
-					title: obj.title,
-					description: obj.description || defaultObjectives[index]?.description || '',
-					icon: defaultObjectives[index]?.icon || '/icons/scribbbles/7/SVG/Fichier 1.svg',
-					accentColor: defaultObjectives[index]?.accentColor || 'text-purple-400',
-				}))
-			: defaultObjectives
+	const title = objectivesSection.title
+	const subtitle = objectivesSection.subtitle || "Ce qui est important pour moi dans l'accompagnement de vos enfants"
+	const objectives = objectivesSection.items
+
+	const iconMap: Record<string, string> = {
+		'star': '/icons/scribbbles/7/SVG/Fichier 10.svg',
+		'heart-pulse': '/icons/scribbbles/7/SVG/Fichier 3.svg',
+		'utensils': '/icons/scribbbles/7/SVG/Fichier 18.svg',
+		'hand-helping': '/icons/scribbbles/7/SVG/Fichier 5.svg',
+		'shield-check': '/icons/scribbbles/7/SVG/Fichier 26.svg',
+		'baby': '/icons/scribbbles/7/SVG/Fichier 1.svg', // Fallback/Other
+		'home': '/icons/scribbbles/7/SVG/Fichier 20.svg',
+		'sun': '/icons/scribbbles/7/SVG/Fichier 48.svg',
+		'book-open': '/icons/scribbbles/7/SVG/Fichier 12.svg',
+		'palette': '/icons/scribbbles/7/SVG/Fichier 46.svg',
+	}
+
+	const items: ObjectiveWithUI[] = objectives.map((obj: LandingObjective) => {
+		if (!obj.icon) throw new Error(`Missing icon for objective: ${obj.title}`)
+		
+		const iconPath = iconMap[obj.icon]
+		if (!iconPath) throw new Error(`Unknown icon type: ${obj.icon} for objective: ${obj.title}`)
+
+		return {
+			id: obj.id,
+			title: obj.title,
+			description: obj.description || '',
+			icon: iconPath,
+			accentColor: 'text-purple-400',
+		}
+	})
 
 	return (
 		<SectionWrapper id="objectifs" variant="primary" className="overflow-hidden">

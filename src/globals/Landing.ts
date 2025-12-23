@@ -300,6 +300,12 @@ export const Landing: GlobalConfig = {
 					fields: [
 						{ name: 'name', type: 'text', label: 'Nom', required: true },
 						{ name: 'quantity', type: 'number', label: 'Quantité', admin: { description: 'Optionnel' } },
+						{
+							name: 'icon',
+							type: 'text',
+							label: 'Icône (chemin)',
+							admin: { description: 'Ex: /icons/scribbbles/7/SVG/Fichier 1.svg' },
+						},
 					],
 				},
 			],
