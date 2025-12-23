@@ -1,49 +1,32 @@
 import Image from 'next/image'
+import { RichTextParser } from '@/components/rich-text-parser'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
-import type { Media } from '@/payload-types'
+import type { LandingIntroduction } from '@/types/landing'
 
 interface IntroductionProps {
-	title?: string | null
-	content?: unknown
-	image?: Media | number | null
+	introduction?: LandingIntroduction | null
 }
 
-export function Introduction({ title, content, image }: IntroductionProps) {
-	const mediaUrl = typeof image === 'object' && image?.url ? image.url : null
-	const mediaAlt = typeof image === 'object' && image?.alt ? image.alt : 'Photo Isabelle'
+export function Introduction({ introduction }: IntroductionProps) {
+	if (!introduction) return null
+
+	const mediaUrl = typeof introduction.image === 'object' && introduction.image?.url ? introduction.image.url : null
+	const mediaAlt =
+		typeof introduction.image === 'object' && introduction.image?.alt ? introduction.image.alt : 'Photo Isabelle'
 
 	return (
 		<SectionWrapper id="introduction" variant="primary">
 			<div className="text-center mb-12">
 				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-					Livret d'<span className="font-handwriting text-white/80">Accueil</span> de Nounou
+					{introduction.title || "Livret d'Accueil de Nounou"}
 				</h2>
 			</div>
 
 			<div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
 				<div className="flex-1 text-center lg:text-left">
-					{content ? (
+					{introduction.content && (
 						<div className="prose prose-invert prose-lg max-w-none">
-							{/* Rich text would be rendered here - simplified for now */}
-							<p className="text-lg leading-relaxed opacity-90">
-								Après plusieurs années de bonheur avec les enfants et afin de donner au livret d'accueil un second
-								souffle, mon fils m'a proposé de le convertir en site internet.
-							</p>
-							<p className="text-lg leading-relaxed opacity-90 mt-4">
-								La relation nounou – Parents est basée sur un partenariat : Ensemble nous veillons sur le bien-être et
-								l'éveil de l'enfant.
-							</p>
-						</div>
-					) : (
-						<div className="space-y-4">
-							<p className="text-lg leading-relaxed opacity-90">
-								Après plusieurs années de bonheur avec les enfants et afin de donner au livret d'accueil un second
-								souffle, mon fils m'a proposé de le convertir en site internet.
-							</p>
-							<p className="text-lg leading-relaxed opacity-90">
-								La relation nounou – Parents est basée sur un partenariat : Ensemble nous veillons sur le bien-être et
-								l'éveil de l'enfant.
-							</p>
+							<RichTextParser content={introduction.content} />
 						</div>
 					)}
 				</div>

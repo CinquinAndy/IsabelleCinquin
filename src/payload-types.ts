@@ -446,6 +446,18 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface Landing {
   id: number;
+  hero: {
+    title: string;
+    subtitle?: string | null;
+    buttons?:
+      | {
+          text: string;
+          url: string;
+          variant?: ('primary' | 'secondary') | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
   about?: {
     badge?: string | null;
     title?: string | null;
@@ -719,6 +731,10 @@ export interface Landing {
         }[]
       | null;
   };
+  contactSection?: {
+    title?: string | null;
+    content?: string | null;
+  };
   settings?: {
     /**
      * Décocher pour afficher le message d'indisponibilité
@@ -746,6 +762,20 @@ export interface Landing {
  * via the `definition` "landing_select".
  */
 export interface LandingSelect<T extends boolean = true> {
+  hero?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
+        buttons?:
+          | T
+          | {
+              text?: T;
+              url?: T;
+              variant?: T;
+              id?: T;
+            };
+      };
   about?:
     | T
     | {
@@ -916,6 +946,12 @@ export interface LandingSelect<T extends boolean = true> {
               content?: T;
               id?: T;
             };
+      };
+  contactSection?:
+    | T
+    | {
+        title?: T;
+        content?: T;
       };
   settings?:
     | T

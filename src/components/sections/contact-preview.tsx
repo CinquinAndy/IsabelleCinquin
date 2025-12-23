@@ -1,20 +1,18 @@
-import { ArrowRight, Heart, Mail, MapPin, Phone, Plus } from 'lucide-react'
+import { ArrowRight, Heart, Phone, Plus } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 
 interface ContactPreviewProps {
-	email?: string | null
 	phone?: string | null
-	landline?: string | null
-	address?: string | null
+	title?: string | null
+	content?: string | null
 }
 
 export function ContactPreview({
-	email = 'andorma@gmail.com',
-	phone = '06 03 28 69 06',
-	landline = '04 50 72 81 92',
-	address = '1250 Chemin de la Renouillère, 74140 Sciez',
+	phone,
+	title,
+	content,
 }: ContactPreviewProps) {
 	return (
 		<SectionWrapper id="contact" variant="primary" className="overflow-hidden">
@@ -36,10 +34,10 @@ export function ContactPreview({
 							<Heart className="size-5 fill-current" />
 						</div>
 						<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-							Envie de me <span className="font-handwriting text-white/80">rencontrer</span> ?
+							{title || 'Envie de me rencontrer ?'}
 						</h2>
 						<p className="text-white/70 text-lg max-w-xl mx-auto">
-							N'hésitez pas à me contacter pour discuter de l'accueil de votre enfant
+							{content || "N'hésitez pas à me contacter pour discuter de l'accueil de votre enfant"}
 						</p>
 					</div>
 

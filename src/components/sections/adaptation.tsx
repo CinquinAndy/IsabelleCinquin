@@ -22,8 +22,12 @@ const badgeIcons = [
 
 export function Adaptation({ adaptation }: AdaptationProps) {
 	const title = adaptation?.title || "Période d'adaptation"
-	const subtitle = adaptation?.subtitle || "Une période importante pour permettre à l'enfant, aux parents, et à nounou de faire connaissance en douceur."
-	const keyMessage = adaptation?.keyMessage || "La clé d'un accueil réussi : une confiance mutuelle et un dialogue permanent entre les parents et la nounou."
+	const subtitle =
+		adaptation?.subtitle ||
+		"Une période importante pour permettre à l'enfant, aux parents, et à nounou de faire connaissance en douceur."
+	const keyMessage =
+		adaptation?.keyMessage ||
+		"La clé d'un accueil réussi : une confiance mutuelle et un dialogue permanent entre les parents et la nounou."
 	const badges = adaptation?.badges || []
 
 	// Default badges if none provided

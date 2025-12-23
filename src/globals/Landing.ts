@@ -7,6 +7,48 @@ export const Landing: GlobalConfig = {
 		group: 'Contenu',
 	},
 	fields: [
+		// ==================== SECTION HERO ====================
+		{
+			name: 'hero',
+			type: 'group',
+			label: 'Hero',
+			fields: [
+				{
+					name: 'title',
+					type: 'text',
+					label: 'Titre principal',
+					defaultValue: 'Isabelle Cinquin',
+					required: true,
+				},
+				{
+					name: 'subtitle',
+					type: 'text',
+					label: 'Sous-titre',
+					defaultValue: 'Assistante Maternelle au bord du Lac Léman',
+				},
+				{
+					name: 'buttons',
+					type: 'array',
+					label: 'Boutons',
+					maxRows: 2,
+					fields: [
+						{ name: 'text', type: 'text', label: 'Texte', required: true },
+						{ name: 'url', type: 'text', label: 'URL', required: true },
+						{
+							name: 'variant',
+							type: 'select',
+							label: 'Style',
+							options: [
+								{ label: 'Primaire (Blanc)', value: 'primary' },
+								{ label: 'Secondaire (Transparent)', value: 'secondary' },
+							],
+							defaultValue: 'primary',
+						},
+					],
+				},
+			],
+		},
+
 		// ==================== SECTION ABOUT (À propos) ====================
 		{
 			name: 'about',
@@ -434,6 +476,27 @@ export const Landing: GlobalConfig = {
 						{ name: 'title', type: 'text', label: 'Titre', admin: { description: 'Ex: 1ère règle de Nounou' } },
 						{ name: 'content', type: 'textarea', label: 'Contenu' },
 					],
+				},
+			],
+		},
+
+		// ==================== SECTION CONTACT PREVIEW ====================
+		{
+			name: 'contactSection',
+			type: 'group',
+			label: 'Section Contact',
+			fields: [
+				{
+					name: 'title',
+					type: 'text',
+					label: 'Titre',
+					defaultValue: 'Envie de me rencontrer ?',
+				},
+				{
+					name: 'content',
+					type: 'textarea',
+					label: 'Texte',
+					defaultValue: "N'hésitez pas à me contacter pour discuter de l'accueil de votre enfant",
 				},
 			],
 		},

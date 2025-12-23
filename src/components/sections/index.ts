@@ -1,3 +1,4 @@
+export { AboutSection } from './about-section'
 export { Activities } from './activities'
 export { Adaptation } from './adaptation'
 export { Charter } from './charter'

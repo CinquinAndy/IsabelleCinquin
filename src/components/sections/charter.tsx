@@ -92,7 +92,7 @@ export function Charter({ charterSection }: CharterProps) {
 												<div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-white/20">
 													<IconComponent className="size-4 text-white" />
 												</div>
-												<span className="text-base font-semibold text-white">{title}</span>
+												<span className="text-base font-semibold text-white">{ruleTitle}</span>
 											</div>
 										</AccordionTrigger>
 										<AccordionContent className="pb-5">

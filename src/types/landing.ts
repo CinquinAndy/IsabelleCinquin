@@ -7,9 +7,19 @@ import type { Landing, Media } from '@/payload-types'
 
 // ==================== SECTION TYPES ====================
 
+// Hero section
+export type LandingHero = NonNullable<Landing['hero']>
+export type LandingHeroButton = NonNullable<LandingHero['buttons']>[number]
+
 // About section
 export type LandingAbout = NonNullable<Landing['about']>
 export type LandingAboutStat = NonNullable<LandingAbout['stats']>[number]
+
+// Introduction section
+export type LandingIntroduction = NonNullable<Landing['introduction']>
+
+// Presentation section
+export type LandingPresentation = NonNullable<Landing['presentation']>
 
 // Family members
 export type LandingFamilyMember = NonNullable<Landing['familyMembers']>[number]
@@ -49,6 +59,9 @@ export type LandingDailyScheduleItem = NonNullable<LandingDailyScheduleSection['
 // Charter section
 export type LandingCharterSection = NonNullable<Landing['charterSection']>
 export type LandingCharterRule = NonNullable<LandingCharterSection['items']>[number]
+
+// Contact section
+export type LandingContactSection = NonNullable<Landing['contactSection']>
 
 // Settings
 export type LandingSettings = NonNullable<Landing['settings']>

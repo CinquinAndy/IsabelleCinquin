@@ -17,20 +17,95 @@ async function seedLanding() {
 		slug: 'landing',
 		data: {
 			// ==================== SECTION À PROPOS ====================
+			hero: {
+				title: 'Isabelle Cinquin',
+				subtitle: 'Assistante Maternelle au bord du Lac Léman',
+				buttons: [
+					{ text: 'Me contacter', url: '/contact', variant: 'primary' },
+					{ text: 'En savoir plus', url: '#presentation', variant: 'secondary' },
+				],
+			},
 			about: {
 				badge: 'À propos',
 				title: 'Nounou sur Sciez',
 				titleAccent: 'depuis 2003',
+				// We need to construct the rich text structure properly
+				content: {
+					root: {
+						type: 'root',
+						children: [
+							{
+								type: 'paragraph',
+								version: 1,
+								children: [
+									{
+										type: 'text',
+										text: "Je suis assistante maternelle agréée sur la commune de Sciez (74), au bord du magnifique Lac Léman. J'ai fait une pause de 10 ans (2008-2018) pour travailler avec mon mari, puis j'ai repris mon activité avec toujours autant de passion.",
+										version: 1,
+									},
+								],
+							},
+							{
+								type: 'paragraph',
+								version: 1,
+								children: [
+									{
+										type: 'text',
+										text: "J'accueille vos enfants chez moi, dans une ambiance familiale et chaleureuse. Chaque petit bout reçoit un accueil personnalisé, adapté à son rythme et à ses besoins.",
+										version: 1,
+									},
+								],
+							},
+						],
+						direction: 'ltr',
+						format: '',
+						indent: 0,
+						version: 1,
+					},
+				},
 				stats: [
-					{ value: 3, label: 'enfants le jour' },
-					{ value: 1, label: 'enfant la nuit' },
-					{ value: 20, suffix: '+', label: "années d'expérience" },
+					{ label: 'enfants le jour', value: 3 },
+					{ label: 'enfant la nuit', value: 1 },
+					{ label: "années d'expérience", value: 20, suffix: '+' },
 				],
 			},
 
 			// ==================== SECTION INTRODUCTION ====================
 			introduction: {
 				title: "Livret d'Accueil de Nounou",
+				content: {
+					root: {
+						type: 'root',
+						children: [
+							{
+								type: 'paragraph',
+								version: 1,
+								children: [
+									{
+										type: 'text',
+										text: "Après plusieurs années de bonheur avec les enfants et afin de donner au livret d'accueil un second souffle, mon fils m'a proposé de le convertir en site internet.",
+										version: 1,
+									},
+								],
+							},
+							{
+								type: 'paragraph',
+								version: 1,
+								children: [
+									{
+										type: 'text',
+										text: "La relation nounou – Parents est basée sur un partenariat : Ensemble nous veillons sur le bien-être et l'éveil de l'enfant.",
+										version: 1,
+									},
+								],
+							},
+						],
+						direction: 'ltr',
+						format: '',
+						indent: 0,
+						version: 1,
+					},
+				},
 			},
 
 			// ==================== SECTION PRESENTATION ====================
@@ -217,6 +292,12 @@ async function seedLanding() {
 							"Tout travail mérite salaire, Papa, Maman, n'oubliez pas de payer Nounou, elle aussi, doit payer son loyer, ses charges...",
 					},
 				],
+			},
+
+			// ==================== SECTION CONTACT PREVIEW ====================
+			contactSection: {
+				title: 'Envie de me rencontrer ?',
+				content: "N'hésitez pas à me contacter pour discuter de l'accueil de votre enfant",
 			},
 
 			// ==================== SETTINGS ====================

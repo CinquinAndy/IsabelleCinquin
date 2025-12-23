@@ -1,11 +1,9 @@
 import config from '@payload-config'
-import Image from 'next/image'
-import Link from 'next/link'
 import { getPayload } from 'payload'
-import { AboutSection } from '@/components/about-section'
 import { Footer } from '@/components/footer'
 import { Hero } from '@/components/hero'
 import {
+	AboutSection,
 	Activities,
 	Adaptation,
 	Charter,
@@ -57,37 +55,9 @@ export default async function HomePage() {
 
 	return (
 		<>
-			<Hero>
-				<div className="text-center px-4 w-full h-full flex flex-col items-center justify-center relative">
-					<Image
-						src="/bear.png"
-						alt="Mask Deco"
-						width={1600}
-						height={1600}
-						className="absolute bottom-0 left-1/2 -translate-x-100 -z-10 translate-y-100"
-					/>
-					<h1 className="mb-4 text-5xl md:text-7xl font-bold text-white drop-shadow-lg z-10">Isabelle Cinquin</h1>
-					<p className="text-xl md:text-2xl text-white/90 drop-shadow-md max-w-2xl mx-auto z-10">
-						Assistante Maternelle au bord du Lac Léman
-					</p>
-					<div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center z-10">
-						<Link
-							href="/contact"
-							className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-primary shadow-lg transition-all hover:bg-white/90 hover:scale-105"
-						>
-							Me contacter
-						</Link>
-						<Link
-							href="#presentation"
-							className="inline-flex items-center justify-center rounded-full border-2 border-white/50 bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20 hover:scale-105"
-						>
-							En savoir plus
-						</Link>
-					</div>
-				</div>
-			</Hero>
+			<Hero hero={landing?.hero} />
 
-			<AboutSection />
+			<AboutSection about={landing?.about} />
 
 			<Family
 				members={
@@ -177,10 +147,9 @@ export default async function HomePage() {
 			<Charter charterSection={landing?.charterSection} />
 
 			<ContactPreview
-				email={settings?.email}
 				phone={settings?.phone}
-				landline={settings?.landline}
-				address={settings?.address}
+				title={landing?.contactSection?.title}
+				content={landing?.contactSection?.content}
 			/>
 
 			<Footer settings={settings} />
