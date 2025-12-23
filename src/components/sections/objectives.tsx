@@ -24,21 +24,21 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 	const objectives = objectivesSection.items
 
 	const iconMap: Record<string, string> = {
-		'star': '/icons/scribbbles/7/SVG/Fichier 10.svg',
+		star: '/icons/scribbbles/7/SVG/Fichier 10.svg',
 		'heart-pulse': '/icons/scribbbles/7/SVG/Fichier 3.svg',
-		'utensils': '/icons/scribbbles/7/SVG/Fichier 18.svg',
+		utensils: '/icons/scribbbles/7/SVG/Fichier 18.svg',
 		'hand-helping': '/icons/scribbbles/7/SVG/Fichier 5.svg',
 		'shield-check': '/icons/scribbbles/7/SVG/Fichier 26.svg',
-		'baby': '/icons/scribbbles/7/SVG/Fichier 1.svg', // Fallback/Other
-		'home': '/icons/scribbbles/7/SVG/Fichier 20.svg',
-		'sun': '/icons/scribbbles/7/SVG/Fichier 48.svg',
+		baby: '/icons/scribbbles/7/SVG/Fichier 1.svg', // Fallback/Other
+		home: '/icons/scribbbles/7/SVG/Fichier 20.svg',
+		sun: '/icons/scribbbles/7/SVG/Fichier 48.svg',
 		'book-open': '/icons/scribbbles/7/SVG/Fichier 12.svg',
-		'palette': '/icons/scribbbles/7/SVG/Fichier 46.svg',
+		palette: '/icons/scribbbles/7/SVG/Fichier 46.svg',
 	}
 
 	const items: ObjectiveWithUI[] = objectives.map((obj: LandingObjective) => {
 		if (!obj.icon) throw new Error(`Missing icon for objective: ${obj.title}`)
-		
+
 		const iconPath = iconMap[obj.icon]
 		if (!iconPath) throw new Error(`Unknown icon type: ${obj.icon} for objective: ${obj.title}`)
 

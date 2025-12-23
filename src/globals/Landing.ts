@@ -432,7 +432,12 @@ export const Landing: GlobalConfig = {
 									label: 'Moments de la journée',
 									labels: { singular: 'Moment', plural: 'Moments' },
 									fields: [
-										{ name: 'time', type: 'text', label: 'Heure', admin: { description: 'Ex: 7h30, Matin, Après-midi...' } },
+										{
+											name: 'time',
+											type: 'text',
+											label: 'Heure',
+											admin: { description: 'Ex: 7h30, Matin, Après-midi...' },
+										},
 										{ name: 'activity', type: 'textarea', label: 'Activité', required: true },
 									],
 								},

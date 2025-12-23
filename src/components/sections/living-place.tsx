@@ -1,7 +1,5 @@
-import { Home } from 'lucide-react'
 import Image from 'next/image'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
-import { formatMediaUrl } from '@/lib/utils'
 import type { LandingLivingPlace } from '@/types/landing'
 
 interface LivingPlaceProps {
@@ -31,7 +29,7 @@ export function LivingPlace({ livingPlace }: LivingPlaceProps) {
 				</div>
 				<div className="aspect-video relative rounded-xl overflow-hidden">
 					<Image
-						src={"/Home_sweet_home.jpg"}
+						src={'/Home_sweet_home.jpg'}
 						alt="Plan de la maison"
 						fill
 						className="object-cover"

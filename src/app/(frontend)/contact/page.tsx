@@ -19,7 +19,8 @@ export async function generateMetadata() {
 	return constructMetadata({
 		seo: seoGlobal.contact?.seo as any,
 		fallbackTitle: 'Contact | Nounou Sciez',
-		fallbackDescription: 'Contactez Isabelle Cinquin, assistante maternelle à Sciez. Formulaire de contact, téléphone, email et localisation.',
+		fallbackDescription:
+			'Contactez Isabelle Cinquin, assistante maternelle à Sciez. Formulaire de contact, téléphone, email et localisation.',
 	})
 }
 

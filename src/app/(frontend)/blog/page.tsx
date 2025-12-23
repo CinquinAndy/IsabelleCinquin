@@ -80,7 +80,7 @@ export default async function BlogPage() {
 
 	try {
 		const payload = await getPayload({ config: configPromise })
-		
+
 		// Fetch posts and landing data in parallel
 		const [postsResult, landingData] = await Promise.all([
 			payload.find({
@@ -96,30 +96,32 @@ export default async function BlogPage() {
 		])
 
 		if (postsResult.docs && postsResult.docs.length > 0) {
-			posts = postsResult.docs.map((post) => {
+			posts = postsResult.docs.map(post => {
 				// Get first category name if available
-				const firstCategory = Array.isArray(post.categories) && post.categories.length > 0
-					? (typeof post.categories[0] === 'object' ? post.categories[0].name : null)
-					: null
-				
+				const firstCategory =
+					Array.isArray(post.categories) && post.categories.length > 0
+						? typeof post.categories[0] === 'object'
+							? post.categories[0].name
+							: null
+						: null
+
 				// Get featured image URL
-				const imageUrl = typeof post.featuredImage === 'object' && post.featuredImage?.url
-					? post.featuredImage.url
-					: null
+				const imageUrl =
+					typeof post.featuredImage === 'object' && post.featuredImage?.url ? post.featuredImage.url : null
 
 				return {
 					id: post.id,
 					title: post.title || 'Sans titre',
 					slug: post.slug || '',
 					excerpt: post.excerpt || '',
-					image: imageUrl,
-					category: firstCategory,
-					publishedAt: post.publishedAt || null,
+					image: imageUrl || '',
+					category: firstCategory || '',
+					publishedAt: post.publishedAt || '',
 					readTime: '3 min', // Could be computed from content length
 				}
 			})
 		}
-		
+
 		landing = landingData
 	} catch (error) {
 		// CMS not available, use defaults
@@ -282,7 +284,7 @@ export default async function BlogPage() {
 			</SectionWrapper>
 
 			{/* CTA Section */}
-			<ContactPreview 
+			<ContactPreview
 				title={landing?.contactSection?.title}
 				content={landing?.contactSection?.content}
 				phone={landing?.settings?.phone}

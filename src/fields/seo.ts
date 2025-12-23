@@ -29,7 +29,7 @@ export const seo: Field = {
 			relationTo: 'media',
 			label: 'Image de partage (OG Image)',
 			admin: {
-				description: "Image affichée lors du partage sur les réseaux sociaux",
+				description: 'Image affichée lors du partage sur les réseaux sociaux',
 			},
 		},
 		{

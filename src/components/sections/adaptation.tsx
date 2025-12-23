@@ -31,14 +31,14 @@ export function Adaptation({ adaptation }: AdaptationProps) {
 	const keyMessage = adaptation.keyMessage
 	const badges = adaptation.badges
 
-	const mediaUrl =
-		formatMediaUrl(typeof adaptation.image === 'object' && adaptation.image?.url
-			? adaptation.image.url
-			: null)
-	
+	const mediaUrl = formatMediaUrl(
+		typeof adaptation.image === 'object' && adaptation.image?.url ? adaptation.image.url : null
+	)
+
 	if (!mediaUrl) throw new Error('Missing image for Adaptation section')
 
-	const mediaAlt = typeof adaptation.image === 'object' && adaptation.image?.alt ? adaptation.image.alt : "Période d'adaptation"
+	const mediaAlt =
+		typeof adaptation.image === 'object' && adaptation.image?.alt ? adaptation.image.alt : "Période d'adaptation"
 
 	const displayBadges = badges
 

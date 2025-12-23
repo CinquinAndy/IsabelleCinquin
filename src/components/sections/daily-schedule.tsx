@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import { Baby, Clock, Moon, School, Sun, Utensils, Waves } from 'lucide-react'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
-import type { LandingDailyScheduleItem, LandingDailyScheduleSection } from '@/types/landing'
 
 interface DailyScheduleProps {
 	dailyScheduleSection?: LandingDailyScheduleSection | null

@@ -10,7 +10,11 @@ import config from '../payload.config'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-async function uploadMedia(payload: ReturnType<typeof getPayload> extends Promise<infer T> ? T : never, fileName: string, alt: string) {
+async function uploadMedia(
+	payload: ReturnType<typeof getPayload> extends Promise<infer T> ? T : never,
+	fileName: string,
+	alt: string
+) {
 	const filePath = path.resolve(__dirname, '../../public', fileName)
 	if (!fs.existsSync(filePath)) {
 		console.warn(`⚠️ File not found: ${filePath}`)
@@ -61,7 +65,8 @@ const postsToSeed = [
 	{
 		title: 'Activités manuelles créatives',
 		slug: 'activites-manuelles',
-		excerpt: 'Peinture, dessin, pâte à modeler, sable magique... Des activités pour développer la créativité des enfants !',
+		excerpt:
+			'Peinture, dessin, pâte à modeler, sable magique... Des activités pour développer la créativité des enfants !',
 		categorySlug: 'creativite',
 		content: [
 			"Chez nounou, nous accordons une grande importance aux activités manuelles. Elles permettent aux enfants de développer leur créativité tout en s'amusant !",
@@ -106,9 +111,9 @@ const postsToSeed = [
 		excerpt: 'Histoires du soir, livres imagés, contes... Des moments de calme et de partage autour des livres.',
 		categorySlug: 'eveil',
 		content: [
-			"La lecture est un moment privilégié chez nounou. Nous avons une belle collection de livres adaptés à tous les âges.",
+			'La lecture est un moment privilégié chez nounou. Nous avons une belle collection de livres adaptés à tous les âges.',
 			"Les histoires permettent de développer le vocabulaire, l'imagination et de créer des moments de calme appréciés.",
-			"Les enfants adorent choisir leurs livres préférés et demander la même histoire encore et encore !",
+			'Les enfants adorent choisir leurs livres préférés et demander la même histoire encore et encore !',
 			"C'est aussi l'occasion de parler des émotions, des couleurs, des animaux et de plein d'autres sujets.",
 		],
 		isImportant: false,
@@ -120,10 +125,10 @@ const postsToSeed = [
 		excerpt: 'Toboggan, balançoire, bac à sable... Le jardin est un terrain de jeu idéal pour les enfants.',
 		categorySlug: 'exterieur',
 		content: [
-			"Le jardin de la maison est un véritable paradis pour les enfants ! Toboggan, balançoire, bac à sable...",
+			'Le jardin de la maison est un véritable paradis pour les enfants ! Toboggan, balançoire, bac à sable...',
 			"Dès que le temps le permet, nous sortons profiter de l'extérieur. Les enfants peuvent courir, grimper, et explorer en toute sécurité.",
-			"En été, la pataugeoire fait le bonheur des petits ! Un moment de fraîcheur très apprécié.",
-			"Les jeux en plein air sont essentiels pour le développement moteur et le bien-être des enfants.",
+			'En été, la pataugeoire fait le bonheur des petits ! Un moment de fraîcheur très apprécié.',
+			'Les jeux en plein air sont essentiels pour le développement moteur et le bien-être des enfants.',
 		],
 		isImportant: false,
 		publishedAt: '2023-12-28T10:00:00.000Z',
@@ -134,7 +139,7 @@ const postsToSeed = [
 		excerpt: "Gâteaux, biscuits, pizzas maison... Apprendre en s'amusant et déguster ensemble.",
 		categorySlug: 'creativite',
 		content: [
-			"La cuisine est une activité très appréciée ! Les enfants adorent mettre la main à la pâte.",
+			'La cuisine est une activité très appréciée ! Les enfants adorent mettre la main à la pâte.',
 			"Nous préparons ensemble des gâteaux, des biscuits, des pizzas... C'est l'occasion d'apprendre les quantités, les textures, et de développer la motricité.",
 			"Le meilleur moment ? La dégustation bien sûr ! Les enfants sont toujours très fiers de goûter ce qu'ils ont préparé.",
 			"C'est aussi l'occasion de parler de l'alimentation, de la provenance des aliments et de l'importance de bien manger.",
@@ -160,8 +165,8 @@ function createRichTextContent(paragraphs: string[]) {
 					},
 				],
 			})),
-			direction: 'ltr',
-			format: '',
+			direction: 'ltr' as const,
+			format: '' as const,
 			indent: 0,
 			version: 1,
 		},
@@ -177,9 +182,14 @@ async function seedBlog() {
 	console.log('📸 Preparing featured image...')
 	const featuredImage = await uploadMedia(payload, 'isabelle.jpg', 'Image article de blog')
 
+	if (!featuredImage) {
+		console.error('❌ Failed to upload featured image')
+		process.exit(1)
+	}
+
 	// Seed categories
 	console.log('📁 Seeding categories...')
-	const categoryMap: Record<string, string> = {}
+	const categoryMap: Record<string, number> = {}
 
 	for (const cat of categoriesToSeed) {
 		// Check if category exists
@@ -230,12 +240,13 @@ async function seedBlog() {
 				slug: post.slug,
 				excerpt: post.excerpt,
 				content: createRichTextContent(post.content),
-				featuredImage: featuredImage?.id,
+				featuredImage: featuredImage.id,
 				categories: [categoryId],
 				isImportant: post.isImportant,
 				status: 'published',
 				publishedAt: post.publishedAt,
 			},
+			draft: false,
 		})
 		console.log(`  + Created post "${post.title}"`)
 	}

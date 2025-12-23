@@ -14,15 +14,16 @@ export function Introduction({ introduction }: IntroductionProps) {
 	}
 
 	const title = introduction.title
-	const mediaUrl = formatMediaUrl(typeof introduction.image === 'object' && introduction.image?.url ? introduction.image.url : null)
-	const mediaAlt = typeof introduction.image === 'object' && introduction.image?.alt ? introduction.image.alt : 'Photo Isabelle'
+	const mediaUrl = formatMediaUrl(
+		typeof introduction.image === 'object' && introduction.image?.url ? introduction.image.url : null
+	)
+	const mediaAlt =
+		typeof introduction.image === 'object' && introduction.image?.alt ? introduction.image.alt : 'Photo Isabelle'
 
 	return (
 		<SectionWrapper id="introduction" variant="primary">
 			<div className="text-center mb-12">
-				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-					{title}
-				</h2>
+				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">{title}</h2>
 			</div>
 
 			<div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">

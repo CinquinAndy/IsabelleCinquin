@@ -9,11 +9,7 @@ interface ContactPreviewProps {
 	content?: string | null
 }
 
-export function ContactPreview({
-	phone,
-	title,
-	content,
-}: ContactPreviewProps) {
+export function ContactPreview({ phone, title, content }: ContactPreviewProps) {
 	if (!title || !content) {
 		throw new Error('Missing required data for Contact section')
 	}
@@ -37,12 +33,8 @@ export function ContactPreview({
 						<div className="inline-flex items-center justify-center gap-2 text-pink-300 mb-2">
 							<Heart className="size-5 fill-current" />
 						</div>
-						<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-							{title}
-						</h2>
-						<p className="text-white/70 text-lg max-w-xl mx-auto">
-							{content}
-						</p>
+						<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">{title}</h2>
+						<p className="text-white/70 text-lg max-w-xl mx-auto">{content}</p>
 					</div>
 
 					{/* CTA Buttons */}

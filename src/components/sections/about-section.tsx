@@ -29,7 +29,9 @@ export function AboutSection({ about }: AboutSectionProps) {
 	return (
 		<section id="presentation" className="relative w-full py-20 md:py-28 px-4 md:px-8 bg-secondary">
 			<div className="max-w-7xl mx-auto">
-				<div className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+				<div
+					className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+				>
 					{/* Image - 40% */}
 					<div className="w-full lg:w-[40%] flex items-center justify-center relative">
 						<div className="relative z-20 w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-white shadow-2xl">

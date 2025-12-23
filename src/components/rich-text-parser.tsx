@@ -31,7 +31,7 @@ interface RichTextParserProps {
 
 export function RichTextParser({ content, className }: RichTextParserProps) {
 	if (!content || typeof content !== 'object') return null
-	
+
 	const typedContent = content as RichTextContent
 	if (!typedContent?.root?.children) return null
 
@@ -61,7 +61,7 @@ export function RichTextParser({ content, className }: RichTextParserProps) {
 					</a>
 				)
 			}
-			
+
 			// Handle nested nodes
 			if (child.children) {
 				return <span key={key}>{renderChildren(child.children, key)}</span>
@@ -73,16 +73,16 @@ export function RichTextParser({ content, className }: RichTextParserProps) {
 
 	const renderBlock = (block: RichTextBlock, index: number) => {
 		const key = `block-${index}`
-		
+
 		switch (block.type) {
 			case 'paragraph':
 				return <p key={key}>{renderChildren(block.children, key)}</p>
-			
+
 			case 'heading': {
 				const Tag = (block.tag || 'h3') as keyof JSX.IntrinsicElements
 				return <Tag key={key}>{renderChildren(block.children, key)}</Tag>
 			}
-			
+
 			case 'list': {
 				const ListTag = block.tag === 'ol' ? 'ol' : 'ul'
 				return (
@@ -93,7 +93,7 @@ export function RichTextParser({ content, className }: RichTextParserProps) {
 					</ListTag>
 				)
 			}
-			
+
 			case 'quote':
 				return <blockquote key={key}>{renderChildren(block.children, key)}</blockquote>
 
@@ -104,4 +104,3 @@ export function RichTextParser({ content, className }: RichTextParserProps) {
 
 	return <div className={className}>{typedContent.root.children.map(renderBlock)}</div>
 }
-

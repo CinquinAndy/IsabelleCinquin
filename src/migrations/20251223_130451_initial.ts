@@ -1,7 +1,7 @@
-import { type MigrateUpArgs, type MigrateDownArgs, sql } from '@payloadcms/db-postgres'
+import { type MigrateDownArgs, type MigrateUpArgs, sql } from '@payloadcms/db-postgres'
 
 export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
-  await db.execute(sql`
+	await db.execute(sql`
    CREATE TYPE "public"."enum_landing_hero_buttons_variant" AS ENUM('primary', 'secondary');
   CREATE TABLE "landing_hero_buttons" (
   	"_order" integer NOT NULL,
@@ -20,7 +20,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
 }
 
 export async function down({ db, payload, req }: MigrateDownArgs): Promise<void> {
-  await db.execute(sql`
+	await db.execute(sql`
    DROP TABLE "landing_hero_buttons" CASCADE;
   ALTER TABLE "landing" DROP COLUMN "hero_title";
   ALTER TABLE "landing" DROP COLUMN "hero_subtitle";

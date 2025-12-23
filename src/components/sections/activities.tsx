@@ -44,9 +44,7 @@ export function Activities({ posts }: ActivitiesProps) {
 						const mediaUrl =
 							typeof post.featuredImage === 'object' && post.featuredImage?.url ? post.featuredImage.url : null
 						const mediaAlt =
-							typeof post.featuredImage === 'object' && post.featuredImage?.alt
-								? post.featuredImage.alt
-								: post.title
+							typeof post.featuredImage === 'object' && post.featuredImage?.alt ? post.featuredImage.alt : post.title
 
 						return (
 							<Link

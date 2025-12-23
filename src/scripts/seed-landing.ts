@@ -61,7 +61,7 @@ async function seedLanding() {
 	const aboutImage = await uploadMedia(payload, 'isabelle.jpg', 'Isabelle Cinquin')
 	const bagImage = await uploadMedia(payload, 'sac-langer.png', 'Sac à langer')
 	const nounouImage = await uploadMedia(payload, 'chez-nounou.png', 'Chez Nounou')
-	
+
 	// Family images
 	const fredericImage = await uploadMedia(payload, 'frederic.jpg', 'Frederic')
 	const andyImage = await uploadMedia(payload, 'andy.jpg', 'Andy')
@@ -168,8 +168,6 @@ async function seedLanding() {
 					},
 				},
 			},
-
-
 
 			// ==================== SECTION FAMILLE ====================
 			familyMembers: [

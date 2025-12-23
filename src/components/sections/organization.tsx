@@ -23,15 +23,13 @@ export function Organization({ organization }: OrganizationProps) {
 	const bagList = bagItems.map(i => i.item)
 	const nounouList = nounouItems.map(i => i.item)
 
-	const bagImageUrl =
-		formatMediaUrl(typeof organization.bagImage === 'object' && organization.bagImage?.url
-			? organization.bagImage.url
-			: null)
-	
-	const nounouImageUrl =
-		formatMediaUrl(typeof organization.nounouImage === 'object' && organization.nounouImage?.url
-			? organization.nounouImage.url
-			: null)
+	const bagImageUrl = formatMediaUrl(
+		typeof organization.bagImage === 'object' && organization.bagImage?.url ? organization.bagImage.url : null
+	)
+
+	const nounouImageUrl = formatMediaUrl(
+		typeof organization.nounouImage === 'object' && organization.nounouImage?.url ? organization.nounouImage.url : null
+	)
 
 	if (!bagImageUrl || !nounouImageUrl) {
 		throw new Error('Missing required images for Organization section')

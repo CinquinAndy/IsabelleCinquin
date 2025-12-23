@@ -56,10 +56,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 	const { slug } = await params
 
 	// Fetch post and landing data in parallel
-	const [post, landing] = await Promise.all([
-		getPostBySlug(slug),
-		getLandingData(),
-	])
+	const [post, landing] = await Promise.all([getPostBySlug(slug), getLandingData()])
 
 	// If no post found, return 404
 	if (!post) {
@@ -68,16 +65,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
 	// Extract data from post
 	const title = post.title
-	const category = Array.isArray(post.categories) && post.categories.length > 0
-		? (typeof post.categories[0] === 'object' ? post.categories[0].name : null)
-		: null
+	const category =
+		Array.isArray(post.categories) && post.categories.length > 0
+			? typeof post.categories[0] === 'object'
+				? post.categories[0].name
+				: null
+			: null
 	const publishedAt = post.publishedAt
-	const featuredImageUrl = typeof post.featuredImage === 'object' && post.featuredImage?.url
-		? formatMediaUrl(post.featuredImage.url)
-		: null
-	const featuredImageAlt = typeof post.featuredImage === 'object' && post.featuredImage?.alt
-		? post.featuredImage.alt
-		: title
+	const featuredImageUrl =
+		typeof post.featuredImage === 'object' && post.featuredImage?.url ? formatMediaUrl(post.featuredImage.url) : null
+	const featuredImageAlt =
+		typeof post.featuredImage === 'object' && post.featuredImage?.alt ? post.featuredImage.alt : title
 
 	return (
 		<main className="min-h-screen">
@@ -135,8 +133,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 							</>
 						)}
 						<span className="flex items-center gap-1.5">
-							<Clock className="w-4 h-4" />
-							3 min de lecture
+							<Clock className="w-4 h-4" />3 min de lecture
 						</span>
 					</div>
 				</div>
@@ -226,7 +223,7 @@ export async function generateStaticParams() {
 			limit: 100,
 		})
 
-		return posts.docs.map((post) => ({
+		return posts.docs.map(post => ({
 			slug: post.slug,
 		}))
 	} catch {
