@@ -61,6 +61,15 @@ async function seedLanding() {
 	const aboutImage = await uploadMedia(payload, 'isabelle.jpg', 'Isabelle Cinquin')
 	const bagImage = await uploadMedia(payload, 'sac-langer.png', 'Sac à langer')
 	const nounouImage = await uploadMedia(payload, 'chez-nounou.png', 'Chez Nounou')
+	
+	// Family images
+	const fredericImage = await uploadMedia(payload, 'frederic.jpg', 'Frederic')
+	const andyImage = await uploadMedia(payload, 'andy.jpg', 'Andy')
+	const orlaneImage = await uploadMedia(payload, 'orlane.jpg', 'Orlane')
+	const maevaImage = await uploadMedia(payload, 'maeva.jpg', 'Maeva')
+	const kylianImage = await uploadMedia(payload, 'kylian.jpg', 'Kylian')
+	const tagadaImage = await uploadMedia(payload, 'tagada.jpg', 'Tagada')
+	const siaImage = await uploadMedia(payload, 'sia.jpg', 'Sia')
 
 	// Update the Landing global with all default content
 	await payload.updateGlobal({
@@ -159,12 +168,61 @@ async function seedLanding() {
 				},
 			},
 
-			// ==================== SECTION PRESENTATION ====================
-			presentation: {
-				title: 'Ma présentation',
-				agreementInfo:
-					"Mon agrément me permet d'accueillir 3 enfants le jour de 7h à 19h et un enfant la nuit de 18h à 7h.",
-			},
+
+
+			// ==================== SECTION FAMILLE ====================
+			familyMembers: [
+				// Isabelle (moi, Maman, et nounou)
+				{
+					firstName: 'Isabelle',
+					description: '(moi, Maman, et nounou)',
+					image: aboutImage ? aboutImage.id : undefined,
+				},
+				// Frederic (mari)
+				{
+					firstName: 'Frederic',
+					description: 'Mari de nounou depuis 27 ans',
+					image: fredericImage ? fredericImage.id : aboutImage?.id,
+				},
+				// Andy (ingénieur)
+				{
+					firstName: 'Andy',
+					description: 'Le plus grand, et ingénieur en Informatique',
+					image: andyImage ? andyImage.id : aboutImage?.id,
+					link: 'https://andy-cinquin.fr/',
+				},
+				// Orlane (Maitresse des écoles)
+				{
+					firstName: 'Orlane',
+					description: 'Maîtresse des écoles',
+					image: orlaneImage ? orlaneImage.id : aboutImage?.id,
+				},
+				// Maeva (maquilleuse)
+				{
+					firstName: 'Maeva',
+					description: 'Maquilleuse professionnelle',
+					image: maevaImage ? maevaImage.id : aboutImage?.id,
+					link: 'https://cinquin-maeva.com/',
+				},
+				// Kylian (petit dernier)
+				{
+					firstName: 'Kylian',
+					description: 'Le petit dernier de notre tribu',
+					image: kylianImage ? kylianImage.id : aboutImage?.id,
+				},
+				// tagada (chat)
+				{
+					firstName: 'Tagada',
+					description: 'Un potit chat',
+					image: tagadaImage ? tagadaImage.id : aboutImage?.id,
+				},
+				// sia (chat)
+				{
+					firstName: 'Sia',
+					description: 'Un potit chat',
+					image: siaImage ? siaImage.id : aboutImage?.id,
+				},
+			],
 
 			// ==================== SECTION FORMATIONS ====================
 			trainingsSection: {

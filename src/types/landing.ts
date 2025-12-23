@@ -18,8 +18,7 @@ export type LandingAboutStat = NonNullable<LandingAbout['stats']>[number]
 // Introduction section
 export type LandingIntroduction = NonNullable<Landing['introduction']>
 
-// Presentation section
-export type LandingPresentation = NonNullable<Landing['presentation']>
+
 
 // Family members
 export type LandingFamilyMember = NonNullable<Landing['familyMembers']>[number]

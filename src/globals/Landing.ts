@@ -124,32 +124,7 @@ export const Landing: GlobalConfig = {
 			],
 		},
 
-		// ==================== SECTION PRESENTATION ====================
-		{
-			name: 'presentation',
-			type: 'group',
-			label: 'Présentation',
-			fields: [
-				{
-					name: 'title',
-					type: 'text',
-					label: 'Titre',
-					defaultValue: 'Ma présentation',
-				},
-				{
-					name: 'content',
-					type: 'richText',
-					label: 'Contenu',
-				},
-				{
-					name: 'agreementInfo',
-					type: 'textarea',
-					label: "Informations d'agrément",
-					defaultValue:
-						"Mon agrément me permet d'accueillir 3 enfants le jour de 7h à 19h et un enfant la nuit de 18h à 7h.",
-				},
-			],
-		},
+
 
 		// ==================== SECTION FAMILLE ====================
 		{

@@ -10,6 +10,6 @@ export { Introduction } from './introduction'
 export { LivingPlace } from './living-place'
 export { Objectives } from './objectives'
 export { Organization } from './organization'
-export { Presentation } from './presentation'
+
 export { Sleep } from './sleep'
 export { Trainings } from './trainings'

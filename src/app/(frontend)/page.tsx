@@ -11,9 +11,11 @@ import {
 	DailySchedule,
 	Equipment,
 	Family,
+	Introduction,
 	LivingPlace,
 	Objectives,
 	Organization,
+
 	Sleep,
 	Trainings,
 } from '@/components/sections'
@@ -56,6 +58,8 @@ export default async function HomePage() {
 	return (
 		<>
 			<Hero hero={landing?.hero} />
+
+			<Introduction introduction={landing?.introduction} />
 
 			<AboutSection about={landing?.about} />
 

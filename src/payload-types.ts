@@ -506,25 +506,6 @@ export interface Landing {
     } | null;
     image?: (number | null) | Media;
   };
-  presentation?: {
-    title?: string | null;
-    content?: {
-      root: {
-        type: string;
-        children: {
-          type: any;
-          version: number;
-          [k: string]: unknown;
-        }[];
-        direction: ('ltr' | 'rtl') | null;
-        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-        indent: number;
-        version: number;
-      };
-      [k: string]: unknown;
-    } | null;
-    agreementInfo?: string | null;
-  };
   familyMembers?:
     | {
         image: number | Media;
@@ -803,13 +784,6 @@ export interface LandingSelect<T extends boolean = true> {
         title?: T;
         content?: T;
         image?: T;
-      };
-  presentation?:
-    | T
-    | {
-        title?: T;
-        content?: T;
-        agreementInfo?: T;
       };
   familyMembers?:
     | T
