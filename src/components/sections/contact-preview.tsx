@@ -14,6 +14,10 @@ export function ContactPreview({
 	title,
 	content,
 }: ContactPreviewProps) {
+	if (!title || !content) {
+		throw new Error('Missing required data for Contact section')
+	}
+
 	return (
 		<SectionWrapper id="contact" variant="primary" className="overflow-hidden">
 			<div className="max-w-7xl mx-auto px-4 md:px-6">
@@ -34,10 +38,10 @@ export function ContactPreview({
 							<Heart className="size-5 fill-current" />
 						</div>
 						<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-							{title || 'Envie de me rencontrer ?'}
+							{title}
 						</h2>
 						<p className="text-white/70 text-lg max-w-xl mx-auto">
-							{content || "N'hésitez pas à me contacter pour discuter de l'accueil de votre enfant"}
+							{content}
 						</p>
 					</div>
 

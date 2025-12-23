@@ -87,15 +87,21 @@ export function Equipment({ equipmentSection }: EquipmentProps) {
 	}
 
 	const title = equipmentSection.title
-	const subtitle = equipmentSection.subtitle || 'Tout le matériel nécessaire pour accueillir vos enfants'
+	const subtitle = equipmentSection.subtitle
 	const equipment = equipmentSection.items
 
-	// Add default icons if not present
-	const items: EquipmentItem[] = equipment.map((item: LandingEquipment, index: number) => ({
-		...item,
-		icon: item.icon || '/icons/scribbbles/7/SVG/Fichier 1.svg',
-		gridSpan: index === 0 || index === 5 ? 'double' : 'single', // Keep grid logic dynamic based on index
-	}))
+	// Use provided equipment data or fall back to defaults with icons
+	const items: EquipmentItem[] = equipment.map((item: LandingEquipment, index: number) => {
+		if (!item.icon) {
+			throw new Error(`Missing icon for equipment item: ${item.name || 'Unknown'}`)
+		}
+
+		return {
+			...item,
+			icon: item.icon,
+			gridSpan: index === 0 || index === 5 ? 'double' : 'single', // Keep grid logic dynamic based on index
+		}
+	})
 
 	return (
 		<SectionWrapper id="equipements" variant="secondary">

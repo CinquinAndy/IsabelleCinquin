@@ -20,7 +20,7 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 	}
 
 	const title = objectivesSection.title
-	const subtitle = objectivesSection.subtitle || "Ce qui est important pour moi dans l'accompagnement de vos enfants"
+	const subtitle = objectivesSection.subtitle
 	const objectives = objectivesSection.items
 
 	const iconMap: Record<string, string> = {

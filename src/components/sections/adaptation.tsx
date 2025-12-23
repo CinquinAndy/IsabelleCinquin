@@ -27,12 +27,8 @@ export function Adaptation({ adaptation }: AdaptationProps) {
 	}
 
 	const title = adaptation.title
-	const subtitle =
-		adaptation.subtitle ||
-		"Une période importante pour permettre à l'enfant, aux parents, et à nounou de faire connaissance en douceur."
-	const keyMessage =
-		adaptation.keyMessage ||
-		"La clé d'un accueil réussi : une confiance mutuelle et un dialogue permanent entre les parents et la nounou."
+	const subtitle = adaptation.subtitle
+	const keyMessage = adaptation.keyMessage
 	const badges = adaptation.badges
 
 	const mediaUrl =

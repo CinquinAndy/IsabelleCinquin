@@ -7,13 +7,15 @@ interface PresentationProps {
 }
 
 export function Presentation({ presentation }: PresentationProps) {
-	if (!presentation) return null
+	if (!presentation) {
+		throw new Error('Missing required data for Presentation section')
+	}
 
 	return (
 		<SectionWrapper id="presentation" variant="secondary">
 			<div className="text-center mb-12">
 				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-					{presentation.title || 'Ma présentation'}
+					{presentation.title}
 				</h2>
 			</div>
 

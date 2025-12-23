@@ -20,8 +20,7 @@ export function Charter({ charterSection }: CharterProps) {
 	}
 
 	const title = charterSection.title
-	const subtitle =
-		charterSection.subtitle || 'Les règles de vie chez nounou, écrites du point de vue de votre enfant 💜'
+	const subtitle = charterSection.subtitle
 	const items = charterSection.items
 
 	return (

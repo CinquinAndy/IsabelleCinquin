@@ -40,7 +40,7 @@ export function DailySchedule({ dailyScheduleSection }: DailyScheduleProps) {
 	}
 
 	const title = dailyScheduleSection.title
-	const subtitle = dailyScheduleSection.subtitle || 'Comment se déroule une journée type chez nounou'
+	const subtitle = dailyScheduleSection.subtitle
 	const items = dailyScheduleSection.items
 
 	return (

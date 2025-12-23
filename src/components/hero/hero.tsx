@@ -40,7 +40,9 @@ export function Hero({ hero }: HeroProps) {
 		WebkitMaskRepeat: 'no-repeat',
 	} as React.CSSProperties
 
-	if (!hero) return null
+	if (!hero) {
+		throw new Error('Missing required data for Hero section')
+	}
 
 	return (
 		<section className="relative h-screen w-full overflow-hidden z-20 bg-primary">

@@ -16,7 +16,7 @@ export function Organization({ organization }: OrganizationProps) {
 	}
 
 	const title = organization.title
-	const subtitle = organization.subtitle || "Glissez pour comparer ce qu'il faut apporter et ce qui est fourni"
+	const subtitle = organization.subtitle
 	const bagItems = organization.bagItems
 	const nounouItems = organization.nounouItems
 
