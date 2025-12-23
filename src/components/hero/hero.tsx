@@ -25,7 +25,7 @@ export function Hero({ children }: HeroProps) {
 	useCloudShader(canvasRef)
 
 	// Mask styles for window effect
-	const maskStyle: React.CSSProperties = {
+	const maskStyle = {
 		maskImage: 'url(/mask.svg)',
 		WebkitMaskImage: 'url(/mask.svg)',
 		maskMode: 'luminance',
@@ -36,7 +36,7 @@ export function Hero({ children }: HeroProps) {
 		WebkitMaskPosition: 'center',
 		maskRepeat: 'no-repeat',
 		WebkitMaskRepeat: 'no-repeat',
-	}
+	} as React.CSSProperties
 
 	return (
 		<section className="relative h-screen w-full overflow-hidden z-20 bg-primary">

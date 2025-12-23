@@ -1,16 +1,11 @@
 import { Home } from 'lucide-react'
 import Image from 'next/image'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
-import type { Media } from '@/payload-types'
-
-interface LivingPlaceImage {
-	id?: string
-	image?: Media | number | null
-}
+import type { LandingLivingPlaceImage, RichTextContent } from '@/types/landing'
 
 interface LivingPlaceProps {
-	content?: unknown
-	images?: LivingPlaceImage[] | null
+	content?: RichTextContent | null
+	images?: LandingLivingPlaceImage[] | null
 }
 
 export function LivingPlace({ images }: LivingPlaceProps) {

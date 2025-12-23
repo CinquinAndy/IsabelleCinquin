@@ -6,11 +6,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRef } from 'react'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
-import type { Media } from '@/payload-types'
+import type { LandingFamilyMember } from '@/types/landing'
+
+// Flexible type that accepts Payload Media or simple image objects from fallback data
+type FamilyMemberImage = LandingFamilyMember['image'] | { url: string; alt?: string }
 
 interface FamilyMember {
-	id?: string
-	image?: Media | number | null
+	id?: string | null
+	image: FamilyMemberImage
 	firstName: string
 	lastName?: string | null
 	description: string

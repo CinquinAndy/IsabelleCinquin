@@ -1,19 +1,13 @@
 'use client'
 
-import { Book, Clock, Heart, Home, MessageCircle, Phone, Stethoscope, Users, Wallet } from 'lucide-react'
+import { Clock, Heart, Home, MessageCircle, Stethoscope, Users, Wallet } from 'lucide-react'
 import Link from 'next/link'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
-
-interface CharterRule {
-	id?: string
-	ruleNumber: number
-	title?: string | null
-	content?: unknown
-}
+import type { LandingCharterRule } from '@/types/landing'
 
 interface CharterProps {
-	rules?: CharterRule[] | null
+	rules?: LandingCharterRule[] | null
 }
 
 // Icons for each rule
@@ -22,7 +16,7 @@ const ruleIcons = [Clock, Home, MessageCircle, Heart, Users, Stethoscope, Home, 
 // Default rule titles
 const defaultTitles: Record<number, string> = {
 	1: 'Ponctualité le matin',
-	2: 'Respect de l\'espace',
+	2: "Respect de l'espace",
 	3: 'Communication importante',
 	4: 'Arrivée préparée',
 	5: 'Questions bienvenues',
@@ -45,7 +39,7 @@ const defaultContents: Record<number, string> = {
 	9: "Tout travail mérite salaire, Papa, Maman, n'oubliez pas de payer Nounou, elle aussi, doit payer son loyer, ses charges...",
 }
 
-const defaultRules: CharterRule[] = Array.from({ length: 9 }, (_, i) => ({
+const defaultRules: LandingCharterRule[] = Array.from({ length: 9 }, (_, i) => ({
 	id: String(i + 1),
 	ruleNumber: i + 1,
 	title: defaultTitles[i + 1],

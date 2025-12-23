@@ -31,7 +31,6 @@ interface Settings {
 async function getLandingSettings(): Promise<Settings | null> {
 	try {
 		const payload = await getPayload({ config })
-		// @ts-expect-error - landing global not in generated types yet
 		const landing = await payload.findGlobal({ slug: 'landing' })
 		return (landing as { settings?: Settings })?.settings ?? null
 	} catch {

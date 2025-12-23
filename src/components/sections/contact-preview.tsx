@@ -58,11 +58,7 @@ export function ContactPreview({
 								</Link>
 							</Button>
 						)}
-						<Button
-							size="lg"
-							asChild
-							className="rounded-full bg-white text-primary hover:bg-white/90 shadow-lg"
-						>
+						<Button size="lg" asChild className="rounded-full bg-white text-primary hover:bg-white/90 shadow-lg">
 							<Link href="/contact">
 								Contactez moi
 								<ArrowRight className="size-4" />

@@ -84,7 +84,6 @@ export const Posts: CollectionConfig = {
 				{
 					name: 'categories',
 					type: 'relationship',
-					// @ts-expect-error - categories collection not in generated types yet
 					relationTo: 'categories',
 					hasMany: true,
 					label: 'Catégories',
@@ -95,7 +94,6 @@ export const Posts: CollectionConfig = {
 				{
 					name: 'tags',
 					type: 'relationship',
-					// @ts-expect-error - tags collection not in generated types yet
 					relationTo: 'tags',
 					hasMany: true,
 					label: 'Tags',

@@ -1,2 +1,0 @@
-User-agent: *
-Sitemap: https://isabelle-cinquin.fr/sitemap.xml

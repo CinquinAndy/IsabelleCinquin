@@ -34,7 +34,7 @@ const defaultActivities = [
 		id: 2,
 		title: 'Promenades au lac Léman',
 		slug: 'promenades-lac',
-		excerpt: 'Découverte de la nature, observation des canards, jeux au bord de l\'eau dans un cadre magnifique.',
+		excerpt: "Découverte de la nature, observation des canards, jeux au bord de l'eau dans un cadre magnifique.",
 		category: 'Extérieur',
 		image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&auto=format&fit=crop',
 	},
@@ -67,72 +67,74 @@ export function Activities({ posts }: ActivitiesProps) {
 
 				{/* Cards grid */}
 				<div className="flex flex-wrap justify-center gap-8">
-					{hasRealPosts ? (
-						// Real posts from CMS
-						posts.slice(0, 6).map(post => {
-							const mediaUrl =
-								typeof post.featuredImage === 'object' && post.featuredImage?.url ? post.featuredImage.url : null
-							const mediaAlt =
-								typeof post.featuredImage === 'object' && post.featuredImage?.alt ? post.featuredImage.alt : post.title
+					{hasRealPosts
+						? // Real posts from CMS
+							posts
+								.slice(0, 6)
+								.map(post => {
+									const mediaUrl =
+										typeof post.featuredImage === 'object' && post.featuredImage?.url ? post.featuredImage.url : null
+									const mediaAlt =
+										typeof post.featuredImage === 'object' && post.featuredImage?.alt
+											? post.featuredImage.alt
+											: post.title
 
-							return (
+									return (
+										<Link
+											key={post.id}
+											href={`/blog/${post.slug}`}
+											className="group max-w-xs w-full hover:-translate-y-1 transition-all duration-300"
+										>
+											<div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white/10">
+												{mediaUrl ? (
+													<Image
+														src={mediaUrl}
+														alt={mediaAlt}
+														fill
+														className="object-cover group-hover:scale-105 transition-transform duration-500"
+														sizes="(max-width: 768px) 100vw, 320px"
+													/>
+												) : (
+													<div className="w-full h-full bg-white/5 flex items-center justify-center">
+														<span className="text-4xl">🎨</span>
+													</div>
+												)}
+											</div>
+											<h3 className="text-lg text-white font-semibold mt-4 group-hover:text-white/90 transition-colors line-clamp-2">
+												{post.title}
+											</h3>
+											<p className="text-sm text-white/60 mt-2 line-clamp-2">{post.excerpt}</p>
+											{post.category && (
+												<span className="inline-block text-xs font-medium text-pink-300 mt-2">{post.category}</span>
+											)}
+										</Link>
+									)
+								})
+						: // Default placeholder activities - also links to future blog posts
+							defaultActivities.map(activity => (
 								<Link
-									key={post.id}
-									href={`/blog/${post.slug}`}
+									key={activity.id}
+									href={`/blog/${activity.slug}`}
 									className="group max-w-xs w-full hover:-translate-y-1 transition-all duration-300"
 								>
 									<div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white/10">
-										{mediaUrl ? (
-											<Image
-												src={mediaUrl}
-												alt={mediaAlt}
-												fill
-												className="object-cover group-hover:scale-105 transition-transform duration-500"
-												sizes="(max-width: 768px) 100vw, 320px"
-											/>
-										) : (
-											<div className="w-full h-full bg-white/5 flex items-center justify-center">
-												<span className="text-4xl">🎨</span>
-											</div>
-										)}
+										<Image
+											src={activity.image}
+											alt={activity.title}
+											fill
+											className="object-cover group-hover:scale-105 transition-transform duration-500"
+											sizes="(max-width: 768px) 100vw, 320px"
+										/>
+										{/* Overlay gradient */}
+										<div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 									</div>
-									<h3 className="text-lg text-white font-semibold mt-4 group-hover:text-white/90 transition-colors line-clamp-2">
-										{post.title}
+									<h3 className="text-lg text-white font-semibold mt-4 group-hover:text-white/90 transition-colors">
+										{activity.title}
 									</h3>
-									<p className="text-sm text-white/60 mt-2 line-clamp-2">{post.excerpt}</p>
-									{post.category && (
-										<span className="inline-block text-xs font-medium text-pink-300 mt-2">{post.category}</span>
-									)}
+									<p className="text-sm text-white/60 mt-2 line-clamp-2">{activity.excerpt}</p>
+									<span className="inline-block text-xs font-medium text-pink-300 mt-2">{activity.category}</span>
 								</Link>
-							)
-						})
-					) : (
-						// Default placeholder activities - also links to future blog posts
-						defaultActivities.map(activity => (
-							<Link
-								key={activity.id}
-								href={`/blog/${activity.slug}`}
-								className="group max-w-xs w-full hover:-translate-y-1 transition-all duration-300"
-							>
-								<div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white/10">
-									<Image
-										src={activity.image}
-										alt={activity.title}
-										fill
-										className="object-cover group-hover:scale-105 transition-transform duration-500"
-										sizes="(max-width: 768px) 100vw, 320px"
-									/>
-									{/* Overlay gradient */}
-									<div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-								</div>
-								<h3 className="text-lg text-white font-semibold mt-4 group-hover:text-white/90 transition-colors">
-									{activity.title}
-								</h3>
-								<p className="text-sm text-white/60 mt-2 line-clamp-2">{activity.excerpt}</p>
-								<span className="inline-block text-xs font-medium text-pink-300 mt-2">{activity.category}</span>
-							</Link>
-						))
-					)}
+							))}
 				</div>
 
 				{/* CTA button */}

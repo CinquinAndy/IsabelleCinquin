@@ -38,12 +38,7 @@ export function Adaptation(_props: AdaptationProps) {
 						{/* Decorative wavy border */}
 						<div className="absolute -inset-4 bg-white/10 rounded-[2rem] -rotate-2" />
 						<div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
-							<Image
-								src="/isabelle.jpg"
-								alt="Période d'adaptation avec nounou"
-								fill
-								className="object-cover"
-							/>
+							<Image src="/isabelle.jpg" alt="Période d'adaptation avec nounou" fill className="object-cover" />
 						</div>
 						{/* Decorative dots */}
 						<div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
@@ -59,11 +54,11 @@ export function Adaptation(_props: AdaptationProps) {
 						{/* Title */}
 						<div>
 							<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-								Période{' '}
-								<span className="font-handwriting text-white/80">d'adaptation</span>
+								Période <span className="font-handwriting text-white/80">d'adaptation</span>
 							</h2>
 							<p className="mt-4 text-lg text-white/70 leading-relaxed max-w-lg">
-								Une période importante pour permettre à l'enfant, aux parents, et à nounou de faire connaissance en douceur.
+								Une période importante pour permettre à l'enfant, aux parents, et à nounou de faire connaissance en
+								douceur.
 							</p>
 						</div>
 
@@ -84,12 +79,7 @@ export function Adaptation(_props: AdaptationProps) {
 									}}
 								>
 									<div className="relative w-8 h-8 -ml-1">
-										<Image
-											src={badge.icon}
-											alt=""
-											fill
-											className="object-contain"
-										/>
+										<Image src={badge.icon} alt="" fill className="object-contain" />
 									</div>
 									{badge.text}
 								</div>
@@ -99,7 +89,8 @@ export function Adaptation(_props: AdaptationProps) {
 						{/* Key message */}
 						<div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
 							<p className="text-white/90 font-medium">
-								🤝 La clé d'un accueil réussi : une <span className="text-white font-bold">confiance mutuelle</span> et un <span className="text-white font-bold">dialogue permanent</span> entre les parents et la nounou.
+								🤝 La clé d'un accueil réussi : une <span className="text-white font-bold">confiance mutuelle</span> et
+								un <span className="text-white font-bold">dialogue permanent</span> entre les parents et la nounou.
 							</p>
 						</div>
 					</div>

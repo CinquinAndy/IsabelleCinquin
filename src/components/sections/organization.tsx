@@ -3,17 +3,12 @@
 import { Backpack, Home } from 'lucide-react'
 import { Compare } from '@/components/ui/compare'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
-import type { Media } from '@/payload-types'
-
-interface OrganizationItem {
-	id?: string
-	item: string
-}
+import type { LandingOrganizationItem, Media } from '@/types/landing'
 
 interface OrganizationProps {
-	bagItems?: OrganizationItem[] | null
+	bagItems?: LandingOrganizationItem[] | null
 	bagImage?: Media | number | null
-	nounouItems?: OrganizationItem[] | null
+	nounouItems?: LandingOrganizationItem[] | null
 	nounouImage?: Media | number | null
 }
 
@@ -58,7 +53,7 @@ export function Organization({ bagItems, nounouItems }: OrganizationProps) {
 								<Home className="w-5 h-5 text-emerald-300" />
 							</div>
 						</div>
-						
+
 						<div className="p-4 border rounded-3xl bg-white/5 border-white/10">
 							<Compare
 								firstImage="/sac-langer.png"

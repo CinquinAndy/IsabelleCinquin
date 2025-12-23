@@ -3,20 +3,17 @@
 import { motion } from 'framer-motion'
 import { Award, GraduationCap } from 'lucide-react'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
+import type { LandingTraining } from '@/types/landing'
 
-interface Training {
-	id?: string
-	title: string
-	period?: string | null
-	description?: string | null
+interface TrainingWithIcon extends LandingTraining {
 	icon?: 'graduation' | 'award'
 }
 
 interface TrainingsProps {
-	trainings?: Training[] | null
+	trainings?: LandingTraining[] | null
 }
 
-function TrainingCard({ training, index }: { training: Training; index: number }) {
+function TrainingCard({ training, index }: { training: TrainingWithIcon; index: number }) {
 	const Icon = training.icon === 'award' ? Award : GraduationCap
 	const isEven = index % 2 === 0
 
@@ -66,7 +63,7 @@ function TrainingCard({ training, index }: { training: Training; index: number }
 }
 
 export function Trainings({ trainings }: TrainingsProps) {
-	const defaultTrainings: Training[] = [
+	const defaultTrainings: TrainingWithIcon[] = [
 		{
 			id: '1',
 			title: 'CAP Petite Enfance (AEPE)',

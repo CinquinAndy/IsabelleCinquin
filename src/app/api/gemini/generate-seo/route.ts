@@ -75,24 +75,23 @@ export async function POST(req: NextRequest) {
 
 		// Update the document/global with generated SEO
 		if (updateTarget.global) {
-			const globalSlug = updateTarget.global as 'homepage' | 'faq-page' | 'contact-page' | 'mentions-legales-page'
-
+			// Cast to any since we may have globals not yet in schema
 			await payload.updateGlobal({
-				slug: globalSlug,
+				slug: updateTarget.global as any,
 				data: {
 					seo_title: seoContent.title,
 					seo_description: seoContent.description,
 				},
 			})
 		} else if (updateTarget.collection && updateTarget.id) {
-			const collectionSlug = updateTarget.collection as 'users' | 'media' // Add more collections as created
+			// Cast to any since collections may have different schemas
 			await payload.update({
-				collection: collectionSlug,
+				collection: updateTarget.collection as any,
 				id: updateTarget.id,
 				data: {
 					seo_title: seoContent.title,
 					seo_description: seoContent.description,
-				},
+				} as any,
 			})
 		}
 

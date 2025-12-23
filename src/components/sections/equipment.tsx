@@ -3,17 +3,15 @@
 import { Warp } from '@paper-design/shaders-react'
 import Image from 'next/image'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
+import type { LandingEquipment } from '@/types/landing'
 
-interface EquipmentItem {
-	id?: string
-	name: string
-	quantity?: number | null
+interface EquipmentItem extends LandingEquipment {
 	icon: string
 	gridSpan?: 'single' | 'double'
 }
 
 interface EquipmentProps {
-	equipment?: { id?: string; name: string; quantity?: number | null }[] | null
+	equipment?: LandingEquipment[] | null
 }
 
 const defaultEquipmentWithIcons: EquipmentItem[] = [
@@ -184,7 +182,7 @@ export function Equipment({ equipment }: EquipmentProps) {
 								<div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-black/20 rounded-2xl" />
 								{/* Top highlight */}
 								<div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
-								
+
 								{/* Icon */}
 								<div className="relative z-10 w-16 h-16 md:w-20 md:h-20 filter drop-shadow-lg transition-transform duration-300 group-hover:scale-110">
 									<Image src={item.icon} alt={item.name} fill className="object-contain" />

@@ -229,3 +229,42 @@ body::-webkit-scrollbar-thumb {
 .animate-subtle-spin {
 	animation: subtle-spin 4s ease-in-out infinite;
 }
+
+/* Custom prose theme using isa color palette */
+@utility prose-isa {
+	/* Light theme (for use on light backgrounds) */
+	--tw-prose-body: var(--color-isa-800);
+	--tw-prose-headings: var(--color-isa-950);
+	--tw-prose-lead: var(--color-isa-700);
+	--tw-prose-links: var(--color-isa-600);
+	--tw-prose-bold: var(--color-isa-900);
+	--tw-prose-counters: var(--color-isa-600);
+	--tw-prose-bullets: var(--color-isa-400);
+	--tw-prose-hr: var(--color-isa-200);
+	--tw-prose-quotes: var(--color-isa-900);
+	--tw-prose-quote-borders: var(--color-isa-300);
+	--tw-prose-captions: var(--color-isa-700);
+	--tw-prose-code: var(--color-isa-900);
+	--tw-prose-pre-code: var(--color-isa-100);
+	--tw-prose-pre-bg: var(--color-isa-900);
+	--tw-prose-th-borders: var(--color-isa-300);
+	--tw-prose-td-borders: var(--color-isa-200);
+
+	/* Inverted theme (for use on dark/purple backgrounds) */
+	--tw-prose-invert-body: rgba(255, 255, 255, 0.8);
+	--tw-prose-invert-headings: white;
+	--tw-prose-invert-lead: var(--color-isa-200);
+	--tw-prose-invert-links: white;
+	--tw-prose-invert-bold: white;
+	--tw-prose-invert-counters: var(--color-isa-300);
+	--tw-prose-invert-bullets: var(--color-isa-400);
+	--tw-prose-invert-hr: var(--color-isa-700);
+	--tw-prose-invert-quotes: var(--color-isa-100);
+	--tw-prose-invert-quote-borders: var(--color-isa-600);
+	--tw-prose-invert-captions: var(--color-isa-300);
+	--tw-prose-invert-code: white;
+	--tw-prose-invert-pre-code: var(--color-isa-200);
+	--tw-prose-invert-pre-bg: rgba(0, 0, 0, 0.4);
+	--tw-prose-invert-th-borders: var(--color-isa-500);
+	--tw-prose-invert-td-borders: var(--color-isa-600);
+}

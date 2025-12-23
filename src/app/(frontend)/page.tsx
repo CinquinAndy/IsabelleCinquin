@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { getPayload } from 'payload'
 import { AboutSection } from '@/components/about-section'
 import { Footer } from '@/components/footer'
-import { Header } from '@/components/header'
 import { Hero } from '@/components/hero'
 import {
 	Activities,
@@ -21,63 +20,13 @@ import {
 	Trainings,
 } from '@/components/sections'
 
-import type { Media } from '@/payload-types'
+import type { Landing, Post } from '@/payload-types'
 
-// Temporary types until payload generate:types is run
-interface LandingData {
-	introduction?: { title?: string | null; content?: unknown; image?: Media | number | null }
-	presentation?: { content?: unknown; agreementInfo?: string | null }
-	familyMembers?: {
-		id?: string
-		image?: Media | number | null
-		firstName: string
-		lastName?: string | null
-		description: string
-		link?: string | null
-	}[]
-	trainings?: { id?: string; title: string; period?: string | null; description?: string | null }[]
-	sleep?: { content?: unknown }
-	livingPlace?: { content?: unknown; images?: { id?: string; image?: Media | number | null }[] }
-	equipment?: { id?: string; name: string; quantity?: number | null }[]
-	objectives?: { id?: string; title: string; icon?: string | null; content?: unknown }[]
-	adaptation?: { content?: unknown }
-	organization?: {
-		bagItems?: { id?: string; item: string }[]
-		bagImage?: Media | number | null
-		nounouItems?: { id?: string; item: string }[]
-		nounouImage?: Media | number | null
-	}
-	dailySchedule?: { id?: string; time?: string | null; activity: string }[]
-	charter?: { id?: string; ruleNumber: number; title?: string | null; content?: unknown }[]
-	settings?: {
-		isAvailable?: boolean | null
-		unavailableMessage?: string | null
-		returnDate?: string | null
-		email?: string | null
-		phone?: string | null
-		landline?: string | null
-		address?: string | null
-		nounouTopLink?: string | null
-		openingHours?: string | null
-		mapLat?: number | null
-		mapLng?: number | null
-	}
-}
-
-interface Post {
-	id: number
-	title: string
-	slug: string
-	excerpt: string
-	featuredImage?: Media | number | null
-	publishedAt?: string | null
-}
-
-async function getLandingData(): Promise<LandingData | null> {
+async function getLandingData(): Promise<Landing | null> {
 	try {
 		const payload = await getPayload({ config })
 		const landing = await payload.findGlobal({ slug: 'landing' })
-		return landing as LandingData
+		return landing
 	} catch {
 		return null
 	}
@@ -108,8 +57,6 @@ export default async function HomePage() {
 
 	return (
 		<>
-			<Header />
-
 			<Hero>
 				<div className="text-center px-4 w-full h-full flex flex-col items-center justify-center relative">
 					<Image
