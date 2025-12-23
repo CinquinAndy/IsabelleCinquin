@@ -17,7 +17,11 @@ interface LivingPlaceProps {
 export function LivingPlace({ images }: LivingPlaceProps) {
 	return (
 		<SectionWrapper id="lieu-de-vie" variant="primary">
-			<SectionTitle>Lieu de vie</SectionTitle>
+			<div className="text-center mb-12">
+				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+					Lieu de <span className="font-handwriting text-white/80">vie</span>
+				</h2>
+			</div>
 
 			<div className="max-w-3xl mx-auto">
 				<div className="text-center space-y-4 mb-10">

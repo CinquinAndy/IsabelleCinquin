@@ -13,7 +13,11 @@ interface SleepProps {
 export function Sleep(_props: SleepProps) {
 	return (
 		<SectionWrapper id="sommeil" variant="primary">
-			<SectionTitle>Le sommeil</SectionTitle>
+			<div className="text-center mb-12">
+				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+					Le <span className="font-handwriting text-white/80">sommeil</span>
+				</h2>
+			</div>
 
 			<div className="max-w-4xl mx-auto">
 				<motion.div

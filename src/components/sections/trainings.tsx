@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import { Award, GraduationCap } from 'lucide-react'
-import { SectionTitle } from '@/components/ui/section-title'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 
 interface Training {
@@ -89,7 +88,11 @@ export function Trainings({ trainings }: TrainingsProps) {
 
 	return (
 		<SectionWrapper id="formations" variant="secondary">
-			<SectionTitle>Mes formations</SectionTitle>
+			<div className="text-center mb-12">
+				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+					Mes <span className="font-handwriting text-white/80">formations</span>
+				</h2>
+			</div>
 
 			<div className="max-w-3xl mx-auto space-y-6">
 				{items.map((training, index) => (

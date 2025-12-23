@@ -9,7 +9,11 @@ interface PresentationProps {
 export function Presentation({ agreementInfo }: PresentationProps) {
 	return (
 		<SectionWrapper id="presentation" variant="secondary">
-			<SectionTitle>Présentation</SectionTitle>
+			<div className="text-center mb-12">
+				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+					Ma <span className="font-handwriting text-white/80">présentation</span>
+				</h2>
+			</div>
 
 			<div className="max-w-3xl mx-auto text-center space-y-6">
 				<p className="text-lg leading-relaxed opacity-90">Je suis nounou sur la commune de Sciez (74) depuis 2003.</p>

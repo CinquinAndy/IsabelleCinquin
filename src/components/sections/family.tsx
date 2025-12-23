@@ -110,7 +110,12 @@ export function Family({ members }: FamilyProps) {
 
 	return (
 		<SectionWrapper id="famille" variant="primary">
-			<SectionTitle subtitle="Les personnes qui vivent avec nounou">La petite famille</SectionTitle>
+			<div className="text-center mb-12">
+				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+					La petite <span className="font-handwriting text-white/80">famille</span>
+				</h2>
+				<p className="mt-4 text-lg text-white/70">Les personnes qui vivent avec nounou</p>
+			</div>
 
 			<div className="relative w-full group/carousel">
 				{/* Left Scroll Button */}

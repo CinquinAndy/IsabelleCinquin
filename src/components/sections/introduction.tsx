@@ -15,7 +15,11 @@ export function Introduction({ title, content, image }: IntroductionProps) {
 
 	return (
 		<SectionWrapper id="introduction" variant="primary">
-			<SectionTitle>{title || "Livret d'Accueil de Nounou"}</SectionTitle>
+			<div className="text-center mb-12">
+				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+					Livret d'<span className="font-handwriting text-white/80">Accueil</span> de Nounou
+				</h2>
+			</div>
 
 			<div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
 				<div className="flex-1 text-center lg:text-left">

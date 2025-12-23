@@ -142,7 +142,12 @@ export function Equipment({ equipment }: EquipmentProps) {
 
 	return (
 		<SectionWrapper id="equipements" variant="secondary">
-			<SectionTitle subtitle="Tout le matériel nécessaire pour accueillir vos enfants">Équipements</SectionTitle>
+			<div className="text-center mb-12">
+				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+					Les <span className="font-handwriting text-white/80">équipements</span>
+				</h2>
+				<p className="mt-4 text-lg text-white/70">Tout le matériel nécessaire pour accueillir vos enfants</p>
+			</div>
 
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
 				{items.map((item, index) => {
