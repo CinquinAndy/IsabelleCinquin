@@ -77,8 +77,11 @@ const defaultSchedule: LandingDailyScheduleItem[] = [
 	},
 ]
 
-export function DailySchedule({ schedule }: DailyScheduleProps) {
-	const items = schedule && schedule.length > 0 ? schedule : defaultSchedule
+export function DailySchedule({ dailyScheduleSection }: DailyScheduleProps) {
+	const title = dailyScheduleSection?.title || "Organisation d'une journée"
+	const subtitle = dailyScheduleSection?.subtitle || 'Comment se déroule une journée type chez nounou'
+	const schedule = dailyScheduleSection?.items || []
+	const items = schedule.length > 0 ? schedule : defaultSchedule
 
 	return (
 		<SectionWrapper id="journee" variant="primary" className="overflow-hidden">
@@ -86,11 +89,10 @@ export function DailySchedule({ schedule }: DailyScheduleProps) {
 				{/* Title */}
 				<div className="text-center mb-16">
 					<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-						Organisation d'une <span className="font-handwriting text-white/80">journée</span>
+						{title.split(' ').slice(0, -1).join(' ')}{' '}
+						<span className="font-handwriting text-white/80">{title.split(' ').slice(-1)}</span>
 					</h2>
-					<p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto">
-						Comment se déroule une journée type chez nounou
-					</p>
+					<p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto">{subtitle}</p>
 				</div>
 
 				{/* Timeline */}

@@ -52,13 +52,18 @@ const defaultObjectives: ObjectiveWithUI[] = [
 	},
 ]
 
-export function Objectives({ objectives }: ObjectivesProps) {
+export function Objectives({ objectivesSection }: ObjectivesProps) {
+	const title = objectivesSection?.title || 'Mes objectifs'
+	const subtitle = objectivesSection?.subtitle || "Ce qui est important pour moi dans l'accompagnement de vos enfants"
+	const objectives = objectivesSection?.items || []
+
 	// Use provided objectives data or fall back to defaults
 	const items: ObjectiveWithUI[] =
-		objectives && objectives.length > 0
-			? objectives.map((obj, index) => ({
-					...obj,
-					description: defaultObjectives[index]?.description || '',
+		objectives.length > 0
+			? objectives.map((obj: LandingObjective, index: number) => ({
+					id: obj.id,
+					title: obj.title,
+					description: obj.description || defaultObjectives[index]?.description || '',
 					icon: defaultObjectives[index]?.icon || '/icons/scribbbles/7/SVG/Fichier 1.svg',
 					accentColor: defaultObjectives[index]?.accentColor || 'text-purple-400',
 				}))
@@ -70,11 +75,10 @@ export function Objectives({ objectives }: ObjectivesProps) {
 				{/* Title with accent */}
 				<div className="text-center mb-16">
 					<h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">
-						Mes <span className="text-white/80 font-handwriting text-4xl md:text-5xl">objectifs</span>
+						{title.split(' ').slice(0, -1).join(' ')}{' '}
+						<span className="text-white/80 font-handwriting text-4xl md:text-5xl">{title.split(' ').slice(-1)}</span>
 					</h2>
-					<p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto">
-						Ce qui est important pour moi dans l'accompagnement de vos enfants
-					</p>
+					<p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto">{subtitle}</p>
 				</div>
 
 				{/* 5 columns on same line */}

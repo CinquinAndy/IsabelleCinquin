@@ -126,11 +126,15 @@ const getShaderConfig = (index: number) => {
 	return configs[index % configs.length]
 }
 
-export function Equipment({ equipment }: EquipmentProps) {
+export function Equipment({ equipmentSection }: EquipmentProps) {
+	const title = equipmentSection?.title || 'Les équipements'
+	const subtitle = equipmentSection?.subtitle || 'Tout le matériel nécessaire pour accueillir vos enfants'
+	const equipment = equipmentSection?.items || []
+
 	// Use provided equipment data or fall back to defaults with icons
 	const items: EquipmentItem[] =
-		equipment && equipment.length > 0
-			? equipment.map((item, index) => ({
+		equipment.length > 0
+			? equipment.map((item: LandingEquipment, index: number) => ({
 					...item,
 					icon: defaultEquipmentWithIcons[index]?.icon || '/icons/scribbbles/7/SVG/Fichier 1.svg',
 					gridSpan: defaultEquipmentWithIcons[index]?.gridSpan || 'single',
@@ -141,9 +145,10 @@ export function Equipment({ equipment }: EquipmentProps) {
 		<SectionWrapper id="equipements" variant="secondary">
 			<div className="text-center mb-12">
 				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-					Les <span className="font-handwriting text-white/80">équipements</span>
+					{title.split(' ').slice(0, -1).join(' ')}{' '}
+					<span className="font-handwriting text-white/80">{title.split(' ').slice(-1)}</span>
 				</h2>
-				<p className="mt-4 text-lg text-white/70">Tout le matériel nécessaire pour accueillir vos enfants</p>
+				<p className="mt-4 text-lg text-white/70">{subtitle}</p>
 			</div>
 
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">

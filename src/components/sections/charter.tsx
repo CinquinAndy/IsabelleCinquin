@@ -45,8 +45,11 @@ const defaultRules: LandingCharterRule[] = Array.from({ length: 9 }, (_, i) => (
 	title: defaultTitles[i + 1],
 }))
 
-export function Charter({ rules }: CharterProps) {
-	const items = rules && rules.length > 0 ? rules : defaultRules
+export function Charter({ charterSection }: CharterProps) {
+	const title = charterSection?.title || 'Charte de vie'
+	const subtitle = charterSection?.subtitle || 'Les règles de vie chez nounou, écrites du point de vue de votre enfant 💜'
+	const rules = charterSection?.items || []
+	const items = rules.length > 0 ? rules : defaultRules
 
 	return (
 		<SectionWrapper id="charte" variant="secondary" className="overflow-hidden">
@@ -56,11 +59,10 @@ export function Charter({ rules }: CharterProps) {
 					<div className="md:w-1/3">
 						<div className="sticky top-24">
 							<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-								Charte de <span className="font-handwriting text-white/80">vie</span>
+								{title.split(' ').slice(0, -1).join(' ')}{' '}
+								<span className="font-handwriting text-white/80">{title.split(' ').slice(-1)}</span>
 							</h2>
-							<p className="text-white/70 mt-4">
-								Les règles de vie chez nounou, écrites du point de vue de votre enfant 💜
-							</p>
+							<p className="text-white/70 mt-4">{subtitle}</p>
 							<p className="text-white/60 mt-4 text-sm">
 								Des questions ?{' '}
 								<Link href="/contact" className="text-white font-medium hover:underline">
@@ -73,10 +75,10 @@ export function Charter({ rules }: CharterProps) {
 					{/* Right side - Accordion */}
 					<div className="md:w-2/3">
 						<Accordion type="single" collapsible className="w-full space-y-3">
-							{items.map((rule, index) => {
+							{items.map((rule: LandingCharterRule, index: number) => {
 								const IconComponent = ruleIcons[index % ruleIcons.length]
-								const title = rule.title || defaultTitles[rule.ruleNumber] || `Règle ${rule.ruleNumber}`
-								const content = defaultContents[rule.ruleNumber] || 'Contenu à définir.'
+								const ruleTitle = rule.title || defaultTitles[rule.ruleNumber] || `Règle ${rule.ruleNumber}`
+								const content = rule.content || defaultContents[rule.ruleNumber] || 'Contenu à définir.'
 
 								return (
 									<AccordionItem
