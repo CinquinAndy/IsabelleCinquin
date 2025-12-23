@@ -1,7 +1,6 @@
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { SectionTitle } from '@/components/ui/section-title'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 import type { Media } from '@/payload-types'
 
@@ -22,7 +21,12 @@ export function Activities({ posts }: ActivitiesProps) {
 	if (!posts || posts.length === 0) {
 		return (
 			<SectionWrapper id="activites" variant="primary">
-				<SectionTitle subtitle="Découvrez ce que nous faisons au quotidien">Activités proposées</SectionTitle>
+				<div className="text-center mb-12">
+					<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+						Les <span className="font-handwriting text-white/80">activités</span>
+					</h2>
+					<p className="mt-4 text-lg text-white/70">Découvrez ce que nous faisons au quotidien</p>
+				</div>
 
 				<div className="text-center py-12">
 					<p className="text-lg opacity-70">Les activités seront bientôt disponibles dans le blog !</p>
@@ -40,7 +44,12 @@ export function Activities({ posts }: ActivitiesProps) {
 
 	return (
 		<SectionWrapper id="activites" variant="primary">
-			<SectionTitle subtitle="Découvrez ce que nous faisons au quotidien">Activités proposées</SectionTitle>
+			<div className="text-center mb-12">
+				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+					Les <span className="font-handwriting text-white/80">activités</span>
+				</h2>
+				<p className="mt-4 text-lg text-white/70">Découvrez ce que nous faisons au quotidien</p>
+			</div>
 
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 				{posts.slice(0, 6).map(post => {

@@ -1,5 +1,7 @@
-import { Clock } from 'lucide-react'
-import { SectionTitle } from '@/components/ui/section-title'
+'use client'
+
+import { motion } from 'framer-motion'
+import { Baby, Clock, Coffee, Moon, School, Sun, Utensils, Waves } from 'lucide-react'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 
 interface ScheduleItem {
@@ -11,6 +13,31 @@ interface ScheduleItem {
 interface DailyScheduleProps {
 	schedule?: ScheduleItem[] | null
 }
+
+// Icons for different times of day
+const getTimeIcon = (time: string | null | undefined) => {
+	if (!time) return Clock
+	const timeLower = time.toLowerCase()
+	if (timeLower.includes('matin') || timeLower.includes('9h')) return Sun
+	if (timeLower.includes('matinée')) return Baby
+	if (timeLower.includes('11h') || timeLower.includes('12h')) return Utensils
+	if (timeLower.includes('13h')) return Moon
+	if (timeLower.includes('15h')) return School
+	if (timeLower.includes('16h')) return Waves
+	return Clock
+}
+
+// Colors for timeline dots
+const dotColors = [
+	'bg-pink-400',
+	'bg-violet-400',
+	'bg-amber-400',
+	'bg-emerald-400',
+	'bg-cyan-400',
+	'bg-rose-400',
+	'bg-purple-400',
+	'bg-orange-400',
+]
 
 const defaultSchedule: ScheduleItem[] = [
 	{
@@ -59,33 +86,60 @@ export function DailySchedule({ schedule }: DailyScheduleProps) {
 	const items = schedule && schedule.length > 0 ? schedule : defaultSchedule
 
 	return (
-		<SectionWrapper id="journee" variant="secondary">
-			<SectionTitle subtitle="Comment se déroule une journée type chez nounou">Organisation d'une journée</SectionTitle>
+		<SectionWrapper id="journee" variant="primary" className="overflow-hidden">
+			<div className="max-w-7xl mx-auto">
+				{/* Title */}
+				<div className="text-center mb-16">
+					<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+						Organisation d'une <span className="font-handwriting text-white/80">journée</span>
+					</h2>
+					<p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto">
+						Comment se déroule une journée type chez nounou
+					</p>
+				</div>
 
-			<div className="max-w-2xl mx-auto">
-				<div className="relative">
-					{/* Timeline line */}
-					<div className="absolute left-6 top-0 bottom-0 w-0.5 bg-white/30" />
+				{/* Timeline */}
+				<div className="relative max-w-3xl mx-auto">
+					{/* Vertical line */}
+					<div className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-white/20" />
 
-					<div className="space-y-6">
-						{items.map((item, index) => (
-							<div key={item.id || index} className="relative flex gap-4 pl-16">
-								{/* Timeline dot */}
-								<div className="absolute left-4 w-5 h-5 rounded-full bg-white/30 border-2 border-white flex items-center justify-center">
-									<div className="w-2 h-2 rounded-full bg-white" />
-								</div>
+					<div className="space-y-8">
+						{items.map((item, index) => {
+							const IconComponent = getTimeIcon(item.time)
+							const dotColor = dotColors[index % dotColors.length]
 
-								<div className="flex-1 bg-white/10 rounded-xl p-4">
-									{item.time && (
-										<div className="flex items-center gap-2 text-sm font-semibold opacity-80 mb-1">
-											<Clock className="w-4 h-4" />
-											{item.time}
-										</div>
-									)}
-									<p className="opacity-90">{item.activity}</p>
-								</div>
-							</div>
-						))}
+							return (
+								<motion.div
+									key={item.id || index}
+									initial={{ opacity: 0, y: 30 }}
+									whileInView={{ opacity: 1, y: 0 }}
+									viewport={{ once: true }}
+									transition={{ duration: 0.5, delay: index * 0.1 }}
+									className="relative pl-16 md:pl-20"
+								>
+									{/* Timeline dot with color */}
+									<div
+										className={`absolute left-4 md:left-6 top-4 h-4 w-4 rounded-full ${dotColor} ring-4 ring-white/10 shadow-lg`}
+									/>
+
+									{/* Content card */}
+									<div className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/10 hover:bg-white/15 transition-colors">
+										{/* Time badge */}
+										{item.time && (
+											<div className="flex items-center gap-2 mb-2">
+												<div className={`p-1.5 rounded-lg bg-white/10`}>
+													<IconComponent className="w-4 h-4 text-white/80" />
+												</div>
+												<span className="text-sm font-bold text-white/90">{item.time}</span>
+											</div>
+										)}
+
+										{/* Activity */}
+										<p className="text-white/80 leading-relaxed">{item.activity}</p>
+									</div>
+								</motion.div>
+							)
+						})}
 					</div>
 				</div>
 			</div>
