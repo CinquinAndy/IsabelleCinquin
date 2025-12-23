@@ -256,6 +256,7 @@ async function seedLanding() {
 					"Une période importante pour permettre à l'enfant, aux parents, et à nounou de faire connaissance en douceur.",
 				keyMessage:
 					"La clé d'un accueil réussi : une confiance mutuelle et un dialogue permanent entre les parents et la nounou.",
+				image: aboutImage ? aboutImage.id : undefined,
 				badges: [
 					{ text: 'Confiance mutuelle', color: 'pink' },
 					{ text: 'Dialogue permanent', color: 'violet' },
