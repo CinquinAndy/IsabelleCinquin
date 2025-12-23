@@ -6,6 +6,7 @@ import { getPayload } from 'payload'
 import { ContactPreview } from '@/components/sections/contact-preview'
 import { LazyImage } from '@/components/ui/lazy-image'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
+import type { Landing } from '@/payload-types'
 
 // Default blog posts for preview
 const defaultPosts = [
@@ -75,27 +76,51 @@ const defaultPosts = [
 export default async function BlogPage() {
 	// Try to fetch real posts from CMS
 	let posts: typeof defaultPosts = []
+	let landing: Landing | null = null
 
 	try {
 		const payload = await getPayload({ config: configPromise })
-		const result = await payload.find({
-			collection: 'posts' as any,
-			limit: 20,
-			sort: '-publishedAt',
-		})
+		
+		// Fetch posts and landing data in parallel
+		const [postsResult, landingData] = await Promise.all([
+			payload.find({
+				collection: 'posts',
+				where: {
+					status: { equals: 'published' },
+				},
+				limit: 20,
+				sort: '-publishedAt',
+				depth: 2, // Populate relations (categories, featuredImage)
+			}),
+			payload.findGlobal({ slug: 'landing' }),
+		])
 
-		if (result.docs && result.docs.length > 0) {
-			posts = result.docs.map((post: any) => ({
-				id: post.id,
-				title: post.title || 'Sans titre',
-				slug: post.slug || '',
-				excerpt: post.excerpt || '',
-				image: post.featuredImage?.url || null,
-				category: post.category || null,
-				publishedAt: post.publishedAt || null,
-				readTime: post.readTime || '3 min',
-			}))
+		if (postsResult.docs && postsResult.docs.length > 0) {
+			posts = postsResult.docs.map((post) => {
+				// Get first category name if available
+				const firstCategory = Array.isArray(post.categories) && post.categories.length > 0
+					? (typeof post.categories[0] === 'object' ? post.categories[0].name : null)
+					: null
+				
+				// Get featured image URL
+				const imageUrl = typeof post.featuredImage === 'object' && post.featuredImage?.url
+					? post.featuredImage.url
+					: null
+
+				return {
+					id: post.id,
+					title: post.title || 'Sans titre',
+					slug: post.slug || '',
+					excerpt: post.excerpt || '',
+					image: imageUrl,
+					category: firstCategory,
+					publishedAt: post.publishedAt || null,
+					readTime: '3 min', // Could be computed from content length
+				}
+			})
 		}
+		
+		landing = landingData
 	} catch (error) {
 		// CMS not available, use defaults
 		console.log('Using default posts', error)
@@ -257,7 +282,11 @@ export default async function BlogPage() {
 			</SectionWrapper>
 
 			{/* CTA Section */}
-			<ContactPreview />
+			<ContactPreview 
+				title={landing?.contactSection?.title}
+				content={landing?.contactSection?.content}
+				phone={landing?.settings?.phone}
+			/>
 		</main>
 	)
 }

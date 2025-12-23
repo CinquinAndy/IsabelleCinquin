@@ -25,26 +25,26 @@ interface RichTextContent {
 }
 
 interface RichTextParserProps {
-	content: any
+	content: unknown
 	className?: string
 }
 
 export function RichTextParser({ content, className }: RichTextParserProps) {
-	if (!content?.root?.children) return null
-
-	// Helper to cast types safely
+	if (!content || typeof content !== 'object') return null
+	
 	const typedContent = content as RichTextContent
+	if (!typedContent?.root?.children) return null
 
-	const renderChildren = (children: RichTextNode[], parentKey: string = '') => {
+	const renderChildren = (children: RichTextNode[], parentKey: string = ''): React.ReactNode[] => {
 		return children.map((child, index) => {
-			const key = `${parentKey}-${index}` // Generate a unique key for each child
+			const key = `${parentKey}-${index}`
 
 			if (child.type === 'text') {
 				let textContent: React.ReactNode = child.text
-				// Simple check for bold/italic if format is a number
+				// Handle bold (1) and italic (2) format bitmask
 				if (typeof child.format === 'number') {
-					if (child.format & 1) textContent = <strong>{textContent}</strong>
-					if (child.format & 2) textContent = <em>{textContent}</em>
+					if (child.format & 1) textContent = <strong key={`${key}-strong`}>{textContent}</strong>
+					if (child.format & 2) textContent = <em key={`${key}-em`}>{textContent}</em>
 				}
 				return <span key={key}>{textContent}</span>
 			}
@@ -56,14 +56,13 @@ export function RichTextParser({ content, className }: RichTextParserProps) {
 						href={child.fields?.url || '#'}
 						target={child.fields?.newTab ? '_blank' : undefined}
 						rel={child.fields?.newTab ? 'noopener noreferrer' : undefined}
-						className="text-primary hover:underline"
 					>
 						{renderChildren(child.children || [], key)}
 					</a>
 				)
 			}
 			
-			// Handle styling nodes if they exist as wrappers
+			// Handle nested nodes
 			if (child.children) {
 				return <span key={key}>{renderChildren(child.children, key)}</span>
 			}
@@ -74,31 +73,27 @@ export function RichTextParser({ content, className }: RichTextParserProps) {
 
 	const renderBlock = (block: RichTextBlock, index: number) => {
 		const key = `block-${index}`
+		
 		switch (block.type) {
 			case 'paragraph':
-				return (
-					<p key={key} className="mb-4 last:mb-0">
-						{renderChildren(block.children, key)}
-					</p>
-				)
+				return <p key={key}>{renderChildren(block.children, key)}</p>
+			
 			case 'heading': {
 				const Tag = (block.tag || 'h3') as keyof JSX.IntrinsicElements
-				return (
-					<Tag key={key} className="font-bold mb-2 mt-4">
-						{renderChildren(block.children, key)}
-					</Tag>
-				)
+				return <Tag key={key}>{renderChildren(block.children, key)}</Tag>
 			}
+			
 			case 'list': {
 				const ListTag = block.tag === 'ol' ? 'ol' : 'ul'
 				return (
-					<ListTag key={key} className={`pl-5 mb-4 ${block.tag === 'ol' ? 'list-decimal' : 'list-disc'}`}>
+					<ListTag key={key}>
 						{block.children.map((item: RichTextNode, i: number) => (
 							<li key={`${key}-item-${i}`}>{renderChildren(item.children || [], `${key}-item-${i}`)}</li>
 						))}
 					</ListTag>
 				)
 			}
+			
 			default:
 				return null
 		}
@@ -106,3 +101,4 @@ export function RichTextParser({ content, className }: RichTextParserProps) {
 
 	return <div className={className}>{typedContent.root.children.map(renderBlock)}</div>
 }
+
