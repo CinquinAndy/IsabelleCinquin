@@ -1,7 +1,51 @@
 // Seed script for Landing page content
 // Run with: bun run src/scripts/seed-landing.ts
+
+import fs from 'fs'
+import path from 'path'
 import { getPayload } from 'payload'
+import { fileURLToPath } from 'url'
 import config from '../payload.config'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+async function uploadMedia(payload: any, fileName: string, alt: string) {
+	const filePath = path.resolve(__dirname, '../../public', fileName)
+	if (!fs.existsSync(filePath)) {
+		console.warn(`⚠️ File not found: ${filePath}`)
+		return null
+	}
+
+	const fileBuffer = fs.readFileSync(filePath)
+
+	// Check if media already exists
+	const existingMedia = await payload.find({
+		collection: 'media',
+		where: {
+			filename: { equals: fileName },
+		},
+		limit: 1,
+	})
+
+	if (existingMedia.docs.length > 0) {
+		return existingMedia.docs[0]
+	}
+
+	const media = await payload.create({
+		collection: 'media',
+		data: {
+			alt,
+		},
+		file: {
+			data: fileBuffer,
+			name: fileName,
+			mimetype: fileName.endsWith('.png') ? 'image/png' : 'image/jpeg',
+			size: fileBuffer.length,
+		},
+	})
+	return media
+}
 
 /**
  * Seed script to populate the Landing global with all default content
@@ -11,6 +55,12 @@ async function seedLanding() {
 	console.log('🌱 Starting Landing page seed...')
 
 	const payload = await getPayload({ config })
+
+	// Upload images
+	console.log('📸 Uploading images...')
+	const aboutImage = await uploadMedia(payload, 'isabelle.jpg', 'Isabelle Cinquin')
+	const bagImage = await uploadMedia(payload, 'sac-langer.png', 'Sac à langer')
+	const nounouImage = await uploadMedia(payload, 'chez-nounou.png', 'Chez Nounou')
 
 	// Update the Landing global with all default content
 	await payload.updateGlobal({
@@ -29,6 +79,7 @@ async function seedLanding() {
 				badge: 'À propos',
 				title: 'Nounou sur Sciez',
 				titleAccent: 'depuis 2003',
+				image: aboutImage ? aboutImage.id : undefined,
 				// We need to construct the rich text structure properly
 				content: {
 					root: {
@@ -193,6 +244,8 @@ async function seedLanding() {
 			organization: {
 				title: 'Organisation des affaires',
 				subtitle: "Glissez pour comparer ce qu'il faut apporter et ce qui est fourni",
+				bagImage: bagImage ? bagImage.id : undefined,
+				nounouImage: nounouImage ? nounouImage.id : undefined,
 				bagItems: [
 					{ item: 'Le carnet de santé' },
 					{ item: 'Des vêtements de rechange' },
@@ -229,6 +282,7 @@ async function seedLanding() {
 					{ time: '13h30', activity: 'Changements de couches puis sieste' },
 					{ time: '15h30', activity: "Réveil en douceur, départ pour chercher le fils de nounou à l'école" },
 					{ time: '16h', activity: 'Goûter puis jeux ou petite baignade dans la pataugeoire en été' },
+					{ time: '17h', activity: "Jeux libres, lectures, comptines en attendant l'arrivée de Papa et Maman" },
 				],
 			},
 
@@ -314,24 +368,7 @@ async function seedLanding() {
 			},
 		},
 	})
-
 	console.log('✅ Landing page seed completed!')
-	console.log('')
-	console.log('📋 Seeded content:')
-	console.log('   - About section (badge, title, stats)')
-	console.log('   - Introduction section')
-	console.log('   - Presentation section')
-	console.log('   - 2 trainings')
-	console.log('   - Sleep section (title, tags)')
-	console.log('   - Living place section')
-	console.log('   - 6 equipment items')
-	console.log('   - 5 objectives with descriptions')
-	console.log('   - Adaptation section (badges, key message)')
-	console.log('   - Organization (5 bag + 5 nounou items)')
-	console.log('   - 8 daily schedule items')
-	console.log('   - 9 charter rules with content')
-	console.log('   - Site settings')
-
 	process.exit(0)
 }
 

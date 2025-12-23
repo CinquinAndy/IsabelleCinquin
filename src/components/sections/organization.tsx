@@ -3,6 +3,7 @@
 import { Backpack, Home } from 'lucide-react'
 import { Compare } from '@/components/ui/compare'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
+import { formatMediaUrl } from '@/lib/utils'
 import type { LandingOrganization } from '@/types/landing'
 
 interface OrganizationProps {
@@ -27,6 +28,15 @@ export function Organization({ organization }: OrganizationProps) {
 
 	const bagList = bagItems.length > 0 ? bagItems.map(i => i.item) : defaultBagItems
 	const nounouList = nounouItems.length > 0 ? nounouItems.map(i => i.item) : defaultNounouItems
+
+	const bagImageUrl =
+		formatMediaUrl(typeof organization?.bagImage === 'object' && organization.bagImage?.url
+			? organization.bagImage.url
+			: null) || '/sac-langer.png'
+	const nounouImageUrl =
+		formatMediaUrl(typeof organization?.nounouImage === 'object' && organization.nounouImage?.url
+			? organization.nounouImage.url
+			: null) || '/chez-nounou.png'
 
 	return (
 		<SectionWrapper id="organisation" variant="secondary" className="overflow-hidden">
@@ -57,8 +67,8 @@ export function Organization({ organization }: OrganizationProps) {
 
 						<div className="p-4 border rounded-3xl bg-white/5 border-white/10">
 							<Compare
-								firstImage="/sac-langer.png"
-								secondImage="/chez-nounou.png"
+								firstImage={bagImageUrl}
+								secondImage={nounouImageUrl}
 								firstImageClassName="object-cover"
 								secondImageClassname="object-cover"
 								className="h-[300px] w-[300px] md:h-[400px] md:w-[500px] rounded-2xl"

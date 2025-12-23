@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRef } from 'react'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
+import { formatMediaUrl } from '@/lib/utils'
 import type { LandingFamilyMember } from '@/types/landing'
 
 // Flexible type that accepts Payload Media or simple image objects from fallback data
@@ -25,7 +26,7 @@ interface FamilyProps {
 }
 
 function MemberCard({ member }: { member: FamilyMember }) {
-	const mediaUrl = typeof member.image === 'object' && member.image?.url ? member.image.url : null
+	const mediaUrl = formatMediaUrl(typeof member.image === 'object' && member.image?.url ? member.image.url : null)
 	const mediaAlt =
 		typeof member.image === 'object' && member.image?.alt ? member.image.alt : `Photo de ${member.firstName}`
 	const hasLink = !!member.link

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
+import { formatMediaUrl } from '@/lib/utils'
 import type { LandingAdaptation } from '@/types/landing'
 
 interface AdaptationProps {
@@ -30,6 +31,12 @@ export function Adaptation({ adaptation }: AdaptationProps) {
 		"La clé d'un accueil réussi : une confiance mutuelle et un dialogue permanent entre les parents et la nounou."
 	const badges = adaptation?.badges || []
 
+	const mediaUrl =
+		formatMediaUrl(typeof adaptation?.image === 'object' && adaptation.image?.url
+			? adaptation.image.url
+			: null) || '/isabelle.jpg'
+	const mediaAlt = typeof adaptation?.image === 'object' && adaptation.image?.alt ? adaptation.image.alt : "Période d'adaptation avec nounou"
+
 	// Default badges if none provided
 	const defaultBadges = [
 		{ text: 'Confiance mutuelle', color: 'pink' as const },
@@ -48,7 +55,7 @@ export function Adaptation({ adaptation }: AdaptationProps) {
 						{/* Decorative wavy border */}
 						<div className="absolute -inset-4 bg-white/10 rounded-[2rem] -rotate-2" />
 						<div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
-							<Image src="/isabelle.jpg" alt="Période d'adaptation avec nounou" fill className="object-cover" />
+							<Image src={mediaUrl} alt={mediaAlt} fill className="object-cover" />
 						</div>
 						{/* Decorative dots */}
 						<div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex gap-2">

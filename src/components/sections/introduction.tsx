@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { RichTextParser } from '@/components/rich-text-parser'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
+import { formatMediaUrl } from '@/lib/utils'
 import type { LandingIntroduction } from '@/types/landing'
 
 interface IntroductionProps {
@@ -10,7 +11,7 @@ interface IntroductionProps {
 export function Introduction({ introduction }: IntroductionProps) {
 	if (!introduction) return null
 
-	const mediaUrl = typeof introduction.image === 'object' && introduction.image?.url ? introduction.image.url : null
+	const mediaUrl = formatMediaUrl(typeof introduction.image === 'object' && introduction.image?.url ? introduction.image.url : null)
 	const mediaAlt =
 		typeof introduction.image === 'object' && introduction.image?.alt ? introduction.image.alt : 'Photo Isabelle'
 

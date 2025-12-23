@@ -1,6 +1,7 @@
 import { Home } from 'lucide-react'
 import Image from 'next/image'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
+import { formatMediaUrl } from '@/lib/utils'
 import type { LandingLivingPlace } from '@/types/landing'
 
 interface LivingPlaceProps {
@@ -32,7 +33,7 @@ export function LivingPlace({ livingPlace }: LivingPlaceProps) {
 				{images && images.length > 0 ? (
 					<div className="grid grid-cols-2 md:grid-cols-3 gap-4">
 						{images.map((item, index) => {
-							const mediaUrl = typeof item.image === 'object' && item.image?.url ? item.image.url : null
+							const mediaUrl = formatMediaUrl(typeof item.image === 'object' && item.image?.url ? item.image.url : null)
 							const mediaAlt =
 								typeof item.image === 'object' && item.image?.alt ? item.image.alt : `Photo lieu de vie ${index + 1}`
 

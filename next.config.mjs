@@ -38,6 +38,7 @@ const nextConfig = {
 	images: {
 		remotePatterns: [
 			{ protocol: 'http', hostname: 'localhost' },
+			{ protocol: 'http', hostname: '127.0.0.1' },
 			{ protocol: 'https', hostname: '*.isabelle-cinquin.fr' },
 			{ protocol: 'https', hostname: 'isabelle-cinquin.fr' },
 			{ protocol: 'https', hostname: '*.unsplash.com' },
