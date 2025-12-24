@@ -18,7 +18,7 @@ const variantClasses: Record<SectionVariant, string> = {
 
 export function SectionWrapper({ id, variant = 'light', className, children }: SectionWrapperProps) {
 	return (
-		<section id={id} className={cn('w-full py-16 md:py-24 px-4 md:px-8', variantClasses[variant], className)}>
+		<section id={id} className={cn('w-full py-16 md:py-24 px-4 md:px-8 relative', variantClasses[variant], className)}>
 			<div className="max-w-5xl mx-auto">{children}</div>
 		</section>
 	)

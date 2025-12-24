@@ -1,62 +1,14 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Award, GraduationCap } from 'lucide-react'
+import { Award, Calendar } from 'lucide-react'
+import Image from 'next/image'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
-import type { LandingTraining, LandingTrainingsSection } from '@/types/landing'
-
-interface TrainingWithIcon extends LandingTraining {
-	icon?: 'graduation' | 'award'
-}
+import { durations, easings, stagger } from '@/lib/animations'
+import type { LandingTrainingsSection } from '@/types/landing'
 
 interface TrainingsProps {
 	trainingsSection?: LandingTrainingsSection | null
-}
-
-function TrainingCard({ training, index }: { training: TrainingWithIcon; index: number }) {
-	const Icon = training.icon === 'award' ? Award : GraduationCap
-	const isEven = index % 2 === 0
-
-	return (
-		<motion.div
-			className={`relative border w-full rounded-2xl overflow-hidden border-white/10 p-1 ${
-				isEven ? 'bg-secondary/80' : 'bg-primary/80'
-			}`}
-			initial={{ opacity: 0, y: 20 }}
-			whileInView={{ opacity: 1, y: 0 }}
-			viewport={{ once: true }}
-			transition={{ duration: 0.5, delay: index * 0.15 }}
-		>
-			{/* Pattern layer - positioned absolute so it shows through */}
-			<div
-				className="absolute inset-0 bg-repeat bg-size-[30px_30px] rounded-xl opacity-30"
-				style={{
-					backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'%3E%3Cg stroke-width='4' stroke='hsla(0, 0%25, 100%25, 1)' fill='none'%3E%3Cline x1='0' y1='0' x2='400' y2='400'%3E%3C/line%3E%3Cline x1='400' y1='0' x2='800' y2='400'%3E%3C/line%3E%3Cline x1='800' y1='0' x2='1200' y2='400'%3E%3C/line%3E%3Cline x1='0' y1='400' x2='400' y2='800'%3E%3C/line%3E%3Cline x1='400' y1='400' x2='800' y2='800'%3E%3C/line%3E%3Cline x1='800' y1='400' x2='1200' y2='800'%3E%3C/line%3E%3Cline x1='0' y1='800' x2='400' y2='1200'%3E%3C/line%3E%3Cline x1='400' y1='800' x2='800' y2='1200'%3E%3C/line%3E%3Cline x1='800' y1='800' x2='1200' y2='1200'%3E%3C/line%3E%3C/g%3E%3C/svg%3E")`,
-				}}
-			/>
-
-			{/* Content */}
-			<div className="relative z-10 flex items-start gap-4 md:gap-6 p-4 md:p-6">
-				{/* Icon */}
-				<div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white/15 backdrop-blur-sm flex items-center justify-center shrink-0">
-					<Icon className="w-6 h-6 md:w-7 md:h-7 text-white" />
-				</div>
-
-				{/* Text content */}
-				<div className="flex-1 min-w-0">
-					<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 mb-2">
-						<h3 className="text-lg md:text-xl font-semibold text-white">{training.title}</h3>
-						{training.period && (
-							<span className="text-sm text-white/70 font-medium bg-white/10 px-3 py-1 rounded-full w-fit">
-								{training.period}
-							</span>
-						)}
-					</div>
-					{training.description && <p className="text-sm md:text-base text-white/80">{training.description}</p>}
-				</div>
-			</div>
-		</motion.div>
-	)
 }
 
 export function Trainings({ trainingsSection }: TrainingsProps) {
@@ -65,36 +17,142 @@ export function Trainings({ trainingsSection }: TrainingsProps) {
 	}
 
 	const title = trainingsSection.title
-	const items = trainingsSection.items
-
-	// Add default icons if not present
-	const trainingsWithIcons: TrainingWithIcon[] = items.map((t, i) => ({
-		...t,
-		icon: i === 0 ? 'graduation' : 'award',
-	}))
-
-	if (trainingsWithIcons.length === 0) return null
+	const subtitle = trainingsSection.subtitle
+	const trainings = trainingsSection.items
 
 	return (
 		<SectionWrapper id="formations" variant="secondary">
-			<div className="text-center mb-12">
-				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-					{title.split(' ').map((word, i) =>
-						i === title.split(' ').length - 1 ? (
-							<span key={i} className="font-handwriting text-white/80">
-								{word}
-							</span>
-						) : (
-							`${word} `
-						)
-					)}
-				</h2>
+			{/* py-16 md:py-24 */}
+			<div className="absolute bottom-0 left-0 flex justify-center translate-y-10 md:translate-y-14 z-20">
+				<Image src="/stitch.png" width={500} height={1000} alt="Stitch" />
 			</div>
+			{/* Title */}
+			<motion.div
+				className="text-center mb-12"
+				initial={{ opacity: 0, y: 20 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true }}
+				transition={{ duration: durations.standard, ease: easings.smooth }}
+			>
+				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+					{title.split(' ').slice(0, -1).join(' ')}{' '}
+					<span className="font-handwriting text-accent">{title.split(' ').slice(-1)}</span>
+				</h2>
+				{subtitle && <p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto">{subtitle}</p>}
+			</motion.div>
 
-			<div className="max-w-3xl mx-auto space-y-6">
-				{trainingsWithIcons.map((training, index) => (
-					<TrainingCard key={training.id || index} training={training} index={index} />
-				))}
+			{/* Timeline */}
+			<div className="max-w-4xl mx-auto relative">
+				{/* Vertical line with draw animation */}
+				<motion.div
+					className="absolute left-8 md:left-12 top-0 bottom-0 w-0.5 bg-linear-to-b from-accent via-accent/50 to-transparent"
+					initial={{ scaleY: 0, opacity: 0 }}
+					whileInView={{ scaleY: 1, opacity: 1 }}
+					viewport={{ once: true, amount: 0.1 }}
+					transition={{ duration: durations.verySlow, ease: easings.smooth, delay: 0.2 }}
+					style={{ transformOrigin: 'top' }}
+				/>
+
+				{/* Trainings list with stagger */}
+				<motion.div
+					className="space-y-8"
+					initial="hidden"
+					whileInView="visible"
+					viewport={{ once: true, amount: 0.1 }}
+					variants={{
+						hidden: {},
+						visible: {
+							transition: {
+								staggerChildren: stagger.standard,
+								delayChildren: 0.4,
+							},
+						},
+					}}
+				>
+					{trainings.map((training, index) => (
+						<motion.div
+							key={training.id || index}
+							className="relative flex gap-6 md:gap-8 group"
+							variants={{
+								hidden: { opacity: 0, x: -30 },
+								visible: {
+									opacity: 1,
+									x: 0,
+									transition: {
+										duration: durations.standard,
+										ease: easings.smooth,
+									},
+								},
+							}}
+						>
+							{/* Timeline dot with pulse */}
+							<motion.div className="relative shrink-0 w-16 md:w-24 flex justify-center" whileHover={{ scale: 1.2 }}>
+								<motion.div
+									className="w-4 h-4 rounded-full bg-accent border-4 border-secondary relative z-10"
+									animate={{
+										scale: [1, 1.2, 1],
+										boxShadow: [
+											'0 0 0 0 rgba(174, 129, 255, 0.4)',
+											'0 0 0 8px rgba(174, 129, 255, 0)',
+											'0 0 0 0 rgba(174, 129, 255, 0)',
+										],
+									}}
+									transition={{
+										duration: 2,
+										repeat: Number.POSITIVE_INFINITY,
+										ease: 'easeInOut',
+										delay: index * 0.2,
+									}}
+								/>
+							</motion.div>
+
+							{/* Card */}
+							<motion.div
+								className="flex-1 bg-sidebar/40 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:border-accent/30 transition-all"
+								whileHover={{
+									y: -4,
+									boxShadow: '0 10px 30px rgba(174, 129, 255, 0.2)',
+								}}
+								transition={{ duration: durations.fast }}
+							>
+								{/* Header */}
+								<div className="flex flex-wrap items-start justify-between gap-4 mb-4">
+									<div className="flex-1">
+										<h3 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
+											<Award className="w-5 h-5 text-accent" />
+											{training.title}
+										</h3>
+										{training.organization && <p className="text-sm text-white/60">{training.organization}</p>}
+									</div>
+
+									{/* Year badge with bounce */}
+									{training.year && (
+										<motion.div
+											className="px-4 py-2 bg-accent/20 border border-accent/30 rounded-full"
+											initial={{ scale: 0 }}
+											whileInView={{ scale: 1 }}
+											viewport={{ once: true }}
+											transition={{
+												duration: durations.standard,
+												ease: easings.bounce,
+												delay: 0.2 + index * 0.1,
+											}}
+											whileHover={{ scale: 1.1, rotate: 5 }}
+										>
+											<div className="flex items-center gap-2 text-white">
+												<Calendar className="w-4 h-4" />
+												<span className="text-sm font-semibold">{training.year}</span>
+											</div>
+										</motion.div>
+									)}
+								</div>
+
+								{/* Description */}
+								{training.description && <p className="text-white/70 leading-relaxed">{training.description}</p>}
+							</motion.div>
+						</motion.div>
+					))}
+				</motion.div>
 			</div>
 		</SectionWrapper>
 	)

@@ -526,6 +526,7 @@ export interface Landing {
     | null;
   trainingsSection?: {
     title?: string | null;
+    subtitle?: string | null;
     items?:
       | {
           title: string;
@@ -841,6 +842,7 @@ export interface LandingSelect<T extends boolean = true> {
     | T
     | {
         title?: T;
+        subtitle?: T;
         items?:
           | T
           | {

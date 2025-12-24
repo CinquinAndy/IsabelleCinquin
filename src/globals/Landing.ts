@@ -183,6 +183,11 @@ export const Landing: GlobalConfig = {
 									defaultValue: 'Mes formations',
 								},
 								{
+									name: 'subtitle',
+									type: 'text',
+									label: 'Sous-titre',
+								},
+								{
 									name: 'items',
 									type: 'array',
 									label: 'Formations',
