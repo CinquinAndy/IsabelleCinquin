@@ -5,11 +5,11 @@ import { Moon } from 'lucide-react'
 import Image from 'next/image'
 import { RichText } from '@/components/ui/rich-text'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
-import { durations, easings, stagger } from '@/lib/animations'
-import type { LandingSleep } from '@/types/landing'
+import { durations, easings } from '@/lib/animations'
+import type { Landing } from '@/payload-types'
 
 interface SleepProps {
-	sleepSection?: LandingSleep | null
+	sleepSection?: Landing['sleep'] | null
 }
 
 export function Sleep({ sleepSection }: SleepProps) {
@@ -23,27 +23,42 @@ export function Sleep({ sleepSection }: SleepProps) {
 
 	return (
 		<SectionWrapper id="sommeil" variant="primary">
-			{/* Title */}
+			{/* Title with enhanced animation */}
 			<motion.div
 				className="text-center mb-12"
-				initial={{ opacity: 0, y: 20 }}
+				initial={{ opacity: 0, y: 30 }}
 				whileInView={{ opacity: 1, y: 0 }}
-				viewport={{ once: true }}
-				transition={{ duration: durations.standard, ease: easings.smooth }}
+				viewport={{ once: true, margin: "-100px" }}
+				transition={{ duration: durations.slow, ease: easings.smooth }}
 			>
-				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+				<motion.h2 
+					className="text-3xl md:text-4xl font-bold text-white tracking-tight"
+					initial={{ opacity: 0 }}
+					whileInView={{ opacity: 1 }}
+					viewport={{ once: true }}
+					transition={{ duration: durations.standard, delay: 0.1 }}
+				>
 					{title.split(' ').slice(0, -1).join(' ')}{' '}
-					<span className="font-handwriting text-white/80">{title.split(' ').slice(-1)}</span>
-				</h2>
+					<motion.span 
+						className="font-handwriting text-white/80 inline-block"
+						initial={{ opacity: 0, rotate: -5 }}
+						whileInView={{ opacity: 1, rotate: 0 }}
+						viewport={{ once: true }}
+						transition={{ duration: durations.standard, delay: 0.3, ease: easings.bounce }}
+					>
+						{title.split(' ').slice(-1)}
+					</motion.span>
+				</motion.h2>
 			</motion.div>
 
 			<div className="max-w-4xl mx-auto">
 				<motion.div
 					className="relative overflow-hidden rounded-3xl bg-sidebar/60 backdrop-blur-xl border border-white/10 shadow-2xl"
-					initial={{ opacity: 0, scale: 0.95 }}
-					whileInView={{ opacity: 1, scale: 1 }}
-					viewport={{ once: true, amount: 0.3 }}
-					transition={{ duration: durations.slow, ease: easings.smooth, delay: 0.2 }}
+					initial={{ opacity: 0, scale: 0.9, y: 40 }}
+					whileInView={{ opacity: 1, scale: 1, y: 0 }}
+					viewport={{ once: true, amount: 0.2 }}
+					transition={{ duration: durations.verySlow, ease: easings.smooth, delay: 0.2 }}
+					whileHover={{ scale: 1.02, borderColor: 'rgba(255, 255, 255, 0.2)' }}
 				>
 					<div className="relative flex flex-col md:flex-row items-center gap-24 p-8 md:p-12">
 						{/* Left: Icon/Illustration */}
@@ -54,29 +69,37 @@ export function Sleep({ sleepSection }: SleepProps) {
 							viewport={{ once: true }}
 							transition={{ duration: durations.standard, ease: easings.smooth, delay: 0.4 }}
 						>
-							{/* Circle background with pulse */}
+							{/* Circle background with enhanced floating pulse */}
 							<motion.div
-								className="relative w-44 h-44 md:w-52 md:h-52 rounded-full bg-secondary/50 flex items-center justify-center"
+								className="relative w-44 h-44 md:w-52 md:h-52 rounded-full bg-secondary/50 flex items-center justify-center shadow-lg"
 								animate={{
-									scale: [1, 1.05, 1],
-									opacity: [0.5, 0.6, 0.5],
+									scale: [1, 1.08, 1],
+									opacity: [0.5, 0.7, 0.5],
+									y: [0, -8, 0],
+									boxShadow: [
+										'0 10px 30px rgba(174, 129, 255, 0.2)',
+										'0 15px 40px rgba(174, 129, 255, 0.3)',
+										'0 10px 30px rgba(174, 129, 255, 0.2)',
+									],
 								}}
 								transition={{
-									duration: 4,
+									duration: 5,
 									repeat: Number.POSITIVE_INFINITY,
 									ease: 'easeInOut',
 								}}
 							>
-								{/* SVG Illustration with gentle rotation */}
+								{/* SVG Illustration with gentle float and rotation */}
 								<motion.div
 									animate={{
-										rotate: [0, 5, -5, 0],
+										rotate: [0, 8, -8, 0],
+										y: [0, -5, 0, 5, 0],
 									}}
 									transition={{
-										duration: 6,
+										duration: 8,
 										repeat: Number.POSITIVE_INFINITY,
 										ease: 'easeInOut',
 									}}
+									whileHover={{ scale: 1.1, rotate: 15 }}
 								>
 									<Image
 										src="/icons/scribbbles/7/SVG/Fichier 2.svg"
@@ -100,18 +123,20 @@ export function Sleep({ sleepSection }: SleepProps) {
 								return (
 									<motion.div
 										key={tag.id || `tag-${index}`}
-										className={`${position.className} ${position.accent ? 'bg-accent/80' : 'bg-white/15 backdrop-blur-md border border-white/20'} rounded-full px-3 py-1.5`}
-										initial={{ opacity: 0, scale: 0.5, y: 20 }}
-										whileInView={{ opacity: 1, scale: 1, y: 0 }}
+										className={`${position.className} ${position.accent ? 'bg-accent/80 shadow-lg shadow-accent/30' : 'bg-white/15 backdrop-blur-md border border-white/20'} rounded-full px-3 py-1.5`}
+										initial={{ opacity: 0, scale: 0, rotate: -20 }}
+										whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
 										viewport={{ once: true }}
 										transition={{
-											duration: durations.standard,
-											ease: easings.bounce,
+											type: 'spring',
+											stiffness: 200,
+											damping: 15,
 											delay: position.delay,
 										}}
 										whileHover={{
-											scale: 1.1,
-											rotate: 5,
+											scale: 1.15,
+											rotate: 8,
+											y: -5,
 										}}
 									>
 										<span className={`text-xs ${position.accent ? 'font-bold' : 'font-medium'} text-white`}>
@@ -130,17 +155,28 @@ export function Sleep({ sleepSection }: SleepProps) {
 							viewport={{ once: true }}
 							transition={{ duration: durations.standard, ease: easings.smooth, delay: 0.5 }}
 						>
-							{/* Small icon badge */}
+							{/* Small icon badge with enhanced animation */}
 							<motion.div
 								className="inline-flex items-center gap-3 mb-4"
-								initial={{ opacity: 0, y: 10 }}
-								whileInView={{ opacity: 1, y: 0 }}
+								initial={{ opacity: 0, x: -20 }}
+								whileInView={{ opacity: 1, x: 0 }}
 								viewport={{ once: true }}
-								transition={{ duration: durations.fast, delay: 0.6 }}
+								transition={{ duration: durations.standard, delay: 0.6, ease: easings.smooth }}
 							>
-								<div className="w-9 h-9 rounded-xl bg-accent/30 flex items-center justify-center">
+								<motion.div 
+									className="w-9 h-9 rounded-xl bg-accent/30 flex items-center justify-center"
+									animate={{
+										rotate: [0, -5, 5, 0],
+									}}
+									transition={{
+										duration: 4,
+										repeat: Number.POSITIVE_INFINITY,
+										ease: 'easeInOut',
+									}}
+									whileHover={{ scale: 1.15, rotate: 15 }}
+								>
 									<Moon className="w-4 h-4 text-white" />
-								</div>
+								</motion.div>
 								<span className="text-xs font-semibold text-white/60 uppercase tracking-widest">{subtitle}</span>
 							</motion.div>
 
