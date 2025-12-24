@@ -6,6 +6,15 @@ export const seo: Field = {
 	type: 'group',
 	fields: [
 		{
+			name: 'generateSeo',
+			type: 'ui',
+			admin: {
+				components: {
+					Field: '/components/payload/GenerateSeoButton#GenerateSeoButton',
+				},
+			},
+		},
+		{
 			name: 'metaTitle',
 			type: 'text',
 			label: 'Méta Titre',

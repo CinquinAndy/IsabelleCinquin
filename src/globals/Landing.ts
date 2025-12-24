@@ -122,12 +122,6 @@ export const Landing: GlobalConfig = {
 									type: 'richText',
 									label: 'Contenu',
 								},
-								{
-									name: 'image',
-									type: 'upload',
-									relationTo: 'media',
-									label: 'Photo',
-								},
 							],
 						},
 
@@ -249,12 +243,11 @@ export const Landing: GlobalConfig = {
 									defaultValue:
 										"J'accueille vos enfants dans une maison clôturée avec jardin qui se situe au bord du Lac Léman.",
 								},
-								{ name: 'content', type: 'richText', label: 'Contenu' },
 								{
-									name: 'images',
-									type: 'array',
-									label: 'Images',
-									fields: [{ name: 'image', type: 'upload', relationTo: 'media', required: true }],
+									name: 'image',
+									type: 'upload',
+									relationTo: 'media',
+									label: 'Image',
 								},
 							],
 						},

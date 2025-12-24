@@ -31,7 +31,7 @@ export type LandingSleepTag = NonNullable<LandingSleep['tags']>[number]
 
 // Living place section
 export type LandingLivingPlace = NonNullable<Landing['livingPlace']>
-export type LandingLivingPlaceImage = NonNullable<LandingLivingPlace['images']>[number]
+export type LandingLivingPlaceImage = NonNullable<LandingLivingPlace['image']>
 
 // Equipment section
 export type LandingEquipmentSection = NonNullable<Landing['equipmentSection']>

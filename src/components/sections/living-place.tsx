@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
+import { formatMediaUrl } from '@/lib/utils'
 import type { LandingLivingPlace } from '@/types/landing'
 
 interface LivingPlaceProps {
@@ -7,12 +8,19 @@ interface LivingPlaceProps {
 }
 
 export function LivingPlace({ livingPlace }: LivingPlaceProps) {
-	if (!livingPlace?.title || !livingPlace?.description || !livingPlace?.images) {
+	if (!livingPlace?.title || !livingPlace?.description) {
 		throw new Error('Missing required data for Living Place section')
 	}
 
 	const title = livingPlace.title
 	const description = livingPlace.description
+
+	// Extract image URL from Payload media object
+	const imageUrl = formatMediaUrl(
+		typeof livingPlace.image === 'object' && livingPlace.image?.url ? livingPlace.image.url : null
+	)
+	const imageAlt =
+		typeof livingPlace.image === 'object' && livingPlace.image?.alt ? livingPlace.image.alt : 'Lieu de vie'
 
 	return (
 		<SectionWrapper id="lieu-de-vie" variant="primary">
@@ -27,15 +35,13 @@ export function LivingPlace({ livingPlace }: LivingPlaceProps) {
 				<div className="text-center space-y-4 mb-10">
 					<p className="text-lg leading-relaxed opacity-90">{description}</p>
 				</div>
-				<div className="aspect-video relative rounded-xl overflow-hidden">
-					<Image
-						src={'/Home_sweet_home.jpg'}
-						alt="Plan de la maison"
-						fill
-						className="object-cover"
-						sizes="(max-width: 768px) 50vw, 33vw"
-					/>
-				</div>
+
+				{/* Only display image if URL is available */}
+				{imageUrl && (
+					<div className="aspect-video relative rounded-xl overflow-hidden shadow-2xl">
+						<Image src={imageUrl} alt={imageAlt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 768px" />
+					</div>
+				)}
 			</div>
 		</SectionWrapper>
 	)

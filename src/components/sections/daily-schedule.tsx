@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 import { Baby, Clock, Moon, School, Sun, Utensils, Waves } from 'lucide-react'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 
+import type { LandingDailyScheduleItem, LandingDailyScheduleSection } from '@/types/landing'
+
 interface DailyScheduleProps {
 	dailyScheduleSection?: LandingDailyScheduleSection | null
 }
@@ -60,7 +62,7 @@ export function DailySchedule({ dailyScheduleSection }: DailyScheduleProps) {
 					<div className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-white/20" />
 
 					<div className="space-y-8">
-						{items.map((item, index) => {
+						{items.map((item: LandingDailyScheduleItem, index) => {
 							const IconComponent = getTimeIcon(item.time)
 							const dotColor = dotColors[index % dotColors.length]
 

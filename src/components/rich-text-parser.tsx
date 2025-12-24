@@ -43,7 +43,12 @@ export function RichTextParser({ content, className }: RichTextParserProps) {
 				let textContent: React.ReactNode = child.text
 				// Handle bold (1) and italic (2) format bitmask
 				if (typeof child.format === 'number') {
-					if (child.format & 1) textContent = <strong key={`${key}-strong`}>{textContent}</strong>
+					if (child.format & 1)
+						textContent = (
+							<strong key={`${key}-strong`} className="text-accent font-bold">
+								{textContent}
+							</strong>
+						)
 					if (child.format & 2) textContent = <em key={`${key}-em`}>{textContent}</em>
 				}
 				return <span key={key}>{textContent}</span>

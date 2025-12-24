@@ -49,16 +49,9 @@ export function Adaptation({ adaptation }: AdaptationProps) {
 					{/* Left - Image */}
 					<div className="relative">
 						{/* Decorative wavy border */}
-						<div className="absolute -inset-4 bg-white/10 rounded-[2rem] -rotate-2" />
-						<div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
+						<div className="absolute -inset-4 bg-white/10 rounded-4xl -rotate-2" />
+						<div className="relative aspect-4/3 rounded-3xl overflow-hidden shadow-2xl -rotate-2">
 							<Image src={mediaUrl} alt={mediaAlt} fill className="object-cover" />
-						</div>
-						{/* Decorative dots */}
-						<div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
-							<span className="w-2 h-2 rounded-full bg-white/40" />
-							<span className="w-2 h-2 rounded-full bg-white/60" />
-							<span className="w-2 h-2 rounded-full bg-white/40" />
-							<span className="w-2 h-2 rounded-full bg-white/20" />
 						</div>
 					</div>
 
@@ -99,7 +92,7 @@ export function Adaptation({ adaptation }: AdaptationProps) {
 
 						{/* Key message */}
 						<div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-							<p className="text-white/90 font-medium">🤝 {keyMessage}</p>
+							<p className="text-white/90 font-medium">{keyMessage}</p>
 						</div>
 					</div>
 				</div>

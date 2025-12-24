@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Moon } from 'lucide-react'
 import Image from 'next/image'
+import { RichTextParser } from '@/components/rich-text-parser'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 import type { LandingSleep } from '@/types/landing'
 
@@ -16,6 +17,8 @@ export function Sleep({ sleepSection }: SleepProps) {
 	}
 
 	const title = sleepSection.title
+	const subtitle = sleepSection.subtitle || 'Les siestes'
+	const tags = sleepSection.tags || []
 
 	return (
 		<SectionWrapper id="sommeil" variant="primary">
@@ -49,36 +52,30 @@ export function Sleep({ sleepSection }: SleepProps) {
 								/>
 							</div>
 
-							{/* Floating tags */}
-							<motion.div
-								className="absolute -top-2 right-0 bg-white/15 backdrop-blur-md rounded-full px-3 py-1.5 border border-white/20"
-								initial={{ opacity: 0, scale: 0.8 }}
-								whileInView={{ opacity: 1, scale: 1 }}
-								viewport={{ once: true }}
-								transition={{ delay: 0.3 }}
-							>
-								<span className="text-xs font-medium text-white">Confort</span>
-							</motion.div>
+							{/* Floating tags - dynamically rendered from Payload */}
+							{tags.map((tag, index) => {
+								const positions = [
+									{ className: 'absolute -top-2 right-0', delay: 0.3 },
+									{ className: 'absolute bottom-4 -left-4', delay: 0.4 },
+									{ className: 'absolute top-1/2 -right-6', delay: 0.5, accent: true },
+								]
+								const position = positions[index % positions.length]
 
-							<motion.div
-								className="absolute bottom-4 -left-4 bg-white/15 backdrop-blur-md rounded-full px-3 py-1.5 border border-white/20"
-								initial={{ opacity: 0, scale: 0.8 }}
-								whileInView={{ opacity: 1, scale: 1 }}
-								viewport={{ once: true }}
-								transition={{ delay: 0.4 }}
-							>
-								<span className="text-xs font-medium text-white">Sérénité</span>
-							</motion.div>
-
-							<motion.div
-								className="absolute top-1/2 -right-6 bg-accent/80 rounded-full px-3 py-1.5"
-								initial={{ opacity: 0, scale: 0.8 }}
-								whileInView={{ opacity: 1, scale: 1 }}
-								viewport={{ once: true }}
-								transition={{ delay: 0.5 }}
-							>
-								<span className="text-xs font-bold text-white">Calme</span>
-							</motion.div>
+								return (
+									<motion.div
+										key={tag.id || index}
+										className={`${position.className} ${position.accent ? 'bg-accent/80' : 'bg-white/15 backdrop-blur-md border border-white/20'} rounded-full px-3 py-1.5`}
+										initial={{ opacity: 0, scale: 0.8 }}
+										whileInView={{ opacity: 1, scale: 1 }}
+										viewport={{ once: true }}
+										transition={{ delay: position.delay }}
+									>
+										<span className={`text-xs ${position.accent ? 'font-bold' : 'font-medium'} text-white`}>
+											{tag.text}
+										</span>
+									</motion.div>
+								)
+							})}
 						</div>
 
 						{/* Right: Content */}
@@ -88,14 +85,12 @@ export function Sleep({ sleepSection }: SleepProps) {
 								<div className="w-9 h-9 rounded-xl bg-accent/30 flex items-center justify-center">
 									<Moon className="w-4 h-4 text-white" />
 								</div>
-								<span className="text-xs font-semibold text-white/60 uppercase tracking-widest">Les siestes</span>
+								<span className="text-xs font-semibold text-white/60 uppercase tracking-widest">{subtitle}</span>
 							</div>
 
-							<p className="text-lg md:text-xl text-white leading-relaxed">
-								Chez nounou, les enfants dorment dans un <span className="text-accent font-bold">lit à barreaux</span>,
-								chacun dans une <span className="text-accent font-bold">chambre séparée</span> pour plus de confort et
-								de sérénité.
-							</p>
+							<div className="text-lg md:text-xl text-white leading-relaxed">
+								{sleepSection.content && <RichTextParser content={sleepSection.content} />}
+							</div>
 						</div>
 					</div>
 				</motion.div>

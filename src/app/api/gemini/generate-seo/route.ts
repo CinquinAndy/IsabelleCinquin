@@ -1,107 +1,90 @@
-import type { NextRequest } from 'next/server'
+import { createGoogleGenerativeAI } from '@ai-sdk/google'
+import configPromise from '@payload-config'
+import { generateObject } from 'ai'
+import { headers } from 'next/headers'
 import { NextResponse } from 'next/server'
 import { getPayload } from 'payload'
-import type { PageContext } from '@/lib/gemini/generate-seo'
-import { generateSeoContent } from '@/lib/gemini/generate-seo'
-import config from '@/payload.config'
+import { z } from 'zod'
 
-export async function POST(req: NextRequest) {
+// Schema for the expected output
+const seoSchema = z.object({
+	title: z.string().describe('An SEO optimized title for the article, around 50-60 characters.'),
+	description: z.string().describe('An SEO optimized meta description, around 150-160 characters.'),
+	keywords: z.array(z.object({ keyword: z.string() })).describe('A list of 5-8 relevant keywords.'),
+})
+
+export async function POST(req: Request) {
 	try {
-		const { documentId, collectionSlug, globalSlug } = await req.json()
+		// Verify authentication via Payload
+		const payload = await getPayload({ config: configPromise })
+		const headersList = await headers()
+		const { user } = await payload.auth({ headers: headersList })
 
-		const payload = await getPayload({ config })
-
-		// Determine the page type and get context
-		let pageContext: PageContext = { pageType: 'homepage' }
-		let updateTarget: { collection?: string; global?: string; id?: string | number } = {}
-
-		if (globalSlug) {
-			// Global page
-			const globalData = await payload.findGlobal({ slug: globalSlug })
-			updateTarget = { global: globalSlug }
-
-			switch (globalSlug) {
-				case 'homepage':
-					pageContext = {
-						pageType: 'homepage',
-						title: globalData.hero_title || '',
-						description: globalData.hero_subtitle || '',
-					}
-					break
-				case 'faq-page':
-					pageContext = {
-						pageType: 'faq',
-						title: 'Questions fréquentes',
-					}
-					break
-				case 'contact-page':
-					pageContext = {
-						pageType: 'contact',
-						title: 'Contact',
-					}
-					break
-				case 'mentions-legales-page':
-					pageContext = {
-						pageType: 'mentions-legales',
-						title: 'Mentions légales',
-					}
-					break
-			}
-		} else if (collectionSlug && documentId) {
-			// Collection document
-			await payload.findByID({ collection: collectionSlug, id: documentId })
-			updateTarget = { collection: collectionSlug, id: documentId }
-
-			// Need to map collection types here when we create them
-			switch (
-				collectionSlug
-				// case 'activities':
-				// 	pageContext = {
-				// 		pageType: 'service',
-				// 		title: doc.title || '',
-				// 		description: doc.shortDescription || '',
-				// 	}
-				// 	break
-			) {
-			}
+		if (!user) {
+			return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 		}
 
-		// Generate SEO content with Gemini
-		const seoContent = await generateSeoContent(pageContext)
+		const body = await req.json()
+		const { content, previousTitle, previousExcerpt } = body
 
-		if (!seoContent) {
-			return NextResponse.json({ error: 'Failed to generate SEO content' }, { status: 500 })
+		if (!content) {
+			return NextResponse.json({ error: 'Content is required' }, { status: 400 })
 		}
 
-		// Update the document/global with generated SEO
-		if (updateTarget.global) {
-			// Cast to any since we may have globals not yet in schema
-			await payload.updateGlobal({
-				slug: updateTarget.global as any,
-				data: {
-					seo_title: seoContent.title,
-					seo_description: seoContent.description,
-				},
-			})
-		} else if (updateTarget.collection && updateTarget.id) {
-			// Cast to any since collections may have different schemas
-			await payload.update({
-				collection: updateTarget.collection as any,
-				id: updateTarget.id,
-				data: {
-					seo_title: seoContent.title,
-					seo_description: seoContent.description,
-				} as any,
-			})
-		}
-
-		return NextResponse.json({
-			success: true,
-			title: seoContent.title,
-			description: seoContent.description,
+		// Fetch Global Context (Landing Page Settings) to provide local SEO context
+		const landing = await payload.findGlobal({
+			slug: 'landing',
+			depth: 1,
 		})
+
+		const settings = landing.settings
+		const globalContext = `
+      Site Identity: ${landing.hero?.title} - ${landing.hero?.subtitle}
+      Location: ${settings?.address} (Sciez, near Thonon-les-Bains, Douvaine, Anthy-sur-Léman)
+      Activity: Assistante Maternelle / Nounou
+      Key Selling Points: Maison avec jardin, bord du Lac Léman, activités variées (promenades, bricolage), repas maison.
+    `
+
+		// Initialize Google AI provider
+		const google = createGoogleGenerativeAI({
+			apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY,
+		})
+
+		const model = google('gemini-2.0-flash')
+
+		const prompt = `
+      You are an SEO expert specializing in local service businesses (Childcare/Nanny).
+      Generate optimized metadata for the following blog post, ensuring it ranks well for the activity and location.
+      
+      --- GLOBAL CONTEXT (Use this to ground the SEO in the specific location and service) ---
+      ${globalContext}
+      
+      --- ARTICLE CONTENT ---
+      Current Title: ${previousTitle || 'N/A'}
+      Current Excerpt: ${previousExcerpt || 'N/A'}
+      
+      Content:
+      ${content.substring(0, 8000)} // Limiting content size context
+      
+      --- REQUIREMENTS ---
+      Please provide a JSON object with:
+      1. title: An engaging, keyword-rich Meta Title (max 60 chars). MUST include relevant local terms if fitting (e.g. Sciez).
+      2. description: A compelling Meta Description (max 160 chars). Summarize the article while reinforcing the local nanny service value proposition.
+      3. keywords: A list of 5-8 relevant keywords. Mix of broad terms (Assistante maternelle) and specific/local terms (Sciez, Activité enfant, etc.).
+      
+      The tone should be professional yet warm, reassuring parents.
+      Language: French.
+    `
+
+		const { object } = await generateObject({
+			model,
+			schema: seoSchema,
+			prompt,
+		})
+
+		return NextResponse.json(object)
 	} catch (error) {
 		console.error('Error generating SEO:', error)
-		return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+		return NextResponse.json({ error: 'Failed to generate SEO' }, { status: 500 })
 	}
 }

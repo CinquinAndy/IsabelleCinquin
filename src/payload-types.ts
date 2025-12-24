@@ -539,7 +539,6 @@ export interface Landing {
       };
       [k: string]: unknown;
     } | null;
-    image?: (number | null) | Media;
   };
   familyMembers?:
     | {
@@ -596,27 +595,7 @@ export interface Landing {
   livingPlace?: {
     title?: string | null;
     description?: string | null;
-    content?: {
-      root: {
-        type: string;
-        children: {
-          type: any;
-          version: number;
-          [k: string]: unknown;
-        }[];
-        direction: ('ltr' | 'rtl') | null;
-        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-        indent: number;
-        version: number;
-      };
-      [k: string]: unknown;
-    } | null;
-    images?:
-      | {
-          image: number | Media;
-          id?: string | null;
-        }[]
-      | null;
+    image?: (number | null) | Media;
   };
   equipmentSection?: {
     title?: string | null;
@@ -891,7 +870,6 @@ export interface LandingSelect<T extends boolean = true> {
     | {
         title?: T;
         content?: T;
-        image?: T;
       };
   familyMembers?:
     | T
@@ -934,13 +912,7 @@ export interface LandingSelect<T extends boolean = true> {
     | {
         title?: T;
         description?: T;
-        content?: T;
-        images?:
-          | T
-          | {
-              image?: T;
-              id?: T;
-            };
+        image?: T;
       };
   equipmentSection?:
     | T

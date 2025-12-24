@@ -1,6 +1,7 @@
 'use client'
 
 import NumberFlow from '@number-flow/react'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { RichTextParser } from '@/components/rich-text-parser'
@@ -47,11 +48,31 @@ export function AboutSection({ about }: AboutSectionProps) {
 								<div className="w-full h-full bg-white/20" />
 							)}
 						</div>
-						<div
+						<motion.div
+							animate={{
+								scale: [1, 1.02, 1],
+								y: [0, -6, 0],
+							}}
+							transition={{
+								duration: 10,
+								repeat: Number.POSITIVE_INFINITY,
+								ease: 'easeInOut',
+							}}
 							className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary/75 w-64 h-64 md:w-96 md:h-96 
                             rounded-full m-6 z-10"
 						/>
-						<div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-30">
+						<motion.div
+							animate={{
+								y: [0, -6, 0],
+								x: [0, 2, 0],
+							}}
+							transition={{
+								duration: 12,
+								repeat: Number.POSITIVE_INFINITY,
+								ease: 'easeInOut',
+							}}
+							className="absolute bottom-0 left-1/2 -translate-x-1/2 z-30"
+						>
 							<Image
 								src="/icons/scribbbles/1/SVG/Fichier 46.svg"
 								alt="Scribble"
@@ -59,8 +80,20 @@ export function AboutSection({ about }: AboutSectionProps) {
 								height={100}
 								className="-translate-x-24 translate-y-12"
 							/>
-						</div>
-						<div className="absolute top-0 right-1/2 -translate-x-1/2 z-30">
+						</motion.div>
+						<motion.div
+							animate={{
+								y: [0, 5, 0],
+								x: [0, -2, 0],
+							}}
+							transition={{
+								duration: 14,
+								repeat: Number.POSITIVE_INFINITY,
+								ease: 'easeInOut',
+								delay: 1,
+							}}
+							className="absolute top-0 right-1/2 -translate-x-1/2 z-30"
+						>
 							<Image
 								src="/icons/scribbbles/1/SVG/Fichier 48.svg"
 								alt="Scribble"
@@ -68,8 +101,20 @@ export function AboutSection({ about }: AboutSectionProps) {
 								height={150}
 								className="translate-x-84 translate-y-20"
 							/>
-						</div>
-						<div className="absolute top-0 left-0 z-30">
+						</motion.div>
+						<motion.div
+							animate={{
+								y: [0, -5, 0],
+								x: [0, 3, 0],
+							}}
+							transition={{
+								duration: 13,
+								repeat: Number.POSITIVE_INFINITY,
+								ease: 'easeInOut',
+								delay: 0.5,
+							}}
+							className="absolute top-0 left-0 z-30"
+						>
 							<Image
 								src="/icons/scribbbles/1/SVG/Fichier 12.svg"
 								alt="Scribble"
@@ -77,7 +122,7 @@ export function AboutSection({ about }: AboutSectionProps) {
 								height={75}
 								className="translate-x-40 -translate-y-10"
 							/>
-						</div>
+						</motion.div>
 					</div>
 
 					{/* Content - 60% */}
