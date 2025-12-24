@@ -143,15 +143,43 @@ export function Family({ members }: FamilyProps) {
 				</button>
 
 				{/* Scrollable Container */}
-				<div
+				<motion.div
 					ref={scrollContainerRef}
 					className="flex gap-4 md:gap-6 overflow-x-auto pb-4 px-4 scrollbar-hide snap-x snap-mandatory scroll-smooth"
 					style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+					initial="hidden"
+					whileInView="visible"
+					viewport={{ once: true, amount: 0.1 }}
+					variants={{
+						hidden: {},
+						visible: {
+							transition: {
+								staggerChildren: 0.12,
+								delayChildren: 0.2,
+							},
+						},
+					}}
 				>
 					{members.map((member, index) => (
-						<MemberCard key={member.id || index} member={member} />
+						<motion.div
+							key={member.id || index}
+							variants={{
+								hidden: { opacity: 0, y: 40, scale: 0.9 },
+								visible: {
+									opacity: 1,
+									y: 0,
+									scale: 1,
+									transition: {
+										duration: durations.standard,
+										ease: easings.smooth,
+									},
+								},
+							}}
+						>
+							<MemberCard member={member} />
+						</motion.div>
 					))}
-				</div>
+				</motion.div>
 
 				{/* Right Scroll Button */}
 				<button

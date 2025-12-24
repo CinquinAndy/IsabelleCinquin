@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { RichText } from '@/components/ui/rich-text'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
-import { durations, easings, variants } from '@/lib/animations'
+import { durations, easings } from '@/lib/animations'
 import type { LandingIntroduction } from '@/types/landing'
 
 interface IntroductionProps {
@@ -11,33 +11,61 @@ interface IntroductionProps {
 }
 
 export function Introduction({ introduction }: IntroductionProps) {
-	if (!introduction) {
+	if (!introduction?.title) {
 		throw new Error('Missing required data for Introduction section')
 	}
 
 	const title = introduction.title
+	const titleWords = title.split(' ')
 
 	return (
 		<SectionWrapper id="introduction" variant="primary">
+			{/* Title with word-by-word animation */}
 			<motion.div
-				initial="initial"
-				whileInView="animate"
-				viewport={{ once: true, amount: 0.3 }}
-				variants={variants.fadeInUp}
-				transition={{ duration: durations.standard, ease: easings.smooth }}
 				className="text-center mb-12"
+				initial="hidden"
+				whileInView="visible"
+				viewport={{ once: true, amount: 0.3 }}
+				variants={{
+					hidden: {},
+					visible: {
+						transition: {
+							staggerChildren: 0.08,
+						},
+					},
+				}}
 			>
-				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">{title}</h2>
+				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+					{titleWords.map((word, index) => (
+						<motion.span
+							key={`${word}-${index}`}
+							className="inline-block mr-2"
+							variants={{
+								hidden: { opacity: 0, y: 20 },
+								visible: { opacity: 1, y: 0 },
+							}}
+							transition={{
+								duration: durations.standard,
+								ease: easings.smooth,
+							}}
+						>
+							{word}
+						</motion.span>
+					))}
+				</h2>
 			</motion.div>
 
 			<div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
 				<motion.div
-					initial="initial"
-					whileInView="animate"
-					viewport={{ once: true, amount: 0.3 }}
-					variants={variants.fadeInUp}
-					transition={{ duration: durations.standard, ease: easings.smooth, delay: 0.2 }}
 					className="flex-1 text-center lg:text-left"
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true, amount: 0.3 }}
+					transition={{
+						duration: durations.slow,
+						ease: easings.smooth,
+						delay: titleWords.length * 0.08 + 0.2,
+					}}
 				>
 					<RichText content={introduction.content} variant="dark" className="prose-lg" />
 				</motion.div>
