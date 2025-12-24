@@ -624,21 +624,6 @@ export interface Landing {
           id?: string | null;
         }[]
       | null;
-    content?: {
-      root: {
-        type: string;
-        children: {
-          type: any;
-          version: number;
-          [k: string]: unknown;
-        }[];
-        direction: ('ltr' | 'rtl') | null;
-        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-        indent: number;
-        version: number;
-      };
-      [k: string]: unknown;
-    } | null;
   };
   organization?: {
     title?: string | null;
@@ -913,7 +898,6 @@ export interface LandingSelect<T extends boolean = true> {
               color?: T;
               id?: T;
             };
-        content?: T;
       };
   organization?:
     | T

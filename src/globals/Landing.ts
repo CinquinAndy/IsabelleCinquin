@@ -356,7 +356,6 @@ export const Landing: GlobalConfig = {
 										},
 									],
 								},
-								{ name: 'content', type: 'richText', label: 'Contenu' },
 							],
 						},
 

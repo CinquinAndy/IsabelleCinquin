@@ -1,4 +1,11 @@
 import Image from 'next/image'
+import {
+	ResponsiveModal,
+	ResponsiveModalContent,
+	ResponsiveModalHeader,
+	ResponsiveModalTitle,
+	ResponsiveModalTrigger,
+} from '@/components/ui/responsive-modal'
 import { RichText } from '@/components/ui/rich-text'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 import type { LandingObjective, LandingObjectivesSection } from '@/types/landing'
@@ -44,18 +51,50 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 				{/* 5 columns on same line */}
 				<div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8">
 					{items.map((objective, index) => (
-						<div key={objective.id || index} className="flex flex-col items-center text-center group">
-							{/* Scribble Icon */}
-							<div className="relative w-16 h-16 md:w-20 md:h-20 mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
-								<Image src={objective.iconUrl} alt={objective.title} fill className="object-contain drop-shadow-sm" />
-							</div>
+						<ResponsiveModal key={objective.id || index}>
+							<ResponsiveModalTrigger asChild>
+								<button type="button" className="flex flex-col items-center text-center group cursor-pointer w-full transition-all hover:scale-105">
+									{/* Scribble Icon */}
+									<div className="relative w-16 h-16 md:w-20 md:h-20 mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
+										<Image
+											src={objective.iconUrl}
+											alt={objective.title}
+											fill
+											className="object-contain drop-shadow-sm"
+										/>
+									</div>
 
-							{/* Title */}
-							<h3 className="font-bold text-base md:text-lg text-white mb-1">{objective.title}</h3>
+									{/* Title */}
+									<h3 className="font-bold text-base md:text-lg text-white mb-1">{objective.title}</h3>
 
-							{/* Description */}
-							<RichText content={objective.description} variant="dark" className="text-sm leading-snug" />
-						</div>
+									{/* Hint text */}
+									<p className="text-xs text-white/50 mt-1">Cliquer pour en savoir plus</p>
+								</button>
+							</ResponsiveModalTrigger>
+
+							<ResponsiveModalContent className="bg-gradient-to-br from-primary via-secondary to-primary border-accent/20">
+								<ResponsiveModalHeader>
+									<div className="flex items-center gap-4  mb-4">
+										<div className="relative w-12 h-12 shrink-0">
+											<Image
+												src={objective.iconUrl}
+												alt={objective.title}
+												fill
+												className="object-contain drop-shadow-lg"
+											/>
+										</div>
+										<ResponsiveModalTitle className="text-2xl font-bold text-white font-display">
+											{objective.title}
+										</ResponsiveModalTitle>
+									</div>
+
+									<div className="prose prose-invert prose-lg max-w-none text-white/90">
+										<RichText content={objective.description} variant="dark" />
+									</div>
+
+								</ResponsiveModalHeader>
+							</ResponsiveModalContent>
+						</ResponsiveModal>
 					))}
 				</div>
 			</div>

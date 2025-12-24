@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { RichText } from '@/components/ui/rich-text'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 import { formatMediaUrl } from '@/lib/utils'
 import type { LandingAdaptation } from '@/types/landing'
@@ -15,12 +14,7 @@ const badgeColors: Record<string, string> = {
 	emerald: 'bg-gradient-to-r from-emerald-500 to-teal-500',
 }
 
-const badgeIcons = [
-	'/icons/scribbbles/7/SVG/Fichier 10.svg',
-	'/icons/scribbbles/7/SVG/Fichier 5.svg',
-	'/icons/scribbbles/7/SVG/Fichier 18.svg',
-	'/icons/scribbbles/7/SVG/Fichier 3.svg',
-]
+
 
 export function Adaptation({ adaptation }: AdaptationProps) {
 	if (!adaptation?.title || !adaptation?.badges || !adaptation?.image) {
@@ -41,7 +35,16 @@ export function Adaptation({ adaptation }: AdaptationProps) {
 	const mediaAlt =
 		typeof adaptation.image === 'object' && adaptation.image?.alt ? adaptation.image.alt : "Période d'adaptation"
 
-	const displayBadges = badges
+	// Extract icon URLs from media objects
+	const displayBadges = badges.map((badge) => {
+		const iconUrl = typeof badge.icon === 'object' && badge.icon?.url ? badge.icon.url : null
+
+		if (!iconUrl) {
+			throw new Error(`Missing icon for badge: ${badge.text}`)
+		}
+
+		return { ...badge, iconUrl }
+	})
 
 	return (
 		<SectionWrapper id="adaptation" variant="primary" className="overflow-hidden">
@@ -84,7 +87,7 @@ export function Adaptation({ adaptation }: AdaptationProps) {
 									}}
 								>
 									<div className="relative w-8 h-8 -ml-1">
-										<Image src={badgeIcons[index] || badgeIcons[0]} alt="" fill className="object-contain" />
+										<Image src={badge.iconUrl} alt={badge.text} fill className="object-contain" />
 									</div>
 									{badge.text}
 								</div>
