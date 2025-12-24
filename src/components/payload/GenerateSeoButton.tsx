@@ -63,10 +63,10 @@ export const GenerateSeoButton: React.FC = () => {
 			// Ideally we pass the array of objects.
 			if (data.keywords && Array.isArray(data.keywords)) {
 				// We need to fetch current keywords to calculate number of rows to update/replace?
-				// Or jus replace value. 'UPDATE' usually replaces value for simple fields. 
+				// Or jus replace value. 'UPDATE' usually replaces value for simple fields.
 				// For array fields, it might require specific handling or REPLACE operation if supported.
 				// Let's try UPDATE with value.
-				
+
 				// Transform API keywords to Payload array format (often needs unique IDs if existing, but for new rows... let's try passing the array directly).
 				dispatchFields({
 					type: 'UPDATE',
@@ -95,9 +95,7 @@ export const GenerateSeoButton: React.FC = () => {
 				<Wand2 className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
 				{isLoading ? 'Génération en cours...' : 'Générer SEO avec IA'}
 			</button>
-			<p className="text-xs text-slate-500 mt-1">
-				Génère Titre, Description et Mots-clés basés sur le contenu.
-			</p>
+			<p className="text-xs text-slate-500 mt-1">Génère Titre, Description et Mots-clés basés sur le contenu.</p>
 		</div>
 	)
 }

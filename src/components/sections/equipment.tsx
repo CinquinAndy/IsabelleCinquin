@@ -108,11 +108,7 @@ export function Equipment({ equipmentSection }: EquipmentProps) {
 				{items.map((item, index) => {
 					const isDouble = item.gridSpan === 'double'
 					const isTall = item.gridSpan === 'tall'
-					const gridClass = isDouble
-						? 'md:col-span-2'
-						: isTall
-							? 'md:col-span-2 md:row-span-2'
-							: 'md:col-span-2'
+					const gridClass = isDouble ? 'md:col-span-2' : isTall ? 'md:col-span-2 md:row-span-2' : 'md:col-span-2'
 
 					return (
 						<motion.div

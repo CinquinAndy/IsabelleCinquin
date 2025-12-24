@@ -39,7 +39,13 @@ export function LivingPlace({ livingPlace }: LivingPlaceProps) {
 				{/* Only display image if URL is available */}
 				{imageUrl && (
 					<div className="aspect-video relative rounded-xl overflow-hidden shadow-2xl">
-						<Image src={imageUrl} alt={imageAlt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 768px" />
+						<Image
+							src={imageUrl}
+							alt={imageAlt}
+							fill
+							className="object-cover"
+							sizes="(max-width: 768px) 100vw, 768px"
+						/>
 					</div>
 				)}
 			</div>
