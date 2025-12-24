@@ -5,10 +5,10 @@ import { Award, Calendar } from 'lucide-react'
 import Image from 'next/image'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 import { durations, easings, stagger } from '@/lib/animations'
-import type { LandingTrainingsSection } from '@/types/landing'
+import type { Landing } from '@/payload-types'
 
 interface TrainingsProps {
-	trainingsSection?: LandingTrainingsSection | null
+	trainingsSection?: Landing['trainingsSection'] | null
 }
 
 export function Trainings({ trainingsSection }: TrainingsProps) {
@@ -122,11 +122,10 @@ export function Trainings({ trainingsSection }: TrainingsProps) {
 											<Award className="w-5 h-5 text-accent" />
 											{training.title}
 										</h3>
-										{training.organization && <p className="text-sm text-white/60">{training.organization}</p>}
-									</div>
+										</div>
 
-									{/* Year badge with bounce */}
-									{training.year && (
+									{/* Period badge with bounce */}
+									{training.period && (
 										<motion.div
 											className="px-4 py-2 bg-accent/20 border border-accent/30 rounded-full"
 											initial={{ scale: 0 }}
@@ -141,7 +140,7 @@ export function Trainings({ trainingsSection }: TrainingsProps) {
 										>
 											<div className="flex items-center gap-2 text-white">
 												<Calendar className="w-4 h-4" />
-												<span className="text-sm font-semibold">{training.year}</span>
+												<span className="text-sm font-semibold">{training.period}</span>
 											</div>
 										</motion.div>
 									)}
