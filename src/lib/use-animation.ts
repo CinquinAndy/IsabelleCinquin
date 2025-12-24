@@ -29,7 +29,7 @@ interface UseInViewOptions {
  * Wrapper around framer-motion's useInView with better defaults
  */
 export function useInView(
-	ref: RefObject<Element>,
+	ref: RefObject<Element | null>,
 	{ once = true, margin = '0px', amount = 0.1 }: UseInViewOptions = {}
 ) {
 	const isInView = useFramerInView(ref, {
@@ -45,7 +45,7 @@ export function useInView(
  * Hook to detect when element is in view with callback
  */
 export function useInViewCallback(
-	ref: RefObject<Element>,
+	ref: RefObject<Element | null>,
 	callback: (isInView: boolean) => void,
 	options: UseInViewOptions = {}
 ) {
