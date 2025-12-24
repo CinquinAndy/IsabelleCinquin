@@ -1,8 +1,10 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
+import { durations, easings, springs, variants } from '@/lib/animations'
 import type { LandingHero } from '@/types/landing'
 import { useCloudShader } from './use-cloud-shader'
 
@@ -20,6 +22,54 @@ const svgOverlayStyle: React.CSSProperties = {
 	height: '100%',
 	objectFit: 'cover',
 	objectPosition: 'center',
+}
+
+// Magnetic button component
+function MagneticButton({
+	children,
+	href,
+	isPrimary,
+}: {
+	children: React.ReactNode
+	href: string
+	isPrimary: boolean
+}) {
+	const [position, setPosition] = useState({ x: 0, y: 0 })
+	const buttonRef = useRef<HTMLAnchorElement>(null)
+
+	const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
+		if (!buttonRef.current) return
+		const rect = buttonRef.current.getBoundingClientRect()
+		const x = e.clientX - rect.left - rect.width / 2
+		const y = e.clientY - rect.top - rect.height / 2
+		setPosition({ x: x * 0.3, y: y * 0.3 })
+	}
+
+	const handleMouseLeave = () => {
+		setPosition({ x: 0, y: 0 })
+	}
+
+	return (
+		<motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={springs.snappy}>
+			<Link
+				ref={buttonRef}
+				href={href}
+				onMouseMove={handleMouseMove}
+				onMouseLeave={handleMouseLeave}
+				className={`inline-flex items-center justify-center rounded-full px-8 py-3 text-sm font-semibold transition-all ${
+					isPrimary
+						? 'bg-white text-primary shadow-lg hover:shadow-xl'
+						: 'border-2 border-white/50 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20'
+				}`}
+				style={{
+					transform: `translate(${position.x}px, ${position.y}px)`,
+					transition: 'transform 0.2s ease-out',
+				}}
+			>
+				{children}
+			</Link>
+		</motion.div>
+	)
 }
 
 export function Hero({ hero }: HeroProps) {
@@ -54,32 +104,53 @@ export function Hero({ hero }: HeroProps) {
 			{/* Layer 2 (z-10): Content masked - title + image visible only in center */}
 			<div className="absolute inset-0 z-10 flex h-full w-full flex-col items-center justify-center" style={maskStyle}>
 				<div className="text-center px-4 w-full h-full flex flex-col items-center justify-center relative">
-					<Image
-						src="/bear.png"
-						alt="Mask Deco"
-						width={1600}
-						height={1600}
-						className="absolute bottom-0 left-1/2 -translate-x-100 -z-10 translate-y-100"
-					/>
-					<h1 className="mb-4 text-5xl md:text-7xl font-bold text-white drop-shadow-lg z-10">{hero.title}</h1>
-					<p className="text-xl md:text-2xl text-white/90 drop-shadow-md max-w-2xl mx-auto z-10">{hero.subtitle}</p>
+					<motion.div
+						initial={{ opacity: 0, scale: 0.8 }}
+						animate={{ opacity: 1, scale: 1 }}
+						transition={{ ...springs.gentle, delay: 0.2 }}
+					>
+						<Image
+							src="/bear.png"
+							alt="Mask Deco"
+							width={1600}
+							height={1600}
+							className="absolute bottom-0 left-1/2 -translate-x-100 -z-10 translate-y-100"
+						/>
+					</motion.div>
+
+					<motion.h1
+						initial={{ opacity: 0, y: 30 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: durations.slow, ease: easings.smooth, delay: 0.3 }}
+						className="mb-4 text-5xl md:text-7xl font-bold text-white drop-shadow-lg z-10 relative"
+					>
+						<span className="bg-gradient-to-r from-white via-white/90 to-white bg-clip-text text-transparent animate-shimmer bg-[length:200%_100%]">
+							{hero.title}
+						</span>
+					</motion.h1>
+
+					<motion.p
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: durations.standard, ease: easings.smooth, delay: 0.5 }}
+						className="text-xl md:text-2xl text-white/90 drop-shadow-md max-w-2xl mx-auto z-10"
+					>
+						{hero.subtitle}
+					</motion.p>
 
 					{hero.buttons && hero.buttons.length > 0 && (
-						<div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center z-10">
+						<motion.div
+							initial={{ opacity: 0, y: 20 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ duration: durations.standard, ease: easings.smooth, delay: 0.7 }}
+							className="mt-8 flex flex-col sm:flex-row gap-4 justify-center z-10"
+						>
 							{hero.buttons.map((btn, i) => (
-								<Link
-									key={i}
-									href={btn.url}
-									className={`inline-flex items-center justify-center rounded-full px-8 py-3 text-sm font-semibold transition-all hover:scale-105 ${
-										btn.variant === 'primary'
-											? 'bg-white text-primary shadow-lg hover:bg-white/90'
-											: 'border-2 border-white/50 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20'
-									}`}
-								>
+								<MagneticButton key={i} href={btn.url} isPrimary={btn.variant === 'primary'}>
 									{btn.text}
-								</Link>
+								</MagneticButton>
 							))}
-						</div>
+						</motion.div>
 					)}
 				</div>
 			</div>
