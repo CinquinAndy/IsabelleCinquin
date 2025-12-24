@@ -56,6 +56,7 @@ async function getImportantPosts(): Promise<Post[]> {
 			},
 			limit: 6,
 			sort: '-publishedAt',
+			depth: 2, // Populate featuredImage and categories relations
 		})
 		return posts.docs as unknown as Post[]
 	} catch {

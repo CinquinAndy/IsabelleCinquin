@@ -11,7 +11,6 @@ import sharp from 'sharp'
 import { Categories } from './collections/Categories'
 import { Media } from './collections/Media'
 import { Posts } from './collections/Posts'
-import { Tags } from './collections/Tags'
 import { Users } from './collections/Users'
 import { Landing } from './globals/Landing'
 import { Seo } from './globals/Seo'
@@ -32,7 +31,7 @@ export default buildConfig({
 			baseDir: path.resolve(dirname),
 		},
 	},
-	collections: [Users, Media, Posts, Categories, Tags],
+	collections: [Users, Media, Posts, Categories],
 	globals: [Landing, Seo],
 	editor: lexicalEditor(),
 	secret: process.env.PAYLOAD_SECRET || '',

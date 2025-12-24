@@ -50,26 +50,29 @@ export function AboutSection({ about }: AboutSectionProps) {
 						</div>
 						<motion.div
 							animate={{
-								scale: [1, 1.02, 1],
-								y: [0, -6, 0],
+								scale: [1, 1.03, 0.98, 1],
+								y: [0, -10, 5, 0],
+								x: [0, 3, -3, 0],
+								rotate: [0, 2, -2, 0],
 							}}
 							transition={{
-								duration: 10,
+								duration: 16,
 								repeat: Number.POSITIVE_INFINITY,
-								ease: 'easeInOut',
+								ease: [0.45, 0.05, 0.55, 0.95],
 							}}
 							className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary/75 w-64 h-64 md:w-96 md:h-96 
                             rounded-full m-6 z-10"
 						/>
 						<motion.div
 							animate={{
-								y: [0, -6, 0],
-								x: [0, 2, 0],
+								y: [0, -12, 8, 0],
+								x: [0, 4, -2, 0],
+								rotate: [0, 8, -5, 0],
 							}}
 							transition={{
-								duration: 12,
+								duration: 18,
 								repeat: Number.POSITIVE_INFINITY,
-								ease: 'easeInOut',
+								ease: [0.42, 0, 0.58, 1],
 							}}
 							className="absolute bottom-0 left-1/2 -translate-x-1/2 z-30"
 						>
@@ -83,13 +86,14 @@ export function AboutSection({ about }: AboutSectionProps) {
 						</motion.div>
 						<motion.div
 							animate={{
-								y: [0, 5, 0],
-								x: [0, -2, 0],
+								y: [0, 10, -6, 0],
+								x: [0, -5, 3, 0],
+								rotate: [0, -6, 4, 0],
 							}}
 							transition={{
-								duration: 14,
+								duration: 20,
 								repeat: Number.POSITIVE_INFINITY,
-								ease: 'easeInOut',
+								ease: [0.37, 0, 0.63, 1],
 								delay: 1,
 							}}
 							className="absolute top-0 right-1/2 -translate-x-1/2 z-30"
@@ -104,13 +108,14 @@ export function AboutSection({ about }: AboutSectionProps) {
 						</motion.div>
 						<motion.div
 							animate={{
-								y: [0, -5, 0],
-								x: [0, 3, 0],
+								y: [0, -8, 6, 0],
+								x: [0, 6, -4, 0],
+								rotate: [0, 10, -8, 0],
 							}}
 							transition={{
-								duration: 13,
+								duration: 17,
 								repeat: Number.POSITIVE_INFINITY,
-								ease: 'easeInOut',
+								ease: [0.4, 0, 0.6, 1],
 								delay: 0.5,
 							}}
 							className="absolute top-0 left-0 z-30"

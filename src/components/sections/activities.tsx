@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
+import { formatMediaUrl } from '@/lib/utils'
 import type { Media } from '@/payload-types'
 
 interface Post {
@@ -13,7 +14,7 @@ interface Post {
 	excerpt: string
 	featuredImage?: Media | number | null
 	publishedAt?: string | null
-	category?: string | null
+	categories?: Array<{ name: string } | number> | null
 }
 
 interface ActivitiesProps {
@@ -39,42 +40,51 @@ export function Activities({ posts }: ActivitiesProps) {
 				</div>
 
 				{/* Cards grid */}
-				<div className="flex flex-wrap justify-center gap-8">
-					{posts.slice(0, 6).map(post => {
-						const mediaUrl =
-							typeof post.featuredImage === 'object' && post.featuredImage?.url ? post.featuredImage.url : null
-						const mediaAlt =
-							typeof post.featuredImage === 'object' && post.featuredImage?.alt ? post.featuredImage.alt : post.title
+			<div className="flex flex-wrap justify-center gap-8">
+				{posts.slice(0, 6).map(post => {
+					// Extract media URL
+				const mediaUrl = formatMediaUrl(
+					typeof post.featuredImage === 'object' && post.featuredImage?.url ? post.featuredImage.url : null
+				)
+					const mediaAlt =
+						typeof post.featuredImage === 'object' && post.featuredImage?.alt ? post.featuredImage.alt : post.title
 
-						return (
-							<Link
-								key={post.id}
-								href={`/blog/${post.slug}`}
-								className="group max-w-xs w-full hover:-translate-y-1 transition-all duration-300"
-							>
-								<div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white/10">
-									{mediaUrl && (
-										<Image
-											src={mediaUrl}
-											alt={mediaAlt}
-											fill
-											className="object-cover group-hover:scale-105 transition-transform duration-500"
-											sizes="(max-width: 768px) 100vw, 320px"
+					// Extract first category name
+				const categoryName =
+					Array.isArray(post.categories) && post.categories.length > 0
+						? typeof post.categories[0] === 'object'
+							? post.categories[0].name
+							: null
+						: null
+
+					return (
+						<Link
+							key={post.id}
+							href={`/blog/${post.slug}`}
+							className="group max-w-xs w-full hover:-translate-y-1 transition-all duration-300"
+						>
+							<div className="relative aspect-4/3 rounded-2xl overflow-hidden bg-white/10">
+								{mediaUrl && (
+									<Image
+										src={mediaUrl}
+										alt={mediaAlt}
+										fill
+										className="object-cover group-hover:scale-105 transition-transform duration-500"
+										sizes="(max-width: 768px) 100vw, 320px"
 										/>
-									)}
-								</div>
-								<h3 className="text-lg text-white font-semibold mt-4 group-hover:text-white/90 transition-colors line-clamp-2">
-									{post.title}
-								</h3>
-								<p className="text-sm text-white/60 mt-2 line-clamp-2">{post.excerpt}</p>
-								{post.category && (
-									<span className="inline-block text-xs font-medium text-pink-300 mt-2">{post.category}</span>
 								)}
-							</Link>
-						)
-					})}
-				</div>
-
+							</div>
+							<h3 className="text-lg text-white font-semibold mt-4 group-hover:text-white/90 transition-colors line-clamp-2">
+								{post.title}
+							</h3>
+							<p className="text-sm text-white/60 mt-2 line-clamp-2">{post.excerpt}</p>
+							{categoryName && (
+								<span className="inline-block text-xs font-medium text-pink-300 mt-2">{categoryName}</span>
+							)}
+						</Link>
+					)
+				})}
+			</div>
 				{/* CTA button */}
 				{posts.length > 0 && (
 					<div className="text-center mt-12">

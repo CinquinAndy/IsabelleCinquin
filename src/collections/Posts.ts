@@ -98,16 +98,6 @@ export const Posts: CollectionConfig = {
 										width: '50%',
 									},
 								},
-								{
-									name: 'tags',
-									type: 'relationship',
-									relationTo: 'tags',
-									hasMany: true,
-									label: 'Tags',
-									admin: {
-										width: '50%',
-									},
-								},
 							],
 						},
 						{
