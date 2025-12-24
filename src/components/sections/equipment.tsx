@@ -6,10 +6,10 @@ import { useEffect, useState } from 'react'
 import { AnimatedSection } from '@/components/ui/animated-section'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 import { easings, springs } from '@/lib/animations'
-import type { LandingEquipment, LandingEquipmentSection } from '@/types/landing'
+import type { Landing } from '@/payload-types'
 
 interface EquipmentProps {
-	equipmentSection?: LandingEquipmentSection | null
+	equipmentSection?: Landing['equipmentSection'] | null
 }
 
 // Animated icon with orbital floating + rotation
@@ -18,16 +18,16 @@ function FloatingIcon({ src, alt, delay = 0 }: { src: string; alt: string; delay
 		<motion.div
 			animate={{
 				y: [0, -12, 0],
-				x: [0, 4, -4, 0],
-				rotate: [0, 5, -5, 0],
+				x: [0, 5, -5, 0],
+				rotate: [0, 8, -8, 0],
 			}}
 			transition={{
-				duration: 6,
+				duration: 7,
 				repeat: Number.POSITIVE_INFINITY,
 				ease: easings.gentle,
 				delay,
 			}}
-			whileHover={{ scale: 1.1, rotate: 10 }}
+			whileHover={{ scale: 1.15, rotate: 15, y: -5 }}
 			className="relative w-16 h-16 md:w-20 md:h-20 filter drop-shadow-lg"
 		>
 			<Image src={src} alt={alt} fill className="object-contain" />
@@ -39,16 +39,18 @@ function FloatingIcon({ src, alt, delay = 0 }: { src: string; alt: string; delay
 function QuantityBadge({ quantity, isVisible }: { quantity: number; isVisible: boolean }) {
 	return (
 		<motion.div
-			initial={{ scale: 0, opacity: 0 }}
+			initial={{ scale: 0, opacity: 0, rotate: -20 }}
 			animate={{ 
 				scale: isVisible ? [1, 1.05, 1] : 0,
-				opacity: isVisible ? 1 : 0 
+				opacity: isVisible ? 1 : 0,
+				rotate: isVisible ? 0 : -20,
 			}}
 			transition={{ 
 				scale: { duration: 2, repeat: Number.POSITIVE_INFINITY, ease: 'easeInOut', delay: 0.4 },
-				opacity: { duration: 0.3 }
+				opacity: { duration: 0.4, type: 'spring' },
+				rotate: { duration: 0.5, type: 'spring', stiffness: 200 },
 			}}
-			whileHover={{ scale: 1.1 }}
+			whileHover={{ scale: 1.2, rotate: 5 }}
 			className="inline-flex items-center justify-center bg-accent/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full border border-white/20 shadow-lg"
 		>
 			×{quantity}
@@ -75,7 +77,7 @@ export function Equipment({ equipmentSection }: EquipmentProps) {
 	// Assign dynamic grid spans for bento layout variety
 	const gridSpans: Array<'single' | 'double' | 'tall'> = ['double', 'single', 'tall', 'single', 'single', 'double']
 
-	const items = equipment.map((item: LandingEquipment, index: number) => {
+	const items = equipment.map((item, index: number) => {
 		const iconUrl = typeof item.icon === 'object' && item.icon?.url ? item.icon.url : null
 
 		if (!iconUrl) {
@@ -94,13 +96,21 @@ export function Equipment({ equipmentSection }: EquipmentProps) {
 			<div className="text-center mb-12">
 				<motion.h2
 					className="text-3xl md:text-4xl font-bold text-white tracking-tight"
-					initial={{ opacity: 0, y: 20 }}
+					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true }}
-					transition={{ delay: 0.1 }}
+					transition={{ duration: 0.7, delay: 0.1, ease: easings.smooth }}
 				>
 					{title.split(' ').slice(0, -1).join(' ')}{' '}
-					<span className="font-handwriting text-accent">{title.split(' ').slice(-1)}</span>
+					<motion.span 
+						className="font-handwriting text-accent inline-block"
+						initial={{ opacity: 0, rotate: -5 }}
+						whileInView={{ opacity: 1, rotate: 0 }}
+						viewport={{ once: true }}
+						transition={{ duration: 0.6, delay: 0.3, ease: easings.bounce }}
+					>
+						{title.split(' ').slice(-1)}
+					</motion.span>
 				</motion.h2>
 
 				<motion.p
