@@ -1,11 +1,13 @@
 'use client'
 
+import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 import { X } from 'lucide-react'
 import { useState } from 'react'
+import { RichText } from '@/components/ui/rich-text'
 
 interface AvailabilityBannerProps {
 	isAvailable: boolean
-	message?: string | null
+	message?: SerializedEditorState | null
 	returnDate?: string | null
 }
 
@@ -27,9 +29,15 @@ export function AvailabilityBanner({ isAvailable, message, returnDate }: Availab
 				</button>
 
 				<div className="text-center text-white">
-					<h2 className="text-xl md:text-2xl font-bold mb-4">
-						{message || 'Nounou actuellement indisponible, merci de votre compréhension.'}
-					</h2>
+					{message ? (
+						<div className="text-xl md:text-2xl font-bold mb-4">
+							<RichText content={message} variant="dark" />
+						</div>
+					) : (
+						<h2 className="text-xl md:text-2xl font-bold mb-4">
+							Nounou actuellement indisponible, merci de votre compréhension.
+						</h2>
+					)}
 					{returnDate && <p className="text-lg opacity-90">Je reviens dès {returnDate} !</p>}
 				</div>
 			</div>

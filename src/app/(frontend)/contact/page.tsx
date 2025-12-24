@@ -1,4 +1,5 @@
 import config from '@payload-config'
+import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 import { ArrowLeft, Clock, ExternalLink, Mail, MapPin, Phone } from 'lucide-react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -7,7 +8,6 @@ import { AvailabilityBanner } from '@/components/availability-banner'
 import { ContactForm, LocationMap } from '@/components/contact'
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
-
 import { constructMetadata } from '@/lib/metadata'
 
 export async function generateMetadata() {
@@ -26,7 +26,7 @@ export async function generateMetadata() {
 
 interface Settings {
 	isAvailable?: boolean | null
-	unavailableMessage?: string | null
+	unavailableMessage?: SerializedEditorState | null
 	returnDate?: string | null
 	email?: string | null
 	phone?: string | null

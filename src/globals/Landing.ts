@@ -343,6 +343,14 @@ export const Landing: GlobalConfig = {
 									fields: [
 										{ name: 'text', type: 'text', label: 'Texte', required: true },
 										{
+											name: 'icon',
+											type: 'upload',
+											relationTo: 'media',
+											label: 'Icône',
+											required: true,
+											admin: { description: 'Icône SVG pour ce badge' },
+										},
+										{
 											name: 'color',
 											type: 'select',
 											label: 'Couleur',
@@ -485,19 +493,9 @@ export const Landing: GlobalConfig = {
 								},
 								{
 									name: 'unavailableMessage',
-									type: 'textarea',
+									type: 'richText',
 									label: "Message d'indisponibilité",
-									defaultValue: 'Nounou actuellement indisponible, merci de votre compréhension.',
 									admin: {
-										condition: (_, siblingData) => !siblingData?.isAvailable,
-									},
-								},
-								{
-									name: 'returnDate',
-									type: 'text',
-									label: 'Date de retour',
-									admin: {
-										description: 'Ex: 2026',
 										condition: (_, siblingData) => !siblingData?.isAvailable,
 									},
 								},

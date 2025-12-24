@@ -620,6 +620,10 @@ export interface Landing {
     badges?:
       | {
           text: string;
+          /**
+           * Icône SVG pour ce badge
+           */
+          icon: number | Media;
           color?: ('pink' | 'violet' | 'amber' | 'emerald') | null;
           id?: string | null;
         }[]
@@ -681,11 +685,21 @@ export interface Landing {
      * Décocher pour afficher le message d'indisponibilité
      */
     isAvailable?: boolean | null;
-    unavailableMessage?: string | null;
-    /**
-     * Ex: 2026
-     */
-    returnDate?: string | null;
+    unavailableMessage?: {
+      root: {
+        type: string;
+        children: {
+          type: any;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    } | null;
     email?: string | null;
     phone?: string | null;
     landline?: string | null;
@@ -895,6 +909,7 @@ export interface LandingSelect<T extends boolean = true> {
           | T
           | {
               text?: T;
+              icon?: T;
               color?: T;
               id?: T;
             };
@@ -957,7 +972,6 @@ export interface LandingSelect<T extends boolean = true> {
     | {
         isAvailable?: T;
         unavailableMessage?: T;
-        returnDate?: T;
         email?: T;
         phone?: T;
         landline?: T;
