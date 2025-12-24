@@ -3,8 +3,10 @@
 import NumberFlow from '@number-flow/react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useRef } from 'react'
 import { RichText } from '@/components/ui/rich-text'
+import { durations, easings, springs, variants } from '@/lib/animations'
+import { useInView } from '@/lib/use-animation'
 import { formatMediaUrl } from '@/lib/utils'
 import type { LandingAbout } from '@/types/landing'
 
@@ -13,12 +15,8 @@ interface AboutSectionProps {
 }
 
 export function AboutSection({ about }: AboutSectionProps) {
-	const [isVisible, setIsVisible] = useState(false)
-
-	useEffect(() => {
-		const timer = setTimeout(() => setIsVisible(true), 300)
-		return () => clearTimeout(timer)
-	}, [])
+	const ref = useRef(null)
+	const isVisible = useInView(ref, { once: true, amount: 0.2 })
 
 	if (!about) {
 		throw new Error('Missing required data for About section')

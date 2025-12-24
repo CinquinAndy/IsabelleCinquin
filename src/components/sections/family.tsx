@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRef } from 'react'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
+import { durations, easings, variants } from '@/lib/animations'
 import { formatMediaUrl } from '@/lib/utils'
 import type { LandingFamilyMember } from '@/types/landing'
 
@@ -35,8 +36,9 @@ function MemberCard({ member }: { member: FamilyMember }) {
 		<motion.div
 			className={`group h-full min-h-[300px] relative flex flex-col items-center overflow-hidden rounded-2xl bg-secondary/30 p-6 
 				text-center transition-shadow duration-300 ease-out hover:shadow-xl shrink-0 w-[200px] md:w-[240px] snap-center`}
-			whileHover={{ y: -8, scale: 1.02 }}
+			whileHover={{ y: -12, scale: 1.05, rotateY: 5 }}
 			transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+			style={{ perspective: 1000 }}
 		>
 			{/* Hover wave effect */}
 			<div
@@ -115,12 +117,19 @@ export function Family({ members }: FamilyProps) {
 
 	return (
 		<SectionWrapper id="famille" variant="primary">
-			<div className="text-center mb-12">
+			<motion.div
+				initial="initial"
+				whileInView="animate"
+				viewport={{ once: true, amount: 0.3 }}
+				variants={variants.fadeInUp}
+				transition={{ duration: durations.standard, ease: easings.smooth }}
+				className="text-center mb-12"
+			>
 				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
 					La petite <span className="font-handwriting text-white/80">famille</span>
 				</h2>
 				<p className="mt-4 text-lg text-white/70">Les personnes qui vivent avec nounou</p>
-			</div>
+			</motion.div>
 
 			<div className="relative w-full group/carousel">
 				{/* Left Scroll Button */}

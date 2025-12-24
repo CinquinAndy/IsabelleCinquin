@@ -3,24 +3,31 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import { AnimatedSection } from '@/components/ui/animated-section'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
+import { easings, springs } from '@/lib/animations'
 import type { LandingEquipment, LandingEquipmentSection } from '@/types/landing'
 
 interface EquipmentProps {
 	equipmentSection?: LandingEquipmentSection | null
 }
 
-// Animated icon component with floating effect
+// Animated icon with orbital floating + rotation
 function FloatingIcon({ src, alt, delay = 0 }: { src: string; alt: string; delay?: number }) {
 	return (
 		<motion.div
-			animate={{ y: [0, -8, 0] }}
+			animate={{
+				y: [0, -12, 0],
+				x: [0, 4, -4, 0],
+				rotate: [0, 5, -5, 0],
+			}}
 			transition={{
-				duration: 4,
+				duration: 6,
 				repeat: Number.POSITIVE_INFINITY,
-				ease: 'easeInOut',
+				ease: easings.gentle,
 				delay,
 			}}
+			whileHover={{ scale: 1.1, rotate: 10 }}
 			className="relative w-16 h-16 md:w-20 md:h-20 filter drop-shadow-lg"
 		>
 			<Image src={src} alt={alt} fill className="object-contain" />
@@ -28,14 +35,21 @@ function FloatingIcon({ src, alt, delay = 0 }: { src: string; alt: string; delay
 	)
 }
 
-// Animated quantity badge
+// Animated quantity badge with pulse
 function QuantityBadge({ quantity, isVisible }: { quantity: number; isVisible: boolean }) {
 	return (
 		<motion.div
 			initial={{ scale: 0, opacity: 0 }}
-			animate={{ scale: isVisible ? 1 : 0, opacity: isVisible ? 1 : 0 }}
-			transition={{ type: 'spring', stiffness: 200, damping: 15, delay: 0.3 }}
-			className="inline-flex items-center justify-center bg-accent/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full border border-white/20"
+			animate={{ 
+				scale: isVisible ? [1, 1.05, 1] : 0,
+				opacity: isVisible ? 1 : 0 
+			}}
+			transition={{ 
+				scale: { duration: 2, repeat: Number.POSITIVE_INFINITY, ease: 'easeInOut', delay: 0.4 },
+				opacity: { duration: 0.3 }
+			}}
+			whileHover={{ scale: 1.1 }}
+			className="inline-flex items-center justify-center bg-accent/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full border border-white/20 shadow-lg"
 		>
 			×{quantity}
 		</motion.div>
