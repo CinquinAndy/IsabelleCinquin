@@ -53,14 +53,16 @@ export function Activities({ posts }: ActivitiesProps) {
 								className="group max-w-xs w-full hover:-translate-y-1 transition-all duration-300"
 							>
 								<div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white/10">
-									<Image
-										src={mediaUrl}
-										alt={mediaAlt}
-										fill
-										className="object-cover group-hover:scale-105 transition-transform duration-500"
-										sizes="(max-width: 768px) 100vw, 320px"
-										/>
-								</div>
+					{mediaUrl && (
+						<Image
+							src={mediaUrl}
+							alt={mediaAlt}
+							fill
+							className="object-cover group-hover:scale-105 transition-transform duration-500"
+							sizes="(max-width: 768px) 100vw, 320px"
+							/>
+					)}
+				</div>
 								<h3 className="text-lg text-white font-semibold mt-4 group-hover:text-white/90 transition-colors line-clamp-2">
 									{post.title}
 								</h3>
