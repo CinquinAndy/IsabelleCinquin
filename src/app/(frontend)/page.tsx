@@ -15,6 +15,7 @@ export async function generateMetadata() {
 	})
 }
 
+import { AvailabilityBanner } from '@/components/availability-banner'
 import { Hero } from '@/components/hero'
 import {
 	AboutSection,
@@ -71,6 +72,13 @@ export default async function HomePage() {
 
 	return (
 		<>
+			{landing?.settings && (
+				<AvailabilityBanner
+					isAvailable={landing.settings.isAvailable ?? true}
+					message={landing.settings.unavailableMessage}
+				/>
+			)}
+
 			<Hero hero={landing?.hero} />
 
 			<Introduction introduction={landing?.introduction} />

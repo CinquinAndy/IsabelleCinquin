@@ -8,10 +8,9 @@ import { RichText } from '@/components/ui/rich-text'
 interface AvailabilityBannerProps {
 	isAvailable: boolean
 	message?: SerializedEditorState | null
-	returnDate?: string | null
 }
 
-export function AvailabilityBanner({ isAvailable, message, returnDate }: AvailabilityBannerProps) {
+export function AvailabilityBanner({ isAvailable, message }: AvailabilityBannerProps) {
 	const [isVisible, setIsVisible] = useState(true)
 
 	if (isAvailable || !isVisible) return null
@@ -38,7 +37,6 @@ export function AvailabilityBanner({ isAvailable, message, returnDate }: Availab
 							Nounou actuellement indisponible, merci de votre compréhension.
 						</h2>
 					)}
-					{returnDate && <p className="text-lg opacity-90">Je reviens dès {returnDate} !</p>}
 				</div>
 			</div>
 		</div>

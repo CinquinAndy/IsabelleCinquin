@@ -27,7 +27,6 @@ export async function generateMetadata() {
 interface Settings {
 	isAvailable?: boolean | null
 	unavailableMessage?: SerializedEditorState | null
-	returnDate?: string | null
 	email?: string | null
 	phone?: string | null
 	landline?: string | null
