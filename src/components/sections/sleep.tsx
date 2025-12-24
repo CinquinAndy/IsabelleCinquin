@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { Moon } from 'lucide-react'
 import Image from 'next/image'
-import { RichTextParser } from '@/components/rich-text-parser'
+import { RichText } from '@/components/ui/rich-text'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 import type { LandingSleep } from '@/types/landing'
 
@@ -89,8 +89,8 @@ export function Sleep({ sleepSection }: SleepProps) {
 							</div>
 
 							<div className="text-lg md:text-xl text-white leading-relaxed">
-								{sleepSection.content && <RichTextParser content={sleepSection.content} />}
-							</div>
+						<RichText content={sleepSection.content} variant="dark" />
+					</div>
 						</div>
 					</div>
 				</motion.div>

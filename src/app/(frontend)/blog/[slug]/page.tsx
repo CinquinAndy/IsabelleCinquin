@@ -4,8 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getPayload } from 'payload'
-import { RichTextParser } from '@/components/rich-text-parser'
 import { ContactPreview } from '@/components/sections/contact-preview'
+import { RichText } from '@/components/ui/rich-text'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 import { formatMediaUrl } from '@/lib/utils'
 import type { Landing, Post } from '@/payload-types'
@@ -182,9 +182,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 					)}
 
 					{/* Article content from rich text */}
-					<article className="prose prose-isa prose-invert prose-lg max-w-none">
-						{post.content && <RichTextParser content={post.content} />}
-					</article>
+					<RichText content={post.content} variant="dark" className="prose-lg" />
 				</div>
 			</SectionWrapper>
 

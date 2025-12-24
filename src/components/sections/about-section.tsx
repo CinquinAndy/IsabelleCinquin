@@ -4,7 +4,7 @@ import NumberFlow from '@number-flow/react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import { RichTextParser } from '@/components/rich-text-parser'
+import { RichText } from '@/components/ui/rich-text'
 import { formatMediaUrl } from '@/lib/utils'
 import type { LandingAbout } from '@/types/landing'
 
@@ -145,7 +145,7 @@ export function AboutSection({ about }: AboutSectionProps) {
 						</h2>
 
 						<div className="space-y-5 text-white text-lg leading-relaxed">
-							{about.content && <RichTextParser content={about.content} />}
+							<RichText content={about.content} variant="dark" />
 
 							{/* Stats Cards - Style like screenshot */}
 							{about.stats && about.stats.length > 0 && (

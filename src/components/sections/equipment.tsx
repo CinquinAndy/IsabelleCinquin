@@ -6,11 +6,6 @@ import { useEffect, useState } from 'react'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 import type { LandingEquipment, LandingEquipmentSection } from '@/types/landing'
 
-interface EquipmentItem extends LandingEquipment {
-	icon: string
-	gridSpan?: 'single' | 'double' | 'tall'
-}
-
 interface EquipmentProps {
 	equipmentSection?: LandingEquipmentSection | null
 }
@@ -66,15 +61,17 @@ export function Equipment({ equipmentSection }: EquipmentProps) {
 	// Assign dynamic grid spans for bento layout variety
 	const gridSpans: Array<'single' | 'double' | 'tall'> = ['double', 'single', 'tall', 'single', 'single', 'double']
 
-	const items: EquipmentItem[] = equipment.map((item: LandingEquipment, index: number) => {
-		if (!item.icon) {
+	const items = equipment.map((item: LandingEquipment, index: number) => {
+		const iconUrl = typeof item.icon === 'object' && item.icon?.url ? item.icon.url : null
+
+		if (!iconUrl) {
 			throw new Error(`Missing icon for equipment item: ${item.name || 'Unknown'}`)
 		}
 
 		return {
 			...item,
-			icon: item.icon,
-			gridSpan: gridSpans[index % gridSpans.length],
+			iconUrl,
+			gridSpan: gridSpans[index % gridSpans.length] as 'single' | 'double' | 'tall',
 		}
 	})
 
@@ -131,7 +128,7 @@ export function Equipment({ equipmentSection }: EquipmentProps) {
 
 							{/* Content */}
 							<div className="flex-1 flex items-center justify-center">
-								<FloatingIcon src={item.icon} alt={item.name} delay={index * 0.2} />
+								<FloatingIcon src={item.iconUrl} alt={item.name} delay={index * 0.2} />
 							</div>
 
 							{/* Text content */}

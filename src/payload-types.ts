@@ -579,9 +579,9 @@ export interface Landing {
            */
           quantity?: number | null;
           /**
-           * Ex: /icons/scribbbles/7/SVG/Fichier 1.svg
+           * Icône SVG ou image pour cet équipement
            */
-          icon?: string | null;
+          icon: number | Media;
           id?: string | null;
         }[]
       | null;
@@ -592,22 +592,7 @@ export interface Landing {
     items?:
       | {
           title: string;
-          description?: string | null;
-          icon?:
-            | (
-                | 'baby'
-                | 'hand-helping'
-                | 'utensils'
-                | 'heart-pulse'
-                | 'shield-check'
-                | 'star'
-                | 'sun'
-                | 'home'
-                | 'book-open'
-                | 'palette'
-              )
-            | null;
-          content?: {
+          description?: {
             root: {
               type: string;
               children: {
@@ -622,6 +607,7 @@ export interface Landing {
             };
             [k: string]: unknown;
           } | null;
+          icon: number | Media;
           id?: string | null;
         }[]
       | null;
@@ -910,7 +896,6 @@ export interface LandingSelect<T extends boolean = true> {
               title?: T;
               description?: T;
               icon?: T;
-              content?: T;
               id?: T;
             };
       };

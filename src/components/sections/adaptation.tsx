@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { RichText } from '@/components/ui/rich-text'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 import { formatMediaUrl } from '@/lib/utils'
 import type { LandingAdaptation } from '@/types/landing'
