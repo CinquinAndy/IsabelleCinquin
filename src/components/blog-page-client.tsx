@@ -240,7 +240,7 @@ export function BlogPageClient({ posts, landing }: BlogPageClientProps) {
 							>
 								<Link
 									href={`/blog/${post.slug}`}
-									className="group flex flex-col gap-3 rounded-2xl p-3 hover:bg-white/10 transition-all block"
+									className="group flex flex-col gap-3 rounded-2xl p-3 hover:bg-white/10 transition-all"
 								>
 									<motion.div whileHover={{ y: -8 }} transition={{ duration: 0.3 }}>
 										<motion.div
@@ -256,7 +256,7 @@ export function BlogPageClient({ posts, landing }: BlogPageClientProps) {
 												className="transition-transform duration-500 group-hover:scale-105"
 											/>
 											{/* Overlay on hover */}
-											<div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+											<div className="absolute inset-0 bg-linear-to-t from-secondary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 										</motion.div>
 
 										<div className="space-y-2 px-1 pb-2 mt-3">

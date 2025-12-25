@@ -207,7 +207,7 @@ export const Compare = ({
 					{firstImage ? (
 						<motion.div
 							className={cn(
-								'absolute inset-0 z-20 rounded-2xl flex-shrink-0 w-full h-full select-none overflow-hidden',
+								'absolute inset-0 z-20 rounded-2xl shrink-0 w-full h-full select-none overflow-hidden',
 								firstImageClassName
 							)}
 							style={{

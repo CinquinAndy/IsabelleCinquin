@@ -106,10 +106,10 @@ export function ContactPageClient({ settings }: ContactPageClientProps) {
 								>
 									<Link
 										href={`mailto:${settings.email}`}
-										className="flex items-start gap-4 p-4 bg-white/10 rounded-xl hover:bg-white/20 transition-all block group"
+										className="flex items-start gap-4 p-4 bg-white/10 rounded-xl hover:bg-white/20 transition-all group"
 									>
 										<motion.div
-											className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0"
+											className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center shrink-0"
 											whileHover={{ scale: 1.1, rotate: 10 }}
 											transition={{ duration: 0.3 }}
 										>
@@ -133,10 +133,10 @@ export function ContactPageClient({ settings }: ContactPageClientProps) {
 								>
 									<Link
 										href={`tel:${settings.phone.replace(/\s/g, '')}`}
-										className="flex items-start gap-4 p-4 bg-white/10 rounded-xl hover:bg-white/20 transition-all block group"
+										className="flex items-start gap-4 p-4 bg-white/10 rounded-xl hover:bg-white/20 transition-all group"
 									>
 										<motion.div
-											className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0"
+											className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center shrink-0"
 											whileHover={{ scale: 1.1, rotate: 10 }}
 											transition={{ duration: 0.3 }}
 										>
@@ -160,10 +160,10 @@ export function ContactPageClient({ settings }: ContactPageClientProps) {
 								>
 									<a
 										href={`tel:${settings.landline.replace(/\s/g, '')}`}
-										className="flex items-start gap-4 p-4 bg-white/10 rounded-xl hover:bg-white/20 transition-all block group"
+										className="flex items-start gap-4 p-4 bg-white/10 rounded-xl hover:bg-white/20 transition-all group"
 									>
 										<motion.div
-											className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0"
+											className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center shrink-0"
 											whileHover={{ scale: 1.1, rotate: -10 }}
 											transition={{ duration: 0.3 }}
 										>
@@ -188,7 +188,7 @@ export function ContactPageClient({ settings }: ContactPageClientProps) {
 									transition={{ duration: 0.6 }}
 								>
 									<div className="flex items-start gap-4 p-4 bg-white/10 rounded-xl">
-										<div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+										<div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center shrink-0">
 											<MapPin className="w-5 h-5" />
 										</div>
 										<div>
@@ -208,7 +208,7 @@ export function ContactPageClient({ settings }: ContactPageClientProps) {
 									transition={{ duration: 0.6 }}
 								>
 									<div className="flex items-start gap-4 p-4 bg-white/10 rounded-xl">
-										<div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+										<div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center shrink-0">
 											<Clock className="w-5 h-5" />
 										</div>
 										<div>
@@ -231,10 +231,10 @@ export function ContactPageClient({ settings }: ContactPageClientProps) {
 										href={settings.nounouTopLink}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="flex items-start gap-4 p-4 bg-white/10 rounded-xl hover:bg-white/20 transition-all block group"
+										className="flex items-start gap-4 p-4 bg-white/10 rounded-xl hover:bg-white/20 transition-all group"
 									>
 										<motion.div
-											className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0"
+											className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center shrink-0"
 											whileHover={{ scale: 1.1, rotate: 15 }}
 											transition={{ duration: 0.3 }}
 										>

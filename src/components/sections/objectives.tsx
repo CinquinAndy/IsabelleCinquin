@@ -149,7 +149,7 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 								</motion.button>
 							</ResponsiveModalTrigger>
 
-							<ResponsiveModalContent className="bg-gradient-to-br from-primary via-secondary to-primary border-accent/20">
+							<ResponsiveModalContent className="bg-linear-to-br from-primary via-secondary to-primary border-accent/20">
 								<ResponsiveModalHeader>
 									<motion.div
 										className="flex items-center gap-4 mb-4"

@@ -124,7 +124,7 @@ export function Hero({ hero }: HeroProps) {
 						transition={{ duration: durations.slow, ease: easings.smooth, delay: 0.3 }}
 						className="mb-4 text-5xl md:text-7xl font-bold text-white drop-shadow-lg z-10 relative"
 					>
-						<span className="bg-gradient-to-r from-white via-white/90 to-white bg-clip-text text-transparent animate-shimmer bg-[length:200%_100%]">
+						<span className="bg-linear-to-r from-white via-white/90 to-white bg-clip-text text-transparent animate-shimmer bg-[length:200%_100%]">
 							{hero.title}
 						</span>
 					</motion.h1>

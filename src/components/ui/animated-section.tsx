@@ -49,16 +49,16 @@ export function AnimatedSection({
 	...props
 }: AnimatedSectionProps) {
 	const ref = useRef<HTMLElement>(null)
-	const isInView = useInView(ref, { once: true, amount })
+	const isInView = useInView(ref as React.RefObject<Element>, { once: true, amount })
 	const { shouldAnimate } = useAnimationConfig()
 
 	const Component = motion[as]
 	const selectedVariant = variants[variant]
 
 	return (
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		{/* @ts-expect-error - Dynamic component selection causes type mismatch between HTMLElement and specific element types */}
 		<Component
-			ref={ref as any}
+			ref={ref}
 			initial={shouldAnimate ? 'initial' : false}
 			animate={isInView && shouldAnimate ? 'animate' : 'initial'}
 			variants={selectedVariant}

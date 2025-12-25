@@ -41,7 +41,7 @@ export function BlogPostPageClient({ post, landing }: BlogPostPageClientProps) {
 	return (
 		<main className="min-h-screen">
 			{/* Hero Section */}
-			<section className="relative min-h-[70vh] flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-secondary via-primary to-primary">
+			<section className="relative min-h-[70vh] flex flex-col items-center justify-center overflow-hidden bg-linear-to-b from-secondary via-primary to-primary">
 				{/* Floating decorative icons */}
 				{decorativeIcons.map((icon, index) => (
 					<motion.div
@@ -197,7 +197,7 @@ export function BlogPostPageClient({ post, landing }: BlogPostPageClientProps) {
 								whileHover={{ borderColor: 'rgba(255, 255, 255, 0.2)' }}
 							>
 								{/* Glow effect on hover */}
-								<div className="absolute -inset-1 bg-gradient-to-r from-accent/30 via-purple-400/30 to-accent/30 rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+								<div className="absolute -inset-1 bg-linear-to-r from-accent/30 via-purple-400/30 to-accent/30 rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
 								<div className="relative w-full h-full">
 									<Image
@@ -210,7 +210,7 @@ export function BlogPostPageClient({ post, landing }: BlogPostPageClientProps) {
 									/>
 
 									{/* Overlay gradient on hover */}
-									<div className="absolute inset-0 bg-gradient-to-t from-secondary/60 via-transparent to-transparent z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+									<div className="absolute inset-0 bg-linear-to-t from-secondary/60 via-transparent to-transparent z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 								</div>
 
 								{/* Corner accents */}

@@ -87,11 +87,11 @@ export function LivingPlace({ livingPlace }: LivingPlaceProps) {
 						whileHover={{ scale: 1.02 }}
 					>
 						{/* Glowing border effect */}
-						<div className="absolute -inset-1 bg-gradient-to-r from-accent/30 via-purple-400/30 to-accent/30 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+						<div className="absolute -inset-1 bg-linear-to-r from-accent/30 via-purple-400/30 to-accent/30 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
 						<div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl border border-white/10">
 							{/* Image overlay gradient */}
-							<div className="absolute inset-0 bg-gradient-to-t from-secondary/60 via-transparent to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+							<div className="absolute inset-0 bg-linear-to-t from-secondary/60 via-transparent to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
 							<motion.div
 								className="relative w-full h-full"
