@@ -34,103 +34,99 @@ export const LandingSeoGenerator: React.FC = () => {
 		setIsLoading(true)
 
 		try {
-			// Extract ALL available data from the Landing page
+			// Payload flattens fields as "section.field" keys
 			const allFields = fields as any
-			console.log('[DEBUG] All fields:', Object.keys(allFields))
 
-			// Try different approaches to get the data
-			const hero = allFields.hero?.value || allFields.hero || {}
-			const about = allFields.about?.value || allFields.about || {}
-			const introduction = allFields.introduction?.value || allFields.introduction || {}
-			const trainingsSection = allFields.trainingsSection?.value || allFields.trainingsSection || {}
-			const objectivesSection = allFields.objectivesSection?.value || allFields.objectivesSection || {}
-			const settings = allFields.settings?.value || allFields.settings || {}
-			const dailyScheduleSection = allFields.dailyScheduleSection?.value || allFields.dailyScheduleSection || {}
-			const equipmentSection = allFields.equipmentSection?.value || allFields.equipmentSection || {}
-			const livingPlaceSection = allFields.livingPlaceSection?.value || allFields.livingPlaceSection || {}
+			// Extract Hero data
+			const heroTitle = allFields['hero.title']?.value
+			const heroSubtitle = allFields['hero.subtitle']?.value
 
-			console.log('[DEBUG] Extracted sections:', {
-				hero: !!hero?.title,
-				about: !!about?.title,
-				introduction: !!introduction?.title,
-				settings: !!settings?.address,
+			// Extract About data
+			const aboutTitle = allFields['about.title']?.value
+			const aboutTitleAccent = allFields['about.titleAccent']?.value
+			const aboutContent = allFields['about.content']?.value
+
+			// Extract Introduction data
+			const introTitle = allFields['introduction.title']?.value
+			const introContent = allFields['introduction.content']?.value
+
+			// Extract Settings
+			const settingsName = allFields['settings.name']?.value
+			const settingsAddress = allFields['settings.address']?.value
+
+			console.log('[DEBUG] Extracted data:', {
+				heroTitle,
+				heroSubtitle,
+				aboutTitle,
+				settingsAddress,
 			})
 
 			// Build comprehensive content summary
 			const contentParts: string[] = []
 
 			// Hero section
-			if (hero?.title) contentParts.push(`**Titre principal**: ${hero.title}`)
-			if (hero?.subtitle) contentParts.push(`**Sous-titre**: ${hero.subtitle}`)
+			if (heroTitle) contentParts.push(`**Titre principal**: ${heroTitle}`)
+			if (heroSubtitle) contentParts.push(`**Sous-titre**: ${heroSubtitle}`)
 
 			// About section
-			if (about?.title) contentParts.push(`\n**À propos - Titre**: ${about.title}`)
-			if (about?.titleAccent) contentParts.push(`**À propos - Accent**: ${about.titleAccent}`)
-			if (about?.content) {
-				const aboutText = extractTextFromRichText(about.content)
+			if (aboutTitle) contentParts.push(`\n**À propos - Titre**: ${aboutTitle}`)
+			if (aboutTitleAccent) contentParts.push(`**À propos - Accent**: ${aboutTitleAccent}`)
+			if (aboutContent) {
+				const aboutText = extractTextFromRichText(aboutContent)
 				if (aboutText) contentParts.push(`**À propos - Contenu**: ${aboutText.substring(0, 400)}`)
 			}
 
 			// Introduction
-			if (introduction?.title) contentParts.push(`\n**Introduction - Titre**: ${introduction.title}`)
-			if (introduction?.content) {
-				const introText = extractTextFromRichText(introduction.content)
+			if (introTitle) contentParts.push(`\n**Introduction - Titre**: ${introTitle}`)
+			if (introContent) {
+				const introText = extractTextFromRichText(introContent)
 				if (introText) contentParts.push(`**Introduction**: ${introText.substring(0, 300)}`)
 			}
 
-			// Trainings
-			if (trainingsSection?.items?.length > 0) {
-				const trainings = trainingsSection.items
-					.map((t: any) => t.title)
+			// Try to find trainings (looking for pattern)
+			const trainingKeys = Object.keys(allFields).filter(
+				k => k.startsWith('trainingsSection.items.') && k.endsWith('.title')
+			)
+			if (trainingKeys.length > 0) {
+				const trainings = trainingKeys
+					.map(k => allFields[k]?.value)
 					.filter(Boolean)
 					.join(', ')
 				contentParts.push(`\n**Formations suivies**: ${trainings}`)
 			}
 
-			// Objectives
-			if (objectivesSection?.items?.length > 0) {
-				const objectives = objectivesSection.items
-					.map((o: any) => o.title)
+			// Try to find objectives
+			const objectiveKeys = Object.keys(allFields).filter(
+				k => k.startsWith('objectivesSection.items.') && k.endsWith('.title')
+			)
+			if (objectiveKeys.length > 0) {
+				const objectives = objectiveKeys
+					.map(k => allFields[k]?.value)
 					.filter(Boolean)
 					.join(', ')
 				contentParts.push(`**Objectifs pédagogiques**: ${objectives}`)
 			}
 
-			// Daily schedule
-			if (dailyScheduleSection?.items?.length > 0) {
-				const scheduleInfo = dailyScheduleSection.items
-					.map((s: any) => `${s.time}: ${s.description}`)
-					.filter(Boolean)
-					.join('; ')
-				contentParts.push(`\n**Programme quotidien**: ${scheduleInfo}`)
-			}
-
-			// Equipment
-			if (equipmentSection?.items?.length > 0) {
-				const equipment = equipmentSection.items
-					.map((e: any) => e.title)
+			// Try to find equipment
+			const equipmentKeys = Object.keys(allFields).filter(
+				k => k.startsWith('equipmentSection.items.') && k.endsWith('.title')
+			)
+			if (equipmentKeys.length > 0) {
+				const equipment = equipmentKeys
+					.map(k => allFields[k]?.value)
 					.filter(Boolean)
 					.join(', ')
 				contentParts.push(`**Équipements disponibles**: ${equipment}`)
 			}
 
-			// Living place
-			if (livingPlaceSection?.title) {
-				contentParts.push(`\n**Cadre de vie**: ${livingPlaceSection.title}`)
-			}
-			if (livingPlaceSection?.content) {
-				const placeText = extractTextFromRichText(livingPlaceSection.content)
-				if (placeText) contentParts.push(placeText.substring(0, 200))
-			}
-
 			// Contact/Address
-			if (settings?.address) contentParts.push(`\n**Adresse**: ${settings.address}`)
-			if (settings?.name) contentParts.push(`**Nom**: ${settings.name}`)
+			if (settingsAddress) contentParts.push(`\n**Adresse**: ${settingsAddress}`)
+			if (settingsName) contentParts.push(`**Nom**: ${settingsName}`)
 
 			const contentSummary = contentParts.join('\n')
 
 			console.log('[DEBUG] Content summary length:', contentSummary.length)
-			console.log('[DEBUG] First 200 chars:', contentSummary.substring(0, 200))
+			console.log('[DEBUG] Content preview:', contentSummary.substring(0, 300))
 
 			if (!contentSummary || contentSummary.length < 50) {
 				toast.error(
@@ -144,14 +140,17 @@ export const LandingSeoGenerator: React.FC = () => {
 			// Call the Server Action with all extracted content
 			const data = await generateSeoForLanding({
 				content: contentSummary,
-				heroTitle: hero?.title,
-				heroSubtitle: hero?.subtitle,
-				location: settings?.address || '1250 Chemin de la Renouillère, 74140 Sciez',
+				heroTitle: heroTitle || 'Isabelle Cinquin',
+				heroSubtitle: heroSubtitle || 'Assistante Maternelle au bord du Lac Léman',
+				location: settingsAddress || '1250 Chemin de la Renouillère, 74140 Sciez',
 			})
 
 			console.log('[DEBUG] SEO Generated:', data)
+			console.log('[DEBUG] Keywords received:', data.keywords)
+			console.log('[DEBUG] Keywords is array?', Array.isArray(data.keywords))
+			console.log('[DEBUG] Keywords length:', data.keywords?.length)
 
-			// Update SEO fields in Payload
+			// Update SEO fields in Payload 
 			dispatchFields({
 				type: 'UPDATE',
 				path: 'seo.metaTitle',
@@ -164,12 +163,26 @@ export const LandingSeoGenerator: React.FC = () => {
 				value: data.description,
 			})
 
+			// Keywords debug and update
 			if (data.keywords && Array.isArray(data.keywords)) {
+				console.log('[DEBUG] Dispatching keywords to seo.keywords:', data.keywords)
+				
+				// Payload array fields need unique IDs for each item
+				const keywordsWithIds = data.keywords.map((kw, index) => ({
+					...kw,
+					id: `keyword-${Date.now()}-${index}` // Generate unique ID
+				}))
+				
+				console.log('[DEBUG] Keywords with IDs:', keywordsWithIds)
+				
 				dispatchFields({
 					type: 'UPDATE',
 					path: 'seo.keywords',
-					value: data.keywords,
+					value: keywordsWithIds,
 				})
+				console.log('[DEBUG] Keywords dispatched successfully')
+			} else {
+				console.warn('[DEBUG] Keywords not valid:', data.keywords)
 			}
 
 			toast.success('✅ SEO généré avec succès !')
