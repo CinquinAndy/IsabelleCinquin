@@ -5,17 +5,17 @@ import Image from 'next/image'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 import { durations, easings } from '@/lib/animations'
 import { formatMediaUrl } from '@/lib/utils'
-import type { LandingAdaptation } from '@/types/landing'
+import type { Landing } from '@/payload-types'
 
 interface AdaptationProps {
-	adaptation?: LandingAdaptation | null
+	adaptation?: Landing['adaptation'] | null
 }
 
 const badgeColors: Record<string, string> = {
-	pink: 'bg-gradient-to-r from-pink-500 to-rose-500',
-	violet: 'bg-gradient-to-r from-violet-500 to-purple-500',
-	amber: 'bg-gradient-to-r from-amber-500 to-orange-500',
-	emerald: 'bg-gradient-to-r from-emerald-500 to-teal-500',
+	pink: 'bg-linear-to-r from-pink-500 to-rose-500',
+	violet: 'bg-linear-to-r from-violet-500 to-purple-500',
+	amber: 'bg-linear-to-r from-amber-500 to-orange-500',
+	emerald: 'bg-linear-to-r from-emerald-500 to-teal-500',
 }
 
 export function Adaptation({ adaptation }: AdaptationProps) {

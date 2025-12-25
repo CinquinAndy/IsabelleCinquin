@@ -47,35 +47,11 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 				{/* Title with enhanced animation */}
 				<motion.div
 					className="text-center mb-16"
-					initial={{ opacity: 0, y: 30 }}
+					initial={{ opacity: 0, y: 20 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true, margin: "-100px" }}
-					transition={{ duration: durations.slow, ease: easings.smooth }}
+					transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
 				>
-					{/* Small badge with icon */}
-					<motion.div
-						className="inline-flex items-center gap-2 mb-4"
-						initial={{ opacity: 0, scale: 0.8 }}
-						whileInView={{ opacity: 1, scale: 1 }}
-						viewport={{ once: true }}
-						transition={{ duration: durations.standard, delay: 0.2, ease: easings.bounce }}
-					>
-						<motion.div 
-							className="w-8 h-8 rounded-lg bg-accent/30 flex items-center justify-center"
-							animate={{
-								rotate: [0, -10, 10, 0],
-							}}
-							transition={{
-								duration: 5,
-								repeat: Number.POSITIVE_INFINITY,
-								ease: 'easeInOut',
-							}}
-							whileHover={{ scale: 1.2, rotate: 20 }}
-						>
-							<Target className="w-4 h-4 text-white" />
-						</motion.div>
-					</motion.div>
-
 					<motion.h2 
 						className="text-3xl md:text-4xl font-bold tracking-tight text-white"
 						initial={{ opacity: 0 }}
@@ -98,9 +74,9 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 					<motion.p 
 						className="mt-4 text-lg text-white/70 max-w-2xl mx-auto"
 						initial={{ opacity: 0 }}
-						whileInView={{ opacity: 1 }}
+						whileInView={{ opacity: 0.7 }}
 						viewport={{ once: true }}
-						transition={{ duration: durations.standard, delay: 0.4 }}
+						transition={{ duration: 0.6, delay: 0.3 }}
 					>
 						{subtitle}
 					</motion.p>
@@ -114,46 +90,30 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 								<motion.button 
 									type="button" 
 									className="flex flex-col items-center text-center group cursor-pointer w-full"
-									initial={{ opacity: 0, y: 40, scale: 0.8 }}
-									whileInView={{ opacity: 1, y: 0, scale: 1 }}
+									initial={{ opacity: 0, y: 20 }}
+									whileInView={{ opacity: 1, y: 0 }}
 									viewport={{ once: true, amount: 0.1 }}
 									transition={{ 
-										delay: index * 0.1,
-										duration: 0.6,
-										ease: easings.smooth,
+										delay: index * 0.06,
+										duration: 0.7,
+										ease: [0.25, 0.1, 0.25, 1],
 									}}
-									whileHover={{ scale: 1.05, y: -8 }}
-									whileTap={{ scale: 0.95 }}
+									whileHover={{ scale: 1.03, y: -4 }}
+									whileTap={{ scale: 0.98 }}
 								>
-									{/* Icon container with floating animation */}
-									<motion.div 
-										className="relative w-16 h-16 md:w-20 md:h-20 mb-4"
-										animate={{
-											y: [0, -8, 0],
-											rotate: [0, 5, -5, 0],
-										}}
-										transition={{
-											duration: 4 + index * 0.5,
-											repeat: Number.POSITIVE_INFINITY,
-											ease: 'easeInOut',
-										}}
-										whileHover={{ 
-											scale: 1.2, 
-											rotate: 15,
-											transition: { duration: 0.3 } 
-										}}
-									>
+									{/* Icon container - static */}
+									<div className="relative w-16 h-16 md:w-20 md:h-20 mb-4">
 										{/* Glow effect */}
 										<motion.div 
 											className="absolute inset-0 rounded-full bg-accent/20 blur-xl"
 											animate={{
-												scale: [1, 1.2, 1],
-												opacity: [0.3, 0.6, 0.3],
+												opacity: [0.2, 0.4, 0.2],
 											}}
 											transition={{
-												duration: 3,
+												duration: 4,
 												repeat: Number.POSITIVE_INFINITY,
-												delay: index * 0.2,
+												delay: index * 0.3,
+												ease: 'easeInOut',
 											}}
 										/>
 										
@@ -163,15 +123,15 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 											fill
 											className="object-contain drop-shadow-lg relative z-10"
 										/>
-									</motion.div>
+									</div>
 
 									{/* Title with slide up */}
 									<motion.h3 
 										className="font-bold text-base md:text-lg text-white mb-1"
-										initial={{ opacity: 0, y: 10 }}
-										whileInView={{ opacity: 1, y: 0 }}
+										initial={{ opacity: 0 }}
+										whileInView={{ opacity: 1 }}
 										viewport={{ once: true }}
-										transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
+										transition={{ delay: index * 0.06 + 0.2, duration: 0.5 }}
 									>
 										{objective.title}
 									</motion.h3>
@@ -182,21 +142,11 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 										initial={{ opacity: 0 }}
 										whileInView={{ opacity: 0.5 }}
 										viewport={{ once: true }}
-										transition={{ delay: index * 0.1 + 0.4 }}
-										whileHover={{ opacity: 1 }}
+										transition={{ delay: index * 0.06 + 0.3, duration: 0.5 }}
+										whileHover={{ opacity: 0.8, transition: { duration: 0.3 } }}
 									>
 										Cliquer pour en savoir plus
 									</motion.p>
-
-									{/* Decorative circle on hover */}
-									<motion.div
-										className="absolute inset-0 border-2 border-accent/0 rounded-2xl -z-10"
-										whileHover={{
-											borderColor: 'rgba(174, 129, 255, 0.3)',
-											scale: 1.1,
-										}}
-										transition={{ duration: 0.3 }}
-									/>
 								</motion.button>
 							</ResponsiveModalTrigger>
 
