@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Home, Sparkles } from 'lucide-react'
 import Image from 'next/image'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 import { durations, easings } from '@/lib/animations'
@@ -34,10 +33,10 @@ export function LivingPlace({ livingPlace }: LivingPlaceProps) {
 				className="text-center mb-12"
 				initial={{ opacity: 0, y: 30 }}
 				whileInView={{ opacity: 1, y: 0 }}
-				viewport={{ once: true, margin: "-100px" }}
+				viewport={{ once: true, margin: '-100px' }}
 				transition={{ duration: durations.slow, ease: easings.smooth }}
 			>
-				<motion.h2 
+				<motion.h2
 					className="text-3xl md:text-4xl font-bold text-white tracking-tight"
 					initial={{ opacity: 0 }}
 					whileInView={{ opacity: 1 }}
@@ -45,7 +44,7 @@ export function LivingPlace({ livingPlace }: LivingPlaceProps) {
 					transition={{ duration: durations.standard, delay: 0.1 }}
 				>
 					{title.split(' ').slice(0, -1).join(' ')}{' '}
-					<motion.span 
+					<motion.span
 						className="font-handwriting text-white/80 inline-block"
 						initial={{ opacity: 0, rotate: -5 }}
 						whileInView={{ opacity: 1, rotate: 0 }}
@@ -66,7 +65,7 @@ export function LivingPlace({ livingPlace }: LivingPlaceProps) {
 					viewport={{ once: true }}
 					transition={{ duration: durations.standard, delay: 0.2, ease: easings.smooth }}
 				>
-					<motion.p 
+					<motion.p
 						className="text-lg md:text-xl leading-relaxed text-white/90"
 						initial={{ opacity: 0 }}
 						whileInView={{ opacity: 1 }}
@@ -89,11 +88,11 @@ export function LivingPlace({ livingPlace }: LivingPlaceProps) {
 					>
 						{/* Glowing border effect */}
 						<div className="absolute -inset-1 bg-gradient-to-r from-accent/30 via-purple-400/30 to-accent/30 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-						
+
 						<div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl border border-white/10">
 							{/* Image overlay gradient */}
 							<div className="absolute inset-0 bg-gradient-to-t from-secondary/60 via-transparent to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-							
+
 							<motion.div
 								className="relative w-full h-full"
 								whileHover={{ scale: 1.05 }}

@@ -115,10 +115,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 						href="/blog"
 						className="absolute top-24 left-6 md:left-12 inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors z-10 group"
 					>
-						<motion.div
-							whileHover={{ x: -4 }}
-							transition={{ duration: 0.3 }}
-						>
+						<motion.div whileHover={{ x: -4 }} transition={{ duration: 0.3 }}>
 							<ArrowLeft className="w-4 h-4" />
 						</motion.div>
 						<span className="hidden sm:inline">Retour au blog</span>
@@ -129,11 +126,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 				<div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
 					{/* Category badge */}
 					{category && (
-						<motion.span 
+						<motion.span
 							className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium rounded-full mb-6"
 							initial={{ opacity: 0, scale: 0.8 }}
 							animate={{ opacity: 1, scale: 1 }}
-							transition={{ 
+							transition={{
 								type: 'spring',
 								stiffness: 200,
 								damping: 15,
@@ -146,7 +143,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 					)}
 
 					{/* Title in handwriting font with word stagger */}
-					<motion.h1 
+					<motion.h1
 						className="font-handwriting text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white leading-tight mb-6 drop-shadow-lg"
 						initial={{ opacity: 0, y: 30 }}
 						animate={{ opacity: 1, y: 0 }}
@@ -156,7 +153,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 					</motion.h1>
 
 					{/* Meta info */}
-					<motion.div 
+					<motion.div
 						className="flex flex-wrap items-center justify-center gap-4 text-sm text-white/70 mb-8"
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 0.7 }}
@@ -166,10 +163,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 						<div className="w-1 h-1 rounded-full bg-white/40" />
 						{publishedAt && (
 							<>
-								<motion.span 
-									className="flex items-center gap-1.5"
-									whileHover={{ scale: 1.05 }}
-								>
+								<motion.span className="flex items-center gap-1.5" whileHover={{ scale: 1.05 }}>
 									<Calendar className="w-4 h-4" />
 									{new Date(publishedAt).toLocaleDateString('fr-FR', {
 										day: 'numeric',
@@ -180,21 +174,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 								<div className="w-1 h-1 rounded-full bg-white/40" />
 							</>
 						)}
-						<motion.span 
-							className="flex items-center gap-1.5"
-							whileHover={{ scale: 1.05 }}
-						>
+						<motion.span className="flex items-center gap-1.5" whileHover={{ scale: 1.05 }}>
 							<Clock className="w-4 h-4" />3 min de lecture
 						</motion.span>
 					</motion.div>
 				</div>
 
 				{/* Scroll indicator */}
-				<motion.div 
+				<motion.div
 					className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50"
 					initial={{ opacity: 0, y: -10 }}
-					animate={{ 
-						opacity: 0.5, 
+					animate={{
+						opacity: 0.5,
 						y: [0, 10, 0],
 					}}
 					transition={{
@@ -207,7 +198,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 				</motion.div>
 
 				{/* Wavy bottom border */}
-				<motion.div 
+				<motion.div
 					className="absolute bottom-0 left-0 right-0"
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
@@ -237,19 +228,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 				<div className="max-w-4xl mx-auto px-4">
 					{/* Featured image */}
 					{featuredImageUrl && (
-						<motion.div 
+						<motion.div
 							className="relative -mt-20 mb-12 z-10"
 							initial={{ opacity: 0, scale: 0.95, y: 40 }}
 							animate={{ opacity: 1, scale: 1, y: 0 }}
 							transition={{ duration: 1, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
 						>
-							<motion.div 
+							<motion.div
 								className="relative aspect-video rounded-3xl overflow-hidden border-4 border-white/10 shadow-2xl group"
 								whileHover={{ borderColor: 'rgba(255, 255, 255, 0.2)' }}
 							>
 								{/* Glow effect on hover */}
 								<div className="absolute -inset-1 bg-gradient-to-r from-accent/30 via-purple-400/30 to-accent/30 rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-								
+
 								<div className="relative w-full h-full">
 									<Image
 										src={featuredImageUrl}
@@ -259,7 +250,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 										sizes="(max-width: 768px) 100vw, 800px"
 										priority
 									/>
-									
+
 									{/* Overlay gradient on hover */}
 									<div className="absolute inset-0 bg-gradient-to-t from-secondary/60 via-transparent to-transparent z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 								</div>

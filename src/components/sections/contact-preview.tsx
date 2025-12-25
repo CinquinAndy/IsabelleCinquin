@@ -21,7 +21,7 @@ export function ContactPreview({ phone, title, content }: ContactPreviewProps) {
 		<SectionWrapper id="contact" variant="primary" className="overflow-hidden">
 			<div className="max-w-7xl mx-auto px-4 md:px-6">
 				{/* CTA Box with decorative elements */}
-				<motion.div 
+				<motion.div
 					className="relative mx-auto flex w-full max-w-4xl flex-col justify-between gap-y-8 border border-white/20 bg-white/5 backdrop-blur-sm rounded-3xl px-6 py-12 md:px-12 md:py-16"
 					initial={{ opacity: 0, y: 40 }}
 					whileInView={{ opacity: 1, y: 0 }}
@@ -60,12 +60,12 @@ export function ContactPreview({ phone, title, content }: ContactPreviewProps) {
 
 					{/* Main content */}
 					<div className="space-y-4 text-center relative z-10">
-						<motion.div 
+						<motion.div
 							className="inline-flex items-center justify-center gap-2 text-pink-300 mb-2"
 							initial={{ scale: 0, rotate: -180 }}
 							whileInView={{ scale: 1, rotate: 0 }}
 							viewport={{ once: true }}
-							transition={{ 
+							transition={{
 								type: 'spring',
 								stiffness: 200,
 								damping: 15,
@@ -86,7 +86,7 @@ export function ContactPreview({ phone, title, content }: ContactPreviewProps) {
 							</motion.div>
 						</motion.div>
 
-						<motion.h2 
+						<motion.h2
 							className="text-3xl md:text-4xl font-bold text-white tracking-tight"
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
@@ -96,7 +96,7 @@ export function ContactPreview({ phone, title, content }: ContactPreviewProps) {
 							{title}
 						</motion.h2>
 
-						<motion.p 
+						<motion.p
 							className="text-white/70 text-lg max-w-xl mx-auto"
 							initial={{ opacity: 0 }}
 							whileInView={{ opacity: 0.7 }}
@@ -108,7 +108,7 @@ export function ContactPreview({ phone, title, content }: ContactPreviewProps) {
 					</div>
 
 					{/* CTA Buttons with stagger */}
-					<motion.div 
+					<motion.div
 						className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10"
 						initial="hidden"
 						whileInView="visible"
@@ -144,7 +144,7 @@ export function ContactPreview({ phone, title, content }: ContactPreviewProps) {
 								</Button>
 							</motion.div>
 						)}
-						
+
 						<motion.div
 							variants={{
 								hidden: { opacity: 0, y: 20 },
@@ -152,19 +152,19 @@ export function ContactPreview({ phone, title, content }: ContactPreviewProps) {
 							}}
 							transition={{ duration: 0.5 }}
 						>
-							<Button 
-								size="lg" 
-								asChild 
+							<Button
+								size="lg"
+								asChild
 								className="rounded-full bg-white text-primary hover:bg-white/90 shadow-lg hover:shadow-xl hover:scale-105 transition-all"
 							>
 								<Link href="/contact" className="group">
 									Contactez moi
 									<motion.div
 										animate={{ x: [0, 4, 0] }}
-										transition={{ 
-											duration: 1.5, 
-											repeat: Number.POSITIVE_INFINITY, 
-											ease: 'easeInOut' 
+										transition={{
+											duration: 1.5,
+											repeat: Number.POSITIVE_INFINITY,
+											ease: 'easeInOut',
 										}}
 									>
 										<ArrowRight className="size-4" />

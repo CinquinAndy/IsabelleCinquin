@@ -38,7 +38,7 @@ export function Adaptation({ adaptation }: AdaptationProps) {
 		typeof adaptation.image === 'object' && adaptation.image?.alt ? adaptation.image.alt : "Période d'adaptation"
 
 	// Extract icon URLs from media objects
-	const displayBadges = badges.map((badge) => {
+	const displayBadges = badges.map(badge => {
 		const iconUrl = typeof badge.icon === 'object' && badge.icon?.url ? badge.icon.url : null
 
 		if (!iconUrl) {

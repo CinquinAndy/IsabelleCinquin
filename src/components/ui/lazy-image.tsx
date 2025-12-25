@@ -54,7 +54,7 @@ export function LazyImage({
 
 	// Handle cached images instantly
 	React.useEffect(() => {
-		if (imgRef.current && imgRef.current.complete) {
+		if (imgRef.current?.complete) {
 			handleLoad()
 		}
 	}, [imgSrc])

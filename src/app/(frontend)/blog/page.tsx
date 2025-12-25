@@ -144,14 +144,14 @@ export default async function BlogPage() {
 						{/* Left: Text content */}
 						<div className="max-w-xl">
 							{/* Title with stagger animation */}
-							<motion.h1 
+							<motion.h1
 								className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
 								initial={{ opacity: 0, y: 30 }}
 								animate={{ opacity: 1, y: 0 }}
 								transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
 							>
 								Le{' '}
-								<motion.span 
+								<motion.span
 									className="font-handwriting text-pink-200 inline-block"
 									initial={{ opacity: 0, rotate: -5 }}
 									animate={{ opacity: 1, rotate: 0 }}
@@ -160,7 +160,7 @@ export default async function BlogPage() {
 									Blog
 								</motion.span>{' '}
 								de{' '}
-								<motion.span 
+								<motion.span
 									className="font-handwriting text-pink-200 inline-block"
 									initial={{ opacity: 0, rotate: 5 }}
 									animate={{ opacity: 1, rotate: 0 }}
@@ -171,7 +171,7 @@ export default async function BlogPage() {
 							</motion.h1>
 
 							{/* Description with stagger */}
-							<motion.p 
+							<motion.p
 								className="text-lg md:text-xl text-white/80 leading-relaxed mb-8"
 								initial={{ opacity: 0, y: 20 }}
 								animate={{ opacity: 0.8, y: 0 }}
@@ -207,7 +207,7 @@ export default async function BlogPage() {
 						{/* Right: Images stacked diagonally */}
 						<div className="relative h-96 md:h-[500px] lg:h-[550px] hidden md:block">
 							{/* Image 1 - Rotated left */}
-							<motion.div 
+							<motion.div
 								className="absolute top-0 right-16 w-72 lg:w-96 aspect-4/3 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 -rotate-6"
 								initial={{ opacity: 0, y: 40, rotate: -15 }}
 								animate={{ opacity: 1, y: 0, rotate: -6 }}
@@ -224,7 +224,7 @@ export default async function BlogPage() {
 							</motion.div>
 
 							{/* Image 2 - Rotated right */}
-							<motion.div 
+							<motion.div
 								className="absolute bottom-0 right-0 w-72 lg:w-96 aspect-4/3 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 rotate-6"
 								initial={{ opacity: 0, y: 40, rotate: 15 }}
 								animate={{ opacity: 1, y: 0, rotate: 6 }}
@@ -244,7 +244,7 @@ export default async function BlogPage() {
 				</div>
 
 				{/* Diagonal wave separator */}
-				<motion.div 
+				<motion.div
 					className="absolute bottom-0 left-0 right-0"
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
@@ -285,14 +285,14 @@ export default async function BlogPage() {
 			<SectionWrapper id="articles" variant="secondary" className="pt-8 pb-16">
 				<div className="max-w-7xl mx-auto">
 					{/* Section header */}
-					<motion.div 
+					<motion.div
 						className="text-center mb-12"
 						initial={{ opacity: 0, y: 20 }}
 						whileInView={{ opacity: 1, y: 0 }}
-						viewport={{ once: true, margin: "-100px" }}
+						viewport={{ once: true, margin: '-100px' }}
 						transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
 					>
-						<motion.h2 
+						<motion.h2
 							className="text-3xl md:text-4xl font-bold text-white tracking-tight"
 							initial={{ opacity: 0 }}
 							whileInView={{ opacity: 1 }}
@@ -300,7 +300,7 @@ export default async function BlogPage() {
 							transition={{ duration: 0.6, delay: 0.1 }}
 						>
 							Tous les{' '}
-							<motion.span 
+							<motion.span
 								className="font-handwriting text-white/80 inline-block"
 								initial={{ opacity: 0 }}
 								whileInView={{ opacity: 0.8 }}
@@ -310,7 +310,7 @@ export default async function BlogPage() {
 								articles
 							</motion.span>
 						</motion.h2>
-						<motion.p 
+						<motion.p
 							className="mt-4 text-lg text-white/70"
 							initial={{ opacity: 0 }}
 							whileInView={{ opacity: 0.7 }}
@@ -322,7 +322,7 @@ export default async function BlogPage() {
 					</motion.div>
 
 					{/* Blog grid with stagger */}
-					<motion.div 
+					<motion.div
 						className="grid gap-6 p-4 md:grid-cols-2 lg:grid-cols-3"
 						initial="hidden"
 						whileInView="visible"
@@ -337,7 +337,7 @@ export default async function BlogPage() {
 							},
 						}}
 					>
-						{displayPosts.map((post, index) => (
+						{displayPosts.map((post, _index) => (
 							<motion.div
 								key={post.id}
 								variants={{
@@ -350,10 +350,7 @@ export default async function BlogPage() {
 									href={`/blog/${post.slug}`}
 									className="group flex flex-col gap-3 rounded-2xl p-3 hover:bg-white/10 transition-all block"
 								>
-									<motion.div
-										whileHover={{ y: -8 }}
-										transition={{ duration: 0.3 }}
-									>
+									<motion.div whileHover={{ y: -8 }} transition={{ duration: 0.3 }}>
 										<motion.div
 											className="relative overflow-hidden rounded-xl"
 											whileHover={{ borderColor: 'rgba(255, 255, 255, 0.2)' }}
@@ -369,13 +366,13 @@ export default async function BlogPage() {
 											{/* Overlay on hover */}
 											<div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 										</motion.div>
-										
+
 										<div className="space-y-2 px-1 pb-2 mt-3">
 											{/* Meta info */}
 											<div className="flex items-center gap-2 text-xs text-white/50">
 												{post.category && (
 													<>
-														<motion.span 
+														<motion.span
 															className="text-pink-300 font-medium"
 															animate={{ opacity: [0.7, 1, 0.7] }}
 															transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}

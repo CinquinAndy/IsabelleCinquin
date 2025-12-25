@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRef, useState } from 'react'
-import { durations, easings, springs, variants } from '@/lib/animations'
+import { durations, easings, springs } from '@/lib/animations'
 import type { LandingHero } from '@/types/landing'
 import { useCloudShader } from './use-cloud-shader'
 

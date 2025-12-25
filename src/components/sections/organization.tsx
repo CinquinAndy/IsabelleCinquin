@@ -2,9 +2,9 @@
 
 import { motion } from 'framer-motion'
 import { Backpack, Home } from 'lucide-react'
+import Image from 'next/image'
 import { Compare } from '@/components/ui/compare'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
-import { durations, easings } from '@/lib/animations'
 import { formatMediaUrl } from '@/lib/utils'
 import type { Landing } from '@/payload-types'
 
@@ -39,16 +39,20 @@ export function Organization({ organization }: OrganizationProps) {
 
 	return (
 		<SectionWrapper id="organisation" variant="secondary" className="overflow-hidden">
+			{/* swap the image  mirror */}
+			<div className="absolute bottom-0 left-0 flex justify-center items-center z-30 translate-y-8 scale-x-[-1] ">
+				<Image src="/cats.png" alt="cat" width={800} height={800} className="w-[400px]" />
+			</div>
 			<div className="max-w-7xl mx-auto">
 				{/* Title with animation */}
 				<motion.div
 					className="text-center mb-12"
 					initial={{ opacity: 0, y: 20 }}
 					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true, margin: "-100px" }}
+					viewport={{ once: true, margin: '-100px' }}
 					transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
 				>
-					<motion.h2 
+					<motion.h2
 						className="text-3xl md:text-4xl font-bold text-white tracking-tight"
 						initial={{ opacity: 0 }}
 						whileInView={{ opacity: 1 }}
@@ -56,7 +60,7 @@ export function Organization({ organization }: OrganizationProps) {
 						transition={{ duration: 0.6, delay: 0.1 }}
 					>
 						{title.split(' ').slice(0, -1).join(' ')}{' '}
-						<motion.span 
+						<motion.span
 							className="font-handwriting text-white/80 inline-block"
 							initial={{ opacity: 0 }}
 							whileInView={{ opacity: 0.8 }}
@@ -66,7 +70,7 @@ export function Organization({ organization }: OrganizationProps) {
 							{title.split(' ').slice(-1)}
 						</motion.span>
 					</motion.h2>
-					<motion.p 
+					<motion.p
 						className="mt-4 text-lg text-white/70 max-w-2xl mx-auto"
 						initial={{ opacity: 0 }}
 						whileInView={{ opacity: 0.7 }}
@@ -79,7 +83,7 @@ export function Organization({ organization }: OrganizationProps) {
 
 				{/* Compare with images */}
 				<div className="flex justify-center mb-12">
-					<motion.div 
+					<motion.div
 						className="relative"
 						initial={{ opacity: 0, y: 30 }}
 						whileInView={{ opacity: 1, y: 0 }}
@@ -88,7 +92,7 @@ export function Organization({ organization }: OrganizationProps) {
 					>
 						{/* Labels */}
 						<div className="flex justify-between mb-4 px-4">
-							<motion.div 
+							<motion.div
 								className="flex items-center gap-2"
 								initial={{ opacity: 0, x: -20 }}
 								whileInView={{ opacity: 1, x: 0 }}
@@ -98,7 +102,7 @@ export function Organization({ organization }: OrganizationProps) {
 								<Backpack className="w-5 h-5 text-pink-300" />
 								<span className="text-white font-semibold">Dans le sac</span>
 							</motion.div>
-							<motion.div 
+							<motion.div
 								className="flex items-center gap-2"
 								initial={{ opacity: 0, x: 20 }}
 								whileInView={{ opacity: 1, x: 0 }}
@@ -110,7 +114,7 @@ export function Organization({ organization }: OrganizationProps) {
 							</motion.div>
 						</div>
 
-						<motion.div 
+						<motion.div
 							className="p-4 border rounded-3xl bg-white/5 border-white/10"
 							whileHover={{ borderColor: 'rgba(255, 255, 255, 0.2)' }}
 							transition={{ duration: 0.3 }}
@@ -130,7 +134,7 @@ export function Organization({ organization }: OrganizationProps) {
 				</div>
 
 				{/* Two cards below with stagger */}
-				<motion.div 
+				<motion.div
 					className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
 					initial="hidden"
 					whileInView="visible"
@@ -146,20 +150,20 @@ export function Organization({ organization }: OrganizationProps) {
 					}}
 				>
 					{/* Sac à langer */}
-					<motion.div 
+					<motion.div
 						className="bg-white/10 rounded-2xl p-6 border border-white/10"
 						variants={{
 							hidden: { opacity: 0, y: 30 },
 							visible: { opacity: 1, y: 0 },
 						}}
 						transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-						whileHover={{ 
+						whileHover={{
 							borderColor: 'rgba(255, 182, 193, 0.3)',
 							backgroundColor: 'rgba(255, 255, 255, 0.12)',
 						}}
 					>
 						<div className="flex items-center gap-3 mb-6">
-							<motion.div 
+							<motion.div
 								className="w-12 h-12 rounded-full bg-pink-500/20 flex items-center justify-center"
 								whileHover={{ scale: 1.1, rotate: 10 }}
 								transition={{ duration: 0.3 }}
@@ -170,8 +174,8 @@ export function Organization({ organization }: OrganizationProps) {
 						</div>
 						<ul className="space-y-3">
 							{bagList.map((item, index) => (
-								<motion.li 
-									key={item} 
+								<motion.li
+									key={item}
 									className="flex items-center gap-3"
 									initial={{ opacity: 0, x: -10 }}
 									whileInView={{ opacity: 1, x: 0 }}
@@ -186,20 +190,20 @@ export function Organization({ organization }: OrganizationProps) {
 					</motion.div>
 
 					{/* Chez nounou */}
-					<motion.div 
+					<motion.div
 						className="bg-white/10 rounded-2xl p-6 border border-white/10"
 						variants={{
 							hidden: { opacity: 0, y: 30 },
 							visible: { opacity: 1, y: 0 },
 						}}
 						transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-						whileHover={{ 
+						whileHover={{
 							borderColor: 'rgba(16, 185, 129, 0.3)',
 							backgroundColor: 'rgba(255, 255, 255, 0.12)',
 						}}
 					>
 						<div className="flex items-center gap-3 mb-6">
-							<motion.div 
+							<motion.div
 								className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"
 								whileHover={{ scale: 1.1, rotate: -10 }}
 								transition={{ duration: 0.3 }}
@@ -210,8 +214,8 @@ export function Organization({ organization }: OrganizationProps) {
 						</div>
 						<ul className="space-y-3">
 							{nounouList.map((item, index) => (
-								<motion.li 
-									key={item} 
+								<motion.li
+									key={item}
 									className="flex items-center gap-3"
 									initial={{ opacity: 0, x: -10 }}
 									whileInView={{ opacity: 1, x: 0 }}

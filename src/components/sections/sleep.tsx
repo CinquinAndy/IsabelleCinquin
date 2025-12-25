@@ -28,10 +28,10 @@ export function Sleep({ sleepSection }: SleepProps) {
 				className="text-center mb-12"
 				initial={{ opacity: 0, y: 30 }}
 				whileInView={{ opacity: 1, y: 0 }}
-				viewport={{ once: true, margin: "-100px" }}
+				viewport={{ once: true, margin: '-100px' }}
 				transition={{ duration: durations.slow, ease: easings.smooth }}
 			>
-				<motion.h2 
+				<motion.h2
 					className="text-3xl md:text-4xl font-bold text-white tracking-tight"
 					initial={{ opacity: 0 }}
 					whileInView={{ opacity: 1 }}
@@ -39,7 +39,7 @@ export function Sleep({ sleepSection }: SleepProps) {
 					transition={{ duration: durations.standard, delay: 0.1 }}
 				>
 					{title.split(' ').slice(0, -1).join(' ')}{' '}
-					<motion.span 
+					<motion.span
 						className="font-handwriting text-white/80 inline-block"
 						initial={{ opacity: 0, rotate: -5 }}
 						whileInView={{ opacity: 1, rotate: 0 }}
@@ -163,7 +163,7 @@ export function Sleep({ sleepSection }: SleepProps) {
 								viewport={{ once: true }}
 								transition={{ duration: durations.standard, delay: 0.6, ease: easings.smooth }}
 							>
-								<motion.div 
+								<motion.div
 									className="w-9 h-9 rounded-xl bg-accent/30 flex items-center justify-center"
 									animate={{
 										rotate: [0, -5, 5, 0],

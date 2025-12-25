@@ -28,7 +28,7 @@ export function Charter({ charterSection }: CharterProps) {
 			<div className="max-w-7xl mx-auto px-4 md:px-6">
 				<div className="flex flex-col gap-10 md:flex-row md:gap-16">
 					{/* Left side - Title with animation */}
-					<motion.div 
+					<motion.div
 						className="md:w-1/3"
 						initial={{ opacity: 0, x: -30 }}
 						whileInView={{ opacity: 1, x: 0 }}
@@ -36,7 +36,7 @@ export function Charter({ charterSection }: CharterProps) {
 						transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
 					>
 						<div className="sticky top-24">
-							<motion.h2 
+							<motion.h2
 								className="text-3xl md:text-4xl font-bold text-white tracking-tight"
 								initial={{ opacity: 0 }}
 								whileInView={{ opacity: 1 }}
@@ -44,7 +44,7 @@ export function Charter({ charterSection }: CharterProps) {
 								transition={{ duration: 0.6, delay: 0.1 }}
 							>
 								{title.split(' ').slice(0, -1).join(' ')}{' '}
-								<motion.span 
+								<motion.span
 									className="font-handwriting text-white/80 inline-block"
 									initial={{ opacity: 0 }}
 									whileInView={{ opacity: 0.8 }}
@@ -54,7 +54,7 @@ export function Charter({ charterSection }: CharterProps) {
 									{title.split(' ').slice(-1)}
 								</motion.span>
 							</motion.h2>
-							<motion.p 
+							<motion.p
 								className="text-white/70 mt-4"
 								initial={{ opacity: 0 }}
 								whileInView={{ opacity: 0.7 }}
@@ -63,7 +63,7 @@ export function Charter({ charterSection }: CharterProps) {
 							>
 								{subtitle}
 							</motion.p>
-							<motion.p 
+							<motion.p
 								className="text-white/60 mt-4 text-sm"
 								initial={{ opacity: 0 }}
 								whileInView={{ opacity: 0.6 }}
@@ -71,7 +71,10 @@ export function Charter({ charterSection }: CharterProps) {
 								transition={{ duration: 0.6, delay: 0.4 }}
 							>
 								Des questions ?{' '}
-								<Link href="/contact" className="text-white font-medium hover:underline hover:text-accent transition-colors">
+								<Link
+									href="/contact"
+									className="text-white font-medium hover:underline hover:text-accent transition-colors"
+								>
 									Contactez-moi
 								</Link>
 							</motion.p>
@@ -79,7 +82,7 @@ export function Charter({ charterSection }: CharterProps) {
 					</motion.div>
 
 					{/* Right side - Accordion with stagger */}
-					<motion.div 
+					<motion.div
 						className="md:w-2/3"
 						initial="hidden"
 						whileInView="visible"
@@ -119,7 +122,7 @@ export function Charter({ charterSection }: CharterProps) {
 										>
 											<AccordionTrigger className="cursor-pointer items-center py-5 hover:no-underline text-white">
 												<div className="flex items-center gap-3">
-													<motion.div 
+													<motion.div
 														className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-white/20"
 														whileHover={{ scale: 1.1, rotate: 5 }}
 														transition={{ duration: 0.3 }}

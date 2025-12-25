@@ -3,9 +3,8 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import { AnimatedSection } from '@/components/ui/animated-section'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
-import { easings, springs } from '@/lib/animations'
+import { easings } from '@/lib/animations'
 import type { Landing } from '@/payload-types'
 
 interface EquipmentProps {
@@ -40,12 +39,12 @@ function QuantityBadge({ quantity, isVisible }: { quantity: number; isVisible: b
 	return (
 		<motion.div
 			initial={{ scale: 0, opacity: 0, rotate: -20 }}
-			animate={{ 
+			animate={{
 				scale: isVisible ? [1, 1.05, 1] : 0,
 				opacity: isVisible ? 1 : 0,
 				rotate: isVisible ? 0 : -20,
 			}}
-			transition={{ 
+			transition={{
 				scale: { duration: 2, repeat: Number.POSITIVE_INFINITY, ease: 'easeInOut', delay: 0.4 },
 				opacity: { duration: 0.4, type: 'spring' },
 				rotate: { duration: 0.5, type: 'spring', stiffness: 200 },
@@ -93,6 +92,9 @@ export function Equipment({ equipmentSection }: EquipmentProps) {
 
 	return (
 		<SectionWrapper id="equipements" variant="secondary">
+			<div className="absolute bottom-0 right-0 flex justify-center items-center z-20 translate-y-8">
+				<Image src="/fox.png" alt="hero" width={800} height={800} className="w-[500px]" />
+			</div>
 			<div className="text-center mb-12">
 				<motion.h2
 					className="text-3xl md:text-4xl font-bold text-white tracking-tight"
@@ -102,7 +104,7 @@ export function Equipment({ equipmentSection }: EquipmentProps) {
 					transition={{ duration: 0.7, delay: 0.1, ease: easings.smooth }}
 				>
 					{title.split(' ').slice(0, -1).join(' ')}{' '}
-					<motion.span 
+					<motion.span
 						className="font-handwriting text-accent inline-block"
 						initial={{ opacity: 0, rotate: -5 }}
 						whileInView={{ opacity: 1, rotate: 0 }}

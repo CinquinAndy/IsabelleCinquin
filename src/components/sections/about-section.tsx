@@ -212,9 +212,7 @@ export function AboutSection({ about }: AboutSectionProps) {
 											<div className="text-3xl md:text-5xl font-handwriting text-accent">
 												<NumberFlow value={isStatsVisible ? stat.value : 0} suffix={stat.suffix || ''} />
 											</div>
-											<h3 className="text-base font-light text-white/70 mt-4 uppercase tracking-wider">
-												{stat.label}
-											</h3>
+											<h3 className="text-base font-light text-white/70 mt-4 uppercase tracking-wider">{stat.label}</h3>
 										</motion.div>
 									))}
 								</motion.div>

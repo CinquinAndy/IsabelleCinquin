@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Target } from 'lucide-react'
 import Image from 'next/image'
 import {
 	ResponsiveModal,
@@ -28,7 +27,7 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 	const subtitle = objectivesSection.subtitle
 	const objectives = objectivesSection.items
 
-	const items = objectives.map((obj) => {
+	const items = objectives.map(obj => {
 		const iconUrl = typeof obj.icon === 'object' && obj.icon?.url ? obj.icon.url : null
 
 		if (!iconUrl) {
@@ -49,10 +48,10 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 					className="text-center mb-16"
 					initial={{ opacity: 0, y: 20 }}
 					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true, margin: "-100px" }}
+					viewport={{ once: true, margin: '-100px' }}
 					transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
 				>
-					<motion.h2 
+					<motion.h2
 						className="text-3xl md:text-4xl font-bold tracking-tight text-white"
 						initial={{ opacity: 0 }}
 						whileInView={{ opacity: 1 }}
@@ -60,7 +59,7 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 						transition={{ duration: durations.standard, delay: 0.1 }}
 					>
 						{title.split(' ').slice(0, -1).join(' ')}{' '}
-						<motion.span 
+						<motion.span
 							className="text-white/80 font-handwriting text-4xl md:text-5xl inline-block"
 							initial={{ opacity: 0, rotate: -5 }}
 							whileInView={{ opacity: 1, rotate: 0 }}
@@ -71,7 +70,7 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 						</motion.span>
 					</motion.h2>
 
-					<motion.p 
+					<motion.p
 						className="mt-4 text-lg text-white/70 max-w-2xl mx-auto"
 						initial={{ opacity: 0 }}
 						whileInView={{ opacity: 0.7 }}
@@ -87,13 +86,13 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 					{items.map((objective, index) => (
 						<ResponsiveModal key={objective.id || index}>
 							<ResponsiveModalTrigger asChild>
-								<motion.button 
-									type="button" 
+								<motion.button
+									type="button"
 									className="flex flex-col items-center text-center group cursor-pointer w-full"
 									initial={{ opacity: 0, y: 20 }}
 									whileInView={{ opacity: 1, y: 0 }}
 									viewport={{ once: true, amount: 0.1 }}
-									transition={{ 
+									transition={{
 										delay: index * 0.06,
 										duration: 0.7,
 										ease: [0.25, 0.1, 0.25, 1],
@@ -104,7 +103,7 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 									{/* Icon container - static */}
 									<div className="relative w-16 h-16 md:w-20 md:h-20 mb-4">
 										{/* Glow effect */}
-										<motion.div 
+										<motion.div
 											className="absolute inset-0 rounded-full bg-accent/20 blur-xl"
 											animate={{
 												opacity: [0.2, 0.4, 0.2],
@@ -116,7 +115,7 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 												ease: 'easeInOut',
 											}}
 										/>
-										
+
 										<Image
 											src={objective.iconUrl}
 											alt={objective.title}
@@ -126,7 +125,7 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 									</div>
 
 									{/* Title with slide up */}
-									<motion.h3 
+									<motion.h3
 										className="font-bold text-base md:text-lg text-white mb-1"
 										initial={{ opacity: 0 }}
 										whileInView={{ opacity: 1 }}
@@ -137,7 +136,7 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 									</motion.h3>
 
 									{/* Hint text with subtle animation */}
-									<motion.p 
+									<motion.p
 										className="text-xs text-white/50 mt-1"
 										initial={{ opacity: 0 }}
 										whileInView={{ opacity: 0.5 }}
@@ -152,17 +151,17 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 
 							<ResponsiveModalContent className="bg-gradient-to-br from-primary via-secondary to-primary border-accent/20">
 								<ResponsiveModalHeader>
-									<motion.div 
+									<motion.div
 										className="flex items-center gap-4 mb-4"
 										initial={{ opacity: 0, x: -20 }}
 										animate={{ opacity: 1, x: 0 }}
 										transition={{ duration: 0.5, ease: easings.smooth }}
 									>
-										<motion.div 
+										<motion.div
 											className="relative w-12 h-12 shrink-0"
 											initial={{ scale: 0, rotate: -180 }}
 											animate={{ scale: 1, rotate: 0 }}
-											transition={{ 
+											transition={{
 												type: 'spring',
 												stiffness: 200,
 												damping: 15,
@@ -181,7 +180,7 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 										</ResponsiveModalTitle>
 									</motion.div>
 
-									<motion.div 
+									<motion.div
 										className="prose prose-invert prose-lg max-w-none text-white/90"
 										initial={{ opacity: 0, y: 20 }}
 										animate={{ opacity: 1, y: 0 }}

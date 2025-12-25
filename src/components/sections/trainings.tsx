@@ -122,7 +122,7 @@ export function Trainings({ trainingsSection }: TrainingsProps) {
 											<Award className="w-5 h-5 text-accent" />
 											{training.title}
 										</h3>
-										</div>
+									</div>
 
 									{/* Period badge with bounce */}
 									{training.period && (

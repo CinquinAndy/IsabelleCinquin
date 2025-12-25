@@ -34,7 +34,7 @@ export function useInView(
 ) {
 	const isInView = useFramerInView(ref, {
 		once,
-		margin,
+		margin: margin as any,
 		amount,
 	})
 

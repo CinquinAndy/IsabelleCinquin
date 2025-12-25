@@ -29,16 +29,19 @@ export function Activities({ posts }: ActivitiesProps) {
 
 	return (
 		<SectionWrapper id="activites" variant="primary" className="overflow-hidden">
+			<div className="absolute bottom-0 right-0 flex justify-center items-center z-20 translate-y-10">
+				<Image src="/panda.png" alt="hero" width={800} height={800} className="w-[500px]" />
+			</div>
 			<div className="max-w-7xl mx-auto">
 				{/* Header with animation */}
 				<motion.div
 					className="text-center mb-12"
 					initial={{ opacity: 0, y: 20 }}
 					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true, margin: "-100px" }}
+					viewport={{ once: true, margin: '-100px' }}
 					transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
 				>
-					<motion.h2 
+					<motion.h2
 						className="text-3xl md:text-4xl font-bold text-white tracking-tight"
 						initial={{ opacity: 0 }}
 						whileInView={{ opacity: 1 }}
@@ -46,7 +49,7 @@ export function Activities({ posts }: ActivitiesProps) {
 						transition={{ duration: 0.6, delay: 0.1 }}
 					>
 						Les{' '}
-						<motion.span 
+						<motion.span
 							className="font-handwriting text-white/80 inline-block"
 							initial={{ opacity: 0 }}
 							whileInView={{ opacity: 0.8 }}
@@ -56,7 +59,7 @@ export function Activities({ posts }: ActivitiesProps) {
 							activités
 						</motion.span>
 					</motion.h2>
-					<motion.p 
+					<motion.p
 						className="mt-4 text-lg text-white/70 max-w-2xl mx-auto"
 						initial={{ opacity: 0 }}
 						whileInView={{ opacity: 0.7 }}
@@ -68,7 +71,7 @@ export function Activities({ posts }: ActivitiesProps) {
 				</motion.div>
 
 				{/* Cards grid with stagger */}
-				<motion.div 
+				<motion.div
 					className="flex flex-wrap justify-center gap-8"
 					initial="hidden"
 					whileInView="visible"
@@ -83,7 +86,7 @@ export function Activities({ posts }: ActivitiesProps) {
 						},
 					}}
 				>
-					{posts.slice(0, 6).map((post, index) => {
+					{posts.slice(0, 6).map((post, _index) => {
 						// Extract media URL
 						const mediaUrl = formatMediaUrl(
 							typeof post.featuredImage === 'object' && post.featuredImage?.url ? post.featuredImage.url : null
@@ -108,15 +111,9 @@ export function Activities({ posts }: ActivitiesProps) {
 								}}
 								transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
 							>
-								<Link
-									href={`/blog/${post.slug}`}
-									className="group max-w-xs w-full block"
-								>
-									<motion.div
-										whileHover={{ y: -8 }}
-										transition={{ duration: 0.3 }}
-									>
-										<motion.div 
+								<Link href={`/blog/${post.slug}`} className="group max-w-xs w-full block">
+									<motion.div whileHover={{ y: -8 }} transition={{ duration: 0.3 }}>
+										<motion.div
 											className="relative aspect-4/3 rounded-2xl overflow-hidden bg-white/10 border border-white/10"
 											whileHover={{ borderColor: 'rgba(255, 255, 255, 0.2)' }}
 										>
@@ -124,7 +121,7 @@ export function Activities({ posts }: ActivitiesProps) {
 												<>
 													{/* Overlay on hover */}
 													<div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-													
+
 													<Image
 														src={mediaUrl}
 														alt={mediaAlt}
@@ -151,7 +148,7 @@ export function Activities({ posts }: ActivitiesProps) {
 
 				{/* CTA button */}
 				{posts.length > 0 && (
-					<motion.div 
+					<motion.div
 						className="text-center mt-12"
 						initial={{ opacity: 0, y: 20 }}
 						whileInView={{ opacity: 1, y: 0 }}
