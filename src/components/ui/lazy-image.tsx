@@ -1,6 +1,7 @@
 'use client'
 
 import { useInView } from 'framer-motion'
+import Image from 'next/image'
 import * as React from 'react'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { cn } from '@/lib/utils'
@@ -28,21 +29,25 @@ export function LazyImage({
 	AspectRatioClassName,
 }: LazyImageProps) {
 	const ref = React.useRef<HTMLDivElement | null>(null)
-	const imgRef = React.useRef<HTMLImageElement | null>(null)
 	const isInView = useInView(ref, { once: true })
 
 	const [imgSrc, setImgSrc] = React.useState<string | undefined>(inView ? undefined : src)
 	const [isLoading, setIsLoading] = React.useState(true)
+	const [hasError, setHasError] = React.useState(false)
 
 	const handleError = () => {
 		if (fallback) {
 			setImgSrc(fallback)
+			setHasError(false)
+		} else {
+			setHasError(true)
 		}
 		setIsLoading(false)
 	}
 
 	const handleLoad = () => {
 		setIsLoading(false)
+		setHasError(false)
 	}
 
 	// Load image only when inView
@@ -51,13 +56,6 @@ export function LazyImage({
 			setImgSrc(src)
 		}
 	}, [inView, isInView, src, imgSrc])
-
-	// Handle cached images instantly
-	React.useEffect(() => {
-		if (imgRef.current?.complete) {
-			handleLoad()
-		}
-	}, [imgSrc])
 
 	return (
 		<AspectRatio
@@ -69,17 +67,17 @@ export function LazyImage({
 			<div
 				className={cn(
 					'bg-white/10 absolute inset-0 animate-pulse rounded-xl transition-opacity will-change-[opacity]',
-					{ 'opacity-0': !isLoading }
+					{ 'opacity-0': !isLoading && !hasError }
 				)}
 			/>
 
-			{imgSrc && (
-				<img
-					ref={imgRef}
-					alt={alt}
+			{imgSrc && !hasError && (
+				<Image
 					src={imgSrc}
+					alt={alt}
+					fill
 					className={cn(
-						'size-full rounded-xl object-cover opacity-0 transition-opacity duration-500 will-change-[opacity]',
+						'rounded-xl object-cover opacity-0 transition-opacity duration-500 will-change-[opacity]',
 						{
 							'opacity-100': !isLoading,
 						},
@@ -87,9 +85,9 @@ export function LazyImage({
 					)}
 					onLoad={handleLoad}
 					onError={handleError}
-					loading="lazy"
-					decoding="async"
-					fetchPriority={inView ? 'high' : 'low'}
+					loading={inView ? 'lazy' : 'eager'}
+					quality={85}
+					sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 				/>
 			)}
 		</AspectRatio>
