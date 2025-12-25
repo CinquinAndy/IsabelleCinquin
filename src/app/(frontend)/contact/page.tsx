@@ -1,25 +1,31 @@
 import config from '@payload-config'
 import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
+import type { Metadata } from 'next'
 import { getPayload } from 'payload'
 import { AvailabilityBanner } from '@/components/availability-banner'
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
-import type { SeoData } from '@/lib/metadata'
-import { constructMetadata } from '@/lib/metadata'
 import { ContactPageClient } from '../../../components/contact-page-client'
 
-export async function generateMetadata() {
-	const payload = await getPayload({ config })
-	const seoGlobal = await payload.findGlobal({
-		slug: 'seo',
-	})
-
-	return constructMetadata({
-		seo: seoGlobal.contact?.seo as SeoData,
-		fallbackTitle: 'Contact | Nounou Sciez',
-		fallbackDescription:
-			'Contactez Isabelle Cinquin, assistante maternelle à Sciez. Formulaire de contact, téléphone, email et localisation.',
-	})
+export const metadata: Metadata = {
+	title: 'Contact | Isabelle Cinquin - Nounou Sciez (74)',
+	description: 'Contactez Isabelle, nounou agréée à Sciez. Disponibilités, tarifs, visite de la maison. Réponse rapide par téléphone ou email.',
+	keywords: [
+		'contact nounou sciez',
+		'contacter assistante maternelle',
+		'rendez-vous nounou',
+		'disponibilités garde enfants sciez',
+		'contact nounou 74'
+	],
+	openGraph: {
+		title: 'Contact - Isabelle Cinquin',
+		description: 'Contactez-moi pour accueillir vos enfants à Sciez',
+		type: 'website',
+		url: 'https://isabelle-cinquin.fr/contact',
+	},
+	alternates: {
+		canonical: 'https://isabelle-cinquin.fr/contact',
+	},
 }
 
 interface Settings {

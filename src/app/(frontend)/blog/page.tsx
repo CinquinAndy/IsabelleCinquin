@@ -1,11 +1,29 @@
-import configPromise from '@payload-config'
-import { getPayload } from 'payload'
-import { BlogPageClient } from '@/components/blog-page-client'
-import type { SeoData } from '@/lib/metadata'
-import { constructMetadata } from '@/lib/metadata'
-import type { Landing } from '@/payload-types'
+import type { Metadata } from 'next'
 
-// Default blog posts for preview
+export const metadata: Metadata = {
+	title: 'Blog Petite Enfance | Conseils Nounou - Isabelle Cinquin',
+	description: 'Découvrez nos articles : activités manuelles, recettes pour enfants, jeux d\'éveil, conseils éducatifs. Par Isabelle Cinquin, nounou à Sciez depuis 20+ ans.',
+	keywords: [
+		'blog petite enfance',
+		'activités enfants',
+		'recettes enfants',
+		'conseils nounou',
+		'éveil bébé',
+		'jeux éducatifs',
+		'idées activités manuelles',
+		'blog assistante maternelle'
+	],
+	openGraph: {
+		title: 'Blog Petite Enfance - Nounou Sciez',
+		description: 'Articles et conseils sur la garde d\'enfants par une assistante maternelle expérimentée',
+		type: 'website',
+		url: 'https://isabelle-cinquin.fr/blog',
+	},
+	alternates: {
+		canonical: 'https://isabelle-cinquin.fr/blog',
+	},
+}
+
 const defaultPosts = [
 	{
 		id: 1,

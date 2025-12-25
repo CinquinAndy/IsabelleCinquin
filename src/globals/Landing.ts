@@ -1,5 +1,4 @@
 import type { GlobalConfig } from 'payload'
-import { seoForLanding } from '../fields/seo'
 
 export const Landing: GlobalConfig = {
 	slug: 'landing',
@@ -561,10 +560,6 @@ export const Landing: GlobalConfig = {
 							],
 						},
 					],
-				},
-				{
-					label: 'SEO',
-					fields: [seoForLanding],
 				},
 			],
 		},

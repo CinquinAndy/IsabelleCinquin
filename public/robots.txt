@@ -1,0 +1,23 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://isabelle-cinquin.fr/sitemap.xml
+
+# Disallow admin and API endpoints
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+
+# Allow search engines to crawl images
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.webp$
+Allow: /*.svg$
+
+# Crawl-delay for respect
+Crawl-delay: 1

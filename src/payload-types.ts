@@ -710,29 +710,6 @@ export interface Landing {
     mapLat?: number | null;
     mapLng?: number | null;
   };
-  seo?: {
-    /**
-     * Titre affiché dans les résultats de recherche (max 60 caractères)
-     */
-    metaTitle?: string | null;
-    /**
-     * Description courte pour les moteurs de recherche (max 160 caractères)
-     */
-    metaDescription?: string | null;
-    /**
-     * Image affichée lors du partage sur les réseaux sociaux (1200x630px recommandé)
-     */
-    ogImage?: (number | null) | Media;
-    /**
-     * Mots-clés SEO pour améliorer le référencement
-     */
-    keywords?:
-      | {
-          keyword?: string | null;
-          id?: string | null;
-        }[]
-      | null;
-  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -985,19 +962,6 @@ export interface LandingSelect<T extends boolean = true> {
         openingHours?: T;
         mapLat?: T;
         mapLng?: T;
-      };
-  seo?:
-    | T
-    | {
-        metaTitle?: T;
-        metaDescription?: T;
-        ogImage?: T;
-        keywords?:
-          | T
-          | {
-              keyword?: T;
-              id?: T;
-            };
       };
   updatedAt?: T;
   createdAt?: T;
