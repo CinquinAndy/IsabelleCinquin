@@ -712,17 +712,20 @@ export interface Landing {
   };
   seo?: {
     /**
-     * Titre affiché dans les résultats de recherche (laisser vide pour utiliser le titre par défaut)
+     * Titre affiché dans les résultats de recherche (max 60 caractères)
      */
     metaTitle?: string | null;
     /**
-     * Description courte pour les moteurs de recherche
+     * Description courte pour les moteurs de recherche (max 160 caractères)
      */
     metaDescription?: string | null;
     /**
-     * Image affichée lors du partage sur les réseaux sociaux
+     * Image affichée lors du partage sur les réseaux sociaux (1200x630px recommandé)
      */
     ogImage?: (number | null) | Media;
+    /**
+     * Mots-clés SEO pour améliorer le référencement
+     */
     keywords?:
       | {
           keyword?: string | null;
