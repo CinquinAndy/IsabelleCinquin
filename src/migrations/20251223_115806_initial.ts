@@ -1,6 +1,6 @@
 import { type MigrateDownArgs, type MigrateUpArgs, sql } from '@payloadcms/db-postgres'
 
-export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
+export async function up({ db }: MigrateUpArgs): Promise<void> {
 	await db.execute(sql`
    CREATE TYPE "public"."enum_posts_status" AS ENUM('draft', 'published');
   CREATE TYPE "public"."enum_landing_objectives_section_items_icon" AS ENUM('baby', 'hand-helping', 'utensils', 'heart-pulse', 'shield-check', 'star', 'sun', 'home', 'book-open', 'palette');
@@ -391,7 +391,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE INDEX "landing_organization_organization_nounou_image_idx" ON "landing" USING btree ("organization_nounou_image_id");`)
 }
 
-export async function down({ db, payload, req }: MigrateDownArgs): Promise<void> {
+export async function down({ db }: MigrateDownArgs): Promise<void> {
 	await db.execute(sql`
    DROP TABLE "users_sessions" CASCADE;
   DROP TABLE "users" CASCADE;

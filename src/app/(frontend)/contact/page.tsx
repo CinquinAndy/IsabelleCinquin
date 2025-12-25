@@ -4,6 +4,7 @@ import { getPayload } from 'payload'
 import { AvailabilityBanner } from '@/components/availability-banner'
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
+import type { SeoData } from '@/lib/metadata'
 import { constructMetadata } from '@/lib/metadata'
 import { ContactPageClient } from '../../../components/contact-page-client'
 
@@ -14,7 +15,7 @@ export async function generateMetadata() {
 	})
 
 	return constructMetadata({
-		seo: seoGlobal.contact?.seo as any,
+		seo: seoGlobal.contact?.seo as SeoData,
 		fallbackTitle: 'Contact | Nounou Sciez',
 		fallbackDescription:
 			'Contactez Isabelle Cinquin, assistante maternelle à Sciez. Formulaire de contact, téléphone, email et localisation.',

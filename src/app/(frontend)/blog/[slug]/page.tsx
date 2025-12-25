@@ -283,6 +283,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 	)
 }
 
+import type { SeoData } from '@/lib/metadata'
 import { constructMetadata } from '@/lib/metadata'
 
 export async function generateMetadata({ params }: BlogPostPageProps) {
@@ -290,7 +291,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
 	const post = await getPostBySlug(slug)
 
 	return constructMetadata({
-		seo: post?.seo as any,
+		seo: post?.seo as SeoData,
 		fallbackTitle: post ? `${post.title} | Blog Nounou Sciez` : 'Article non trouvé | Blog Nounou Sciez',
 		fallbackDescription: post?.excerpt || undefined,
 	})

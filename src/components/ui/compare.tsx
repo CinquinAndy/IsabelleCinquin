@@ -1,6 +1,7 @@
 'use client'
 import { AnimatePresence, motion } from 'framer-motion'
 import { GripVertical } from 'lucide-react'
+import Image from 'next/image'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { SparklesCore } from '@/components/ui/sparkles'
 import { cn } from '@/lib/utils'
@@ -142,13 +143,14 @@ export const Compare = ({
 	)
 
 	return (
-		<div
+		<section
 			ref={sliderRef}
 			className={cn('w-[400px] h-[400px] overflow-hidden', className)}
 			style={{
 				position: 'relative',
 				cursor: slideMode === 'drag' ? 'grab' : 'col-resize',
 			}}
+			aria-label="Image comparison slider"
 			onMouseMove={handleMouseMove}
 			onMouseLeave={mouseLeaveHandler}
 			onMouseEnter={mouseEnterHandler}
@@ -213,14 +215,13 @@ export const Compare = ({
 							}}
 							transition={{ duration: 0 }}
 						>
-							<img
-								alt="first image"
+							<Image
+								alt="Before comparison"
 								src={firstImage}
-								className={cn(
-									'absolute inset-0 z-20 rounded-2xl flex-shrink-0 w-full h-full select-none object-cover',
-									firstImageClassName
-								)}
+								fill
+								className={cn('object-cover select-none', firstImageClassName)}
 								draggable={false}
+								unoptimized
 							/>
 						</motion.div>
 					) : null}
@@ -229,18 +230,17 @@ export const Compare = ({
 
 			<AnimatePresence initial={false}>
 				{secondImage ? (
-					<motion.img
-						className={cn(
-							'absolute top-0 left-0 z-[19] rounded-2xl w-full h-full select-none object-cover',
-							secondImageClassname
-						)}
-						alt="second image"
+					<Image
 						src={secondImage}
+						alt="After comparison"
+						fill
+						className={cn('object-cover select-none', secondImageClassname)}
 						draggable={false}
+						unoptimized
 					/>
 				) : null}
 			</AnimatePresence>
-		</div>
+		</section>
 	)
 }
 

@@ -145,8 +145,8 @@ export function Hero({ hero }: HeroProps) {
 							transition={{ duration: durations.standard, ease: easings.smooth, delay: 0.7 }}
 							className="mt-8 flex flex-col sm:flex-row gap-4 justify-center z-10"
 						>
-							{hero.buttons.map((btn, i) => (
-								<MagneticButton key={i} href={btn.url} isPrimary={btn.variant === 'primary'}>
+							{hero.buttons.map(btn => (
+								<MagneticButton key={btn.url} href={btn.url} isPrimary={btn.variant === 'primary'}>
 									{btn.text}
 								</MagneticButton>
 							))}

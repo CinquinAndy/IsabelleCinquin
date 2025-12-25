@@ -1,6 +1,7 @@
 import config from '@payload-config'
 import { getPayload } from 'payload'
 import { Footer } from '@/components/footer'
+import type { SeoData } from '@/lib/metadata'
 import { constructMetadata } from '@/lib/metadata'
 
 export async function generateMetadata() {
@@ -11,7 +12,7 @@ export async function generateMetadata() {
 	})
 
 	return constructMetadata({
-		seo: landing.seo as any,
+		seo: landing.seo as SeoData,
 	})
 }
 

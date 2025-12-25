@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import type { Media } from '@/payload-types'
 import { formatMediaUrl } from './utils'
 
-type SeoData = {
+export type SeoData = {
 	metaTitle?: string | null
 	metaDescription?: string | null
 	ogImage?: string | Media | null

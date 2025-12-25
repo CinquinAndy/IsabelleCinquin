@@ -425,6 +425,7 @@ export default async function BlogPage() {
 
 // ... metadata export ...
 
+import type { SeoData } from '@/lib/metadata'
 import { constructMetadata } from '@/lib/metadata'
 
 export async function generateMetadata() {
@@ -434,7 +435,7 @@ export async function generateMetadata() {
 	})
 
 	return constructMetadata({
-		seo: seoGlobal.blog?.seo as any,
+		seo: seoGlobal.blog?.seo as SeoData,
 		fallbackTitle: 'Blog | Nounou Sciez',
 		fallbackDescription: 'Découvrez les actualités et moments de vie chez nounou à Sciez',
 	})

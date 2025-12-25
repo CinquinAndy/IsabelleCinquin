@@ -35,25 +35,29 @@ export function ContactPreview({ phone, title, content }: ContactPreviewProps) {
 						{ top: 4, right: 4 },
 						{ bottom: 4, left: 4 },
 						{ bottom: 4, right: 4 },
-					].map((pos, i) => (
-						<motion.div
-							key={i}
-							className="absolute"
-							style={pos}
-							animate={{
-								rotate: [0, 90, 0],
-								opacity: [0.3, 0.6, 0.3],
-							}}
-							transition={{
-								duration: 4,
-								delay: i * 0.5,
-								repeat: Number.POSITIVE_INFINITY,
-								ease: 'easeInOut',
-							}}
-						>
-							<Plus className="size-5 text-white/30" strokeWidth={1.5} />
-						</motion.div>
-					))}
+					].map(pos => {
+						// Calculate delay based on position (top-left: 0, top-right: 0.5, bottom-left: 1, bottom-right: 1.5)
+						const delay = (pos.top !== undefined ? 0 : 1) + (pos.left !== undefined ? 0 : 0.5)
+						return (
+							<motion.div
+								key={`corner-${pos.top ?? 'b'}-${pos.left ?? 'r'}`}
+								className="absolute"
+								style={pos}
+								animate={{
+									rotate: [0, 90, 0],
+									opacity: [0.3, 0.6, 0.3],
+								}}
+								transition={{
+									duration: 4,
+									delay: delay * 0.5,
+									repeat: Number.POSITIVE_INFINITY,
+									ease: 'easeInOut',
+								}}
+							>
+								<Plus className="size-5 text-white/30" strokeWidth={1.5} />
+							</motion.div>
+						)
+					})}
 
 					{/* Center dashed line decoration */}
 					<div className="absolute top-8 bottom-8 left-1/2 w-px border-l border-dashed border-white/10" />

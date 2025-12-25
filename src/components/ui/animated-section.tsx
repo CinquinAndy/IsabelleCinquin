@@ -57,7 +57,7 @@ export function AnimatedSection({
 
 	return (
 		<Component
-			ref={ref as any}
+			ref={ref as never}
 			initial={shouldAnimate ? 'initial' : false}
 			animate={isInView && shouldAnimate ? 'animate' : 'initial'}
 			variants={selectedVariant}

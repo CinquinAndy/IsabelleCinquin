@@ -192,9 +192,9 @@ export function AboutSection({ about }: AboutSectionProps) {
 										},
 									}}
 								>
-									{about.stats.map((stat, i) => (
+									{about.stats.map(stat => (
 										<motion.div
-											key={i}
+											key={stat.label}
 											className="bg-sidebar border border-white/10 rounded-2xl p-6 text-center"
 											variants={{
 												hidden: { opacity: 0, y: 30, scale: 0.9 },

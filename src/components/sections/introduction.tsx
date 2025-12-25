@@ -36,9 +36,9 @@ export function Introduction({ introduction }: IntroductionProps) {
 				}}
 			>
 				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-					{titleWords.map((word, index) => (
+					{titleWords.map((word, wordPosition) => (
 						<motion.span
-							key={`${word}-${index}`}
+							key={`title-${wordPosition}-${word}`}
 							className="inline-block mr-2"
 							variants={{
 								hidden: { opacity: 0, y: 20 },
