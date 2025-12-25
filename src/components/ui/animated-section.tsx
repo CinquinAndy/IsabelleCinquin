@@ -56,8 +56,10 @@ export function AnimatedSection({
 	const selectedVariant = variants[variant]
 
 	return (
-		{/* @ts-expect-error - Dynamic component selection causes type mismatch between HTMLElement and specific element types */}
 		<Component
+			// @ts-expect-error - Dynamic component selection with motion[as] causes unavoidable type mismatch
+			// TypeScript cannot statically verify that HTMLElement ref matches the specific element type
+			// (HTMLDivElement | HTMLElement | etc.) since it depends on the runtime value of 'as'
 			ref={ref}
 			initial={shouldAnimate ? 'initial' : false}
 			animate={isInView && shouldAnimate ? 'animate' : 'initial'}
