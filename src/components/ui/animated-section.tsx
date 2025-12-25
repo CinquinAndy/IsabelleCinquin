@@ -56,8 +56,9 @@ export function AnimatedSection({
 	const selectedVariant = variants[variant]
 
 	return (
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		<Component
-			ref={ref as never}
+			ref={ref as any}
 			initial={shouldAnimate ? 'initial' : false}
 			animate={isInView && shouldAnimate ? 'animate' : 'initial'}
 			variants={selectedVariant}
