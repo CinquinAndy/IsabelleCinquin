@@ -5,7 +5,7 @@ import { Footer } from '@/components/footer'
 
 export const metadata: Metadata = {
 	// Title: 50-60 caractères pour Google
-	title: "Nounou Sciez | Isabelle Cinquin - Garde d'Enfants 74",
+	title: "Nounou Sciez | Isabelle Cinquin",
 
 	// Description: 150-160 caractères optimisés
 	description:
