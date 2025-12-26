@@ -8,9 +8,6 @@ interface FooterProps {
 }
 
 export function Footer({ settings }: FooterProps) {
-	if (!settings) {
-		throw new Error('Missing required data for Footer: settings')
-	}
 	const currentYear = new Date().getFullYear()
 
 	return (
