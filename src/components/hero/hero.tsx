@@ -109,36 +109,44 @@ export function Hero({ hero }: HeroProps) {
 	}
 
 	return (
-		<section className="relative h-screen w-full overflow-hidden z-20 bg-primary">
-			{/* Layer 0 (z-0): WebGL Canvas - masqué sur desktop, plein écran sur mobile */}
-			<div className="absolute inset-0 z-0" style={maskStyle}>
-				<canvas ref={canvasRef} className="h-full w-full" tabIndex={-1} />
-			</div>
-
-			{/* Layer 1 (z-15): Bear - derrière le masque décoratif */}
+		<section className="relative h-screen w-full overflow-hidden bg-primary">
+			{/* z-index: 5 | Nounours - visible uniquement dans la fenêtre du masque */}
 			<motion.div
-				className="pointer-events-none absolute inset-0 z-15"
+				className="pointer-events-none absolute inset-0"
+				style={{ zIndex: 5, ...maskStyle }}
 				initial={{ opacity: 0, scale: 0.8 }}
 				animate={{ opacity: 1, scale: 1 }}
 				transition={{ ...springs.gentle, delay: 0.2 }}
 			>
 				<Image
 					src="/bear.png"
-					alt="Mask Deco"
+					alt="Nounours"
 					width={1200}
 					height={1200}
-					className="absolute bottom-0 left-1/2 -translate-x-40 translate-y-60 w-[1000px] -z-10"
+					className="absolute bottom-0 right-0 translate-y-60 translate-x-20 w-[1000px]"
 				/>
 			</motion.div>
 
-			{/* Layer 2 (z-20): Content - texte centré */}
-			<div className="absolute inset-0 z-20 flex h-full w-full flex-col items-center justify-center">
+			{/* z-index: 10 | Shader masqué - la fenêtre qui révèle le nounours */}
+			<div className="absolute inset-0" style={{ zIndex: 10, ...maskStyle }}>
+				<canvas ref={canvasRef} className="h-full w-full" tabIndex={-1} />
+			</div>
+
+			{/* z-index: 20 | Décoration du masque (contour/ornements) */}
+			{isDesktop && (
+				<div className="pointer-events-none absolute inset-0" style={{ zIndex: 20 }}>
+					<Image src="/mask_deco.svg" alt="" aria-hidden="true" style={svgOverlayStyle} width={100} height={100} />
+				</div>
+			)}
+
+			{/* z-index: 50 | Contenu texte - au-dessus de tout */}
+			<div className="absolute inset-0 flex h-full w-full flex-col items-center justify-center" style={{ zIndex: 50 }}>
 				<div className="text-center px-4 sm:px-8 w-full max-w-4xl mx-auto flex flex-col items-center justify-center relative">
 					<motion.h1
 						initial={{ opacity: 0, y: 30 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: durations.slow, ease: easings.smooth, delay: 0.3 }}
-						className="mb-2 sm:mb-4 text-3xl sm:text-5xl md:text-7xl font-bold text-white drop-shadow-lg z-10 relative"
+						className="mb-2 sm:mb-4 text-3xl sm:text-5xl md:text-7xl font-bold text-white drop-shadow-lg"
 					>
 						<span className="bg-linear-to-r from-white via-white/90 to-white bg-clip-text text-transparent animate-shimmer bg-[length:200%_100%]">
 							{hero.title}
@@ -149,7 +157,7 @@ export function Hero({ hero }: HeroProps) {
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: durations.standard, ease: easings.smooth, delay: 0.5 }}
-						className="text-base sm:text-xl md:text-2xl text-white/90 drop-shadow-md max-w-xs sm:max-w-xl md:max-w-2xl mx-auto z-10 px-2"
+						className="text-base sm:text-xl md:text-2xl text-white/90 drop-shadow-md max-w-xs sm:max-w-xl md:max-w-2xl mx-auto px-2"
 					>
 						{hero.subtitle}
 					</motion.p>
@@ -159,7 +167,7 @@ export function Hero({ hero }: HeroProps) {
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: durations.standard, ease: easings.smooth, delay: 0.7 }}
-							className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center z-10"
+							className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
 						>
 							{hero.buttons.map(btn => (
 								<MagneticButton key={btn.url} href={btn.url} isPrimary={btn.variant === 'primary'}>
@@ -170,13 +178,6 @@ export function Hero({ hero }: HeroProps) {
 					)}
 				</div>
 			</div>
-
-			{/* Layer 3 (z-20): Decorative elements - visible uniquement sur desktop */}
-			{isDesktop && (
-				<div className="pointer-events-none absolute inset-0 z-30">
-					<Image src="/mask_deco.svg" alt="" aria-hidden="true" style={svgOverlayStyle} width={100} height={100} />
-				</div>
-			)}
 		</section>
 	)
 }
