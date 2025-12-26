@@ -117,7 +117,7 @@ export function Trainings({ trainingsSection }: TrainingsProps) {
 								transition={{ duration: durations.fast }}
 							>
 								{/* Header */}
-								<div className="flex flex-wrap items-start justify-between gap-4 mb-4">
+								<div className="flex flex-wrap items-start flex-col lg:flex-row justify-between gap-4 mb-4">
 									<div className="flex-1">
 										<h3 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
 											<Award className="w-5 h-5 text-accent" />
