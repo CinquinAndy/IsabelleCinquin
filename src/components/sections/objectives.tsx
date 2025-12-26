@@ -28,10 +28,28 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 	const objectives = objectivesSection.items
 
 	const items = objectives.map(obj => {
-		const iconUrl = typeof obj.icon === 'object' && obj.icon?.url ? obj.icon.url : null
+		// Icon can be a populated object or just an ID
+		const icon = obj.icon
+		let iconUrl: string | null = null
+		
+		if (typeof icon === 'object' && icon !== null && 'url' in icon && icon.url) {
+			// Convert absolute URL to relative path for local images
+			// http://localhost:3000/api/media/file/x.png -> /api/media/file/x.png
+			const url = icon.url
+			try {
+				const urlObj = new URL(url)
+				iconUrl = urlObj.pathname
+			} catch {
+				// If URL parsing fails, use as-is
+				iconUrl = url
+			}
+		} else if (typeof icon === 'number') {
+			console.warn(`Icon for "${obj.title}" is not populated (id: ${icon}). Check depth in findGlobal.`)
+		}
 
 		if (!iconUrl) {
-			throw new Error(`Missing icon for objective: ${obj.title}`)
+			console.warn(`Missing icon URL for objective: ${obj.title}`)
+			iconUrl = '/placeholder.png'
 		}
 
 		return {
