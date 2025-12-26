@@ -159,7 +159,7 @@ export function AboutSection({ about }: AboutSectionProps) {
 						>
 							{about.title}
 							<br />
-							<span className="text-accent">{about.titleAccent}</span>
+							<span className="text-accent font-handwriting">{about.titleAccent}</span>
 						</motion.h2>
 
 						<motion.div

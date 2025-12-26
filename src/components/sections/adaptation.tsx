@@ -105,7 +105,7 @@ export function Adaptation({ adaptation }: AdaptationProps) {
 						>
 							<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
 								{title.split(' ').slice(0, -1).join(' ')}{' '}
-								<span className="font-handwriting text-white/80">{title.split(' ').slice(-1)}</span>
+								<span className="font-handwriting text-accent">{title.split(' ').slice(-1)}</span>
 							</h2>
 							<p className="mt-4 text-lg text-white/70 leading-relaxed max-w-lg">{subtitle}</p>
 						</motion.div>
