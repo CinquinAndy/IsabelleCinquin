@@ -56,9 +56,14 @@ export default async function BlogPage() {
 					: null
 				: null
 
+		// Debug: log the featuredImage structure
+		console.log('Post:', post.title, 'featuredImage:', post.featuredImage)
+
 		// Get featured image URL and format it
 		const imageUrl =
 			typeof post.featuredImage === 'object' && post.featuredImage?.url ? formatMediaUrl(post.featuredImage.url) : null
+
+		console.log('Post:', post.title, 'imageUrl after formatting:', imageUrl)
 
 		return {
 			id: post.id,
