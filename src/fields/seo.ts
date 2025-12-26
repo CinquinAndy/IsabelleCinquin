@@ -1,8 +1,9 @@
 import type { Field } from 'payload'
 
 /**
- * SEO field for blog posts/collections
- * Uses GenerateSeoButton which expects title, excerpt, content fields
+ * SEO field for blog posts
+ * Simplified: only metaTitle and metaDescription
+ * Open Graph image comes from post's featuredImage
  */
 export const seo: Field = {
 	name: 'seo',
@@ -22,39 +23,19 @@ export const seo: Field = {
 			name: 'metaTitle',
 			type: 'text',
 			label: 'Méta Titre',
-			required: false,
 			admin: {
-				description: 'Titre affiché dans les résultats de recherche (laisser vide pour utiliser le titre par défaut)',
+				description: 'Titre optimisé pour les moteurs de recherche (50-60 caractères recommandés)',
+				placeholder: 'Ex: Guide complet activités manuelles enfants | Nounou Sciez',
 			},
 		},
 		{
 			name: 'metaDescription',
 			type: 'textarea',
 			label: 'Méta Description',
-			required: false,
 			admin: {
-				description: 'Description courte pour les moteurs de recherche',
+				description: 'Description courte pour les moteurs de recherche (150-160 caractères recommandés)',
+				placeholder: 'Ex: Découvrez nos meilleures idées d\'activités manuelles pour éveiller la créativité de vos enfants...',
 			},
-		},
-		{
-			name: 'ogImage',
-			type: 'upload',
-			relationTo: 'media',
-			label: 'Image de partage (OG Image)',
-			admin: {
-				description: 'Image affichée lors du partage sur les réseaux sociaux',
-			},
-		},
-		{
-			name: 'keywords',
-			type: 'array',
-			label: 'Mots-clés',
-			fields: [
-				{
-					name: 'keyword',
-					type: 'text',
-				},
-			],
 		},
 	],
 }

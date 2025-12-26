@@ -11,7 +11,7 @@ import { generateSeoForPost } from '@/actions/generate-seo'
  * Uses Server Action for secure, server-side generation with Vercel AI + Gemini 2.5
  */
 export const GenerateSeoButton: React.FC = () => {
-	const { fields, dispatchFields } = useForm()
+	const { fields, dispatchFields, submit } = useForm()
 	const [isLoading, setIsLoading] = useState(false)
 
 	const handleGenerate = async () => {
@@ -60,15 +60,14 @@ export const GenerateSeoButton: React.FC = () => {
 				value: data.description,
 			})
 
-			if (data.keywords && Array.isArray(data.keywords)) {
-				dispatchFields({
-					type: 'UPDATE',
-					path: 'seo.keywords',
-					value: data.keywords,
-				})
-			}
-
 			toast.success('SEO généré avec succès !')
+
+			// Auto-save the form to persist the changes
+			// Small delay to ensure dispatchFields has completed
+			setTimeout(() => {
+				submit()
+				toast.info('Document sauvegardé automatiquement')
+			}, 500)
 		} catch (error) {
 			console.error('Error generating SEO:', error)
 			const message = error instanceof Error ? error.message : 'Échec de la génération du SEO'
@@ -90,7 +89,7 @@ export const GenerateSeoButton: React.FC = () => {
 				{isLoading ? 'Génération en cours...' : '🤖 Générer SEO avec Gemini'}
 			</button>
 			<p className="text-xs text-gray-500">
-				Génère automatiquement le titre, la description et les mots-clés SEO à partir du contenu de l'article.
+				Génère automatiquement le titre et la description SEO optimisés à partir du contenu de l'article.
 			</p>
 		</div>
 	)

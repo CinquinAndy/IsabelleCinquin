@@ -207,23 +207,13 @@ export interface Post {
   publishedAt?: string | null;
   seo?: {
     /**
-     * Titre affiché dans les résultats de recherche (laisser vide pour utiliser le titre par défaut)
+     * Titre optimisé pour les moteurs de recherche (50-60 caractères recommandés)
      */
     metaTitle?: string | null;
     /**
-     * Description courte pour les moteurs de recherche
+     * Description courte pour les moteurs de recherche (150-160 caractères recommandés)
      */
     metaDescription?: string | null;
-    /**
-     * Image affichée lors du partage sur les réseaux sociaux
-     */
-    ogImage?: (number | null) | Media;
-    keywords?:
-      | {
-          keyword?: string | null;
-          id?: string | null;
-        }[]
-      | null;
   };
   updatedAt: string;
   createdAt: string;
@@ -383,13 +373,6 @@ export interface PostsSelect<T extends boolean = true> {
     | {
         metaTitle?: T;
         metaDescription?: T;
-        ogImage?: T;
-        keywords?:
-          | T
-          | {
-              keyword?: T;
-              id?: T;
-            };
       };
   updatedAt?: T;
   createdAt?: T;

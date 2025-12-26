@@ -1,9 +1,8 @@
 import configPromise from '@payload-config'
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getPayload } from 'payload'
 import { BlogPostPageClient } from '@/components/blog-post-page-client'
-import type { SeoData } from '@/lib/metadata'
-import { constructMetadata } from '@/lib/metadata'
 import type { Landing, Post } from '@/payload-types'
 
 interface BlogPostPageProps {
@@ -40,15 +39,55 @@ async function getLandingData(): Promise<Landing | null> {
 	}
 }
 
-export async function generateMetadata({ params }: BlogPostPageProps) {
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
 	const { slug } = await params
 	const post = await getPostBySlug(slug)
 
-	return constructMetadata({
-		seo: post?.seo as SeoData,
-		fallbackTitle: post ? `${post.title} | Blog Nounou Sciez` : 'Article non trouvé | Blog Nounou Sciez',
-		fallbackDescription: post?.excerpt || undefined,
-	})
+	if (!post) {
+		return {
+			title: 'Article non trouvé | Blog Nounou Sciez',
+			description: 'Cet article n\'existe pas ou a été supprimé.',
+		}
+	}
+
+	// Use SEO fields if available, fallback to post data
+	const title = post.seo?.metaTitle || `${post.title} | Blog Nounou Sciez`
+	const description = post.seo?.metaDescription || post.excerpt || `Découvrez ${post.title} sur notre blog petite enfance`
+
+	// Use featured image for Open Graph, fallback to site default
+	const ogImageUrl = typeof post.featuredImage === 'object' && post.featuredImage?.url 
+		? post.featuredImage.url 
+		: 'https://isabelle-cinquin.fr/og-isa.webp'
+
+	return {
+		title,
+		description,
+		openGraph: {
+			title,
+			description,
+			type: 'article',
+			publishedTime: post.publishedAt || undefined,
+			modifiedTime: post.updatedAt || undefined,
+			authors: ['Isabelle Cinquin'],
+			images: [
+				{
+					url: ogImageUrl,
+					width: 1200,
+					height: 630,
+					alt: post.title,
+				},
+			],
+		},
+		twitter: {
+			card: 'summary_large_image',
+			title,
+			description,
+			images: [ogImageUrl],
+		},
+		alternates: {
+			canonical: `https://isabelle-cinquin.fr/blog/${post.slug}`,
+		},
+	}
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {

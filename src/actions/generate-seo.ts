@@ -7,14 +7,13 @@ import { cookies } from 'next/headers'
 import { getPayload } from 'payload'
 import { z } from 'zod'
 
-// Schema for blog post SEO
+// Schema for blog post SEO - simplified
 const seoSchema = z.object({
 	title: z.string().describe('An SEO optimized title, around 50-60 characters.'),
 	description: z.string().describe('An SEO optimized meta description, around 150-160 characters.'),
-	keywords: z.array(z.object({ keyword: z.string() })).describe('A list of 5-8 relevant keywords.'),
 })
 
-// Schema for landing page SEO
+// Schema for landing page SEO - kept for compatibility but not actively used
 const landingSeoSchema = z.object({
 	title: z.string().describe('An SEO optimized title for the landing page, around 50-60 characters.'),
 	description: z
@@ -73,7 +72,7 @@ Tu es un expert SEO spécialisé dans les services de garde d'enfants.
 
 ${businessContext}
 
-Génère des métadonnées SEO optimisées pour cet article:
+Génère des métadonnées SEO optimisées pour cet article de blog:
 
 Titre actuel: ${previousTitle || 'N/A'}
 Extrait actuel: ${previousExcerpt || 'N/A'}
@@ -82,12 +81,12 @@ Contenu de l'article:
 ${content.substring(0, 8000)}
 
 Exigences:
-1. **title**: Maximum 60 caractères, incluant des mots-clés pertinents
-2. **description**: Maximum 160 caractères, résumé accrocheur avec appel à l'action
-3. **keywords**: 5-8 expressions-clés pertinentes pour le SEO local
+1. **title**: Maximum 60 caractères, incluant des mots-clés pertinents et naturels
+2. **description**: Maximum 160 caractères, résumé accrocheur qui donne envie de cliquer
 
 Langue: Français
-Ton: Professionnel mais chaleureux
+Ton: Professionnel mais chaleureux, authentique
+Approche: Axé sur la petite enfance, l'éveil et le bien-être des enfants
 `
 
 		const { object } = await generateObject({
