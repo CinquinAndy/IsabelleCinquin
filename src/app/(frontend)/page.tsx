@@ -100,7 +100,7 @@ import type { Landing, Post } from '@/payload-types'
 async function getLandingData(): Promise<Landing | null> {
 	try {
 		const payload = await getPayload({ config })
-		const landing = await payload.findGlobal({ slug: 'landing' })
+		const landing = await payload.findGlobal({ slug: 'landing', depth: 2 })
 		return landing
 	} catch {
 		return null

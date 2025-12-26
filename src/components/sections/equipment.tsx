@@ -61,6 +61,7 @@ export function Equipment({ equipmentSection }: EquipmentProps) {
 	const [isVisible, setIsVisible] = useState(false)
 
 	useEffect(() => {
+		console.log('Equipment section:', equipmentSection)
 		const timer = setTimeout(() => setIsVisible(true), 200)
 		return () => clearTimeout(timer)
 	}, [])
@@ -77,10 +78,23 @@ export function Equipment({ equipmentSection }: EquipmentProps) {
 	const gridSpans: Array<'single' | 'double' | 'tall'> = ['double', 'single', 'tall', 'single', 'single', 'double']
 
 	const items = equipment.map((item, index: number) => {
-		const iconUrl = typeof item.icon === 'object' && item.icon?.url ? item.icon.url : null
+		// L'icône peut être un objet populé ou juste un ID
+		const icon = item.icon
+		let iconUrl: string | null = null
+		
+		if (typeof icon === 'object' && icon !== null && 'url' in icon) {
+			iconUrl = icon.url ?? null
+		} else if (typeof icon === 'number') {
+			// Si c'est juste un ID, l'image n'est pas populée
+			console.warn(`Icon for "${item.name}" is not populated (id: ${icon}). Check depth in findGlobal.`)
+		}
+		
+		console.log(`Item "${item.name}": icon =`, icon, '→ iconUrl =', iconUrl)
 
 		if (!iconUrl) {
-			throw new Error(`Missing icon for equipment item: ${item.name || 'Unknown'}`)
+			// Ne pas crasher, utiliser un placeholder
+			console.warn(`Missing icon URL for equipment item: ${item.name || 'Unknown'}`)
+			iconUrl = '/placeholder.png' // ou return null pour skip
 		}
 
 		return {
@@ -88,7 +102,7 @@ export function Equipment({ equipmentSection }: EquipmentProps) {
 			iconUrl,
 			gridSpan: gridSpans[index % gridSpans.length] as 'single' | 'double' | 'tall',
 		}
-	})
+	}).filter(item => item.iconUrl !== null)
 
 	return (
 		<SectionWrapper id="equipements" variant="secondary">
