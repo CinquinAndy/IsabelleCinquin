@@ -23,8 +23,9 @@ export function Trainings({ trainingsSection }: TrainingsProps) {
 	return (
 		<SectionWrapper id="formations" variant="secondary">
 			{/* py-16 md:py-24 */}
-			<div className="absolute bottom-0 left-0 flex justify-center translate-y-10 md:translate-y-14 z-20">
-				<Image src="/stitch.png" width={500} height={1000} alt="Stitch" />
+			<div className="absolute bottom-0 left-0 flex justify-center -translate-x-20 lg:-translate-x-10 xl:translate-x-0
+			translate-y-10 md:translate-y-10 lg:translate-y-12 xl:translate-y-16 z-0">
+				<Image src="/stitch.png" width={500} height={1000} alt="Stitch" className='w-[300px] lg:w-[400px] xl:w-[500px]' />
 			</div>
 			{/* Title */}
 			<motion.div
