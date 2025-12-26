@@ -8,7 +8,7 @@ import { durations, easings, springs } from '@/lib/animations'
 import type { LandingHero } from '@/types/landing'
 import { useCloudShader } from './use-cloud-shader'
 
-// Hook pour détecter si on est sur desktop/tablette (md: 768px+)
+// Hook to detect if we're on desktop/tablet (md: 768px+)
 function useIsDesktop() {
 	const [isDesktop, setIsDesktop] = useState(false)
 
@@ -83,12 +83,12 @@ export function Hero({ hero }: HeroProps) {
 		throw new Error('Missing required data for Hero section')
 	}
 
-	// Classes conditionnelles pour le masque (desktop uniquement)
+	// Conditional mask class (desktop only)
 	const maskClass = isDesktop ? 'hero-mask' : ''
 
 	return (
 		<section className="relative h-screen w-full overflow-hidden bg-primary">
-			{/* z-15 | Nounours - au-dessus du shader, en dessous de la décoration */}
+			{/* z-15 | Bear - above shader, below decoration */}
 			<motion.div
 				className={`pointer-events-none absolute inset-0 z-[15] ${maskClass}`}
 				initial={{ opacity: 0, scale: 0.8 }}
@@ -97,7 +97,7 @@ export function Hero({ hero }: HeroProps) {
 			>
 				<Image
 					src="/bear.png"
-					alt="Nounours"
+					alt="Bear"
 					width={1200}
 					height={1200}
 					className="absolute bottom-0 right-0 w-[100vw] sm:w-[45vw] md:w-[35vw] lg:w-[65vw] xl:w-[60vw] 
@@ -105,19 +105,19 @@ export function Hero({ hero }: HeroProps) {
 				/>
 			</motion.div>
 
-			{/* z-10 | Shader masqué - la fenêtre qui révèle le nounours */}
+			{/* z-10 | Masked shader - window that reveals the bear */}
 			<div className={`absolute inset-0 z-10 ${maskClass}`}>
 				<canvas ref={canvasRef} className="h-full w-full" tabIndex={-1} />
 			</div>
 
-			{/* z-20 | Décoration du masque (contour/ornements) */}
+			{/* z-20 | Mask decoration (border/ornaments) */}
 			{isDesktop && (
 				<div className="pointer-events-none absolute inset-0 z-20">
 					<Image src="/mask_deco.svg" alt="" aria-hidden="true" className="hero-svg-overlay" width={100} height={100} />
 				</div>
 			)}
 
-			{/* z-50 | Contenu texte - au-dessus de tout */}
+			{/* z-50 | Text content - above everything */}
 			<div className="absolute inset-0 z-50 flex h-full w-full flex-col items-center justify-center">
 				<div className="text-center px-4 sm:px-8 w-full max-w-4xl mx-auto flex flex-col items-center justify-center relative">
 					<motion.h1

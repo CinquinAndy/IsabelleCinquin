@@ -27,9 +27,17 @@ function FloatingIcon({ src, alt, delay = 0 }: { src: string; alt: string; delay
 				delay,
 			}}
 			whileHover={{ scale: 1.15, rotate: 15, y: -5 }}
-			className="relative w-16 h-16 md:w-20 md:h-20 filter drop-shadow-lg"
+			className="relative filter drop-shadow-lg"
+			style={{ width: 80, height: 80 }}
 		>
-			<Image src={src} alt={alt} fill className="object-contain" />
+			<Image 
+				src={src} 
+				alt={alt} 
+				width={80} 
+				height={80} 
+				className="object-contain w-full h-full" 
+				unoptimized
+			/>
 		</motion.div>
 	)
 }
@@ -78,23 +86,23 @@ export function Equipment({ equipmentSection }: EquipmentProps) {
 	const gridSpans: Array<'single' | 'double' | 'tall'> = ['double', 'single', 'tall', 'single', 'single', 'double']
 
 	const items = equipment.map((item, index: number) => {
-		// L'icône peut être un objet populé ou juste un ID
+		// Icon can be a populated object or just an ID
 		const icon = item.icon
 		let iconUrl: string | null = null
 		
 		if (typeof icon === 'object' && icon !== null && 'url' in icon) {
 			iconUrl = icon.url ?? null
 		} else if (typeof icon === 'number') {
-			// Si c'est juste un ID, l'image n'est pas populée
+			// If it's just an ID, the image is not populated
 			console.warn(`Icon for "${item.name}" is not populated (id: ${icon}). Check depth in findGlobal.`)
 		}
 		
 		console.log(`Item "${item.name}": icon =`, icon, '→ iconUrl =', iconUrl)
 
 		if (!iconUrl) {
-			// Ne pas crasher, utiliser un placeholder
+			// Don't crash, use placeholder
 			console.warn(`Missing icon URL for equipment item: ${item.name || 'Unknown'}`)
-			iconUrl = '/placeholder.png' // ou return null pour skip
+			iconUrl = '/placeholder.png'
 		}
 
 		return {
