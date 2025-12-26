@@ -9,13 +9,14 @@ import { ContactPageClient } from '../../../components/contact-page-client'
 
 export const metadata: Metadata = {
 	title: 'Contact | Isabelle Cinquin - Nounou Sciez (74)',
-	description: 'Contactez Isabelle, nounou agréée à Sciez. Disponibilités, tarifs, visite de la maison. Réponse rapide par téléphone ou email.',
+	description:
+		'Contactez Isabelle, nounou agréée à Sciez. Disponibilités, tarifs, visite de la maison. Réponse rapide par téléphone ou email.',
 	keywords: [
 		'contact nounou sciez',
 		'contacter assistante maternelle',
 		'rendez-vous nounou',
 		'disponibilités garde enfants sciez',
-		'contact nounou 74'
+		'contact nounou 74',
 	],
 	openGraph: {
 		title: 'Contact - Isabelle Cinquin',

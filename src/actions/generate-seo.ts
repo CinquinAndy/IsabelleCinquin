@@ -25,11 +25,7 @@ const landingSeoSchema = z.object({
 /**
  * Generate SEO metadata for blog posts
  */
-export async function generateSeoForPost(data: {
-	content: string
-	previousTitle?: string
-	previousExcerpt?: string
-}) {
+export async function generateSeoForPost(data: { content: string; previousTitle?: string; previousExcerpt?: string }) {
 	try {
 		// Check authentication via cookies
 		const cookieStore = await cookies()

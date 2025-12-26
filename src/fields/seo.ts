@@ -34,7 +34,8 @@ export const seo: Field = {
 			label: 'Méta Description',
 			admin: {
 				description: 'Description courte pour les moteurs de recherche (150-160 caractères recommandés)',
-				placeholder: 'Ex: Découvrez nos meilleures idées d\'activités manuelles pour éveiller la créativité de vos enfants...',
+				placeholder:
+					"Ex: Découvrez nos meilleures idées d'activités manuelles pour éveiller la créativité de vos enfants...",
 			},
 		},
 	],

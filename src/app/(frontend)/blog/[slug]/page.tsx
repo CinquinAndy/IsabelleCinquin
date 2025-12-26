@@ -46,18 +46,20 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 	if (!post) {
 		return {
 			title: 'Article non trouvé | Blog Nounou Sciez',
-			description: 'Cet article n\'existe pas ou a été supprimé.',
+			description: "Cet article n'existe pas ou a été supprimé.",
 		}
 	}
 
 	// Use SEO fields if available, fallback to post data
 	const title = post.seo?.metaTitle || `${post.title} | Blog Nounou Sciez`
-	const description = post.seo?.metaDescription || post.excerpt || `Découvrez ${post.title} sur notre blog petite enfance`
+	const description =
+		post.seo?.metaDescription || post.excerpt || `Découvrez ${post.title} sur notre blog petite enfance`
 
 	// Use featured image for Open Graph, fallback to site default
-	const ogImageUrl = typeof post.featuredImage === 'object' && post.featuredImage?.url 
-		? post.featuredImage.url 
-		: 'https://isabelle-cinquin.fr/og-isa.webp'
+	const ogImageUrl =
+		typeof post.featuredImage === 'object' && post.featuredImage?.url
+			? post.featuredImage.url
+			: 'https://isabelle-cinquin.fr/og-isa.webp'
 
 	return {
 		title,
