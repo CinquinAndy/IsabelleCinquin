@@ -39,10 +39,19 @@ export function Adaptation({ adaptation }: AdaptationProps) {
 
 	// Extract icon URLs from media objects
 	const displayBadges = badges.map(badge => {
-		const iconUrl = typeof badge.icon === 'object' && badge.icon?.url ? badge.icon.url : null
+		// Icon can be a populated object or just an ID
+		const icon = badge.icon
+		let iconUrl: string | null = null
+		
+		if (typeof icon === 'object' && icon !== null && 'url' in icon && icon.url) {
+			iconUrl = formatMediaUrl(icon.url)
+		} else if (typeof icon === 'number') {
+			console.warn(`Icon for badge "${badge.text}" is not populated (id: ${icon}). Check depth in findGlobal.`)
+		}
 
 		if (!iconUrl) {
-			throw new Error(`Missing icon for badge: ${badge.text}`)
+			console.warn(`Missing icon URL for badge: ${badge.text}`)
+			iconUrl = '/placeholder.png'
 		}
 
 		return { ...badge, iconUrl }
