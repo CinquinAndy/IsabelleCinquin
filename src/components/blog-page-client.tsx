@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Footer } from '@/components/footer'
 import { ContactPreview } from '@/components/sections/contact-preview'
 import { LazyImage } from '@/components/ui/lazy-image'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
@@ -311,6 +312,8 @@ export function BlogPageClient({ posts, landing }: BlogPageClientProps) {
 				content={landing?.contactSection?.content}
 				phone={landing?.settings?.phone}
 			/>
+
+			<Footer settings={landing?.settings} />
 		</main>
 	)
 }
