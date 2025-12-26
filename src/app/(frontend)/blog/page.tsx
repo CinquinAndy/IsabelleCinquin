@@ -88,19 +88,6 @@ const defaultPosts = [
 	},
 ]
 
-export async function generateMetadata() {
-	const payload = await getPayload({ config: configPromise })
-	const seoGlobal = await payload.findGlobal({
-		slug: 'seo',
-	})
-
-	return constructMetadata({
-		seo: seoGlobal.blog?.seo as SeoData,
-		fallbackTitle: 'Blog | Nounou Sciez',
-		fallbackDescription: 'Découvrez les actualités et moments de vie chez nounou à Sciez',
-	})
-}
-
 export default async function BlogPage() {
 	// Try to fetch real posts from CMS
 	let posts: typeof defaultPosts = []
