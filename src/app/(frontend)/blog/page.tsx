@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getPayload } from 'payload'
 import { BlogPageClient } from '@/components/blog-page-client'
+import { formatMediaUrl } from '@/lib/utils'
 import configPromise from '@/payload.config'
 
 export const metadata: Metadata = {
@@ -55,8 +56,9 @@ export default async function BlogPage() {
 					: null
 				: null
 
-		// Get featured image URL
-		const imageUrl = typeof post.featuredImage === 'object' && post.featuredImage?.url ? post.featuredImage.url : null
+		// Get featured image URL and format it
+		const imageUrl =
+			typeof post.featuredImage === 'object' && post.featuredImage?.url ? formatMediaUrl(post.featuredImage.url) : null
 
 		return {
 			id: post.id,
