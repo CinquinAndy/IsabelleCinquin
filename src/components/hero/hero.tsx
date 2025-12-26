@@ -115,23 +115,25 @@ export function Hero({ hero }: HeroProps) {
 				<canvas ref={canvasRef} className="h-full w-full" tabIndex={-1} />
 			</div>
 
-			{/* Layer 2 (z-10): Content - visible partout, texte centré */}
-			<div className="absolute inset-0 z-10 flex h-full w-full flex-col items-center justify-center">
-				<div className="text-center px-4 sm:px-8 w-full max-w-4xl mx-auto flex flex-col items-center justify-center relative">
-					<motion.div
-						initial={{ opacity: 0, scale: 0.8 }}
-						animate={{ opacity: 1, scale: 1 }}
-						transition={{ ...springs.gentle, delay: 0.2 }}
-					>
-						<Image
-							src="/bear.png"
-							alt="Mask Deco"
-							width={1600}
-							height={1600}
-							className="absolute bottom-0 left-1/2 -translate-x-10 -z-10 translate-y-100"
-						/>
-					</motion.div>
+			{/* Layer 1 (z-15): Bear - derrière le masque décoratif */}
+			<motion.div
+				className="pointer-events-none absolute inset-0 z-15"
+				initial={{ opacity: 0, scale: 0.8 }}
+				animate={{ opacity: 1, scale: 1 }}
+				transition={{ ...springs.gentle, delay: 0.2 }}
+			>
+				<Image
+					src="/bear.png"
+					alt="Mask Deco"
+					width={1200}
+					height={1200}
+					className="absolute bottom-0 left-1/2 -translate-x-40 translate-y-60 w-[1000px] -z-10"
+				/>
+			</motion.div>
 
+			{/* Layer 2 (z-20): Content - texte centré */}
+			<div className="absolute inset-0 z-20 flex h-full w-full flex-col items-center justify-center">
+				<div className="text-center px-4 sm:px-8 w-full max-w-4xl mx-auto flex flex-col items-center justify-center relative">
 					<motion.h1
 						initial={{ opacity: 0, y: 30 }}
 						animate={{ opacity: 1, y: 0 }}
