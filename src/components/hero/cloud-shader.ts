@@ -26,6 +26,7 @@ out vec4 fragColor;
 // Background: deep purple (oklch 0.4765 0.1483 294.5078 ≈ #5C3D8A)
 // Cloud base: primary violet (oklch 0.6009 0.1931 294 ≈ #8B5CF6)
 // Highlights blend to accent pink (oklch 0.7683 0.1817 320 ≈ #D946EF)
+// const vec3 BackColor = vec3(0.22, 0.15, 0.35);     // Deep purple background
 const vec3 BackColor = vec3(0.22, 0.15, 0.35);     // Deep purple background
 const vec3 CloudColor = vec3(0.55, 0.36, 0.96);    // Primary violet for clouds
 const vec3 AccentColor = vec3(0.85, 0.27, 0.94);   // Pink accent for highlights

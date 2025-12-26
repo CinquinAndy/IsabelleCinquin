@@ -26,17 +26,6 @@ interface HeroProps {
 	hero?: LandingHero | null
 }
 
-// Shared SVG sizing styles for consistent overlay
-const svgOverlayStyle: React.CSSProperties = {
-	position: 'absolute',
-	top: '50%',
-	left: '50%',
-	transform: 'translate(-50%, -50%)',
-	width: '100%',
-	height: '100%',
-	objectFit: 'cover',
-	objectPosition: 'center',
-}
 
 // Magnetic button component
 function MagneticButton({
@@ -90,30 +79,18 @@ export function Hero({ hero }: HeroProps) {
 	const isDesktop = useIsDesktop()
 	useCloudShader(canvasRef)
 
-	// Mask styles - appliqué uniquement sur desktop/tablette
-	const maskStyle = isDesktop ? {
-		maskImage: 'url(/mask.svg)',
-		WebkitMaskImage: 'url(/mask.svg)',
-		maskMode: 'luminance',
-		WebkitMaskMode: 'luminance',
-		maskSize: 'cover',
-		WebkitMaskSize: 'cover',
-		maskPosition: 'center',
-		WebkitMaskPosition: 'center',
-		maskRepeat: 'no-repeat',
-		WebkitMaskRepeat: 'no-repeat',
-	} as React.CSSProperties : {}
-
 	if (!hero) {
 		throw new Error('Missing required data for Hero section')
 	}
 
+	// Classes conditionnelles pour le masque (desktop uniquement)
+	const maskClass = isDesktop ? 'hero-mask' : ''
+
 	return (
 		<section className="relative h-screen w-full overflow-hidden bg-primary">
-			{/* z-index: 15 | Nounours - au-dessus du shader, en dessous de la décoration */}
+			{/* z-15 | Nounours - au-dessus du shader, en dessous de la décoration */}
 			<motion.div
-				className="pointer-events-none absolute inset-0"
-				style={{ zIndex: 15, ...maskStyle }}
+				className={`pointer-events-none absolute inset-0 z-[15] ${maskClass}`}
 				initial={{ opacity: 0, scale: 0.8 }}
 				animate={{ opacity: 1, scale: 1 }}
 				transition={{ ...springs.gentle, delay: 0.2 }}
@@ -123,24 +100,25 @@ export function Hero({ hero }: HeroProps) {
 					alt="Nounours"
 					width={1200}
 					height={1200}
-					className="absolute bottom-0 right-0 translate-y-60 translate-x-20 w-[1000px]"
+					className="absolute bottom-0 right-0 w-[100vw] sm:w-[45vw] md:w-[35vw] lg:w-[65vw] xl:w-[60vw] 
+					lg:translate-y-[20%] xl:translate-y-[25%] scale-250 lg:scale-100 translate-x-[35%] lg:translate-x-[10%]"
 				/>
 			</motion.div>
 
-			{/* z-index: 10 | Shader masqué - la fenêtre qui révèle le nounours */}
-			<div className="absolute inset-0" style={{ zIndex: 10, ...maskStyle }}>
+			{/* z-10 | Shader masqué - la fenêtre qui révèle le nounours */}
+			<div className={`absolute inset-0 z-10 ${maskClass}`}>
 				<canvas ref={canvasRef} className="h-full w-full" tabIndex={-1} />
 			</div>
 
-			{/* z-index: 20 | Décoration du masque (contour/ornements) */}
+			{/* z-20 | Décoration du masque (contour/ornements) */}
 			{isDesktop && (
-				<div className="pointer-events-none absolute inset-0" style={{ zIndex: 20 }}>
-					<Image src="/mask_deco.svg" alt="" aria-hidden="true" style={svgOverlayStyle} width={100} height={100} />
+				<div className="pointer-events-none absolute inset-0 z-20">
+					<Image src="/mask_deco.svg" alt="" aria-hidden="true" className="hero-svg-overlay" width={100} height={100} />
 				</div>
 			)}
 
-			{/* z-index: 50 | Contenu texte - au-dessus de tout */}
-			<div className="absolute inset-0 flex h-full w-full flex-col items-center justify-center" style={{ zIndex: 50 }}>
+			{/* z-50 | Contenu texte - au-dessus de tout */}
+			<div className="absolute inset-0 z-50 flex h-full w-full flex-col items-center justify-center">
 				<div className="text-center px-4 sm:px-8 w-full max-w-4xl mx-auto flex flex-col items-center justify-center relative">
 					<motion.h1
 						initial={{ opacity: 0, y: 30 }}

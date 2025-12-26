@@ -272,3 +272,29 @@ body::-webkit-scrollbar-thumb {
 	--tw-prose-invert-th-borders: var(--color-isa-500);
 	--tw-prose-invert-td-borders: var(--color-isa-600);
 }
+
+/* Hero mask utilities */
+.hero-mask {
+	mask-image: url('/mask.svg');
+	-webkit-mask-image: url('/mask.svg');
+	mask-mode: luminance;
+	-webkit-mask-mode: luminance;
+	mask-size: cover;
+	-webkit-mask-size: cover;
+	mask-position: center;
+	-webkit-mask-position: center;
+	mask-repeat: no-repeat;
+	-webkit-mask-repeat: no-repeat;
+}
+
+/* Hero SVG overlay style */
+.hero-svg-overlay {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
