@@ -103,7 +103,7 @@ export function AboutSection({ about }: AboutSectionProps) {
 								alt="Scribble"
 								width={150}
 								height={150}
-								className="translate-x-84 translate-y-20"
+								className="translate-x-74 lg:translate-x-84 translate-y-20 scale-80 lg:scale-100"
 							/>
 						</motion.div>
 						<motion.div
