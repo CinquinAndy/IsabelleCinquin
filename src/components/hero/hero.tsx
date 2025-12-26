@@ -110,10 +110,10 @@ export function Hero({ hero }: HeroProps) {
 
 	return (
 		<section className="relative h-screen w-full overflow-hidden bg-primary">
-			{/* z-index: 5 | Nounours - visible uniquement dans la fenêtre du masque */}
+			{/* z-index: 15 | Nounours - au-dessus du shader, en dessous de la décoration */}
 			<motion.div
 				className="pointer-events-none absolute inset-0"
-				style={{ zIndex: 5, ...maskStyle }}
+				style={{ zIndex: 15, ...maskStyle }}
 				initial={{ opacity: 0, scale: 0.8 }}
 				animate={{ opacity: 1, scale: 1 }}
 				transition={{ ...springs.gentle, delay: 0.2 }}
