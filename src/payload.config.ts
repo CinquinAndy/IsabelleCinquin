@@ -13,7 +13,6 @@ import { Media } from './collections/Media'
 import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
 import { Landing } from './globals/Landing'
-import { Seo } from './globals/Seo'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -32,7 +31,7 @@ export default buildConfig({
 		},
 	},
 	collections: [Users, Media, Posts, Categories],
-	globals: [Landing, Seo],
+	globals: [Landing],
 	editor: lexicalEditor(),
 	secret: process.env.PAYLOAD_SECRET || '',
 	typescript: {

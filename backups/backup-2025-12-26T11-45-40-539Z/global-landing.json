@@ -1,0 +1,1048 @@
+{
+  "id": 1,
+  "hero": {
+    "title": "Isabelle Cinquin",
+    "subtitle": "Assistante Maternelle au bord du Lac Léman",
+    "buttons": [
+      {
+        "id": "694b06d1b9808c88c18db7bc",
+        "text": "Me contacter",
+        "url": "/contact",
+        "variant": "primary"
+      },
+      {
+        "id": "694b06d1b9808c88c18db7bd",
+        "text": "En savoir plus",
+        "url": "#presentation",
+        "variant": "secondary"
+      }
+    ]
+  },
+  "about": {
+    "badge": "À propos",
+    "title": "Nounou sur Sciez",
+    "titleAccent": "depuis 2003",
+    "content": {
+      "root": {
+        "type": "root",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "children": [
+          {
+            "type": "paragraph",
+            "format": "",
+            "version": 1,
+            "children": [
+              {
+                "text": "Je suis assistante maternelle agréée sur la commune de Sciez (74), au bord du magnifique Lac Léman. J'ai fait une pause de 10 ans (2008-2018) pour travailler avec mon mari, puis j'ai repris mon activité avec toujours autant de passion.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "textFormat": 0
+          },
+          {
+            "type": "paragraph",
+            "format": "",
+            "version": 1,
+            "children": [
+              {
+                "text": "J'accueille vos enfants chez moi, dans une ambiance familiale et chaleureuse. Chaque petit bout reçoit un accueil personnalisé, adapté à son rythme et à ses besoins.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "textFormat": 0
+          }
+        ],
+        "direction": "ltr"
+      }
+    },
+    "image": {
+      "id": 6,
+      "alt": "Isabelle Cinquin",
+      "updatedAt": "2025-12-23T13:56:25.076Z",
+      "createdAt": "2025-12-23T13:56:25.076Z",
+      "url": "http://localhost:3000/api/media/file/isabelle.jpg",
+      "thumbnailURL": null,
+      "filename": "isabelle.jpg",
+      "mimeType": "image/jpeg",
+      "filesize": 185682,
+      "width": 1600,
+      "height": 1066,
+      "focalX": 50,
+      "focalY": 50
+    },
+    "stats": [
+      {
+        "id": "694b06d1b9808c88c18db7be",
+        "value": 3,
+        "suffix": null,
+        "label": "enfants le jour"
+      },
+      {
+        "id": "694b06d1b9808c88c18db7bf",
+        "value": 1,
+        "suffix": null,
+        "label": "enfant la nuit"
+      },
+      {
+        "id": "694b06d1b9808c88c18db7c0",
+        "value": 20,
+        "suffix": "+",
+        "label": "années d'expérience"
+      }
+    ]
+  },
+  "introduction": {
+    "title": "Livret d'Accueil de Nounou",
+    "content": {
+      "root": {
+        "type": "root",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "children": [
+          {
+            "type": "paragraph",
+            "version": 1,
+            "children": [
+              {
+                "text": "Après plusieurs années de bonheur avec les enfants et afin de donner au livret d'accueil un second souffle, mon fils m'a proposé de le convertir en site internet.",
+                "type": "text",
+                "version": 1
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "version": 1,
+            "children": [
+              {
+                "text": "La relation nounou – Parents est basée sur un partenariat : Ensemble nous veillons sur le bien-être et l'éveil de l'enfant.",
+                "type": "text",
+                "version": 1
+              }
+            ]
+          }
+        ],
+        "direction": "ltr"
+      }
+    }
+  },
+  "familyMembers": [
+    {
+      "id": "694b06d1b9808c88c18db7c1",
+      "image": {
+        "id": 6,
+        "alt": "Isabelle Cinquin",
+        "updatedAt": "2025-12-23T13:56:25.076Z",
+        "createdAt": "2025-12-23T13:56:25.076Z",
+        "url": "http://localhost:3000/api/media/file/isabelle.jpg",
+        "thumbnailURL": null,
+        "filename": "isabelle.jpg",
+        "mimeType": "image/jpeg",
+        "filesize": 185682,
+        "width": 1600,
+        "height": 1066,
+        "focalX": 50,
+        "focalY": 50
+      },
+      "firstName": "Isabelle",
+      "lastName": null,
+      "description": "(moi, Maman, et nounou)",
+      "link": null
+    },
+    {
+      "id": "694b06d1b9808c88c18db7c2",
+      "image": {
+        "id": 6,
+        "alt": "Isabelle Cinquin",
+        "updatedAt": "2025-12-23T13:56:25.076Z",
+        "createdAt": "2025-12-23T13:56:25.076Z",
+        "url": "http://localhost:3000/api/media/file/isabelle.jpg",
+        "thumbnailURL": null,
+        "filename": "isabelle.jpg",
+        "mimeType": "image/jpeg",
+        "filesize": 185682,
+        "width": 1600,
+        "height": 1066,
+        "focalX": 50,
+        "focalY": 50
+      },
+      "firstName": "Frederic",
+      "lastName": null,
+      "description": "Mari de nounou depuis 27 ans",
+      "link": null
+    },
+    {
+      "id": "694b06d1b9808c88c18db7c3",
+      "image": {
+        "id": 9,
+        "alt": "Andy",
+        "updatedAt": "2025-12-23T14:17:27.766Z",
+        "createdAt": "2025-12-23T14:17:27.765Z",
+        "url": "http://localhost:3000/api/media/file/andy.jpg",
+        "thumbnailURL": null,
+        "filename": "andy.jpg",
+        "mimeType": "image/jpeg",
+        "filesize": 278444,
+        "width": 1692,
+        "height": 951,
+        "focalX": 50,
+        "focalY": 50
+      },
+      "firstName": "Andy",
+      "lastName": null,
+      "description": "Le plus grand, et ingénieur en Informatique",
+      "link": "https://andy-cinquin.fr/"
+    },
+    {
+      "id": "694b06d1b9808c88c18db7c4",
+      "image": {
+        "id": 6,
+        "alt": "Isabelle Cinquin",
+        "updatedAt": "2025-12-23T13:56:25.076Z",
+        "createdAt": "2025-12-23T13:56:25.076Z",
+        "url": "http://localhost:3000/api/media/file/isabelle.jpg",
+        "thumbnailURL": null,
+        "filename": "isabelle.jpg",
+        "mimeType": "image/jpeg",
+        "filesize": 185682,
+        "width": 1600,
+        "height": 1066,
+        "focalX": 50,
+        "focalY": 50
+      },
+      "firstName": "Orlane",
+      "lastName": null,
+      "description": "Maîtresse des écoles",
+      "link": null
+    },
+    {
+      "id": "694b06d1b9808c88c18db7c5",
+      "image": {
+        "id": 10,
+        "alt": "Maeva",
+        "updatedAt": "2025-12-23T14:17:28.218Z",
+        "createdAt": "2025-12-23T14:17:28.218Z",
+        "url": "http://localhost:3000/api/media/file/maeva.jpg",
+        "thumbnailURL": null,
+        "filename": "maeva.jpg",
+        "mimeType": "image/jpeg",
+        "filesize": 116807,
+        "width": 1006,
+        "height": 1507,
+        "focalX": 50,
+        "focalY": 50
+      },
+      "firstName": "Maeva",
+      "lastName": null,
+      "description": "Maquilleuse professionnelle",
+      "link": "https://cinquin-maeva.com/"
+    },
+    {
+      "id": "694b06d1b9808c88c18db7c6",
+      "image": {
+        "id": 6,
+        "alt": "Isabelle Cinquin",
+        "updatedAt": "2025-12-23T13:56:25.076Z",
+        "createdAt": "2025-12-23T13:56:25.076Z",
+        "url": "http://localhost:3000/api/media/file/isabelle.jpg",
+        "thumbnailURL": null,
+        "filename": "isabelle.jpg",
+        "mimeType": "image/jpeg",
+        "filesize": 185682,
+        "width": 1600,
+        "height": 1066,
+        "focalX": 50,
+        "focalY": 50
+      },
+      "firstName": "Kylian",
+      "lastName": null,
+      "description": "Le petit dernier de notre tribu",
+      "link": null
+    },
+    {
+      "id": "694b06d1b9808c88c18db7c7",
+      "image": {
+        "id": 11,
+        "alt": "tagada",
+        "updatedAt": "2025-12-23T14:31:00.420Z",
+        "createdAt": "2025-12-23T14:31:00.420Z",
+        "url": "http://localhost:3000/api/media/file/IMG-20251223-WA0000.jpg",
+        "thumbnailURL": null,
+        "filename": "IMG-20251223-WA0000.jpg",
+        "mimeType": "image/jpeg",
+        "filesize": 209373,
+        "width": 1200,
+        "height": 1600,
+        "focalX": 50,
+        "focalY": 50
+      },
+      "firstName": "Tagada",
+      "lastName": null,
+      "description": "Un potit chat",
+      "link": null
+    },
+    {
+      "id": "694b06d1b9808c88c18db7c8",
+      "image": {
+        "id": 13,
+        "alt": "sia",
+        "updatedAt": "2025-12-23T14:31:37.500Z",
+        "createdAt": "2025-12-23T14:31:37.500Z",
+        "url": "http://localhost:3000/api/media/file/IMG-20251223-WA0007.jpg",
+        "thumbnailURL": null,
+        "filename": "IMG-20251223-WA0007.jpg",
+        "mimeType": "image/jpeg",
+        "filesize": 93969,
+        "width": 725,
+        "height": 1088,
+        "focalX": 50,
+        "focalY": 50
+      },
+      "firstName": "Sia",
+      "lastName": null,
+      "description": "Un potit chat",
+      "link": null
+    },
+    {
+      "id": "694beb59206670ffac5ba383",
+      "image": {
+        "id": 12,
+        "alt": "tsuky",
+        "updatedAt": "2025-12-23T14:31:19.366Z",
+        "createdAt": "2025-12-23T14:31:19.366Z",
+        "url": "http://localhost:3000/api/media/file/IMG-20251223-WA0001.jpg",
+        "thumbnailURL": null,
+        "filename": "IMG-20251223-WA0001.jpg",
+        "mimeType": "image/jpeg",
+        "filesize": 116552,
+        "width": 1600,
+        "height": 1066,
+        "focalX": 50,
+        "focalY": 50
+      },
+      "firstName": "Tsuky",
+      "lastName": null,
+      "description": "Encore un autre potit chat",
+      "link": null
+    }
+  ],
+  "trainingsSection": {
+    "title": "Mes formations",
+    "subtitle": null,
+    "items": [
+      {
+        "id": "694b06d1b9808c88c18db7c9",
+        "title": "CAP Petite Enfance (AEPE)",
+        "period": "2018 - 2020",
+        "description": "120 heures de formation - CAP Accompagnant(e) éducatif petite enfance. Formation complète pour l'accueil et l'accompagnement des tout-petits."
+      },
+      {
+        "id": "694b06d1b9808c88c18db7ca",
+        "title": "Sauveteur Secouriste du Travail",
+        "period": "Formation continue",
+        "description": "Formation SST - Premiers secours adaptés aux situations avec les enfants. Recyclage régulier."
+      }
+    ]
+  },
+  "sleep": {
+    "title": "Le sommeil",
+    "subtitle": "Les siestes",
+    "content": {
+      "root": {
+        "type": "root",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "children": [
+          {
+            "type": "paragraph",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [
+              {
+                "mode": "normal",
+                "text": "Chez nounou, les enfants dorment dans un ",
+                "type": "text",
+                "style": "",
+                "detail": 0,
+                "format": 0,
+                "version": 1
+              },
+              {
+                "mode": "normal",
+                "text": "lit à barreaux",
+                "type": "text",
+                "style": "",
+                "detail": 0,
+                "format": 1,
+                "version": 1
+              },
+              {
+                "mode": "normal",
+                "text": ", chacun dans une ",
+                "type": "text",
+                "style": "",
+                "detail": 0,
+                "format": 0,
+                "version": 1
+              },
+              {
+                "mode": "normal",
+                "text": "chambre séparée",
+                "type": "text",
+                "style": "",
+                "detail": 0,
+                "format": 1,
+                "version": 1
+              },
+              {
+                "mode": "normal",
+                "text": " pour plus de confort et de sérénité.",
+                "type": "text",
+                "style": "",
+                "detail": 0,
+                "format": 0,
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "textStyle": "",
+            "textFormat": 0
+          }
+        ],
+        "direction": null
+      }
+    },
+    "tags": [
+      {
+        "id": "694b06d1b9808c88c18db7cb",
+        "text": "Confort"
+      },
+      {
+        "id": "694b06d1b9808c88c18db7cc",
+        "text": "Sérénité"
+      },
+      {
+        "id": "694b06d1b9808c88c18db7cd",
+        "text": "Calme"
+      }
+    ]
+  },
+  "livingPlace": {
+    "title": "Lieu de vie",
+    "description": "J'accueille vos enfants dans une maison clôturée avec jardin qui se situe au bord du Lac Léman.",
+    "image": {
+      "id": 17,
+      "alt": "Vue aérienne d'un aménagement moderne de maison avec des pièces colorées en teal, rouge, jaune, orange et violet, entourées d'un grand jardin vert avec une piscine, des espaces de sièges, un terrain de jeu et des buts de football.",
+      "updatedAt": "2025-12-24T14:08:34.386Z",
+      "createdAt": "2025-12-23T21:16:14.340Z",
+      "url": "http://localhost:3000/api/media/file/Home_sweet_home.jpg",
+      "thumbnailURL": null,
+      "filename": "Home_sweet_home.jpg",
+      "mimeType": "image/jpeg",
+      "filesize": 645075,
+      "width": 2446,
+      "height": 1518,
+      "focalX": 50,
+      "focalY": 50
+    }
+  },
+  "equipmentSection": {
+    "title": "Les équipements",
+    "subtitle": "Tout le matériel nécessaire pour accueillir vos enfants",
+    "items": [
+      {
+        "id": "694bf5f0b613be80702e696e",
+        "name": "Poussettes simples et doubles ",
+        "quantity": 2,
+        "icon": {
+          "id": 18,
+          "alt": "Poussettes",
+          "updatedAt": "2025-12-24T14:13:48.440Z",
+          "createdAt": "2025-12-24T14:13:48.439Z",
+          "url": "http://localhost:3000/api/media/file/210104_Baby_Stroller.svg",
+          "thumbnailURL": null,
+          "filename": "210104_Baby_Stroller.svg",
+          "mimeType": "image/svg+xml",
+          "filesize": 67842,
+          "width": 2800,
+          "height": 2800,
+          "focalX": null,
+          "focalY": null
+        }
+      },
+      {
+        "id": "694bf633b613be80702e6970",
+        "name": "Chaises haute",
+        "quantity": 4,
+        "icon": {
+          "id": 18,
+          "alt": "Poussettes",
+          "updatedAt": "2025-12-24T14:13:48.440Z",
+          "createdAt": "2025-12-24T14:13:48.439Z",
+          "url": "http://localhost:3000/api/media/file/210104_Baby_Stroller.svg",
+          "thumbnailURL": null,
+          "filename": "210104_Baby_Stroller.svg",
+          "mimeType": "image/svg+xml",
+          "filesize": 67842,
+          "width": 2800,
+          "height": 2800,
+          "focalX": null,
+          "focalY": null
+        }
+      },
+      {
+        "id": "694bf6cab613be80702e6972",
+        "name": "Transat",
+        "quantity": null,
+        "icon": {
+          "id": 18,
+          "alt": "Poussettes",
+          "updatedAt": "2025-12-24T14:13:48.440Z",
+          "createdAt": "2025-12-24T14:13:48.439Z",
+          "url": "http://localhost:3000/api/media/file/210104_Baby_Stroller.svg",
+          "thumbnailURL": null,
+          "filename": "210104_Baby_Stroller.svg",
+          "mimeType": "image/svg+xml",
+          "filesize": 67842,
+          "width": 2800,
+          "height": 2800,
+          "focalX": null,
+          "focalY": null
+        }
+      },
+      {
+        "id": "694bf6ccb613be80702e6974",
+        "name": "Table à langer",
+        "quantity": null,
+        "icon": {
+          "id": 18,
+          "alt": "Poussettes",
+          "updatedAt": "2025-12-24T14:13:48.440Z",
+          "createdAt": "2025-12-24T14:13:48.439Z",
+          "url": "http://localhost:3000/api/media/file/210104_Baby_Stroller.svg",
+          "thumbnailURL": null,
+          "filename": "210104_Baby_Stroller.svg",
+          "mimeType": "image/svg+xml",
+          "filesize": 67842,
+          "width": 2800,
+          "height": 2800,
+          "focalX": null,
+          "focalY": null
+        }
+      },
+      {
+        "id": "694bf6cdb613be80702e6976",
+        "name": "Lits en bois à barreau ",
+        "quantity": 3,
+        "icon": {
+          "id": 18,
+          "alt": "Poussettes",
+          "updatedAt": "2025-12-24T14:13:48.440Z",
+          "createdAt": "2025-12-24T14:13:48.439Z",
+          "url": "http://localhost:3000/api/media/file/210104_Baby_Stroller.svg",
+          "thumbnailURL": null,
+          "filename": "210104_Baby_Stroller.svg",
+          "mimeType": "image/svg+xml",
+          "filesize": 67842,
+          "width": 2800,
+          "height": 2800,
+          "focalX": null,
+          "focalY": null
+        }
+      },
+      {
+        "id": "694bf6d0b613be80702e6978",
+        "name": "Sièges auto isofix bébé confort ",
+        "quantity": 2,
+        "icon": {
+          "id": 18,
+          "alt": "Poussettes",
+          "updatedAt": "2025-12-24T14:13:48.440Z",
+          "createdAt": "2025-12-24T14:13:48.439Z",
+          "url": "http://localhost:3000/api/media/file/210104_Baby_Stroller.svg",
+          "thumbnailURL": null,
+          "filename": "210104_Baby_Stroller.svg",
+          "mimeType": "image/svg+xml",
+          "filesize": 67842,
+          "width": 2800,
+          "height": 2800,
+          "focalX": null,
+          "focalY": null
+        }
+      }
+    ]
+  },
+  "objectivesSection": {
+    "title": "Mes objectifs",
+    "subtitle": "Ce qui est important pour moi dans l'accompagnement de vos enfants",
+    "items": [
+      {
+        "id": "694bfbee9dd1f4673ec54619",
+        "title": "L'éveil",
+        "description": null,
+        "icon": {
+          "id": 18,
+          "alt": "Poussettes",
+          "updatedAt": "2025-12-24T14:13:48.440Z",
+          "createdAt": "2025-12-24T14:13:48.439Z",
+          "url": "http://localhost:3000/api/media/file/210104_Baby_Stroller.svg",
+          "thumbnailURL": null,
+          "filename": "210104_Baby_Stroller.svg",
+          "mimeType": "image/svg+xml",
+          "filesize": 67842,
+          "width": 2800,
+          "height": 2800,
+          "focalX": null,
+          "focalY": null
+        }
+      },
+      {
+        "id": "694bfc1c9dd1f4673ec5461b",
+        "title": "Le respect",
+        "description": null,
+        "icon": {
+          "id": 18,
+          "alt": "Poussettes",
+          "updatedAt": "2025-12-24T14:13:48.440Z",
+          "createdAt": "2025-12-24T14:13:48.439Z",
+          "url": "http://localhost:3000/api/media/file/210104_Baby_Stroller.svg",
+          "thumbnailURL": null,
+          "filename": "210104_Baby_Stroller.svg",
+          "mimeType": "image/svg+xml",
+          "filesize": 67842,
+          "width": 2800,
+          "height": 2800,
+          "focalX": null,
+          "focalY": null
+        }
+      },
+      {
+        "id": "694bfc319dd1f4673ec5461d",
+        "title": "L'alimentation",
+        "description": null,
+        "icon": {
+          "id": 18,
+          "alt": "Poussettes",
+          "updatedAt": "2025-12-24T14:13:48.440Z",
+          "createdAt": "2025-12-24T14:13:48.439Z",
+          "url": "http://localhost:3000/api/media/file/210104_Baby_Stroller.svg",
+          "thumbnailURL": null,
+          "filename": "210104_Baby_Stroller.svg",
+          "mimeType": "image/svg+xml",
+          "filesize": 67842,
+          "width": 2800,
+          "height": 2800,
+          "focalX": null,
+          "focalY": null
+        }
+      },
+      {
+        "id": "694bfc529dd1f4673ec5461f",
+        "title": "Soins",
+        "description": null,
+        "icon": {
+          "id": 18,
+          "alt": "Poussettes",
+          "updatedAt": "2025-12-24T14:13:48.440Z",
+          "createdAt": "2025-12-24T14:13:48.439Z",
+          "url": "http://localhost:3000/api/media/file/210104_Baby_Stroller.svg",
+          "thumbnailURL": null,
+          "filename": "210104_Baby_Stroller.svg",
+          "mimeType": "image/svg+xml",
+          "filesize": 67842,
+          "width": 2800,
+          "height": 2800,
+          "focalX": null,
+          "focalY": null
+        }
+      },
+      {
+        "id": "694bfc669dd1f4673ec54621",
+        "title": "Sécurité",
+        "description": null,
+        "icon": {
+          "id": 18,
+          "alt": "Poussettes",
+          "updatedAt": "2025-12-24T14:13:48.440Z",
+          "createdAt": "2025-12-24T14:13:48.439Z",
+          "url": "http://localhost:3000/api/media/file/210104_Baby_Stroller.svg",
+          "thumbnailURL": null,
+          "filename": "210104_Baby_Stroller.svg",
+          "mimeType": "image/svg+xml",
+          "filesize": 67842,
+          "width": 2800,
+          "height": 2800,
+          "focalX": null,
+          "focalY": null
+        }
+      }
+    ]
+  },
+  "adaptation": {
+    "title": "Période d'adaptation",
+    "subtitle": "Une période importante pour permettre à l'enfant, aux parents, et à nounou de faire connaissance en douceur.",
+    "image": {
+      "id": 6,
+      "alt": "Isabelle Cinquin",
+      "updatedAt": "2025-12-23T13:56:25.076Z",
+      "createdAt": "2025-12-23T13:56:25.076Z",
+      "url": "http://localhost:3000/api/media/file/isabelle.jpg",
+      "thumbnailURL": null,
+      "filename": "isabelle.jpg",
+      "mimeType": "image/jpeg",
+      "filesize": 185682,
+      "width": 1600,
+      "height": 1066,
+      "focalX": 50,
+      "focalY": 50
+    },
+    "keyMessage": "La clé d'un accueil réussi : une confiance mutuelle et un dialogue permanent entre les parents et la nounou.",
+    "badges": [
+      {
+        "id": "694c0faa0becb0e3872d4803",
+        "text": "Faire connaissance",
+        "icon": {
+          "id": 18,
+          "alt": "Poussettes",
+          "updatedAt": "2025-12-24T14:13:48.440Z",
+          "createdAt": "2025-12-24T14:13:48.439Z",
+          "url": "http://localhost:3000/api/media/file/210104_Baby_Stroller.svg",
+          "thumbnailURL": null,
+          "filename": "210104_Baby_Stroller.svg",
+          "mimeType": "image/svg+xml",
+          "filesize": 67842,
+          "width": 2800,
+          "height": 2800,
+          "focalX": null,
+          "focalY": null
+        },
+        "color": "pink"
+      },
+      {
+        "id": "694c0fb70becb0e3872d4805",
+        "text": "S'écouter",
+        "icon": {
+          "id": 18,
+          "alt": "Poussettes",
+          "updatedAt": "2025-12-24T14:13:48.440Z",
+          "createdAt": "2025-12-24T14:13:48.439Z",
+          "url": "http://localhost:3000/api/media/file/210104_Baby_Stroller.svg",
+          "thumbnailURL": null,
+          "filename": "210104_Baby_Stroller.svg",
+          "mimeType": "image/svg+xml",
+          "filesize": 67842,
+          "width": 2800,
+          "height": 2800,
+          "focalX": null,
+          "focalY": null
+        },
+        "color": "violet"
+      },
+      {
+        "id": "694c0fba0becb0e3872d4807",
+        "text": "Communiquer",
+        "icon": {
+          "id": 18,
+          "alt": "Poussettes",
+          "updatedAt": "2025-12-24T14:13:48.440Z",
+          "createdAt": "2025-12-24T14:13:48.439Z",
+          "url": "http://localhost:3000/api/media/file/210104_Baby_Stroller.svg",
+          "thumbnailURL": null,
+          "filename": "210104_Baby_Stroller.svg",
+          "mimeType": "image/svg+xml",
+          "filesize": 67842,
+          "width": 2800,
+          "height": 2800,
+          "focalX": null,
+          "focalY": null
+        },
+        "color": "amber"
+      },
+      {
+        "id": "694c0fbc0becb0e3872d4809",
+        "text": "Apprendre",
+        "icon": {
+          "id": 18,
+          "alt": "Poussettes",
+          "updatedAt": "2025-12-24T14:13:48.440Z",
+          "createdAt": "2025-12-24T14:13:48.439Z",
+          "url": "http://localhost:3000/api/media/file/210104_Baby_Stroller.svg",
+          "thumbnailURL": null,
+          "filename": "210104_Baby_Stroller.svg",
+          "mimeType": "image/svg+xml",
+          "filesize": 67842,
+          "width": 2800,
+          "height": 2800,
+          "focalX": null,
+          "focalY": null
+        },
+        "color": "emerald"
+      }
+    ]
+  },
+  "organization": {
+    "title": "Organisation des affaires",
+    "subtitle": "Glissez pour comparer ce qu'il faut apporter et ce qui est fourni",
+    "bagItems": [
+      {
+        "id": "694b06d1b9808c88c18db7de",
+        "item": "Le carnet de santé"
+      },
+      {
+        "id": "694b06d1b9808c88c18db7df",
+        "item": "Des vêtements de rechange"
+      },
+      {
+        "id": "694b06d1b9808c88c18db7e0",
+        "item": "Doudou"
+      },
+      {
+        "id": "694b06d1b9808c88c18db7e1",
+        "item": "Des tétines"
+      },
+      {
+        "id": "694b06d1b9808c88c18db7e2",
+        "item": "De la crème solaire"
+      }
+    ],
+    "bagImage": {
+      "id": 7,
+      "alt": "Sac à langer",
+      "updatedAt": "2025-12-23T13:56:25.790Z",
+      "createdAt": "2025-12-23T13:56:25.790Z",
+      "url": "http://localhost:3000/api/media/file/sac-langer.png",
+      "thumbnailURL": null,
+      "filename": "sac-langer.png",
+      "mimeType": "image/png",
+      "filesize": 726005,
+      "width": 1024,
+      "height": 1024,
+      "focalX": 50,
+      "focalY": 50
+    },
+    "nounouItems": [
+      {
+        "id": "694b06d1b9808c88c18db7e3",
+        "item": "Des couches"
+      },
+      {
+        "id": "694b06d1b9808c88c18db7e4",
+        "item": "Un biberon"
+      },
+      {
+        "id": "694b06d1b9808c88c18db7e5",
+        "item": "Du lait"
+      },
+      {
+        "id": "694b06d1b9808c88c18db7e6",
+        "item": "Une turbulette"
+      },
+      {
+        "id": "694b06d1b9808c88c18db7e7",
+        "item": "Des chaussons"
+      }
+    ],
+    "nounouImage": {
+      "id": 8,
+      "alt": "Chez Nounou",
+      "updatedAt": "2025-12-23T13:56:26.278Z",
+      "createdAt": "2025-12-23T13:56:26.278Z",
+      "url": "http://localhost:3000/api/media/file/chez-nounou.png",
+      "thumbnailURL": null,
+      "filename": "chez-nounou.png",
+      "mimeType": "image/png",
+      "filesize": 658055,
+      "width": 1024,
+      "height": 1024,
+      "focalX": 50,
+      "focalY": 50
+    }
+  },
+  "dailyScheduleSection": {
+    "title": "Organisation d'une journée",
+    "subtitle": "Comment se déroule une journée type chez nounou",
+    "items": [
+      {
+        "id": "694b06d1b9808c88c18db7e8",
+        "time": "Matin",
+        "activity": "Arrivée en douceur, transmission avec les parents, petit déjeuner et petit câlin"
+      },
+      {
+        "id": "694b06d1b9808c88c18db7e9",
+        "time": "9h",
+        "activity": "Accompagnement du fils de nounou à l'école"
+      },
+      {
+        "id": "694b06d1b9808c88c18db7ea",
+        "time": "Matinée",
+        "activity": "Sieste pour les plus petits, jeux et activités (dessins, peinture, sable magique) pour les plus grands"
+      },
+      {
+        "id": "694b06d1b9808c88c18db7eb",
+        "time": "11h30",
+        "activity": "Promenade vers le lac ou visite au relais de nounou pour mettre en appétit"
+      },
+      {
+        "id": "694b06d1b9808c88c18db7ec",
+        "time": "12h",
+        "activity": "Repas pour tous"
+      },
+      {
+        "id": "694b06d1b9808c88c18db7ed",
+        "time": "13h30",
+        "activity": "Changements de couches puis sieste"
+      },
+      {
+        "id": "694b06d1b9808c88c18db7ee",
+        "time": "15h30",
+        "activity": "Réveil en douceur, départ pour chercher le fils de nounou à l'école"
+      },
+      {
+        "id": "694b06d1b9808c88c18db7ef",
+        "time": "16h",
+        "activity": "Goûter puis jeux ou petite baignade dans la pataugeoire en été"
+      },
+      {
+        "id": "694b06d1b9808c88c18db7f0",
+        "time": "17h",
+        "activity": "Jeux libres, lectures, comptines en attendant l'arrivée de Papa et Maman"
+      }
+    ]
+  },
+  "charterSection": {
+    "title": "Charte de vie",
+    "subtitle": "Les règles de vie chez nounou, écrites du point de vue de votre enfant 💜",
+    "items": [
+      {
+        "id": "694b06d1b9808c88c18db7f1",
+        "ruleNumber": 1,
+        "title": "Ponctualité le matin",
+        "content": "Papa, Maman, il est important pour mon rythme et l'organisation de nounou d'arriver bien à l'heure chaque jour. En cas d'imprévu, merci de prévenir Nounou."
+      },
+      {
+        "id": "694b06d1b9808c88c18db7f2",
+        "ruleNumber": 2,
+        "title": "Respect de l'espace",
+        "content": "Papa, Maman, pensez à bien rester à l'entrée. Car c'est moi qui vais crapahuter ici toute la journée."
+      },
+      {
+        "id": "694b06d1b9808c88c18db7f3",
+        "ruleNumber": 3,
+        "title": "Communication importante",
+        "content": "Papa, Maman, je suis trop jeune pour expliquer ma nuit, mon petit déj, le week-end... à nounou. Prenez 5 minutes pour tout raconter à nounou, cela va drôlement l'aider à s'occuper de moi toute cette nouvelle journée."
+      },
+      {
+        "id": "694b06d1b9808c88c18db7f4",
+        "ruleNumber": 4,
+        "title": "Arrivée préparée",
+        "content": "Papa, Maman, je me sens bien mieux quand j'arrive chez nounou habillé, débarbouillé, ma couche changée. Merci de respecter chaque jour ces petits gestes qui sont si agréables pour Nounou."
+      },
+      {
+        "id": "694b06d1b9808c88c18db7f5",
+        "ruleNumber": 5,
+        "title": "Questions bienvenues",
+        "content": "Papa, Maman, n'hésitez pas à poser à ma nounou des questions qui vous préoccupent concernant mon évolution, alimentation, sommeil, santé, ma vie ici chez nounou..."
+      },
+      {
+        "id": "694b06d1b9808c88c18db7f6",
+        "ruleNumber": 6,
+        "title": "Santé et maladie",
+        "content": "Papa, Maman, si je suis malade avec de la fièvre, ne me mettez pas chez Nounou sans avoir pris le soin de m'emmener au préalable chez le docteur. Je reviendrais chez nounou avec le traitement adapté."
+      },
+      {
+        "id": "694b06d1b9808c88c18db7f7",
+        "ruleNumber": 7,
+        "title": "Lieu de vie privé",
+        "content": "Papa, Maman, n'oubliez pas, le lieu de travail de Nounou est aussi sa maison, c'est pour cela qu'il faut respecter son environnement et ne pas être trop envahissant."
+      },
+      {
+        "id": "694b06d1b9808c88c18db7f8",
+        "ruleNumber": 8,
+        "title": "Ponctualité le soir",
+        "content": "Papa et Maman, le soir, la ponctualité atténue mes angoisses. Pensez à prévenir Nounou d'un retard exceptionnel afin qu'elle puisse me rassurer et m'expliquer. En plus nounou n'est pas que nounou tout le temps, elle peut aussi avoir des rendez-vous persos !"
+      },
+      {
+        "id": "694b06d1b9808c88c18db7f9",
+        "ruleNumber": 9,
+        "title": "Paiement régulier",
+        "content": "Tout travail mérite salaire, Papa, Maman, n'oubliez pas de payer Nounou, elle aussi, doit payer son loyer, ses charges..."
+      }
+    ]
+  },
+  "contactSection": {
+    "title": "Envie de me rencontrer ?",
+    "content": "N'hésitez pas à me contacter pour discuter de l'accueil de votre enfant"
+  },
+  "settings": {
+    "isAvailable": true,
+    "unavailableMessage": {
+      "root": {
+        "type": "root",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "children": [
+          {
+            "type": "paragraph",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [
+              {
+                "mode": "normal",
+                "text": " Nounou actuellement indisponible, merci de votre compréhension. ",
+                "type": "text",
+                "style": "",
+                "detail": 0,
+                "format": 0,
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "textStyle": "",
+            "textFormat": 0
+          },
+          {
+            "type": "paragraph",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [
+              {
+                "mode": "normal",
+                "text": "Appelez moi un jour wolah !",
+                "type": "text",
+                "style": "",
+                "detail": 0,
+                "format": 0,
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "textStyle": "",
+            "textFormat": 0
+          }
+        ],
+        "direction": null
+      }
+    },
+    "email": "andorma@gmail.com",
+    "phone": "06 03 28 69 06",
+    "landline": "04 50 72 81 92",
+    "address": "1250 Chemin de la Renouillère, 74140 Sciez",
+    "nounouTopLink": "https://aide-au-top.fr/assistante-maternelle-sciez-74140-19",
+    "openingHours": "7h - 19h",
+    "mapLat": 46.349104,
+    "mapLng": 6.397748
+  },
+  "updatedAt": "2025-12-24T18:58:04.362Z",
+  "createdAt": "2025-12-23T13:07:32.521Z",
+  "globalType": "landing"
+}

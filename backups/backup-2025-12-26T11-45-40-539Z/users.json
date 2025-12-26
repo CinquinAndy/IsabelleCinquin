@@ -1,0 +1,26 @@
+{
+  "docs": [
+    {
+      "id": 1,
+      "updatedAt": "2025-12-23T13:08:30.734Z",
+      "createdAt": "2025-12-23T13:08:30.734Z",
+      "email": "cinquin.andy@gmail.com",
+      "sessions": [
+        {
+          "id": "c459b872-cdab-4e45-a0aa-fd0fa2fe0e7c",
+          "createdAt": "2025-12-26T11:34:08.152Z",
+          "expiresAt": "2025-12-26T13:34:08.152Z"
+        }
+      ]
+    }
+  ],
+  "hasNextPage": false,
+  "hasPrevPage": false,
+  "limit": 10000,
+  "nextPage": null,
+  "page": 1,
+  "pagingCounter": 1,
+  "prevPage": null,
+  "totalDocs": 1,
+  "totalPages": 1
+}
