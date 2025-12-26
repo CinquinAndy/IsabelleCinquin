@@ -1,0 +1,10 @@
+diff --git a/dist/widgets/CollectionCards/index.scss b/dist/widgets/CollectionCards/index.scss
+index 0330e9c283160e35ad22f7f244bba840bc57c66f..c8776a72ede7877fc2fba855a89b96603f7eb5b9 100644
+--- a/dist/widgets/CollectionCards/index.scss
++++ b/dist/widgets/CollectionCards/index.scss
+@@ -1,4 +1,4 @@
+-@import '~@payloadcms/ui/scss';
++@import '../../scss/styles';
+ 
+ @layer payload-default {
+   .collections {
