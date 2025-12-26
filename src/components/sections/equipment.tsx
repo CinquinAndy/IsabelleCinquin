@@ -36,7 +36,6 @@ function FloatingIcon({ src, alt, delay = 0 }: { src: string; alt: string; delay
 				width={80} 
 				height={80} 
 				className="object-contain w-full h-full" 
-				unoptimized
 			/>
 		</motion.div>
 	)
@@ -90,14 +89,21 @@ export function Equipment({ equipmentSection }: EquipmentProps) {
 		const icon = item.icon
 		let iconUrl: string | null = null
 		
-		if (typeof icon === 'object' && icon !== null && 'url' in icon) {
-			iconUrl = icon.url ?? null
+		if (typeof icon === 'object' && icon !== null && 'url' in icon && icon.url) {
+			// Convert absolute URL to relative path for local images
+			// http://localhost:3000/api/media/file/x.png -> /api/media/file/x.png
+			const url = icon.url
+			try {
+				const urlObj = new URL(url)
+				iconUrl = urlObj.pathname // Get only the path part
+			} catch {
+				// If URL parsing fails, use as-is
+				iconUrl = url
+			}
 		} else if (typeof icon === 'number') {
 			// If it's just an ID, the image is not populated
 			console.warn(`Icon for "${item.name}" is not populated (id: ${icon}). Check depth in findGlobal.`)
 		}
-		
-		console.log(`Item "${item.name}": icon =`, icon, '→ iconUrl =', iconUrl)
 
 		if (!iconUrl) {
 			// Don't crash, use placeholder
