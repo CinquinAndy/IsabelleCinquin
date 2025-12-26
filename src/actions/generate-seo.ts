@@ -58,7 +58,7 @@ export async function generateSeoForPost(data: {
 
 		const businessContext = `
 Contexte de l'entreprise:
-- Nom: ${landing.settings?.name || 'Isabelle Cinquin'}
+- Nom: Isabelle Cinquin
 - Métier: Assistante Maternelle
 - Localisation: ${landing.settings?.address || 'Sciez, Haute-Savoie'}
 `
