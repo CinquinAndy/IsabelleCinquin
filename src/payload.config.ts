@@ -29,6 +29,16 @@ export default buildConfig({
 		importMap: {
 			baseDir: path.resolve(dirname),
 		},
+		livePreview: {
+			url: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
+			breakpoints: [
+				{ label: 'Mobile', name: 'mobile', width: 375, height: 667 },
+				{ label: 'Tablet', name: 'tablet', width: 768, height: 1024 },
+				{ label: 'Desktop', name: 'desktop', width: 1440, height: 900 },
+			],
+			globals: ['landing'],
+			collections: ['posts'],
+		},
 	},
 	collections: [Users, Media, Posts, Categories],
 	globals: [Landing],
