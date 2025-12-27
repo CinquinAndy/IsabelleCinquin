@@ -1,4 +1,4 @@
-# 👶 Isabelle Cinquin - Childminder Website
+# Isabelle Cinquin - Website
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.1-black?logo=next.js)](https://nextjs.org/)
 [![Payload CMS](https://img.shields.io/badge/Payload-3.69-blue?logo=payload)](https://payloadcms.com/)
