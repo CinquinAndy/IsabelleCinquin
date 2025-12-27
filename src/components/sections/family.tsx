@@ -126,7 +126,7 @@ export function Family({ members }: FamilyProps) {
 				className="text-center mb-12"
 			>
 				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-					La petite <span className="font-handwriting text-white/80">famille</span>
+					La petite <span className="font-handwriting text-accent drop-shadow-md">famille</span>
 				</h2>
 				<p className="mt-4 text-lg text-white/70">Les personnes qui vivent avec nounou</p>
 			</motion.div>

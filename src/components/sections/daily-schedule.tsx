@@ -51,7 +51,15 @@ export function DailySchedule({ dailyScheduleSection }: DailyScheduleProps) {
 				<div className="text-center mb-16">
 					<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
 						{title.split(' ').slice(0, -1).join(' ')}{' '}
-						<span className="font-handwriting text-white/80">{title.split(' ').slice(-1)}</span>
+						<motion.span
+							className="font-handwriting text-accent drop-shadow-md inline-block"
+							initial={{ opacity: 0, rotate: -5 }}
+							whileInView={{ opacity: 1, rotate: 0 }}
+							viewport={{ once: true }}
+							transition={{ duration: 0.6, delay: 0.2, ease: 'backOut' }}
+						>
+							{title.split(' ').slice(-1)}
+						</motion.span>
 					</h2>
 					<p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto">{subtitle}</p>
 				</div>

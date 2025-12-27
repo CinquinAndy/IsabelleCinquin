@@ -50,7 +50,7 @@ export function Activities({ posts }: ActivitiesProps) {
 					>
 						Les{' '}
 						<motion.span
-							className="font-handwriting text-white/80 inline-block"
+							className="font-handwriting text-accent drop-shadow-md inline-block"
 							initial={{ opacity: 0 }}
 							whileInView={{ opacity: 0.8 }}
 							viewport={{ once: true }}

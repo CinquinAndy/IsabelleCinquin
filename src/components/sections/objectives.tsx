@@ -78,7 +78,7 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 					>
 						{title.split(' ').slice(0, -1).join(' ')}{' '}
 						<motion.span
-							className="text-accent font-handwriting text-4xl md:text-5xl inline-block"
+							className="text-accent font-handwriting text-4xl md:text-5xl drop-shadow-md inline-block"
 							initial={{ opacity: 0, rotate: -5 }}
 							whileInView={{ opacity: 1, rotate: 0 }}
 							viewport={{ once: true }}

@@ -40,7 +40,7 @@ export function Sleep({ sleepSection }: SleepProps) {
 				>
 					{title.split(' ').slice(0, -1).join(' ')}{' '}
 					<motion.span
-						className="font-handwriting text-white/80 inline-block"
+						className="font-handwriting text-accent drop-shadow-md inline-block"
 						initial={{ opacity: 0, rotate: -5 }}
 						whileInView={{ opacity: 1, rotate: 0 }}
 						viewport={{ once: true }}
