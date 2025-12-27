@@ -42,7 +42,7 @@ export function BlogPostPageClient({ post, landing }: BlogPostPageClientProps) {
 	return (
 		<main className="min-h-screen">
 			{/* Hero Section */}
-			<section className="relative min-h-[70vh] flex flex-col items-center justify-center overflow-hidden bg-linear-to-b from-secondary via-primary to-primary">
+			<section className="relative pt-30 min-h-[70vh] flex flex-col items-center justify-center overflow-hidden bg-linear-to-b from-secondary via-primary to-primary">
 				{/* Floating decorative icons */}
 				{decorativeIcons.map((icon, index) => (
 					<motion.div

@@ -12,8 +12,6 @@ export const metadata: Metadata = {
 export default function MentionsLegalesPage() {
 	return (
 		<>
-			<Header />
-
 			<main className="min-h-screen">
 				{/* Hero section */}
 				<section className="section-primary pt-32 pb-16 px-4">
