@@ -27,26 +27,26 @@ export function Header() {
 	const activeIndex = getActiveIndex()
 
 	return (
-		<header className="fixed top-0 left-0 right-0 z-50 py-4 mx-2">
+		<header className="fixed top-0 left-0 right-0 z-100 py-4 mx-2 pointer-events-none backdrop-blur-[2px]">
 			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 				<div className="flex items-center justify-between">
 					{/* Logo */}
 					<Link
 						href="/"
-						className="font-display text-2xl font-bold text-white drop-shadow-lg transition-transform hover:scale-105"
+						className="font-display text-2xl font-bold text-white drop-shadow-lg transition-transform hover:scale-105 pointer-events-auto"
 					>
 						Isabelle Cinquin
 					</Link>
 
 					{/* Desktop Navigation with SlideTabs */}
-					<nav className="hidden md:block">
+					<nav className="hidden md:block pointer-events-auto">
 						<SlideTabs items={navItems} activeIndex={activeIndex} />
 					</nav>
 
 					{/* Mobile Menu Button */}
 					<button
 						type="button"
-						className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary/60 border border-white/20 backdrop-blur-sm transition-all hover:bg-white hover:text-secondary md:hidden group"
+						className="relative z-101 flex h-10 w-10 items-center justify-center rounded-full bg-secondary/60 border border-white/20 backdrop-blur-sm transition-all hover:bg-white hover:text-secondary md:hidden group pointer-events-auto"
 						onClick={() => setIsMenuOpen(!isMenuOpen)}
 						aria-expanded={isMenuOpen}
 						aria-label={isMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
@@ -61,7 +61,7 @@ export function Header() {
 
 				{/* Mobile Navigation */}
 				{isMenuOpen && (
-					<nav className="mt-4 animate-in fade-in slide-in-from-top-2 rounded-2xl bg-secondary/80 border border-white/20 p-2 backdrop-blur-md md:hidden">
+					<nav className="mt-4 animate-in fade-in slide-in-from-top-2 rounded-2xl bg-secondary/80 border border-white/20 p-2 backdrop-blur-md md:hidden pointer-events-auto">
 						<ul className="flex flex-col gap-1">
 							{navItems.map((item, index) => {
 								const isActive = index === activeIndex

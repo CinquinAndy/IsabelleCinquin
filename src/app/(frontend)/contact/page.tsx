@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 import { getPayload } from 'payload'
 import { AvailabilityBanner } from '@/components/availability-banner'
 import { Footer } from '@/components/footer'
-import { Header } from '@/components/header'
+
 import { ContactPageClient } from '../../../components/contact-page-client'
 
 export const metadata: Metadata = {
@@ -61,7 +61,7 @@ export default async function ContactPage() {
 				<AvailabilityBanner isAvailable={settings.isAvailable ?? true} message={settings.unavailableMessage} />
 			)}
 
-			<Header />
+
 
 			<ContactPageClient settings={settings} />
 
