@@ -17,8 +17,14 @@ interface RichTextProps {
 /**
  * Custom Image component for RichText with "Living Place" styling
  */
+// Define the shape of the media value
+type MediaNodeValue = {
+	url?: string
+	alt?: string
+}
+
 function RichTextImage({ node }: { node: SerializedUploadNode }) {
-	const value = node.value as any
+	const value = node.value as MediaNodeValue
 	const imageUrl = formatMediaUrl(value?.url)
 	const imageAlt = value?.alt || 'Image article'
 
