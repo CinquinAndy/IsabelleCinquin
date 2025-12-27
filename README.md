@@ -163,7 +163,7 @@ src/
 
 ## 📄 License
 
-MIT © [Andy Cinquin](https://music-music.music)
+MIT © [Andy Cinquin](https://andy-cinqin.com)
 
 ---
 
