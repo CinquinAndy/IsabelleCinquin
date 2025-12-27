@@ -3,7 +3,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Footer } from '@/components/footer'
 
-
 export const metadata: Metadata = {
 	title: 'Mentions légales',
 	description: 'Mentions légales du site isabelle-cinquin.fr',
