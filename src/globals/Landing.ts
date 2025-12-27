@@ -1,10 +1,14 @@
 import type { GlobalConfig } from 'payload'
+import { revalidateGlobalAfterChange } from '@/hooks/revalidation'
 
 export const Landing: GlobalConfig = {
 	slug: 'landing',
 	label: 'Landing Page',
 	admin: {
 		group: 'Contenu',
+	},
+	hooks: {
+		afterChange: [revalidateGlobalAfterChange],
 	},
 	fields: [
 		// ==================== SECTION HERO ====================
