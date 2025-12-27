@@ -10,6 +10,7 @@ export const RefreshRouteOnSave = () => {
 		<PayloadRefreshRouteOnSave
 			refresh={router.refresh}
 			serverURL={process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'}
+			debug={true}
 		/>
 	)
 }
