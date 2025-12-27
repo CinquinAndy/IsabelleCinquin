@@ -45,7 +45,7 @@ export function BlogPageClient({ posts, landing }: BlogPageClientProps) {
 							>
 								Le{' '}
 								<motion.span
-									className="font-handwriting text-pink-200 inline-block"
+									className="font-handwriting text-accent drop-shadow-md inline-block"
 									initial={{ opacity: 0, rotate: -5 }}
 									animate={{ opacity: 1, rotate: 0 }}
 									transition={{ duration: 0.6, delay: 0.2, type: 'spring', stiffness: 200 }}
@@ -54,7 +54,7 @@ export function BlogPageClient({ posts, landing }: BlogPageClientProps) {
 								</motion.span>{' '}
 								de{' '}
 								<motion.span
-									className="font-handwriting text-pink-200 inline-block"
+									className="font-handwriting text-accent drop-shadow-md inline-block"
 									initial={{ opacity: 0, rotate: 5 }}
 									animate={{ opacity: 1, rotate: 0 }}
 									transition={{ duration: 0.6, delay: 0.3, type: 'spring', stiffness: 200 }}
@@ -194,7 +194,7 @@ export function BlogPageClient({ posts, landing }: BlogPageClientProps) {
 						>
 							Tous les{' '}
 							<motion.span
-								className="font-handwriting text-white/80 inline-block"
+								className="font-handwriting text-accent drop-shadow-md inline-block"
 								initial={{ opacity: 0 }}
 								whileInView={{ opacity: 0.8 }}
 								viewport={{ once: true }}

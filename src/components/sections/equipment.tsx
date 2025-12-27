@@ -120,8 +120,8 @@ export function Equipment({ equipmentSection }: EquipmentProps) {
 
 	return (
 		<SectionWrapper id="equipements" variant="secondary">
-			<div className="absolute bottom-0 right-0 flex justify-center items-center z-20 translate-y-8">
-				<Image src="/fox.png" alt="hero" width={800} height={800} className="w-[500px]" />
+			<div className="absolute bottom-0 right-0 flex justify-center translate-y-6 md:translate-y-8 xl:translate-y-10 z-20 pointer-events-none">
+				<Image src="/fox.png" alt="fox" width={800} height={800} className="w-[300px] lg:w-[400px] xl:w-[500px] h-auto" />
 			</div>
 			<div className="text-center mb-12">
 				<motion.h2

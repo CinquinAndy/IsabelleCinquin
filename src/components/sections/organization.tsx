@@ -40,8 +40,11 @@ export function Organization({ organization }: OrganizationProps) {
 	return (
 		<SectionWrapper id="organisation" variant="secondary" className="overflow-hidden">
 			{/* swap the image  mirror */}
-			<div className="absolute bottom-0 left-0 flex justify-center items-center z-30 translate-y-8 scale-x-[-1] ">
-				<Image src="/cats.png" alt="cat" width={800} height={800} className="w-[400px]" />
+			<div 
+				className="absolute bottom-0 left-0 flex justify-center translate-y-10 md:translate-y-0 z-30 pointer-events-none"
+				style={{ transform: 'scaleX(-1)' }} 
+			>
+				<Image src="/cats.png" alt="cat" width={800} height={800} className="w-[300px] lg:w-[400px] xl:w-[500px] h-auto" />
 			</div>
 			<div className="max-w-7xl mx-auto">
 				{/* Title with animation */}

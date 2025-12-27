@@ -15,13 +15,13 @@ interface CharterProps {
 const ruleIcons = [Clock, Home, MessageCircle, Heart, Users, Stethoscope, Home, Clock, Wallet]
 
 export function Charter({ charterSection }: CharterProps) {
-	if (!charterSection?.title || !charterSection?.items) {
-		throw new Error('Missing required data for Charter section: title or items')
+	if (!charterSection) {
+		return null
 	}
 
-	const title = charterSection.title
+	const title = charterSection.title || 'Charte de vie'
 	const subtitle = charterSection.subtitle
-	const items = charterSection.items
+	const items = charterSection.items || []
 
 	return (
 		<SectionWrapper id="charte" variant="secondary" className="overflow-hidden">

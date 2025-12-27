@@ -29,8 +29,8 @@ export function Activities({ posts }: ActivitiesProps) {
 
 	return (
 		<SectionWrapper id="activites" variant="primary" className="overflow-hidden">
-			<div className="absolute bottom-0 right-0 flex justify-center items-center z-20 translate-y-10">
-				<Image src="/panda.png" alt="hero" width={800} height={800} className="w-[500px]" />
+			<div className="absolute bottom-0 right-0 flex justify-center translate-y-10 md:translate-y-0 z-20 pointer-events-none">
+				<Image src="/panda.png" alt="panda" width={800} height={800} className="w-[300px] lg:w-[400px] xl:w-[500px] h-auto" />
 			</div>
 			<div className="max-w-7xl mx-auto">
 				{/* Header with animation */}

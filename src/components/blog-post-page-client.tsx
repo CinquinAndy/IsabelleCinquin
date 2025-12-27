@@ -102,7 +102,7 @@ export function BlogPostPageClient({ post, landing }: BlogPostPageClientProps) {
 
 					{/* Title in handwriting font with word stagger */}
 					<motion.h1
-						className="font-handwriting text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white leading-tight mb-6 drop-shadow-lg"
+						className="font-handwriting text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-accent leading-tight mb-6 drop-shadow-lg"
 						initial={{ opacity: 0, y: 30 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
