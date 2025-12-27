@@ -2,7 +2,7 @@ import { ArrowLeft } from 'lucide-react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Footer } from '@/components/footer'
-import { Header } from '@/components/header'
+
 
 export const metadata: Metadata = {
 	title: 'Mentions légales',
@@ -163,8 +163,8 @@ export default function MentionsLegalesPage() {
 
 						<h3>Vos droits</h3>
 						<p>
-							Conformément au RGPD, vous disposez des droits suivants : droit d'accès, de rectification, d'effacement, de
-							limitation du traitement, d'opposition et de portabilité.
+							Conformément au RGPD, vous disposez des droits suivants : droit d'accès, de rectification, d'effacement,
+							de limitation du traitement, d'opposition et de portabilité.
 						</p>
 						<div className="bg-white/10 rounded-xl p-6 not-prose mb-6">
 							<p className="font-bold mb-3">Pour exercer vos droits :</p>
@@ -184,8 +184,8 @@ export default function MentionsLegalesPage() {
 						</div>
 
 						<p>
-							<strong>Réclamation :</strong> Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire
-							une réclamation auprès de la CNIL :{' '}
+							<strong>Réclamation :</strong> Si vous estimez que vos droits ne sont pas respectés, vous pouvez
+							introduire une réclamation auprès de la CNIL :{' '}
 							<a
 								href="https://www.cnil.fr"
 								target="_blank"
@@ -204,8 +204,8 @@ export default function MentionsLegalesPage() {
 
 						<h2>Limitation de responsabilité</h2>
 						<p>
-							Isabelle Cinquin s'efforce d'assurer l'exactitude des informations diffusées sur ce site. Toutefois, nous ne
-							pouvons garantir l'exhaustivité ou l'absence d'erreur.
+							Isabelle Cinquin s'efforce d'assurer l'exactitude des informations diffusées sur ce site. Toutefois, nous
+							ne pouvons garantir l'exhaustivité ou l'absence d'erreur.
 						</p>
 
 						<h2>Droit applicable</h2>

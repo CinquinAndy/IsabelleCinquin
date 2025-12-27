@@ -42,7 +42,6 @@ export function Charter({ charterSection }: CharterProps) {
 								whileInView={{ opacity: 1 }}
 								viewport={{ once: true }}
 								transition={{ duration: 0.6, delay: 0.1 }}
-								data-payload-field="charterSection.title"
 							>
 								{title.split(' ').slice(0, -1).join(' ')}{' '}
 								<motion.span
@@ -61,7 +60,6 @@ export function Charter({ charterSection }: CharterProps) {
 								whileInView={{ opacity: 0.7 }}
 								viewport={{ once: true }}
 								transition={{ duration: 0.6, delay: 0.3 }}
-								data-payload-field="charterSection.subtitle"
 							>
 								{subtitle}
 							</motion.p>

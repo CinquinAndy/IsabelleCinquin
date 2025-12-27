@@ -42,7 +42,6 @@ export function LivingPlace({ livingPlace }: LivingPlaceProps) {
 					whileInView={{ opacity: 1 }}
 					viewport={{ once: true }}
 					transition={{ duration: durations.standard, delay: 0.1 }}
-					data-payload-field="livingPlace.title"
 				>
 					{title.split(' ').slice(0, -1).join(' ')}{' '}
 					<motion.span
@@ -72,7 +71,6 @@ export function LivingPlace({ livingPlace }: LivingPlaceProps) {
 						whileInView={{ opacity: 1 }}
 						viewport={{ once: true }}
 						transition={{ duration: durations.standard, delay: 0.4 }}
-						data-payload-field="livingPlace.description"
 					>
 						{description}
 					</motion.p>

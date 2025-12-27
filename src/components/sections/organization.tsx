@@ -40,11 +40,17 @@ export function Organization({ organization }: OrganizationProps) {
 	return (
 		<SectionWrapper id="organisation" variant="secondary" className="overflow-hidden">
 			{/* swap the image  mirror */}
-			<div 
+			<div
 				className="absolute bottom-0 left-0 flex justify-center translate-y-10 md:translate-y-12 lg:translate-y-16 z-10 pointer-events-none scale-75"
-				style={{ transform: 'scaleX(-1)' }} 
+				style={{ transform: 'scaleX(-1)' }}
 			>
-				<Image src="/cats.png" alt="cat" width={800} height={800} className="w-[300px] lg:w-[400px] xl:w-[500px] h-auto" />
+				<Image
+					src="/cats.png"
+					alt="cat"
+					width={800}
+					height={800}
+					className="w-[300px] lg:w-[400px] xl:w-[500px] h-auto"
+				/>
 			</div>
 			<div className="max-w-7xl mx-auto">
 				{/* Title with animation */}
@@ -61,7 +67,6 @@ export function Organization({ organization }: OrganizationProps) {
 						whileInView={{ opacity: 1 }}
 						viewport={{ once: true }}
 						transition={{ duration: 0.6, delay: 0.1 }}
-						data-payload-field="organization.title"
 					>
 						{title.split(' ').slice(0, -1).join(' ')}{' '}
 						<motion.span
@@ -80,7 +85,6 @@ export function Organization({ organization }: OrganizationProps) {
 						whileInView={{ opacity: 0.7 }}
 						viewport={{ once: true }}
 						transition={{ duration: 0.6, delay: 0.3 }}
-						data-payload-field="organization.subtitle"
 					>
 						{subtitle}
 					</motion.p>

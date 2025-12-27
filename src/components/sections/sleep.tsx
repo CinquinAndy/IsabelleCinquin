@@ -37,7 +37,6 @@ export function Sleep({ sleepSection }: SleepProps) {
 					whileInView={{ opacity: 1 }}
 					viewport={{ once: true }}
 					transition={{ duration: durations.standard, delay: 0.1 }}
-					data-payload-field="sleep.title"
 				>
 					{title.split(' ').slice(0, -1).join(' ')}{' '}
 					<motion.span
@@ -178,7 +177,7 @@ export function Sleep({ sleepSection }: SleepProps) {
 								>
 									<Moon className="w-4 h-4 text-white" />
 								</motion.div>
-								<span className="text-xs font-semibold text-white/60 uppercase tracking-widest" data-payload-field="sleep.subtitle">{subtitle}</span>
+								<span className="text-xs font-semibold text-white/60 uppercase tracking-widest">{subtitle}</span>
 							</motion.div>
 
 							<motion.div
@@ -187,7 +186,6 @@ export function Sleep({ sleepSection }: SleepProps) {
 								whileInView={{ opacity: 1 }}
 								viewport={{ once: true }}
 								transition={{ duration: durations.standard, delay: 0.7 }}
-								data-payload-field="sleep.content"
 							>
 								<RichText content={sleepSection.content} variant="dark" />
 							</motion.div>

@@ -61,8 +61,6 @@ export default async function ContactPage() {
 				<AvailabilityBanner isAvailable={settings.isAvailable ?? true} message={settings.unavailableMessage} />
 			)}
 
-
-
 			<ContactPageClient settings={settings} />
 
 			<Footer settings={settings} />

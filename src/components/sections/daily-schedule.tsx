@@ -49,7 +49,7 @@ export function DailySchedule({ dailyScheduleSection }: DailyScheduleProps) {
 			<div className="max-w-7xl mx-auto">
 				{/* Title */}
 				<div className="text-center mb-16">
-					<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight" data-payload-field="dailyScheduleSection.title">
+					<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
 						{title.split(' ').slice(0, -1).join(' ')}{' '}
 						<motion.span
 							className="font-handwriting text-accent drop-shadow-md inline-block"
@@ -61,7 +61,7 @@ export function DailySchedule({ dailyScheduleSection }: DailyScheduleProps) {
 							{title.split(' ').slice(-1)}
 						</motion.span>
 					</h2>
-					<p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto" data-payload-field="dailyScheduleSection.subtitle">{subtitle}</p>
+					<p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto">{subtitle}</p>
 				</div>
 
 				{/* Timeline */}

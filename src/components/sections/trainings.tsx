@@ -23,9 +23,17 @@ export function Trainings({ trainingsSection }: TrainingsProps) {
 	return (
 		<SectionWrapper id="formations" variant="secondary">
 			{/* py-16 md:py-24 */}
-			<div className="absolute bottom-0 left-0 flex justify-center -translate-x-20 lg:-translate-x-10 xl:translate-x-0
-			translate-y-10 md:translate-y-10 lg:translate-y-12 xl:translate-y-16 z-0">
-				<Image src="/stitch.png" width={500} height={1000} alt="Stitch" className='w-[300px] lg:w-[400px] xl:w-[500px]' />
+			<div
+				className="absolute bottom-0 left-0 flex justify-center -translate-x-20 lg:-translate-x-10 xl:translate-x-0
+			translate-y-10 md:translate-y-10 lg:translate-y-12 xl:translate-y-16 z-0"
+			>
+				<Image
+					src="/stitch.png"
+					width={500}
+					height={1000}
+					alt="Stitch"
+					className="w-[300px] lg:w-[400px] xl:w-[500px]"
+				/>
 			</div>
 			{/* Title */}
 			<motion.div
@@ -35,7 +43,7 @@ export function Trainings({ trainingsSection }: TrainingsProps) {
 				viewport={{ once: true }}
 				transition={{ duration: durations.standard, ease: easings.smooth }}
 			>
-				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight" data-payload-field="trainingsSection.title">
+				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
 					{title.split(' ').slice(0, -1).join(' ')}{' '}
 					<motion.span
 						className="font-handwriting text-accent drop-shadow-md inline-block"
@@ -47,7 +55,7 @@ export function Trainings({ trainingsSection }: TrainingsProps) {
 						{title.split(' ').slice(-1)}
 					</motion.span>
 				</h2>
-				{subtitle && <p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto" data-payload-field="trainingsSection.subtitle">{subtitle}</p>}
+				{subtitle && <p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto">{subtitle}</p>}
 			</motion.div>
 
 			{/* Timeline */}

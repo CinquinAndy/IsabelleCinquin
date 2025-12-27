@@ -31,7 +31,7 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 		// Icon can be a populated object or just an ID
 		const icon = obj.icon
 		let iconUrl: string | null = null
-		
+
 		if (typeof icon === 'object' && icon !== null && 'url' in icon && icon.url) {
 			// Convert absolute URL to relative path for local images
 			// http://localhost:3000/api/media/file/x.png -> /api/media/file/x.png
@@ -75,7 +75,6 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 						whileInView={{ opacity: 1 }}
 						viewport={{ once: true }}
 						transition={{ duration: durations.standard, delay: 0.1 }}
-						data-payload-field="objectivesSection.title"
 					>
 						{title.split(' ').slice(0, -1).join(' ')}{' '}
 						<motion.span
@@ -95,7 +94,6 @@ export function Objectives({ objectivesSection }: ObjectivesProps) {
 						whileInView={{ opacity: 0.7 }}
 						viewport={{ once: true }}
 						transition={{ duration: 0.6, delay: 0.3 }}
-						data-payload-field="objectivesSection.subtitle"
 					>
 						{subtitle}
 					</motion.p>

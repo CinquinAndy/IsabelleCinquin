@@ -30,13 +30,7 @@ function FloatingIcon({ src, alt, delay = 0 }: { src: string; alt: string; delay
 			className="relative filter drop-shadow-lg"
 			style={{ width: 80, height: 80 }}
 		>
-			<Image 
-				src={src} 
-				alt={alt} 
-				width={80} 
-				height={80} 
-				className="object-contain w-full h-full" 
-			/>
+			<Image src={src} alt={alt} width={80} height={80} className="object-contain w-full h-full" />
 		</motion.div>
 	)
 }
@@ -84,44 +78,52 @@ export function Equipment({ equipmentSection }: EquipmentProps) {
 	// Assign dynamic grid spans for bento layout variety
 	const gridSpans: Array<'single' | 'double' | 'tall'> = ['double', 'single', 'tall', 'single', 'single', 'double']
 
-	const items = equipment.map((item, index: number) => {
-		// Icon can be a populated object or just an ID
-		const icon = item.icon
-		let iconUrl: string | null = null
-		
-		if (typeof icon === 'object' && icon !== null && 'url' in icon && icon.url) {
-			// Convert absolute URL to relative path for local images
-			// http://localhost:3000/api/media/file/x.png -> /api/media/file/x.png
-			const url = icon.url
-			try {
-				const urlObj = new URL(url)
-				iconUrl = urlObj.pathname // Get only the path part
-			} catch {
-				// If URL parsing fails, use as-is
-				iconUrl = url
+	const items = equipment
+		.map((item, index: number) => {
+			// Icon can be a populated object or just an ID
+			const icon = item.icon
+			let iconUrl: string | null = null
+
+			if (typeof icon === 'object' && icon !== null && 'url' in icon && icon.url) {
+				// Convert absolute URL to relative path for local images
+				// http://localhost:3000/api/media/file/x.png -> /api/media/file/x.png
+				const url = icon.url
+				try {
+					const urlObj = new URL(url)
+					iconUrl = urlObj.pathname // Get only the path part
+				} catch {
+					// If URL parsing fails, use as-is
+					iconUrl = url
+				}
+			} else if (typeof icon === 'number') {
+				// If it's just an ID, the image is not populated
+				console.warn(`Icon for "${item.name}" is not populated (id: ${icon}). Check depth in findGlobal.`)
 			}
-		} else if (typeof icon === 'number') {
-			// If it's just an ID, the image is not populated
-			console.warn(`Icon for "${item.name}" is not populated (id: ${icon}). Check depth in findGlobal.`)
-		}
 
-		if (!iconUrl) {
-			// Don't crash, use placeholder
-			console.warn(`Missing icon URL for equipment item: ${item.name || 'Unknown'}`)
-			iconUrl = '/placeholder.png'
-		}
+			if (!iconUrl) {
+				// Don't crash, use placeholder
+				console.warn(`Missing icon URL for equipment item: ${item.name || 'Unknown'}`)
+				iconUrl = '/placeholder.png'
+			}
 
-		return {
-			...item,
-			iconUrl,
-			gridSpan: gridSpans[index % gridSpans.length] as 'single' | 'double' | 'tall',
-		}
-	}).filter(item => item.iconUrl !== null)
+			return {
+				...item,
+				iconUrl,
+				gridSpan: gridSpans[index % gridSpans.length] as 'single' | 'double' | 'tall',
+			}
+		})
+		.filter(item => item.iconUrl !== null)
 
 	return (
 		<SectionWrapper id="equipements" variant="secondary">
 			<div className="absolute bottom-0 right-0 flex justify-center translate-y-6 md:translate-y-8 xl:translate-y-10 z-20 pointer-events-none">
-				<Image src="/fox.png" alt="fox" width={800} height={800} className="w-[300px] lg:w-[400px] xl:w-[500px] h-auto" />
+				<Image
+					src="/fox.png"
+					alt="fox"
+					width={800}
+					height={800}
+					className="w-[300px] lg:w-[400px] xl:w-[500px] h-auto"
+				/>
 			</div>
 			<div className="text-center mb-12">
 				<motion.h2
@@ -130,7 +132,6 @@ export function Equipment({ equipmentSection }: EquipmentProps) {
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true }}
 					transition={{ duration: 0.7, delay: 0.1, ease: easings.smooth }}
-					data-payload-field="equipmentSection.title"
 				>
 					{title.split(' ').slice(0, -1).join(' ')}{' '}
 					<motion.span
@@ -150,7 +151,6 @@ export function Equipment({ equipmentSection }: EquipmentProps) {
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true }}
 					transition={{ delay: 0.2 }}
-					data-payload-field="equipmentSection.subtitle"
 				>
 					{subtitle}
 				</motion.p>

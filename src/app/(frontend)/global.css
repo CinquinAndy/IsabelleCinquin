@@ -275,8 +275,8 @@ body::-webkit-scrollbar-thumb {
 
 /* Hero mask utilities */
 .hero-mask {
-	mask-image: url('/mask.svg');
-	-webkit-mask-image: url('/mask.svg');
+	mask-image: url("/mask.svg");
+	-webkit-mask-image: url("/mask.svg");
 	mask-mode: luminance;
 	-webkit-mask-mode: luminance;
 	mask-size: cover;
