@@ -41,7 +41,7 @@ export function Organization({ organization }: OrganizationProps) {
 		<SectionWrapper id="organisation" variant="secondary" className="overflow-hidden">
 			{/* swap the image  mirror */}
 			<div 
-				className="absolute bottom-0 left-0 flex justify-center translate-y-10 md:translate-y-0 z-30 pointer-events-none"
+				className="absolute bottom-0 left-0 flex justify-center translate-y-6 md:translate-y-8 xl:translate-y-10 z-30 pointer-events-none"
 				style={{ transform: 'scaleX(-1)' }} 
 			>
 				<Image src="/cats.png" alt="cat" width={800} height={800} className="w-[300px] lg:w-[400px] xl:w-[500px] h-auto" />
