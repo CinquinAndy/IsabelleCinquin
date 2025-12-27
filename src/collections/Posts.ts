@@ -8,6 +8,12 @@ export const Posts: CollectionConfig = {
 		useAsTitle: 'title',
 		group: 'Blog',
 		defaultColumns: ['title', 'status', 'isImportant', 'publishedAt'],
+		livePreview: {
+			url: ({ data, locale }) => {
+				const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
+				return `${serverUrl}${locale?.code ? `/${locale.code}` : ''}/blog/${data.slug}`
+			},
+		},
 	},
 	access: {
 		read: ({ req }) => {

@@ -103,7 +103,7 @@ export function Adaptation({ adaptation }: AdaptationProps) {
 							viewport={{ once: true }}
 							transition={{ duration: durations.standard, ease: easings.smooth, delay: 0.3 }}
 						>
-							<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+							<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight" data-payload-field="adaptation.title">
 								{title.split(' ').slice(0, -1).join(' ')}{' '}
 								<motion.span
 									className="font-handwriting text-accent drop-shadow-md inline-block"
@@ -115,7 +115,7 @@ export function Adaptation({ adaptation }: AdaptationProps) {
 									{title.split(' ').slice(-1)}
 								</motion.span>
 							</h2>
-							<p className="mt-4 text-lg text-white/70 leading-relaxed max-w-lg">{subtitle}</p>
+							<p className="mt-4 text-lg text-white/70 leading-relaxed max-w-lg" data-payload-field="adaptation.subtitle">{subtitle}</p>
 						</motion.div>
 
 						{/* Colorful Badges with stagger and bounce */}
@@ -175,7 +175,7 @@ export function Adaptation({ adaptation }: AdaptationProps) {
 							viewport={{ once: true }}
 							transition={{ duration: durations.standard, ease: easings.smooth, delay: 0.7 }}
 						>
-							<p className="text-white/90 font-medium">{keyMessage}</p>
+							<p className="text-white/90 font-medium" data-payload-field="adaptation.keyMessage">{keyMessage}</p>
 						</motion.div>
 					</div>
 				</div>

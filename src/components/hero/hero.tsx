@@ -125,6 +125,8 @@ export function Hero({ hero }: HeroProps) {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: durations.slow, ease: easings.smooth, delay: 0.3 }}
 						className="mb-2 sm:mb-4 text-3xl sm:text-5xl md:text-7xl font-bold text-white drop-shadow-lg"
+						data-payload-field="hero.title"
+
 					>
 						<span className="bg-linear-to-r from-white via-white/90 to-white bg-clip-text text-transparent animate-shimmer bg-[length:200%_100%]">
 							{hero.title}
@@ -136,6 +138,7 @@ export function Hero({ hero }: HeroProps) {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: durations.standard, ease: easings.smooth, delay: 0.5 }}
 						className="text-base sm:text-xl md:text-2xl text-white/90 drop-shadow-md max-w-xs sm:max-w-xl md:max-w-2xl mx-auto px-2"
+						data-payload-field="hero.subtitle"
 					>
 						{hero.subtitle}
 					</motion.p>

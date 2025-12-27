@@ -130,6 +130,7 @@ export function Equipment({ equipmentSection }: EquipmentProps) {
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true }}
 					transition={{ duration: 0.7, delay: 0.1, ease: easings.smooth }}
+					data-payload-field="equipmentSection.title"
 				>
 					{title.split(' ').slice(0, -1).join(' ')}{' '}
 					<motion.span
@@ -149,6 +150,7 @@ export function Equipment({ equipmentSection }: EquipmentProps) {
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true }}
 					transition={{ delay: 0.2 }}
+					data-payload-field="equipmentSection.subtitle"
 				>
 					{subtitle}
 				</motion.p>

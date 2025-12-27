@@ -145,6 +145,7 @@ export function AboutSection({ about }: AboutSectionProps) {
 								whileInView={{ opacity: 1, scale: 1 }}
 								viewport={{ once: true }}
 								transition={{ duration: durations.standard, ease: easings.smooth, delay: 0.3 }}
+								data-payload-field="about.badge"
 							>
 								{about.badge}
 							</motion.span>
@@ -156,10 +157,11 @@ export function AboutSection({ about }: AboutSectionProps) {
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
 							transition={{ duration: durations.standard, ease: easings.smooth, delay: 0.4 }}
+							data-payload-field="about.title"
 						>
 							{about.title}
 							<br />
-							<span className="text-accent">{about.titleAccent}</span>
+							<span className="text-accent" data-payload-field="about.titleAccent">{about.titleAccent}</span>
 						</motion.h2>
 
 						<motion.div
@@ -168,6 +170,7 @@ export function AboutSection({ about }: AboutSectionProps) {
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
 							transition={{ duration: durations.standard, ease: easings.smooth, delay: 0.5 }}
+							data-payload-field="about.content"
 						>
 							<RichText content={about.content} variant="dark" />
 

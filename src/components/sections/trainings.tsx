@@ -35,7 +35,7 @@ export function Trainings({ trainingsSection }: TrainingsProps) {
 				viewport={{ once: true }}
 				transition={{ duration: durations.standard, ease: easings.smooth }}
 			>
-				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+				<h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight" data-payload-field="trainingsSection.title">
 					{title.split(' ').slice(0, -1).join(' ')}{' '}
 					<motion.span
 						className="font-handwriting text-accent drop-shadow-md inline-block"
@@ -47,7 +47,7 @@ export function Trainings({ trainingsSection }: TrainingsProps) {
 						{title.split(' ').slice(-1)}
 					</motion.span>
 				</h2>
-				{subtitle && <p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto">{subtitle}</p>}
+				{subtitle && <p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto" data-payload-field="trainingsSection.subtitle">{subtitle}</p>}
 			</motion.div>
 
 			{/* Timeline */}

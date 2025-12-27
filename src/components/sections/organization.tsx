@@ -61,6 +61,7 @@ export function Organization({ organization }: OrganizationProps) {
 						whileInView={{ opacity: 1 }}
 						viewport={{ once: true }}
 						transition={{ duration: 0.6, delay: 0.1 }}
+						data-payload-field="organization.title"
 					>
 						{title.split(' ').slice(0, -1).join(' ')}{' '}
 						<motion.span
@@ -79,6 +80,7 @@ export function Organization({ organization }: OrganizationProps) {
 						whileInView={{ opacity: 0.7 }}
 						viewport={{ once: true }}
 						transition={{ duration: 0.6, delay: 0.3 }}
+						data-payload-field="organization.subtitle"
 					>
 						{subtitle}
 					</motion.p>

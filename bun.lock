@@ -9,6 +9,7 @@
         "@number-flow/react": "0.5.10",
         "@paper-design/shaders-react": "0.0.68",
         "@payloadcms/db-postgres": "3.69.0",
+        "@payloadcms/live-preview-react": "^3.69.0",
         "@payloadcms/next": "3.69.0",
         "@payloadcms/payload-cloud": "3.69.0",
         "@payloadcms/richtext-lexical": "3.69.0",
@@ -463,6 +464,10 @@
     "@payloadcms/email-nodemailer": ["@payloadcms/email-nodemailer@3.69.0", "", { "dependencies": { "nodemailer": "7.0.9" }, "peerDependencies": { "payload": "3.69.0" } }, "sha512-e5Zx1ybL7YuX2NByaUk+JkzDu+0HdAXaCEwkQ8z2XaWlUInWFrZ5NbEXYIx9IGWgo9Ua0JA+MGzdh9ZdhUSUoA=="],
 
     "@payloadcms/graphql": ["@payloadcms/graphql@3.69.0", "", { "dependencies": { "graphql-scalars": "1.22.2", "pluralize": "8.0.0", "ts-essentials": "10.0.3", "tsx": "4.20.6" }, "peerDependencies": { "graphql": "^16.8.1", "payload": "3.69.0" }, "bin": { "payload-graphql": "bin.js" } }, "sha512-VRFacg4EneV7U9jqerQfNVL/O788WlZbdnMGSwds0mVwC5qPW3sktZhHxJCAksvAFJ+XXtx4GCMv/YK8DgEfxw=="],
+
+    "@payloadcms/live-preview": ["@payloadcms/live-preview@3.69.0", "", {}, "sha512-TTylsSlQ+iXyGS3sOiah/jSJWKdNRLctgE9sTkFvJs1r/IwUPyE5j17kTIkooJc69gZ0JYNeL+juh0lvI7ZQBA=="],
+
+    "@payloadcms/live-preview-react": ["@payloadcms/live-preview-react@3.69.0", "", { "dependencies": { "@payloadcms/live-preview": "3.69.0" }, "peerDependencies": { "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.1 || ^19.1.2 || ^19.2.1", "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.1 || ^19.1.2 || ^19.2.1" } }, "sha512-Nxbvo5fXEVI7VdGicwCx/GaLNxxdlWzfV89DUzHvp8guzbSXOmtKRsuWwsT7BrsHVdud8z3B2bzt6aceih3qlw=="],
 
     "@payloadcms/next": ["@payloadcms/next@3.69.0", "", { "dependencies": { "@dnd-kit/core": "6.0.8", "@dnd-kit/modifiers": "9.0.0", "@dnd-kit/sortable": "7.0.2", "@payloadcms/graphql": "3.69.0", "@payloadcms/translations": "3.69.0", "@payloadcms/ui": "3.69.0", "busboy": "^1.6.0", "dequal": "2.0.3", "file-type": "19.3.0", "graphql-http": "^1.22.0", "graphql-playground-html": "1.6.30", "http-status": "2.1.0", "path-to-regexp": "6.3.0", "qs-esm": "7.0.2", "sass": "1.77.4", "uuid": "10.0.0" }, "peerDependencies": { "graphql": "^16.8.1", "next": "^15.4.10", "payload": "3.69.0" } }, "sha512-rkj/wvTDcbOkb8+v4jkZVdoJm2tvPUQL62CWoGnysy/ST+ZUwMr/70veLB7Ztr3uj6HKi6dU+31H+gG94UaMZg=="],
 

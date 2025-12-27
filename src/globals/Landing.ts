@@ -6,6 +6,12 @@ export const Landing: GlobalConfig = {
 	label: 'Landing Page',
 	admin: {
 		group: 'Contenu',
+		livePreview: {
+			url: ({ locale }) => {
+				const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
+				return `${serverUrl}${locale?.code ? `/${locale.code}` : ''}`
+			},
+		},
 	},
 	hooks: {
 		afterChange: [revalidateGlobalAfterChange],
