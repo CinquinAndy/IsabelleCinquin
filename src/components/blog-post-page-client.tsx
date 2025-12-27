@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { ArrowLeft, Calendar, ChevronDown, Clock } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Footer } from '@/components/footer'
 import { ContactPreview } from '@/components/sections/contact-preview'
 import { RichText } from '@/components/ui/rich-text'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
@@ -237,6 +238,8 @@ export function BlogPostPageClient({ post, landing }: BlogPostPageClientProps) {
 				content={landing?.contactSection?.content}
 				phone={landing?.settings?.phone}
 			/>
+
+			<Footer settings={landing?.settings} />
 		</main>
 	)
 }
