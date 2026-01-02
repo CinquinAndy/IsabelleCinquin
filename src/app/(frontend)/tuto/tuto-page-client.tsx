@@ -542,7 +542,7 @@ Accueil chaleureux pour vos enfants. Plus de 20 ans d'expérience.`}</code></pre
 					<h3>Pour des images parfaites</h3>
 					<ol>
 						<li><strong>Qualité avant tout :</strong> Photos nettes et bien exposées</li>
-						<li><strong>Optimise le poids :</strong> Compresse avec TinyPNG (cible : 200-500 Ko)</li>
+						<li><strong>Optimise le poids :</strong> Compresse avec TinyPNG (cible : 200-500 Ko) = pas obligatoire</li>
 						<li><strong>Alt Text systématique :</strong> Utilise Forvoyez puis vérifie</li>
 					</ol>
 
