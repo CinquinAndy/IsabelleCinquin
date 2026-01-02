@@ -36,14 +36,7 @@ export default buildConfig({
 			baseDir: path.resolve(dirname),
 		},
 		components: {
-			beforeDashboard: ['@/components/admin/DashboardHero'],
 			afterNavLinks: ['@/components/admin/TutorialsNavLink'],
-			views: {
-				tuto: {
-					Component: '@/components/admin/TutorialsPage',
-					path: '/tuto',
-				},
-			},
 		},
 		livePreview: {
 			url: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',

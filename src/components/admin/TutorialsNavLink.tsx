@@ -34,7 +34,9 @@ export default function TutorialsNavLink(): React.JSX.Element {
 	return (
 		<div style={{ padding: '0.5rem 0', borderTop: '1px solid var(--theme-elevation-150)', display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
 			<a
-				href="/admin/tuto"
+				href="/tuto"
+				target="_blank"
+				rel="noreferrer noopener"
 				style={linkStyle}
 				onMouseEnter={(e) => (e.currentTarget.style.background = 'var(--theme-elevation-100)')}
 				onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
