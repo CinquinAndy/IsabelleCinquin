@@ -546,18 +546,6 @@ Accueil chaleureux pour vos enfants. Plus de 20 ans d'expérience.`}</code></pre
 						<li><strong>Alt Text systématique :</strong> Utilise Forvoyez puis vérifie</li>
 					</ol>
 
-					<h3>Routine de mise à jour</h3>
-					<h4>Chaque mois :</h4>
-					<ul>
-						<li>Publie 1-2 nouveaux articles</li>
-						<li>Ajoute de nouvelles photos</li>
-					</ul>
-					<h4>Tous les 3 mois :</h4>
-					<ul>
-						<li>Vérifie les informations de contact</li>
-						<li>Mets à jour ta disponibilité</li>
-					</ul>
-
 					<hr />
 
 					<h2 id="problemes">En cas de problème</h2>
