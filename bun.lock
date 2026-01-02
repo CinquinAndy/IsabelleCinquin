@@ -1,6 +1,5 @@
 {
   "lockfileVersion": 1,
-  "configVersion": 0,
   "workspaces": {
     "": {
       "name": "isabelle-cinquin",
@@ -63,9 +62,9 @@
     "@payloadcms/ui@3.69.0": "patches/@payloadcms%2Fui@3.69.0.patch",
   },
   "overrides": {
-    "@dnd-kit/accessibility": "^3.1.1",
-    "@dnd-kit/core": "^6.3.1",
     "next": "16.1.1",
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/accessibility": "^3.1.1",
   },
   "packages": {
     "@ai-sdk/gateway": ["@ai-sdk/gateway@3.0.4", "", { "dependencies": { "@ai-sdk/provider": "3.0.1", "@ai-sdk/provider-utils": "4.0.2", "@vercel/oidc": "3.0.5" }, "peerDependencies": { "zod": "^3.25.76 || ^4.1.8" } }, "sha512-OlccjNYZ5+4FaNyvs0kb3N5H6U/QCKlKPTGsgUo8IZkqfMQu8ALI1XD6l/BCuTKto+OO9xUPObT/W7JhbqJ5nA=="],

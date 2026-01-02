@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import type React from 'react'
 import '@/app/(frontend)/global.css'
 import { Gluten, Nunito_Sans, Rock_Salt } from 'next/font/google'
+import Script from 'next/script'
 import { Header } from '@/components/header/header'
 import { RefreshRouteOnSave } from '@/components/payload/refresh-route-on-save'
 import { Toaster } from '@/components/ui/sonner'
@@ -48,6 +49,12 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 				<Header />
 				<main>{children}</main>
 				<Toaster />
+				<Script
+					defer
+					src="https://umami.wadefade.fr/script.js"
+					data-website-id="eedcc4f2-48f5-4372-8890-e1a69b7e8561"
+					strategy="afterInteractive"
+				/>
 			</body>
 		</html>
 	)
