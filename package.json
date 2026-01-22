@@ -21,7 +21,7 @@
 		"@dnd-kit/accessibility": "^3.1.1"
 	},
 	"dependencies": {
-		"@ai-sdk/google": "3.0.10",
+		"@ai-sdk/google": "3.0.13",
 		"@number-flow/react": "0.5.10",
 		"@paper-design/shaders-react": "0.0.68",
 		"@payloadcms/db-postgres": "3.72.0",
