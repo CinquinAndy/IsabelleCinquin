@@ -23,7 +23,7 @@
 	"dependencies": {
 		"@ai-sdk/google": "3.0.29",
 		"@number-flow/react": "0.5.10",
-		"@paper-design/shaders-react": "0.0.68",
+		"@paper-design/shaders-react": "0.0.71",
 		"@payloadcms/db-postgres": "3.77.0",
 		"@payloadcms/live-preview-react": "^3.69.0",
 		"@payloadcms/next": "3.77.0",
