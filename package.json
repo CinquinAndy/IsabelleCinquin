@@ -38,7 +38,7 @@
 		"@radix-ui/react-separator": "1.1.8",
 		"@radix-ui/react-slot": "1.2.4",
 		"@tabler/icons-react": "3.36.1",
-		"@tailwindcss/postcss": "4.1.18",
+		"@tailwindcss/postcss": "4.2.0",
 		"@tailwindcss/typography": "^0.5.19",
 		"@tsparticles/engine": "3.9.1",
 		"@tsparticles/react": "3.0.0",
@@ -59,7 +59,7 @@
 		"sharp": "0.34.5",
 		"sonner": "2.0.7",
 		"tailwind-merge": "3.5.0",
-		"tailwindcss": "4.1.18"
+		"tailwindcss": "4.2.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.4.2",
