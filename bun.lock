@@ -6,7 +6,7 @@
       "name": "isabelle-cinquin",
       "dependencies": {
         "@ai-sdk/google": "3.0.30",
-        "@number-flow/react": "0.5.10",
+        "@number-flow/react": "0.5.12",
         "@paper-design/shaders-react": "0.0.68",
         "@payloadcms/db-postgres": "3.77.0",
         "@payloadcms/live-preview-react": "^3.69.0",
@@ -451,7 +451,7 @@
 
     "@next/swc-win32-x64-msvc": ["@next/swc-win32-x64-msvc@16.1.6", "", { "os": "win32", "cpu": "x64" }, "sha512-NRfO39AIrzBnixKbjuo2YiYhB6o9d8v/ymU9m/Xk8cyVk+k7XylniXkHwjs4s70wedVffc6bQNbufk5v0xEm0A=="],
 
-    "@number-flow/react": ["@number-flow/react@0.5.10", "", { "dependencies": { "esm-env": "^1.1.4", "number-flow": "0.5.8" }, "peerDependencies": { "react": "^18 || ^19", "react-dom": "^18 || ^19" } }, "sha512-a8Wh5eNITn7Km4xbddAH7QH8eNmnduR6k34ER1hkHSGO4H2yU1DDnuAWLQM99vciGInFODemSc0tdxrXkJEpbA=="],
+    "@number-flow/react": ["@number-flow/react@0.5.12", "", { "dependencies": { "esm-env": "^1.1.4", "number-flow": "0.5.10" }, "peerDependencies": { "react": "^18 || ^19", "react-dom": "^18 || ^19" } }, "sha512-34Kt3kd7kC5V3BqrDmxCJsqZlF43NFuOAUd8XZVjR75IJ1JPsgDMYArywqOHJm4gy/ZGzWQGFPxfYSSbscvppA=="],
 
     "@opentelemetry/api": ["@opentelemetry/api@1.9.0", "", {}, "sha512-3giAOQvZiH5F9bMlMiv8+GSPMeqg0dbaeo58/0SlA9sxSqZhnUtxzX9/2FzyhS9sWQf5S0GJE0AKBrFqjpeYcg=="],
 
@@ -1321,7 +1321,7 @@
 
     "normalize-path": ["normalize-path@3.0.0", "", {}, "sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA=="],
 
-    "number-flow": ["number-flow@0.5.8", "", { "dependencies": { "esm-env": "^1.1.4" } }, "sha512-FPr1DumWyGi5Nucoug14bC6xEz70A1TnhgSHhKyfqjgji2SOTz+iLJxKtv37N5JyJbteGYCm6NQ9p1O4KZ7iiA=="],
+    "number-flow": ["number-flow@0.5.10", "", { "dependencies": { "esm-env": "^1.1.4" } }, "sha512-Ss6fU7zZgfAlhT4KFcUVOafStQVHs22xTx7/Fm6nj9j9WUREYlQpBgFX+vzdnB2PpGPTrtdGZPJou6Yyu/uDeA=="],
 
     "number-is-nan": ["number-is-nan@1.0.1", "", {}, "sha512-4jbtZXNAsfZbAHiiqjLPBiCl16dES1zI4Hpzzxw61Tk+loF+sBDBKx1ICKKKwIqQ7M0mFn1TmkN7euSncWgHiQ=="],
 
