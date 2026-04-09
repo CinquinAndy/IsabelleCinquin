@@ -49,7 +49,7 @@
 		"clsx": "2.1.1",
 		"framer-motion": "12.38.0",
 		"graphql": "16.13.2",
-		"lucide-react": "0.562.0",
+		"lucide-react": "1.8.0",
 		"next": "16.2.3",
 		"payload": "3.81.0",
 		"postcss": "8.5.9",
