@@ -95,8 +95,8 @@ export function TutoPageClient() {
 						animate={{ opacity: 0.8, y: 0 }}
 						transition={{ duration: 0.7, delay: 0.4 }}
 					>
-						Apprends à gérer ton site : créer des <strong className="text-white">articles de blog</strong>,
-						optimiser le <strong className="text-white">référencement</strong>, gérer les{' '}
+						Apprends à gérer ton site : créer des <strong className="text-white">articles de blog</strong>, optimiser le{' '}
+						<strong className="text-white">référencement</strong>, gérer les{' '}
 						<strong className="text-white">photos</strong> et modifier la{' '}
 						<strong className="text-white">page d&apos;accueil</strong>.
 					</motion.p>
@@ -169,14 +169,30 @@ export function TutoPageClient() {
 				>
 					<h2>📖 Table des matières</h2>
 					<ol>
-						<li><a href="#concepts-importants">Concepts Importants</a></li>
-						<li><a href="#connexion">Connexion à Payload</a></li>
-						<li><a href="#blog">Gestion du Blog (Posts)</a></li>
-						<li><a href="#categories">Catégories</a></li>
-						<li><a href="#medias">Médias (Images)</a></li>
-						<li><a href="#landing">Landing Page (Page d&apos;Accueil)</a></li>
-						<li><a href="#bonnes-pratiques">Astuces et Bonnes Pratiques</a></li>
-						<li><a href="#problemes">En cas de problème</a></li>
+						<li>
+							<a href="#concepts-importants">Concepts Importants</a>
+						</li>
+						<li>
+							<a href="#connexion">Connexion à Payload</a>
+						</li>
+						<li>
+							<a href="#blog">Gestion du Blog (Posts)</a>
+						</li>
+						<li>
+							<a href="#categories">Catégories</a>
+						</li>
+						<li>
+							<a href="#medias">Médias (Images)</a>
+						</li>
+						<li>
+							<a href="#landing">Landing Page (Page d&apos;Accueil)</a>
+						</li>
+						<li>
+							<a href="#bonnes-pratiques">Astuces et Bonnes Pratiques</a>
+						</li>
+						<li>
+							<a href="#problemes">En cas de problème</a>
+						</li>
 					</ol>
 
 					<hr />
@@ -185,20 +201,31 @@ export function TutoPageClient() {
 
 					<h3>🎯 Qu&apos;est-ce que le SEO ?</h3>
 					<p>
-						<strong>SEO</strong> signifie &quot;Search Engine Optimization&quot; (Optimisation pour les Moteurs de Recherche).
+						<strong>SEO</strong> signifie &quot;Search Engine Optimization&quot; (Optimisation pour les Moteurs de
+						Recherche).
 					</p>
 					<p>
 						<strong>En simple :</strong> C&apos;est ce qui permet de rendre ton site visible sur Google.
 					</p>
 					<p>Deux éléments clés :</p>
 					<ul>
-						<li><strong>Titre SEO :</strong> Le titre qui apparaît dans les résultats Google <strong>(maximum 60 caractères)</strong></li>
-						<li><strong>Description SEO :</strong> Le texte sous le titre dans Google <strong>(maximum 155 caractères)</strong></li>
+						<li>
+							<strong>Titre SEO :</strong> Le titre qui apparaît dans les résultats Google{' '}
+							<strong>(maximum 60 caractères)</strong>
+						</li>
+						<li>
+							<strong>Description SEO :</strong> Le texte sous le titre dans Google{' '}
+							<strong>(maximum 155 caractères)</strong>
+						</li>
 					</ul>
-					<p><strong>Exemple :</strong></p>
-					<pre><code>{`Titre : Assistante Maternelle Sciez | Isabelle Cinquin
+					<p>
+						<strong>Exemple :</strong>
+					</p>
+					<pre>
+						<code>{`Titre : Assistante Maternelle Sciez | Isabelle Cinquin
 Description : Nounou agréée à Sciez près du Lac Léman. 
-Accueil chaleureux pour vos enfants. Plus de 20 ans d'expérience.`}</code></pre>
+Accueil chaleureux pour vos enfants. Plus de 20 ans d'expérience.`}</code>
+					</pre>
 
 					<hr />
 
@@ -206,12 +233,22 @@ Accueil chaleureux pour vos enfants. Plus de 20 ans d'expérience.`}</code></pre
 					<p>
 						<strong>Alt Text</strong> est une description textuelle d&apos;une image.
 					</p>
-					<p><strong>Pourquoi c&apos;est important ?</strong></p>
+					<p>
+						<strong>Pourquoi c&apos;est important ?</strong>
+					</p>
 					<ol>
-						<li><strong>Accessibilité :</strong> Les personnes malvoyantes utilisent des lecteurs d&apos;écran qui lisent cette description</li>
-						<li><strong>SEO :</strong> Google ne &quot;voit&quot; pas les images, il lit l&apos;alt text pour comprendre ce qu&apos;elles représentent</li>
+						<li>
+							<strong>Accessibilité :</strong> Les personnes malvoyantes utilisent des lecteurs d&apos;écran qui lisent
+							cette description
+						</li>
+						<li>
+							<strong>SEO :</strong> Google ne &quot;voit&quot; pas les images, il lit l&apos;alt text pour comprendre
+							ce qu&apos;elles représentent
+						</li>
 					</ol>
-					<p><strong>Exemples :</strong></p>
+					<p>
+						<strong>Exemples :</strong>
+					</p>
 					<ul>
 						<li>❌ Mauvais : &quot;image1.jpg&quot; ou &quot;photo&quot;</li>
 						<li>✅ Bon : &quot;Enfants jouant dans le jardin de la maison de nounou à Sciez&quot;</li>
@@ -222,35 +259,62 @@ Accueil chaleureux pour vos enfants. Plus de 20 ans d'expérience.`}</code></pre
 					<h3>🤖 Les Outils IA de l&apos;Application</h3>
 
 					<h4>Forvoyez - Génération automatique d&apos;Alt Text</h4>
-					<p><strong>Qu&apos;est-ce que c&apos;est ?</strong></p>
-					<p>Forvoyez est un service d&apos;intelligence artificielle qui analyse tes images et génère automatiquement une description en français.</p>
-					<p><strong>Comment l&apos;utiliser ?</strong></p>
+					<p>
+						<strong>Qu&apos;est-ce que c&apos;est ?</strong>
+					</p>
+					<p>
+						Forvoyez est un service d&apos;intelligence artificielle qui analyse tes images et génère automatiquement
+						une description en français.
+					</p>
+					<p>
+						<strong>Comment l&apos;utiliser ?</strong>
+					</p>
 					<ol>
 						<li>Télécharge ton image dans la bibliothèque Médias</li>
-						<li>Clique sur le bouton <strong>&quot;✨ Générer alt text&quot;</strong></li>
+						<li>
+							Clique sur le bouton <strong>&quot;✨ Générer alt text&quot;</strong>
+						</li>
 						<li>Attends quelques secondes</li>
 						<li>L&apos;IA génère une description automatique</li>
-						<li><strong>Important :</strong> Vérifie toujours le résultat et ajuste si nécessaire</li>
+						<li>
+							<strong>Important :</strong> Vérifie toujours le résultat et ajuste si nécessaire
+						</li>
 					</ol>
-					<p><strong>Note :</strong> La génération d&apos;alt text se lance automatiquement en arrière-plan lors du téléchargement. Si après 10 minutes tu n&apos;as toujours rien, tu peux réessayer manuellement.</p>
+					<p>
+						<strong>Note :</strong> La génération d&apos;alt text se lance automatiquement en arrière-plan lors du
+						téléchargement. Si après 10 minutes tu n&apos;as toujours rien, tu peux réessayer manuellement.
+					</p>
 
 					<hr />
 
 					<h4>Gemini - Génération automatique de SEO</h4>
-					<p><strong>Qu&apos;est-ce que c&apos;est ?</strong></p>
-					<p>Gemini est l&apos;IA de Google, utilisée ici pour générer automatiquement les titres et descriptions SEO.</p>
-					<p><strong>Comment l&apos;utiliser ?</strong></p>
+					<p>
+						<strong>Qu&apos;est-ce que c&apos;est ?</strong>
+					</p>
+					<p>
+						Gemini est l&apos;IA de Google, utilisée ici pour générer automatiquement les titres et descriptions SEO.
+					</p>
+					<p>
+						<strong>Comment l&apos;utiliser ?</strong>
+					</p>
 					<ol>
 						<li>Ouvre n&apos;importe quel article de blog dans Payload</li>
-						<li>Va dans l&apos;onglet <strong>&quot;SEO&quot;</strong></li>
-						<li>Clique sur <strong>&quot;🤖 Générer SEO avec Gemini&quot;</strong></li>
-						<li>L&apos;IA analyse le contenu et génère :
+						<li>
+							Va dans l&apos;onglet <strong>&quot;SEO&quot;</strong>
+						</li>
+						<li>
+							Clique sur <strong>&quot;🤖 Générer SEO avec Gemini&quot;</strong>
+						</li>
+						<li>
+							L&apos;IA analyse le contenu et génère :
 							<ul>
 								<li>Un titre SEO optimisé (max 60 caractères)</li>
 								<li>Une description SEO optimisée (max 155 caractères)</li>
 							</ul>
 						</li>
-						<li><strong>Important :</strong> Vérifie et personnalise si besoin</li>
+						<li>
+							<strong>Important :</strong> Vérifie et personnalise si besoin
+						</li>
 					</ol>
 
 					<hr />
@@ -258,38 +322,65 @@ Accueil chaleureux pour vos enfants. Plus de 20 ans d'expérience.`}</code></pre
 					<h2 id="connexion">Connexion à Payload</h2>
 
 					<h3>🔐 Accéder à l&apos;interface d&apos;administration</h3>
-					<p><strong>URL :</strong></p>
-					<pre><code>https://isabelle-cinquin.fr/admin</code></pre>
+					<p>
+						<strong>URL :</strong>
+					</p>
+					<pre>
+						<code>https://isabelle-cinquin.fr/admin</code>
+					</pre>
 
 					<h3>📝 Connexion</h3>
 					<ol>
 						<li>Ouvre l&apos;URL d&apos;administration dans ton navigateur</li>
-						<li>Entre ton <strong>email</strong> et ton <strong>mot de passe</strong></li>
-						<li>Clique sur <strong>&quot;Se connecter&quot;</strong></li>
+						<li>
+							Entre ton <strong>email</strong> et ton <strong>mot de passe</strong>
+						</li>
+						<li>
+							Clique sur <strong>&quot;Se connecter&quot;</strong>
+						</li>
 					</ol>
 
 					<h3>🗂️ Interface principale</h3>
 					<p>Une fois connectée, tu verras le tableau de bord avec :</p>
 					<ul>
-						<li><strong>Collections</strong> (à gauche) : Users, Media, Posts, Categories</li>
-						<li><strong>Contenu</strong> (à gauche) : Landing Page</li>
+						<li>
+							<strong>Collections</strong> (à gauche) : Users, Media, Posts, Categories
+						</li>
+						<li>
+							<strong>Contenu</strong> (à gauche) : Landing Page
+						</li>
 					</ul>
-					<p><strong>Qu&apos;est-ce qu&apos;une Collection ?</strong></p>
-					<p>Une collection est une liste d&apos;éléments multiples : plusieurs articles de blog, plusieurs images, plusieurs catégories.</p>
-					<p><strong>Qu&apos;est-ce qu&apos;un Global ?</strong></p>
+					<p>
+						<strong>Qu&apos;est-ce qu&apos;une Collection ?</strong>
+					</p>
+					<p>
+						Une collection est une liste d&apos;éléments multiples : plusieurs articles de blog, plusieurs images,
+						plusieurs catégories.
+					</p>
+					<p>
+						<strong>Qu&apos;est-ce qu&apos;un Global ?</strong>
+					</p>
 					<p>Un global est un élément unique : il n&apos;y a qu&apos;une seule Landing Page (page d&apos;accueil).</p>
 
 					<hr />
 
 					<h2 id="blog">Gestion du Blog (Posts)</h2>
-					<p><strong>Où le trouver ?</strong></p>
-					<p>Menu de gauche → <strong>Blog</strong> → <strong>Posts</strong></p>
+					<p>
+						<strong>Où le trouver ?</strong>
+					</p>
+					<p>
+						Menu de gauche → <strong>Blog</strong> → <strong>Posts</strong>
+					</p>
 
 					<h3>Créer un nouvel article</h3>
 					<ol>
-						<li>Clique sur <strong>&quot;Create New&quot;</strong> (en haut à droite)</li>
+						<li>
+							Clique sur <strong>&quot;Create New&quot;</strong> (en haut à droite)
+						</li>
 						<li>Remplis tous les champs (voir ci-dessous)</li>
-						<li>Clique sur <strong>&quot;Save&quot;</strong> en haut à droite</li>
+						<li>
+							Clique sur <strong>&quot;Save&quot;</strong> en haut à droite
+						</li>
 					</ol>
 
 					<h3>Champs d&apos;un article de blog</h3>
@@ -297,15 +388,21 @@ Accueil chaleureux pour vos enfants. Plus de 20 ans d'expérience.`}</code></pre
 					<h4>Titre</h4>
 					<ul>
 						<li>Le titre principal de ton article</li>
-						<li><strong>Exemple :</strong> &quot;Les bienfaits des activités en plein air pour les tout-petits&quot;</li>
+						<li>
+							<strong>Exemple :</strong> &quot;Les bienfaits des activités en plein air pour les tout-petits&quot;
+						</li>
 					</ul>
 
 					<h4>Slug (identifiant URL)</h4>
 					<ul>
 						<li>Généré automatiquement depuis le titre</li>
 						<li>Utilisé dans l&apos;adresse web</li>
-						<li><strong>Exemple :</strong> <code>bienfaits-activites-plein-air-tout-petits</code></li>
-						<li><strong>Important :</strong> Ne modifie pas le slug après la publication !</li>
+						<li>
+							<strong>Exemple :</strong> <code>bienfaits-activites-plein-air-tout-petits</code>
+						</li>
+						<li>
+							<strong>Important :</strong> Ne modifie pas le slug après la publication !
+						</li>
 					</ul>
 
 					<h4>Extrait</h4>
@@ -317,18 +414,30 @@ Accueil chaleureux pour vos enfants. Plus de 20 ans d'expérience.`}</code></pre
 					<h4>Contenu</h4>
 					<p>L&apos;éditeur de texte enrichi permet d&apos;utiliser :</p>
 					<ul>
-						<li><strong>Titres (H2, H3, H4)</strong> : Structure ton contenu</li>
-						<li><strong>Gras &amp; Italique</strong> : Mets en avant les points importants</li>
-						<li><strong>Listes</strong> : À puces ou numérotées</li>
-						<li><strong>Liens</strong> : Ajoute des liens internes ou externes</li>
-						<li><strong>Images</strong> : Insère des photos dans ton contenu</li>
+						<li>
+							<strong>Titres (H2, H3, H4)</strong> : Structure ton contenu
+						</li>
+						<li>
+							<strong>Gras &amp; Italique</strong> : Mets en avant les points importants
+						</li>
+						<li>
+							<strong>Listes</strong> : À puces ou numérotées
+						</li>
+						<li>
+							<strong>Liens</strong> : Ajoute des liens internes ou externes
+						</li>
+						<li>
+							<strong>Images</strong> : Insère des photos dans ton contenu
+						</li>
 					</ul>
 
 					<h4>Image mise en avant</h4>
 					<ul>
 						<li>L&apos;image principale qui représente ton article</li>
 						<li>Apparaît en haut de l&apos;article et dans les listes</li>
-						<li><strong>Recommandation :</strong> Photo de haute qualité (1920x1080 minimum)</li>
+						<li>
+							<strong>Recommandation :</strong> Photo de haute qualité (1920x1080 minimum)
+						</li>
 					</ul>
 
 					<h4>Catégories</h4>
@@ -339,22 +448,34 @@ Accueil chaleureux pour vos enfants. Plus de 20 ans d'expérience.`}</code></pre
 
 					<h4>Article important (checkbox)</h4>
 					<ul>
-						<li>Cocher cette case affiche l&apos;article dans la section &quot;Activités&quot; de la page d&apos;accueil</li>
+						<li>
+							Cocher cette case affiche l&apos;article dans la section &quot;Activités&quot; de la page d&apos;accueil
+						</li>
 						<li>Utile pour mettre en avant tes meilleurs articles</li>
 					</ul>
 
 					<h4>Statut</h4>
 					<ul>
-						<li><strong>Brouillon :</strong> L&apos;article n&apos;est pas publié, toi seule peux le voir</li>
-						<li><strong>Publié :</strong> L&apos;article est visible par tous</li>
+						<li>
+							<strong>Brouillon :</strong> L&apos;article n&apos;est pas publié, toi seule peux le voir
+						</li>
+						<li>
+							<strong>Publié :</strong> L&apos;article est visible par tous
+						</li>
 					</ul>
-					<p><strong>Conseil :</strong> Travaille en mode Brouillon, puis publie quand tu es satisfaite.</p>
+					<p>
+						<strong>Conseil :</strong> Travaille en mode Brouillon, puis publie quand tu es satisfaite.
+					</p>
 
 					<h3>SEO d&apos;un article</h3>
 					<ol>
 						<li>Remplis d&apos;abord le titre, l&apos;extrait et le contenu</li>
-						<li>Va dans l&apos;onglet <strong>&quot;SEO&quot;</strong></li>
-						<li>Clique sur <strong>&quot;🤖 Générer SEO avec Gemini&quot;</strong></li>
+						<li>
+							Va dans l&apos;onglet <strong>&quot;SEO&quot;</strong>
+						</li>
+						<li>
+							Clique sur <strong>&quot;🤖 Générer SEO avec Gemini&quot;</strong>
+						</li>
 						<li>Vérifie et ajuste si besoin</li>
 						<li>Save</li>
 					</ol>
@@ -362,18 +483,33 @@ Accueil chaleureux pour vos enfants. Plus de 20 ans d'expérience.`}</code></pre
 					<hr />
 
 					<h2 id="categories">Catégories</h2>
-					<p><strong>Où les trouver ?</strong></p>
-					<p>Menu de gauche → <strong>Blog</strong> → <strong>Categories</strong></p>
+					<p>
+						<strong>Où les trouver ?</strong>
+					</p>
+					<p>
+						Menu de gauche → <strong>Blog</strong> → <strong>Categories</strong>
+					</p>
 
 					<h3>Créer une catégorie</h3>
 					<ol>
-						<li>Clique sur <strong>&quot;Create New&quot;</strong></li>
-						<li>Remplis le <strong>Nom</strong> (ex: &quot;Activités&quot;, &quot;Conseils parents&quot;, &quot;Vie quotidienne&quot;)</li>
-						<li>Le <strong>Slug</strong> est généré automatiquement</li>
-						<li>Clique sur <strong>&quot;Save&quot;</strong></li>
+						<li>
+							Clique sur <strong>&quot;Create New&quot;</strong>
+						</li>
+						<li>
+							Remplis le <strong>Nom</strong> (ex: &quot;Activités&quot;, &quot;Conseils parents&quot;, &quot;Vie
+							quotidienne&quot;)
+						</li>
+						<li>
+							Le <strong>Slug</strong> est généré automatiquement
+						</li>
+						<li>
+							Clique sur <strong>&quot;Save&quot;</strong>
+						</li>
 					</ol>
 
-					<p><strong>Idées de catégories :</strong></p>
+					<p>
+						<strong>Idées de catégories :</strong>
+					</p>
 					<ul>
 						<li>Activités</li>
 						<li>Conseils parents</li>
@@ -385,50 +521,88 @@ Accueil chaleureux pour vos enfants. Plus de 20 ans d'expérience.`}</code></pre
 					<hr />
 
 					<h2 id="medias">Médias (Images)</h2>
-					<p><strong>Où les trouver ?</strong></p>
-					<p>Menu de gauche → <strong>Collections</strong> → <strong>Media</strong></p>
+					<p>
+						<strong>Où les trouver ?</strong>
+					</p>
+					<p>
+						Menu de gauche → <strong>Collections</strong> → <strong>Media</strong>
+					</p>
 
 					<h3>Télécharger une nouvelle image</h3>
 					<ol>
-						<li>Clique sur <strong>&quot;Upload New&quot;</strong> ou <strong>&quot;Create New&quot;</strong></li>
+						<li>
+							Clique sur <strong>&quot;Upload New&quot;</strong> ou <strong>&quot;Create New&quot;</strong>
+						</li>
 						<li>Sélectionne ton image (ou glisse-dépose)</li>
 						<li>Attends le téléchargement</li>
 					</ol>
-					<p><strong>Formats acceptés :</strong> JPG, PNG, WebP</p>
-					<p><strong>Taille recommandée :</strong> Maximum 5 Mo par image</p>
+					<p>
+						<strong>Formats acceptés :</strong> JPG, PNG, WebP
+					</p>
+					<p>
+						<strong>Taille recommandée :</strong> Maximum 5 Mo par image
+					</p>
 
 					<h3>Alt Text</h3>
-					<p><strong>Méthode automatique (Forvoyez) :</strong></p>
+					<p>
+						<strong>Méthode automatique (Forvoyez) :</strong>
+					</p>
 					<ol>
 						<li>Ouvre l&apos;image dans la bibliothèque</li>
-						<li>Clique sur <strong>&quot;✨ Générer alt text&quot;</strong></li>
+						<li>
+							Clique sur <strong>&quot;✨ Générer alt text&quot;</strong>
+						</li>
 						<li>Attends quelques secondes</li>
-						<li><strong>Vérifie le résultat</strong> et ajuste si nécessaire</li>
-						<li>Clique sur <strong>&quot;Save&quot;</strong></li>
+						<li>
+							<strong>Vérifie le résultat</strong> et ajuste si nécessaire
+						</li>
+						<li>
+							Clique sur <strong>&quot;Save&quot;</strong>
+						</li>
 					</ol>
-					<p><strong>Note :</strong> Lors de l&apos;upload, l&apos;alt text est généré automatiquement en arrière-plan. Si après 10 minutes il n&apos;y a rien, utilise le bouton ou remplis manuellement.</p>
+					<p>
+						<strong>Note :</strong> Lors de l&apos;upload, l&apos;alt text est généré automatiquement en arrière-plan.
+						Si après 10 minutes il n&apos;y a rien, utilise le bouton ou remplis manuellement.
+					</p>
 
 					<h3>Génération en masse</h3>
 					<p>Dans la collection Media, tu peux générer l&apos;alt text pour plusieurs images :</p>
 					<ol>
 						<li>Coche les cases des images concernées</li>
-						<li>Clique sur <strong>&quot;Bulk Alt Text&quot;</strong> en haut</li>
+						<li>
+							Clique sur <strong>&quot;Bulk Alt Text&quot;</strong> en haut
+						</li>
 						<li>Attends que toutes les descriptions soient générées</li>
 					</ol>
 
 					<h3>Bonnes pratiques</h3>
 					<h4>Avant de télécharger</h4>
 					<ol>
-						<li><strong>Optimise la taille :</strong> Compresse tes images avec <a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer">TinyPNG</a> (gratuit)</li>
-						<li><strong>Nomme correctement :</strong> <code>activite-peinture-enfants.jpg</code> au lieu de <code>IMG_1234.jpg</code></li>
-						<li><strong>Vérifie la qualité :</strong> Image nette et bien cadrée</li>
+						<li>
+							<strong>Optimise la taille :</strong> Compresse tes images avec{' '}
+							<a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer">
+								TinyPNG
+							</a>{' '}
+							(gratuit)
+						</li>
+						<li>
+							<strong>Nomme correctement :</strong> <code>activite-peinture-enfants.jpg</code> au lieu de{' '}
+							<code>IMG_1234.jpg</code>
+						</li>
+						<li>
+							<strong>Vérifie la qualité :</strong> Image nette et bien cadrée
+						</li>
 					</ol>
 
 					<hr />
 
 					<h2 id="landing">Landing Page (Page d&apos;Accueil)</h2>
-					<p><strong>Où la trouver ?</strong></p>
-					<p>Menu de gauche → <strong>Contenu</strong> → <strong>Landing Page</strong></p>
+					<p>
+						<strong>Où la trouver ?</strong>
+					</p>
+					<p>
+						Menu de gauche → <strong>Contenu</strong> → <strong>Landing Page</strong>
+					</p>
 					<p>C&apos;est ici que tu peux modifier tout le contenu de la page d&apos;accueil du site.</p>
 
 					<h3>Sections disponibles</h3>
@@ -521,11 +695,21 @@ Accueil chaleureux pour vos enfants. Plus de 20 ans d'expérience.`}</code></pre
 
 					<h4>Paramètres du site</h4>
 					<ul>
-						<li><strong>Nounou disponible :</strong> Décocher affiche un message d&apos;indisponibilité</li>
-						<li><strong>Coordonnées :</strong> Email, téléphone portable, fixe, adresse</li>
-						<li><strong>Lien Nounou Top :</strong> Profil sur le site aide-au-top.fr</li>
-						<li><strong>Horaires d&apos;accueil</strong></li>
-						<li><strong>Position carte :</strong> Latitude et longitude pour la carte</li>
+						<li>
+							<strong>Nounou disponible :</strong> Décocher affiche un message d&apos;indisponibilité
+						</li>
+						<li>
+							<strong>Coordonnées :</strong> Email, téléphone portable, fixe, adresse
+						</li>
+						<li>
+							<strong>Lien Nounou Top :</strong> Profil sur le site aide-au-top.fr
+						</li>
+						<li>
+							<strong>Horaires d&apos;accueil</strong>
+						</li>
+						<li>
+							<strong>Position carte :</strong> Latitude et longitude pour la carte
+						</li>
 					</ul>
 
 					<hr />
@@ -534,16 +718,28 @@ Accueil chaleureux pour vos enfants. Plus de 20 ans d'expérience.`}</code></pre
 
 					<h3>Pour un meilleur référencement</h3>
 					<ol>
-						<li><strong>Utilise Gemini</strong> pour générer le SEO automatiquement</li>
-						<li><strong>Inclus ta localisation</strong> : Sciez, Lac Léman, Thonon-les-Bains, Douvaine</li>
-						<li><strong>Mets à jour régulièrement</strong> : Publie des articles, ajoute des photos</li>
+						<li>
+							<strong>Utilise Gemini</strong> pour générer le SEO automatiquement
+						</li>
+						<li>
+							<strong>Inclus ta localisation</strong> : Sciez, Lac Léman, Thonon-les-Bains, Douvaine
+						</li>
+						<li>
+							<strong>Mets à jour régulièrement</strong> : Publie des articles, ajoute des photos
+						</li>
 					</ol>
 
 					<h3>Pour des images parfaites</h3>
 					<ol>
-						<li><strong>Qualité avant tout :</strong> Photos nettes et bien exposées</li>
-						<li><strong>Optimise le poids :</strong> Compresse avec TinyPNG (cible : 200-500 Ko) = pas obligatoire</li>
-						<li><strong>Alt Text systématique :</strong> Utilise Forvoyez puis vérifie</li>
+						<li>
+							<strong>Qualité avant tout :</strong> Photos nettes et bien exposées
+						</li>
+						<li>
+							<strong>Optimise le poids :</strong> Compresse avec TinyPNG (cible : 200-500 Ko) = pas obligatoire
+						</li>
+						<li>
+							<strong>Alt Text systématique :</strong> Utilise Forvoyez puis vérifie
+						</li>
 					</ol>
 
 					<hr />
@@ -552,7 +748,9 @@ Accueil chaleureux pour vos enfants. Plus de 20 ans d'expérience.`}</code></pre
 
 					<h4>Tu ne vois pas tes modifications sur le site</h4>
 					<ol>
-						<li>Assure-toi d&apos;avoir cliqué sur <strong>&quot;Save&quot;</strong></li>
+						<li>
+							Assure-toi d&apos;avoir cliqué sur <strong>&quot;Save&quot;</strong>
+						</li>
 						<li>Attends 2-3 minutes (le site met à jour le cache)</li>
 						<li>Rafraîchis la page (Ctrl+F5 ou Cmd+Shift+R)</li>
 					</ol>
@@ -571,19 +769,26 @@ Accueil chaleureux pour vos enfants. Plus de 20 ans d'expérience.`}</code></pre
 					</ol>
 
 					<h4>Tu as supprimé quelque chose par erreur</h4>
-					<p><strong>Contacte-moi immédiatement</strong> pour voir si on peut récupérer. Des sauvegardes sont effectuées régulièrement.</p>
+					<p>
+						<strong>Contacte-moi immédiatement</strong> pour voir si on peut récupérer. Des sauvegardes sont effectuées
+						régulièrement.
+					</p>
 
 					<hr />
 
 					<h2>🎉 Félicitations !</h2>
 					<p>Tu sais maintenant comment gérer l&apos;intégralité du contenu de ton site web.</p>
-					<p><strong>Rappelle-toi :</strong></p>
+					<p>
+						<strong>Rappelle-toi :</strong>
+					</p>
 					<ul>
 						<li>Sois régulière dans les mises à jour</li>
 						<li>Ajoute du contenu au fil du temps</li>
 						<li>Utilise Gemini et Forvoyez pour gagner du temps</li>
 					</ul>
-					<p><strong>Ton site est un outil vivant.</strong> Plus tu l&apos;alimentes, plus il attirera de familles !</p>
+					<p>
+						<strong>Ton site est un outil vivant.</strong> Plus tu l&apos;alimentes, plus il attirera de familles !
+					</p>
 					<p>Bon courage ! 💜</p>
 				</motion.article>
 

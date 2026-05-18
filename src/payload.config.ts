@@ -19,12 +19,8 @@ const dirname = path.dirname(filename)
 
 export default buildConfig({
 	serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
-	cors: [
-		process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
-	].filter(Boolean),
-	csrf: [
-		process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
-	].filter(Boolean),
+	cors: [process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'].filter(Boolean),
+	csrf: [process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'].filter(Boolean),
 	admin: {
 		meta: {
 			title: 'Isabelle Cinquin - Administration',

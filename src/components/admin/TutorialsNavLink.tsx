@@ -32,14 +32,22 @@ export default function TutorialsNavLink(): React.JSX.Element {
 	}
 
 	return (
-		<div style={{ padding: '0.5rem 0', borderTop: '1px solid var(--theme-elevation-150)', display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+		<div
+			style={{
+				padding: '0.5rem 0',
+				borderTop: '1px solid var(--theme-elevation-150)',
+				display: 'flex',
+				flexDirection: 'column',
+				gap: '0.25rem',
+			}}
+		>
 			<a
 				href="/tuto"
 				target="_blank"
 				rel="noreferrer noopener"
 				style={linkStyle}
-				onMouseEnter={(e) => (e.currentTarget.style.background = 'var(--theme-elevation-100)')}
-				onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
+				onMouseEnter={e => (e.currentTarget.style.background = 'var(--theme-elevation-100)')}
+				onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
 			>
 				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
 					<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
@@ -52,8 +60,8 @@ export default function TutorialsNavLink(): React.JSX.Element {
 				target="_blank"
 				rel="noreferrer noopener"
 				style={linkStyle}
-				onMouseEnter={(e) => (e.currentTarget.style.background = 'var(--theme-elevation-100)')}
-				onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
+				onMouseEnter={e => (e.currentTarget.style.background = 'var(--theme-elevation-100)')}
+				onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
 			>
 				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
 					<path d="M3 3v18h18" />
