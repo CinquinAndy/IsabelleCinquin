@@ -48,7 +48,7 @@ export default buildConfig({
 	collections: [Users, Media, Posts, Categories],
 	globals: [Landing],
 	editor: lexicalEditor(),
-	secret: process.env.PAYLOAD_SECRET || '',
+	secret: process.env.PAYLOAD_SECRET || 'dummy-secret-key-for-build-process-that-needs-to-be-long-enough',
 	typescript: {
 		outputFile: path.resolve(dirname, 'payload-types.ts'),
 	},
