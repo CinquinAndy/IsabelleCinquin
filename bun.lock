@@ -25,7 +25,7 @@
         "@tailwindcss/postcss": "4.3.0",
         "@tailwindcss/typography": "^0.5.19",
         "@tsparticles/engine": "3.9.1",
-        "@tsparticles/react": "3.0.0",
+        "@tsparticles/react": "4.1.3",
         "@tsparticles/slim": "3.9.1",
         "ai": "6.0.195",
         "biome": "0.3.3",
@@ -729,7 +729,7 @@
 
     "@tsparticles/plugin-rgb-color": ["@tsparticles/plugin-rgb-color@3.9.1", "https://registry.npmjs.com/@tsparticles/plugin-rgb-color/-/plugin-rgb-color-3.9.1.tgz", { "dependencies": { "@tsparticles/engine": "3.9.1" } }, "sha512-SBxk7f1KBfXeTnnklbE2Hx4jBgh6I6HOtxb+Os1gTp0oaghZOkWcCD2dP4QbUu7fVNCMOcApPoMNC8RTFcy9wQ=="],
 
-    "@tsparticles/react": ["@tsparticles/react@3.0.0", "https://registry.npmjs.com/@tsparticles/react/-/react-3.0.0.tgz", { "peerDependencies": { "@tsparticles/engine": "^3.0.2", "react": ">=16.8.0", "react-dom": ">=16.8.0" } }, "sha512-hjGEtTT1cwv6BcjL+GcVgH++KYs52bIuQGW3PWv7z3tMa8g0bd6RI/vWSLj7p//NZ3uTjEIeilYIUPBh7Jfq/Q=="],
+    "@tsparticles/react": ["@tsparticles/react@4.1.3", "", { "peerDependencies": { "@tsparticles/engine": "4.1.3", "react": ">=16.8.0", "react-dom": ">=16.8.0" } }, "sha512-B6u9cxsw6d3H6R91uGZVcY4wo8qI3Wq1GYhQit/lhrzCA8UJ9bCmgRbTyNmXz374VnVg8zTmZ64gsd2Z6LYMiw=="],
 
     "@tsparticles/shape-circle": ["@tsparticles/shape-circle@3.9.1", "https://registry.npmjs.com/@tsparticles/shape-circle/-/shape-circle-3.9.1.tgz", { "dependencies": { "@tsparticles/engine": "3.9.1" } }, "sha512-DqZFLjbuhVn99WJ+A9ajz9YON72RtCcvubzq6qfjFmtwAK7frvQeb6iDTp6Ze9FUipluxVZWVRG4vWTxi2B+/g=="],
 
