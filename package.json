@@ -42,7 +42,7 @@
 		"@tailwindcss/typography": "^0.5.19",
 		"@tsparticles/engine": "3.9.1",
 		"@tsparticles/react": "3.0.0",
-		"@tsparticles/slim": "3.9.1",
+		"@tsparticles/slim": "4.3.0",
 		"ai": "6.0.211",
 		"biome": "0.3.3",
 		"class-variance-authority": "0.7.1",
