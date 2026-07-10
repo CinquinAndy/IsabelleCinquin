@@ -41,7 +41,7 @@
 		"@tailwindcss/postcss": "4.3.1",
 		"@tailwindcss/typography": "^0.5.19",
 		"@tsparticles/engine": "3.9.1",
-		"@tsparticles/react": "3.0.0",
+		"@tsparticles/react": "4.3.2",
 		"@tsparticles/slim": "3.9.1",
 		"ai": "6.0.211",
 		"biome": "0.3.3",
