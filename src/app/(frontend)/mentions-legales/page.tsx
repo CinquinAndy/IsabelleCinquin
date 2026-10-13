@@ -55,8 +55,8 @@ export default function MentionsLegalesPage() {
 						<p>Ce site est hébergé par :</p>
 						<div className="bg-white/10 rounded-xl p-6 not-prose mb-6">
 							<p className="font-bold">netcup GmbH</p>
-							<p>Daimlerstraße 25</p>
-							<p>76185 Karlsruhe</p>
+							<p>Emmy-Noether-Straße 10</p>
+							<p>76131 Karlsruhe</p>
 							<p>Allemagne</p>
 						</div>
 
@@ -66,9 +66,9 @@ export default function MentionsLegalesPage() {
 						</p>
 						<div className="bg-white/10 rounded-xl p-6 not-prose mb-6">
 							<p className="font-bold">Cinquin Andy</p>
-							<p>SIRET : 880 505 276 00019</p>
-							<p className="mt-3">4 Impasse de la Marchaisière</p>
-							<p>44115 Haute-Goulaine</p>
+							<p>SIRET : 880 505 276 00035</p>
+							<p className="mt-3">1250 Chemin de la Renouillère</p>
+							<p>74140 Sciez</p>
 							<p className="mt-3">
 								<strong>Téléphone :</strong> 06 21 58 26 84
 							</p>
@@ -103,9 +103,9 @@ export default function MentionsLegalesPage() {
 						<div className="bg-white/10 rounded-xl p-6 not-prose mb-6">
 							<p className="font-bold mb-2">Titulaire des droits :</p>
 							<p>Cinquin Andy</p>
-							<p>SIRET : 880 505 276 00019</p>
-							<p>4 Impasse de la Marchaisière</p>
-							<p>44115 Haute-Goulaine</p>
+							<p>SIRET : 880 505 276 00035</p>
+							<p>1250 Chemin de la Renouillère</p>
+							<p>74140 Sciez</p>
 							<p className="mt-3 text-sm opacity-80">Toute violation fera l'objet de poursuites.</p>
 						</div>
 
@@ -132,9 +132,9 @@ export default function MentionsLegalesPage() {
 							<p className="font-bold mb-3 mt-6">Et</p>
 
 							<p className="font-bold">Cinquin Andy</p>
-							<p>SIRET : 880 505 276 00019</p>
-							<p>4 Impasse de la Marchaisière</p>
-							<p>44115 Haute-Goulaine</p>
+							<p>SIRET : 880 505 276 00035</p>
+							<p>1250 Chemin de la Renouillère</p>
+							<p>74140 Sciez</p>
 							<p className="mt-3">
 								<strong>Email :</strong>{' '}
 								<a href="mailto:contact@andy-cinquin.fr" className="text-accent hover:underline">
