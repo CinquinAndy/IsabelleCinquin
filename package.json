@@ -57,7 +57,7 @@
 		"ai": "6.0.211",
 		"class-variance-authority": "0.7.1",
 		"clsx": "2.1.1",
-		"framer-motion": "12.42.0",
+		"motion": "12.42.0",
 		"graphql": "16.14.2",
 		"lucide-react": "0.577.0",
 		"next": "16.4.3",
