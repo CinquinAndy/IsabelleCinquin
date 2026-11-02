@@ -33,7 +33,7 @@
 	},
 	"dependencies": {
 		"@ai-sdk/google": "3.0.90",
-		"@number-flow/react": "0.6.0",
+		"@number-flow/react": "0.6.2",
 		"@paper-design/shaders-react": "0.0.76",
 		"@payloadcms/db-postgres": "3.90.2",
 		"@payloadcms/live-preview-react": "3.90.2",
@@ -59,9 +59,9 @@
 		"framer-motion": "12.42.0",
 		"graphql": "16.14.2",
 		"lucide-react": "0.562.0",
-		"next": "16.4.1",
+		"next": "16.4.3",
 		"payload": "3.90.2",
-		"postcss": "8.5.23",
+		"postcss": "8.5.32",
 		"react": "19.2.7",
 		"react-dom": "19.2.7",
 		"resend": "6.14.0",
@@ -88,8 +88,5 @@
 		"sharp",
 		"esbuild",
 		"unrs-resolver"
-	],
-	"patchedDependencies": {
-		"@payloadcms/ui@3.69.0": "patches/@payloadcms%2Fui@3.69.0.patch"
-	}
+	]
 }
