@@ -1,23 +1,11 @@
 # https://www.robotstxt.org/robotstxt.html
+# Un seul groupe pour tous les robots : un robot qui a son propre groupe (Googlebot-Image, par exemple)
+# ignore le groupe « * » et échapperait donc aux interdictions ci-dessous.
 User-agent: *
-Allow: /
-
-# Sitemap
-Sitemap: https://isabelle-cinquin.fr/sitemap.xml
-
-# Disallow admin and API endpoints
-User-agent: *
+# Les images du site (photos, image de partage des articles) sont servies sous /api/media/file/
+Allow: /api/media/file/
 Disallow: /admin/
 Disallow: /api/
-
-# Allow search engines to crawl images
-User-agent: Googlebot-Image
-Allow: /images/
-Allow: /*.jpg$
-Allow: /*.jpeg$
-Allow: /*.png$
-Allow: /*.webp$
-Allow: /*.svg$
-
-# Crawl-delay for respect
 Crawl-delay: 1
+
+Sitemap: https://isabelle-cinquin.fr/sitemap.xml
