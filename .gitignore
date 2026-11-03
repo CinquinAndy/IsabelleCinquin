@@ -49,3 +49,7 @@ next-env.d.ts
 exemples/MaevaSiteV2
 exemples/nature-paysage-laheux
 
+
+# tests de bout en bout
+/playwright-report/
+/test-results/

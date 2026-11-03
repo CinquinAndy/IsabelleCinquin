@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.4.15/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.5.3/schema.json",
 	"vcs": {
 		"enabled": true,
 		"clientKind": "git",
@@ -8,7 +8,22 @@
 	},
 	"files": {
 		"ignoreUnknown": true,
-		"includes": ["src/**/*", "*.ts", "*.tsx", "*.js", "*.jsx", "*.mjs", "*.json", "*.jsonc", "!exemples/**/*"],
+		"includes": [
+			"src/**/*",
+			"e2e/**/*",
+			"tests/**/*",
+			"*.ts",
+			"*.tsx",
+			"*.js",
+			"*.jsx",
+			"*.mjs",
+			"*.json",
+			"*.jsonc",
+			"!exemples/**/*",
+			"!src/app/(payload)/admin/importMap.js",
+			"!e2e/__captures__/**/*",
+			"!e2e/instantane/medias/**/*"
+		],
 		"maxSize": 10485760
 	},
 	"html": {
@@ -38,7 +53,7 @@
 			"next": "recommended"
 		},
 		"rules": {
-			"recommended": true,
+			"preset": "recommended",
 			"correctness": {
 				"useExhaustiveDependencies": "off",
 				"noUnusedVariables": "error",

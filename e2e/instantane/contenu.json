@@ -1,0 +1,1068 @@
+{
+	"source": "https://isabelle-cinquin.fr (pages et API publiques)",
+	"date": "2026-11-03",
+	"medias": [
+		{
+			"id": 9,
+			"fichier": "andy.jpg",
+			"alt": "Un coureur participe à une course en plein air, vêtu d'un t-shirt blanc et d'un gilet d'hydratation, avec un dossard numéro 691 bien visible à l'avant. En arrière-plan, une coureuse en t-shirt teal et d'autres personnes exercent diverses activités, notamment un cycliste et des piétons dans un paysage urbain animé, avec des bâtiments gris et un ciel dégagé, reflétant un événement sportif très fréquenté.",
+			"original": "andy.jpg"
+		},
+		{
+			"id": 10,
+			"fichier": "maeva.jpg",
+			"alt": "Un portrait rapproché d'une femme aux cheveux blonds ondulés, regardant l'appareil photo avec une expression réfléchie, portant un blouse noire scintillante et un maquillage léger qui met en valeur ses yeux bleus et ses lèvres douces.",
+			"original": "maeva.jpg"
+		},
+		{
+			"id": 11,
+			"fichier": "IMG-20251223-WA0000.jpg",
+			"alt": "Un chat joueur avec un pelage blanc et des marquages gris et noir se tient sur le siège avant d'une voiture, regardant à travers le pare-brise, avec des objets personnels visibles sur le tableau de bord sous la lumière du soleil.",
+			"original": "IMG-20251223-WA0000.jpg"
+		},
+		{
+			"id": 12,
+			"fichier": "IMG-20251223-WA0001.jpg",
+			"alt": "Un portrait en gros plan d'un chat Bengal avec un pelage tacheté de nuances brun et noir, des yeux verts saisissants et des oreilles proéminentes, sur un fond gris flou.",
+			"original": "IMG-20251223-WA0001.jpg"
+		},
+		{
+			"id": 13,
+			"fichier": "IMG-20251223-WA0007.jpg",
+			"alt": "Un gros plan d'un chat tigré argenté aux yeux verts, debout à l'extérieur dans un cadre naturel, présentant un pelage rayé gris et noir, avec une expression alerte et curieuse.",
+			"original": "IMG-20251223-WA0007.jpg"
+		},
+		{
+			"id": 17,
+			"fichier": "Home_sweet_home.webp",
+			"alt": "Vue aérienne d'un aménagement moderne de maison avec des pièces colorées en teal, rouge, jaune, orange et violet, entourées d'un grand jardin vert avec une piscine, des espaces de sièges, un terrain de jeu et des buts de football.",
+			"original": "Home_sweet_home.jpg"
+		},
+		{
+			"id": 19,
+			"fichier": "poussette.webp",
+			"alt": "Image d'une poussette pour bébé au style cartoon, avec un design coloré en rouge, bleu et jaune, montrant le siège, le guidon et les roues rondes vertes.",
+			"original": "poussette.png"
+		},
+		{
+			"id": 20,
+			"fichier": "chaise.webp",
+			"alt": "Chaise haute colorée pour bébé et tout-petits, avec un siège rouge, un dossier bleu et un plateau jaune, conçue pour les repas en toute sécurité.",
+			"original": "chaise.png"
+		},
+		{
+			"id": 21,
+			"fichier": "transat.webp",
+			"alt": "Illustration d'une chaise berçante colorée pour bébés ou tout-petits, avec un cadre en bois, un siège en tissu rouge et bleu, et un harnais jaune pour plus de sécurité, idéale pour une nursery ou une salle de jeux.",
+			"original": "transat.png"
+		},
+		{
+			"id": 22,
+			"fichier": "table_langer.webp",
+			"alt": "Une table à langer en bois avec un plateau bleu et des accents rouges et jaunes, équipée d'une surface rembourrée sécurisée, dotée de quatre compartiments de rangement inférieurs avec des bacs colorés.",
+			"original": "table_langer.png"
+		},
+		{
+			"id": 23,
+			"fichier": "lit_barreau.webp",
+			"alt": "Illustration d'un berceau en bois pour nourrissons avec des bords arrondis et des côtés à barreaux, mettant en avant la sécurité et le confort, complété par un ensemble de literie coloré aux teintes bleue, rouge et jaune.",
+			"original": "lit_barreau.png"
+		},
+		{
+			"id": 24,
+			"fichier": "isofix.webp",
+			"alt": "Illustration d'un siège auto pour tout-petit en style cartoon, avec un design marron et bleu, des sangles rouges et un emblème en forme de cœur sur l'appuie-tête.",
+			"original": "isofix.png"
+		},
+		{
+			"id": 25,
+			"fichier": "eveil.webp",
+			"alt": "Un jouet coloré pour bébé avec un cadre en bois supportant des jouets suspendus, dont un miroir, un objet en forme d'engrenage et un ours en peluche, accompagné de bouteilles empilables jaunes et rouges et d'une balle douce et ronde, le tout dans un environnement engageant idéal pour la chambre ou l'aire de jeu des nourrissons.",
+			"original": "eveil.png"
+		},
+		{
+			"id": 26,
+			"fichier": "respect.webp",
+			"alt": "Illustration simple et dessinée à la main de deux enfants se serrant la main, un garçon avec des cheveux bruns courts portant un t-shirt rouge et un short bleu, et une fille avec des cheveux bruns portant un t-shirt à manches longues jaune et un pantalon marron, avec un symbole de cœur au-dessus de leur poignée de main, symbolisant l'amitié.",
+			"original": "respect.png"
+		},
+		{
+			"id": 27,
+			"fichier": "alimentation.webp",
+			"alt": "Un repas pour enfant sur une assiette blanche, comprenant une pomme rouge, un morceau de poulet avec un os de pilon, du brocoli et une carotte, accompagné d'une tasse à bec bleue avec un couvercle rouge, d'une cuillère et d'une fourchette, dans un style coloré et ludique mettant l'accent sur des options alimentaires nutritives pour les jeunes enfants.",
+			"original": "alimentation.png"
+		},
+		{
+			"id": 28,
+			"fichier": "soin.webp",
+			"alt": "Une illustration colorée montrant une pile de couches, un paquet de lingettes pour bébé, une bouteille de lotion jaune et un peigne rouge sur un fond noir, représentant des produits essentiels pour le soin des bébés.",
+			"original": "soin.png"
+		},
+		{
+			"id": 29,
+			"fichier": "securité.webp",
+			"alt": "Une illustration d'une barrière en bois pour bébé placée à une entrée, sécurisée par un verrou rouge, avec une prise murale à gauche et un protège-angle jaune à droite, mettant en avant des caractéristiques de sécurité dans un environnement adapté aux enfants.",
+			"original": "securité.png"
+		},
+		{
+			"id": 30,
+			"fichier": "faire_connaissance.webp",
+			"alt": "Illustration colorée de deux mains se serrant, représentant l'unité et la collaboration, avec une main claire et une main foncée pour symboliser la diversité et la convivialité, accompagnée d'un petit cœur rouge sur fond transparent.",
+			"original": "faire_connaissance.png"
+		},
+		{
+			"id": 31,
+			"fichier": "secouter.webp",
+			"alt": "Illustration de deux visages stylisés en profil, l'un avec un teint clair et l'autre avec un teint foncé, symbolisant la communication et l'unité entre des individus de différentes origines, avec des vagues sonores émanant de leurs bouches et un cœur au centre.",
+			"original": "secouter.png"
+		},
+		{
+			"id": 32,
+			"fichier": "communiquer.webp",
+			"alt": "Une illustration colorée avec deux bulles de dialogue se superposant, une beigne claire et une brune, avec un symbole de cœur rouge au centre, entouré de lignes ondulées rouges et bleues, illustrant les thèmes de la communication, de la compréhension et de l'amour dans un style ludique et dessiné à la main.",
+			"original": "communiquer.png"
+		},
+		{
+			"id": 33,
+			"fichier": "apprendre.webp",
+			"alt": "Une illustration d'un livre ouvert avec un marque-page, surmonté d'une ampoule lumineuse symbolisant les idées et l'inspiration, avec des ondes sonores émanant d'elle, représentant la connexion entre la lecture et la pensée innovante.",
+			"original": "apprendre.png"
+		},
+		{
+			"id": 34,
+			"fichier": "Gemini_Generated_Image_5ouaw55ouaw55oua.webp",
+			"alt": "Une illustration aquarelle charmante d'articles pour bébés, comprenant un carnet de santé rose et blanc, des vêtements pour bébés pliés, un ours en peluche doux, une tétine avec clip et une bouteille de crème solaire pour bébés SPF 50, le tout dans une palette pastel douce.",
+			"original": "Gemini_Generated_Image_5ouaw55ouaw55oua.png"
+		},
+		{
+			"id": 35,
+			"fichier": "Gemini_Generated_Image_40euuo40euuo40eu.webp",
+			"alt": "Une collection d'essentiels pour bébés comprenant des couches pliées, un biberon avec un capuchon vert, une bouteille en verre pour le lait, une couverture roulée avec un motif de nuages doux, et une paire de chaussons pour bébé, le tout sur un fond clair.",
+			"original": "Gemini_Generated_Image_40euuo40euuo40eu.png"
+		},
+		{
+			"id": 36,
+			"fichier": "Gemini_Generated_Image_stp6u2stp6u2stp6.webp",
+			"alt": "Une illustration ludique d'un renard amical en style cartoon, émergeant d'un groupe de nuages doux et moelleux, sur un fond pastel violet parsemé d'étoiles scintillantes, évoquant une atmosphère joyeuse et rêveuse, idéale pour le contenu destiné aux enfants.",
+			"original": "Gemini_Generated_Image_stp6u2stp6u2stp6.png"
+		},
+		{
+			"id": 37,
+			"fichier": "panda.png",
+			"alt": null,
+			"original": "panda.png"
+		},
+		{
+			"id": 38,
+			"fichier": "IMG_2230.webp",
+			"alt": null,
+			"original": "IMG_2230.jpeg"
+		},
+		{
+			"id": 41,
+			"fichier": "IMG_4613.webp",
+			"alt": null,
+			"original": "IMG_4613.png"
+		},
+		{
+			"id": 42,
+			"fichier": "IMG_7199-1.jpeg",
+			"alt": null,
+			"original": "IMG_7199-1.jpeg"
+		},
+		{
+			"id": 43,
+			"fichier": "IMG_7199-2.jpeg",
+			"alt": null,
+			"original": "IMG_7199-2.jpeg"
+		},
+		{
+			"id": 44,
+			"fichier": "peinture magique.webp",
+			"alt": null,
+			"original": "peinture magique.webp"
+		}
+	],
+	"categories": [
+		{
+			"id": 1,
+			"name": "Créativité",
+			"slug": "creativite"
+		},
+		{
+			"id": 2,
+			"name": "Extérieur",
+			"slug": "exterieur"
+		},
+		{
+			"id": 3,
+			"name": "Éveil",
+			"slug": "eveil"
+		},
+		{
+			"id": 4,
+			"name": "Actualités",
+			"slug": "actualites"
+		},
+		{
+			"id": 5,
+			"name": "Conseils",
+			"slug": "conseils"
+		}
+	],
+	"posts": [
+		{
+			"id": 6,
+			"title": "peinture ",
+			"slug": "peinturemagique",
+			"excerpt": "peinture avec doigts , avec pinceaux ou peinture magique propre ",
+			"content": {
+				"root": {
+					"type": "root",
+					"format": "",
+					"indent": 0,
+					"version": 1,
+					"children": [
+						{
+							"type": "paragraph",
+							"format": "",
+							"version": 1,
+							"children": [],
+							"textFormat": 0
+						},
+						{
+							"type": "paragraph",
+							"format": "",
+							"indent": 0,
+							"version": 1,
+							"children": [
+								{
+									"mode": "normal",
+									"text": "peinture magique trop pratique pour la créativité des bébés ",
+									"type": "text",
+									"style": "",
+									"detail": 0,
+									"format": 0,
+									"version": 1
+								}
+							],
+							"direction": null,
+							"textStyle": "",
+							"textFormat": 0
+						}
+					],
+					"direction": "ltr"
+				}
+			},
+			"featuredImage": "media:44",
+			"categories": ["categorie:1"],
+			"isImportant": true,
+			"status": "published",
+			"publishedAt": "2023-12-20T15:00:00.000Z",
+			"seo": {
+				"metaTitle": "Cuisine Ludique Enfants Sciez : Éveil & Goût chez Isabelle Cinquin",
+				"metaDescription": "Chez Isabelle Cinquin, assistante maternelle à Sciez, la cuisine est un jeu ! Vos enfants s'éveillent aux saveurs, textures et développent leurs sens en préparant de bons petits plats. Goûter et apprendre en s'amusant !"
+			}
+		}
+	],
+	"landing": {
+		"hero": {
+			"title": "Isabelle Cinquin",
+			"subtitle": "Assistante Maternelle au bord du Lac Léman",
+			"buttons": [
+				{
+					"id": "694b06d1b9808c88c18db7bc",
+					"text": "Me contacter",
+					"url": "/contact",
+					"variant": "primary"
+				},
+				{
+					"id": "694b06d1b9808c88c18db7bd",
+					"text": "En savoir plus",
+					"url": "#presentation",
+					"variant": "secondary"
+				}
+			]
+		},
+		"about": {
+			"badge": "À propos",
+			"title": "Nounou sur Sciez",
+			"titleAccent": "depuis 2003",
+			"content": {
+				"root": {
+					"type": "root",
+					"format": "",
+					"indent": 0,
+					"version": 1,
+					"children": [
+						{
+							"type": "paragraph",
+							"format": "",
+							"version": 1,
+							"children": [
+								{
+									"text": "Je suis assistante maternelle agréée sur la commune de Sciez (74), au bord du magnifique Lac Léman. J'ai fait une pause de 10 ans (2008-2018) pour tr",
+									"type": "text",
+									"version": 1
+								},
+								{
+									"mode": "normal",
+									"text": "availler avec mon mari, puis j'ai repris mon activité avec toujours autant de passion.",
+									"type": "text",
+									"format": 0,
+									"version": 1
+								}
+							],
+							"textFormat": 0
+						},
+						{
+							"type": "paragraph",
+							"format": "",
+							"version": 1,
+							"children": [
+								{
+									"text": "J'accueille vos enfants chez moi, dans une ambiance familiale et chaleureuse. Chaque petit bout reçoit un accueil personnalisé, adapté à son rythme et à ses besoins.",
+									"type": "text",
+									"version": 1
+								}
+							],
+							"textFormat": 0
+						}
+					],
+					"direction": "ltr"
+				}
+			},
+			"image": "media:37",
+			"stats": [
+				{
+					"id": "694b06d1b9808c88c18db7be",
+					"value": 3,
+					"suffix": null,
+					"label": "enfants le jour"
+				},
+				{
+					"id": "694b06d1b9808c88c18db7bf",
+					"value": 6,
+					"suffix": "h 30",
+					"label": "Début de la journée"
+				},
+				{
+					"id": "694b06d1b9808c88c18db7c0",
+					"value": 18,
+					"suffix": "h",
+					"label": "Fin de la journée"
+				}
+			]
+		},
+		"introduction": {
+			"title": "Livret d'Accueil de Nounou",
+			"content": {
+				"root": {
+					"type": "root",
+					"format": "",
+					"indent": 0,
+					"version": 1,
+					"children": [
+						{
+							"type": "paragraph",
+							"version": 1,
+							"children": [
+								{
+									"text": "Après plusieurs années de bonheur avec les enfants et afin de donner au livret d'accueil un second souffle, mon fils m'a proposé de le convertir en site internet.",
+									"type": "text",
+									"version": 1
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"version": 1,
+							"children": [
+								{
+									"text": "La relation nounou – Parents est basée sur un partenariat : Ensemble nous veillons sur le bien-être et l'éveil de l'enfant.",
+									"type": "text",
+									"version": 1
+								}
+							]
+						}
+					],
+					"direction": "ltr"
+				}
+			}
+		},
+		"familyMembers": [
+			{
+				"id": "694b06d1b9808c88c18db7c1",
+				"image": "media:43",
+				"firstName": "Isabelle",
+				"lastName": null,
+				"description": "(moi, Maman, et nounou)",
+				"link": null
+			},
+			{
+				"id": "694b06d1b9808c88c18db7c2",
+				"image": "media:38",
+				"firstName": "Frederic",
+				"lastName": null,
+				"description": "Mari de nounou depuis 29 ans",
+				"link": null
+			},
+			{
+				"id": "694b06d1b9808c88c18db7c5",
+				"image": "media:10",
+				"firstName": "Maeva",
+				"lastName": null,
+				"description": "Maquilleuse professionnelle",
+				"link": "https://cinquin-maeva.com/"
+			},
+			{
+				"id": "694b06d1b9808c88c18db7c6",
+				"image": "media:41",
+				"firstName": "Kylian",
+				"lastName": null,
+				"description": "Le petit dernier de notre tribu",
+				"link": null
+			},
+			{
+				"id": "694b06d1b9808c88c18db7c3",
+				"image": "media:9",
+				"firstName": "Andy",
+				"lastName": null,
+				"description": "Le plus grand, et ingénieur en Informatique",
+				"link": "https://andy-cinquin.fr/"
+			},
+			{
+				"id": "694b06d1b9808c88c18db7c4",
+				"image": "media:42",
+				"firstName": "Orlane",
+				"lastName": null,
+				"description": "Maîtresse des écoles",
+				"link": null
+			},
+			{
+				"id": "694b06d1b9808c88c18db7c7",
+				"image": "media:11",
+				"firstName": "Tagada",
+				"lastName": null,
+				"description": "Un potit chat",
+				"link": null
+			},
+			{
+				"id": "694b06d1b9808c88c18db7c8",
+				"image": "media:13",
+				"firstName": "Sia",
+				"lastName": null,
+				"description": "Un potit chat",
+				"link": null
+			},
+			{
+				"id": "694beb59206670ffac5ba383",
+				"image": "media:12",
+				"firstName": "Tsuky",
+				"lastName": null,
+				"description": "Encore un autre potit chat",
+				"link": null
+			}
+		],
+		"trainingsSection": {
+			"title": "Mes formations",
+			"subtitle": null,
+			"items": [
+				{
+					"id": "694b06d1b9808c88c18db7c9",
+					"title": "CAP Petite Enfance (AEPE)",
+					"period": "2018 - 2020",
+					"description": "120 heures de formation - CAP Accompagnant(e) éducatif petite enfance. Formation complète pour l'accueil et l'accompagnement des tout-petits."
+				},
+				{
+					"id": "694b06d1b9808c88c18db7ca",
+					"title": "Sauveteur Secouriste du Travail",
+					"period": "Formation continue",
+					"description": "Formation SST - Premiers secours adaptés aux situations avec les enfants. Recyclage régulier."
+				}
+			]
+		},
+		"sleep": {
+			"title": "Le sommeil",
+			"subtitle": "Les siestes",
+			"content": {
+				"root": {
+					"type": "root",
+					"format": "",
+					"indent": 0,
+					"version": 1,
+					"children": [
+						{
+							"type": "paragraph",
+							"format": "",
+							"indent": 0,
+							"version": 1,
+							"children": [
+								{
+									"mode": "normal",
+									"text": "Chez nounou, les enfants dorment dans un ",
+									"type": "text",
+									"style": "",
+									"detail": 0,
+									"format": 0,
+									"version": 1
+								},
+								{
+									"mode": "normal",
+									"text": "lit à barreaux",
+									"type": "text",
+									"style": "",
+									"detail": 0,
+									"format": 1,
+									"version": 1
+								},
+								{
+									"mode": "normal",
+									"text": ", chacun dans une ",
+									"type": "text",
+									"style": "",
+									"detail": 0,
+									"format": 0,
+									"version": 1
+								},
+								{
+									"mode": "normal",
+									"text": "chambre séparée",
+									"type": "text",
+									"style": "",
+									"detail": 0,
+									"format": 1,
+									"version": 1
+								},
+								{
+									"mode": "normal",
+									"text": " pour plus de confort et de sérénité.",
+									"type": "text",
+									"style": "",
+									"detail": 0,
+									"format": 0,
+									"version": 1
+								}
+							],
+							"direction": null,
+							"textStyle": "",
+							"textFormat": 0
+						}
+					],
+					"direction": null
+				}
+			},
+			"tags": [
+				{
+					"id": "694b06d1b9808c88c18db7cb",
+					"text": "Confort"
+				},
+				{
+					"id": "694b06d1b9808c88c18db7cc",
+					"text": "Sérénité"
+				},
+				{
+					"id": "694b06d1b9808c88c18db7cd",
+					"text": "Calme"
+				}
+			]
+		},
+		"livingPlace": {
+			"title": "Lieu de vie",
+			"description": "J'accueille vos enfants dans une maison clôturée avec jardin qui se situe au bord du Lac Léman.",
+			"image": "media:17"
+		},
+		"equipmentSection": {
+			"title": "Les équipements",
+			"subtitle": "Tout le matériel nécessaire pour accueillir vos enfants",
+			"items": [
+				{
+					"id": "694bf5f0b613be80702e696e",
+					"name": "Poussettes simples et doubles ",
+					"quantity": 2,
+					"icon": "media:19"
+				},
+				{
+					"id": "694bf633b613be80702e6970",
+					"name": "Chaises haute",
+					"quantity": 4,
+					"icon": "media:20"
+				},
+				{
+					"id": "694bf6cab613be80702e6972",
+					"name": "Transat",
+					"quantity": null,
+					"icon": "media:21"
+				},
+				{
+					"id": "694bf6ccb613be80702e6974",
+					"name": "Table à langer",
+					"quantity": null,
+					"icon": "media:22"
+				},
+				{
+					"id": "694bf6cdb613be80702e6976",
+					"name": "Lits en bois à barreau ",
+					"quantity": 3,
+					"icon": "media:23"
+				},
+				{
+					"id": "694bf6d0b613be80702e6978",
+					"name": "Sièges auto ",
+					"quantity": 3,
+					"icon": "media:24"
+				}
+			]
+		},
+		"objectivesSection": {
+			"title": "Mes objectifs",
+			"subtitle": "Ce qui est important pour moi dans l'accompagnement de vos enfants",
+			"items": [
+				{
+					"id": "694bfbee9dd1f4673ec54619",
+					"title": "L'éveil",
+					"description": {
+						"root": {
+							"type": "root",
+							"format": "",
+							"indent": 0,
+							"version": 1,
+							"children": [
+								{
+									"type": "paragraph",
+									"format": "",
+									"indent": 0,
+									"version": 1,
+									"children": [
+										{
+											"mode": "normal",
+											"text": "Chaque jour est une aventure riche en découvertes ! Je propose des activités variées adaptées à l'âge de chaque enfant : jeux sensoriels, lecture d'histoires, musique, peinture, pâte à modeler, jeux d'eau, sorties au jardin... L'objectif est de stimuler leur curiosité naturelle tout en respectant leur rythme et leurs centres d'intérêt.",
+											"type": "text",
+											"style": "",
+											"detail": 0,
+											"format": 2,
+											"version": 1
+										}
+									],
+									"direction": null,
+									"textStyle": "",
+									"textFormat": 2
+								}
+							],
+							"direction": null,
+							"textFormat": 2
+						}
+					},
+					"icon": "media:25"
+				},
+				{
+					"id": "694bfc1c9dd1f4673ec5461b",
+					"title": "Le respect",
+					"description": {
+						"root": {
+							"type": "root",
+							"format": "",
+							"indent": 0,
+							"version": 1,
+							"children": [
+								{
+									"type": "paragraph",
+									"format": "",
+									"indent": 0,
+									"version": 1,
+									"children": [
+										{
+											"mode": "normal",
+											"text": "Le respect est au cœur de mon accompagnement. Je considère chaque enfant comme une personne à part entière, avec ses émotions, ses besoins et sa personnalité unique. J'encourage le partage, l'écoute et la bienveillance entre les enfants, tout en leur apprenant à respecter les règles de vie ensemble.",
+											"type": "text",
+											"style": "",
+											"detail": 0,
+											"format": 2,
+											"version": 1
+										}
+									],
+									"direction": null,
+									"textStyle": "",
+									"textFormat": 2
+								}
+							],
+							"direction": null,
+							"textFormat": 2
+						}
+					},
+					"icon": "media:26"
+				},
+				{
+					"id": "694bfc319dd1f4673ec5461d",
+					"title": "L'alimentation",
+					"description": {
+						"root": {
+							"type": "root",
+							"format": "",
+							"indent": 0,
+							"version": 1,
+							"children": [
+								{
+									"type": "paragraph",
+									"format": "",
+									"indent": 0,
+									"version": 1,
+									"children": [
+										{
+											"mode": "normal",
+											"text": "Je prépare des repas équilibrés et faits maison avec des produits frais et de saison.  Le repas est un moment de plaisir et de convivialité ou si vous le préférez  les parents peuvent apporter le  repas de leur enfant ",
+											"type": "text",
+											"style": "",
+											"detail": 0,
+											"format": 2,
+											"version": 1
+										}
+									],
+									"direction": null,
+									"textStyle": "",
+									"textFormat": 2
+								}
+							],
+							"direction": null,
+							"textFormat": 2
+						}
+					},
+					"icon": "media:27"
+				},
+				{
+					"id": "694bfc529dd1f4673ec5461f",
+					"title": "Soins",
+					"description": {
+						"root": {
+							"type": "root",
+							"format": "",
+							"indent": 0,
+							"version": 1,
+							"children": [
+								{
+									"type": "paragraph",
+									"format": "",
+									"indent": 0,
+									"version": 1,
+									"children": [
+										{
+											"mode": "normal",
+											"text": "Je veille au bien-être quotidien de chaque enfant avec attention et douceur. Le change et les soins corporels sont effectués dans le respect de l'intimité de l'enfant. Je suis également formée aux premiers secours pédiatriques pour intervenir en cas de besoin.",
+											"type": "text",
+											"style": "",
+											"detail": 0,
+											"format": 2,
+											"version": 1
+										}
+									],
+									"direction": null,
+									"textStyle": "",
+									"textFormat": 2
+								}
+							],
+							"direction": null,
+							"textFormat": 2
+						}
+					},
+					"icon": "media:28"
+				},
+				{
+					"id": "694bfc669dd1f4673ec54621",
+					"title": "Sécurité",
+					"description": {
+						"root": {
+							"type": "root",
+							"format": "",
+							"indent": 0,
+							"version": 1,
+							"children": [
+								{
+									"type": "paragraph",
+									"format": "",
+									"indent": 0,
+									"version": 1,
+									"children": [
+										{
+											"mode": "normal",
+											"text": "La sécurité de vos enfants est ma priorité absolue. Mon domicile est entièrement sécurisé : prises électriques protégées,  produits dangereux hors de portée, jardin clôturé. Je suis vigilante à chaque instant et adapte l'environnement aux différents âges des enfants accueillis.",
+											"type": "text",
+											"style": "",
+											"detail": 0,
+											"format": 2,
+											"version": 1
+										}
+									],
+									"direction": null,
+									"textStyle": "",
+									"textFormat": 2
+								}
+							],
+							"direction": null,
+							"textFormat": 2
+						}
+					},
+					"icon": "media:29"
+				}
+			]
+		},
+		"adaptation": {
+			"title": "Période d'adaptation",
+			"subtitle": "Une période importante pour permettre à l'enfant, aux parents, et à nounou de faire connaissance en douceur.",
+			"image": "media:36",
+			"keyMessage": "La clé d'un accueil réussi : une confiance mutuelle et un dialogue permanent entre les parents et la nounou.",
+			"badges": [
+				{
+					"id": "694c0faa0becb0e3872d4803",
+					"text": "Faire connaissance",
+					"icon": "media:30",
+					"color": "pink"
+				},
+				{
+					"id": "694c0fb70becb0e3872d4805",
+					"text": "S'écouter",
+					"icon": "media:31",
+					"color": "violet"
+				},
+				{
+					"id": "694c0fba0becb0e3872d4807",
+					"text": "Communiquer",
+					"icon": "media:32",
+					"color": "amber"
+				},
+				{
+					"id": "694c0fbc0becb0e3872d4809",
+					"text": "Apprendre",
+					"icon": "media:33",
+					"color": "emerald"
+				}
+			]
+		},
+		"organization": {
+			"title": "Organisation des affaires",
+			"subtitle": "Glissez pour comparer ce qu'il faut apporter et ce qui est fourni",
+			"bagItems": [
+				{
+					"id": "694b06d1b9808c88c18db7de",
+					"item": "Le carnet de santé"
+				},
+				{
+					"id": "694b06d1b9808c88c18db7df",
+					"item": "Des vêtements de rechange"
+				},
+				{
+					"id": "694b06d1b9808c88c18db7e0",
+					"item": "Doudou"
+				},
+				{
+					"id": "694b06d1b9808c88c18db7e1",
+					"item": "Des tétines"
+				},
+				{
+					"id": "694b06d1b9808c88c18db7e2",
+					"item": "De la crème solaire"
+				}
+			],
+			"bagImage": "media:34",
+			"nounouItems": [
+				{
+					"id": "694b06d1b9808c88c18db7e3",
+					"item": "Des couches"
+				},
+				{
+					"id": "694b06d1b9808c88c18db7e4",
+					"item": "Un biberon"
+				},
+				{
+					"id": "694b06d1b9808c88c18db7e5",
+					"item": "Du lait"
+				},
+				{
+					"id": "694b06d1b9808c88c18db7e6",
+					"item": "Une turbulette"
+				},
+				{
+					"id": "694b06d1b9808c88c18db7e7",
+					"item": "Des chaussons"
+				}
+			],
+			"nounouImage": "media:35"
+		},
+		"dailyScheduleSection": {
+			"title": "Organisation d'une journée",
+			"subtitle": "Comment se déroule une journée type chez nounou",
+			"items": [
+				{
+					"id": "694b06d1b9808c88c18db7e8",
+					"time": "Matin",
+					"activity": "Arrivée en douceur, transmission avec les parents."
+				},
+				{
+					"id": "694b06d1b9808c88c18db7e9",
+					"time": "8 H",
+					"activity": "petit déjeuner et ou habillage "
+				},
+				{
+					"id": "694b06d1b9808c88c18db7ea",
+					"time": "Matinée",
+					"activity": "Sieste pour les plus petits, jeux et activités (dessins, peinture ) pour les plus grands"
+				},
+				{
+					"id": "694b06d1b9808c88c18db7eb",
+					"time": "9 H 30 ",
+					"activity": "Promenade vers le lac, au parc  ou visite au RPE pour faire des activités "
+				},
+				{
+					"id": "694b06d1b9808c88c18db7ec",
+					"time": "12h",
+					"activity": "Repas pour tous"
+				},
+				{
+					"id": "694b06d1b9808c88c18db7ed",
+					"time": "13h30",
+					"activity": "Changements de couches puis sieste"
+				},
+				{
+					"id": "694b06d1b9808c88c18db7ee",
+					"time": "15h30",
+					"activity": "Réveil en douceur"
+				},
+				{
+					"id": "694b06d1b9808c88c18db7ef",
+					"time": "16h",
+					"activity": "Goûter "
+				},
+				{
+					"id": "694b06d1b9808c88c18db7f0",
+					"time": "17h",
+					"activity": "Jeux libres, lectures, comptines en attendant l'arrivée de Papa et Maman"
+				}
+			]
+		},
+		"charterSection": {
+			"title": "Charte de vie",
+			"subtitle": "Les règles de vie chez nounou, écrites du point de vue de votre enfant 💜",
+			"items": [
+				{
+					"id": "694b06d1b9808c88c18db7f1",
+					"ruleNumber": 1,
+					"title": "Ponctualité le matin",
+					"content": "Papa, Maman, il est important pour mon rythme et l'organisation de nounou d'arriver bien à l'heure chaque jour. En cas d'imprévu, merci de prévenir Nounou."
+				},
+				{
+					"id": "694b06d1b9808c88c18db7f2",
+					"ruleNumber": 2,
+					"title": "Respect de l'espace",
+					"content": "Papa, Maman, pensez à bien rester à l'entrée. Car c'est moi qui vais crapahuter ici toute la journée."
+				},
+				{
+					"id": "694b06d1b9808c88c18db7f3",
+					"ruleNumber": 3,
+					"title": "Communication importante",
+					"content": "Papa, Maman, je suis trop jeune pour expliquer ma nuit, mon petit déj, le week-end... à nounou. Prenez 5 minutes pour tout raconter à nounou, cela va drôlement l'aider à s'occuper de moi toute cette nouvelle journée."
+				},
+				{
+					"id": "694b06d1b9808c88c18db7f4",
+					"ruleNumber": 4,
+					"title": "Arrivée préparée",
+					"content": "Papa, Maman, je me sens bien mieux quand j'arrive chez nounou habillé, débarbouillé, ma couche changée. Merci de respecter chaque jour ces petits gestes qui sont si agréables pour Nounou."
+				},
+				{
+					"id": "694b06d1b9808c88c18db7f5",
+					"ruleNumber": 5,
+					"title": "Questions bienvenues",
+					"content": "Papa, Maman, n'hésitez pas à poser à ma nounou des questions qui vous préoccupent concernant mon évolution, alimentation, sommeil, santé, ma vie ici chez nounou..."
+				},
+				{
+					"id": "694b06d1b9808c88c18db7f6",
+					"ruleNumber": 6,
+					"title": "Santé et maladie",
+					"content": "Papa, Maman, si je suis malade avec de la fièvre, ne me mettez pas chez Nounou sans avoir pris le soin de m'emmener au préalable chez le docteur. Je reviendrais chez nounou avec le traitement adapté."
+				},
+				{
+					"id": "694b06d1b9808c88c18db7f7",
+					"ruleNumber": 7,
+					"title": "Lieu de vie privé",
+					"content": "Papa, Maman, n'oubliez pas, le lieu de travail de Nounou est aussi sa maison, c'est pour cela qu'il faut respecter son environnement et ne pas être trop envahissant."
+				},
+				{
+					"id": "694b06d1b9808c88c18db7f8",
+					"ruleNumber": 8,
+					"title": "Ponctualité le soir",
+					"content": "Papa et Maman, le soir, la ponctualité atténue mes angoisses. Pensez à prévenir Nounou d'un retard exceptionnel afin qu'elle puisse me rassurer et m'expliquer. En plus nounou n'est pas que nounou tout le temps, elle peut aussi avoir des rendez-vous persos !"
+				},
+				{
+					"id": "694b06d1b9808c88c18db7f9",
+					"ruleNumber": 9,
+					"title": "Paiement régulier",
+					"content": "Tout travail mérite salaire, Papa, Maman, n'oubliez pas de payer Nounou, elle aussi, doit payer son loyer, ses charges..."
+				}
+			]
+		},
+		"contactSection": {
+			"title": "Envie de me rencontrer ?",
+			"content": "N'hésitez pas à me contacter pour discuter de l'accueil de votre enfant"
+		},
+		"settings": {
+			"isAvailable": true,
+			"unavailableMessage": {
+				"root": {
+					"type": "root",
+					"format": "",
+					"indent": 0,
+					"version": 1,
+					"children": [
+						{
+							"type": "paragraph",
+							"format": "",
+							"indent": 0,
+							"version": 1,
+							"children": [
+								{
+									"mode": "normal",
+									"text": " Nounou actuellement indisponible, merci de votre compréhension. ",
+									"type": "text",
+									"style": "",
+									"detail": 0,
+									"format": 0,
+									"version": 1
+								}
+							],
+							"direction": null,
+							"textStyle": "",
+							"textFormat": 0
+						},
+						{
+							"type": "paragraph",
+							"format": "",
+							"indent": 0,
+							"version": 1,
+							"children": [
+								{
+									"mode": "normal",
+									"text": "Appelez moi un jour wolah !",
+									"type": "text",
+									"style": "",
+									"detail": 0,
+									"format": 0,
+									"version": 1
+								}
+							],
+							"direction": null,
+							"textStyle": "",
+							"textFormat": 0
+						}
+					],
+					"direction": null
+				}
+			},
+			"email": "andorma@gmail.com",
+			"phone": "06 03 28 69 06",
+			"landline": "",
+			"address": "1250 Chemin de la Renouillère, 74140 Sciez",
+			"nounouTopLink": "https://aide-au-top.fr/assistante-maternelle-sciez-74140-19",
+			"openingHours": "6 h 30- 18h",
+			"mapLat": 46.34932,
+			"mapLng": 6.400244
+		}
+	}
+}

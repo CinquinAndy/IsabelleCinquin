@@ -70,6 +70,8 @@ export default buildConfig({
 					secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || '',
 				},
 				region: process.env.S3_REGION || 'auto',
+				// Faux S3 des tests (e2e/) : adresses en chemin (http://hote/bucket/fichier). Absent en production.
+				forcePathStyle: process.env.S3_FORCE_PATH_STYLE === 'true',
 			},
 		}),
 	],

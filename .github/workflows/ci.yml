@@ -1,0 +1,90 @@
+name: CI
+
+# Deux contrôles au nom stable, à exiger avant toute fusion (Renovate compris) :
+# - « qualite » : lint, types, tests unitaires ;
+# - « e2e » : semis d'une base jetable avec l'instantané du contenu, tests d'intégration Payload, build de production,
+#   tests de bout en bout et non-régression visuelle au pixel près, dans l'image officielle de Playwright.
+# Aucun secret : base, stockage et clés n'existent que le temps du job.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  qualite:
+    name: qualite
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+        with:
+          bun-version-file: package.json
+      - name: Installation figée
+        run: bun install --frozen-lockfile
+      - name: Lint
+        run: bun run lint:ci
+      - name: Types
+        run: bun run typecheck
+      - name: Tests unitaires
+        run: bun run test:unit
+
+  e2e:
+    name: e2e
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    # Même image qu'en local (e2e/docker.sh) : les captures de référence y ont été produites.
+    # Toujours la version exacte de @playwright/test : sinon Playwright ne trouve pas ses navigateurs et le job échoue.
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
+      options: --ipc=host
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_PASSWORD: e2e
+          POSTGRES_DB: e2e
+        options: >-
+          --health-cmd "pg_isready -U postgres -d e2e"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+      s3:
+        image: adobe/s3mock:4.11.0
+        env:
+          COM_ADOBE_TESTING_S3MOCK_STORE_INITIAL_BUCKETS: isabelle-e2e
+    env:
+      HOME: /root
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Bun
+        run: npm install --global --no-fund --no-audit "bun@$(node -p "require('./package.json').packageManager.split('@')[1]")"
+      - name: Installation figée
+        run: bun install --frozen-lockfile
+      - name: Semis, intégration, build et tests de bout en bout
+        run: bash e2e/ci.sh
+      - name: Rapport Playwright
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: rapport-playwright
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 14
