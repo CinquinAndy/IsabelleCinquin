@@ -101,13 +101,13 @@ ResponsiveModalDescription.displayName = DialogPrimitive.Description.displayName
 
 export {
 	ResponsiveModal,
-	ResponsiveModalPortal,
-	ResponsiveModalOverlay,
-	ResponsiveModalTrigger,
 	ResponsiveModalClose,
 	ResponsiveModalContent,
-	ResponsiveModalHeader,
-	ResponsiveModalFooter,
-	ResponsiveModalTitle,
 	ResponsiveModalDescription,
+	ResponsiveModalFooter,
+	ResponsiveModalHeader,
+	ResponsiveModalOverlay,
+	ResponsiveModalPortal,
+	ResponsiveModalTitle,
+	ResponsiveModalTrigger,
 }
