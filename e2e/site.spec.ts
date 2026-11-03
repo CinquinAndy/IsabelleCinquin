@@ -115,3 +115,11 @@ test('le robots.txt bloque l’administration et donne le sitemap', async ({ req
 	expect(texte).toContain('Allow: /api/media/file/')
 	expect(texte).toContain('Sitemap: https://isabelle-cinquin.fr/sitemap.xml')
 })
+
+test('l’administration Payload s’affiche (formulaire de connexion ou de premier compte)', async ({ page }) => {
+	const erreurs: string[] = []
+	page.on('pageerror', e => erreurs.push(e.message))
+	await page.goto('/admin')
+	await expect(page.locator('input[type="email"], input[name="email"]').first()).toBeVisible({ timeout: 60_000 })
+	expect(erreurs).toEqual([])
+})
