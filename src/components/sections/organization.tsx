@@ -1,7 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { Backpack, Home } from 'lucide-react'
+import { motion } from 'motion/react'
 import Image from 'next/image'
 import { Compare } from '@/components/ui/compare'
 import { SectionWrapper } from '@/components/ui/section-wrapper'

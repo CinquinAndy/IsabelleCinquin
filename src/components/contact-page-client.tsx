@@ -1,8 +1,8 @@
 'use client'
 
 import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
-import { motion } from 'framer-motion'
 import { ArrowLeft, Clock, ExternalLink, Mail, MapPin, Phone } from 'lucide-react'
+import { motion } from 'motion/react'
 import Link from 'next/link'
 import { ContactForm, LocationMap } from './contact'
 

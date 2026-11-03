@@ -1,6 +1,6 @@
 'use client'
 
-import { useInView } from 'framer-motion'
+import { useInView } from 'motion/react'
 import Image from 'next/image'
 import * as React from 'react'
 import { AspectRatio } from '@/components/ui/aspect-ratio'

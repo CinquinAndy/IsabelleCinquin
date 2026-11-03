@@ -1,6 +1,6 @@
 'use client'
 
-import { useInView as useFramerInView } from 'framer-motion'
+import { useInView as useFramerInView } from 'motion/react'
 import type { RefObject } from 'react'
 import { useEffect, useState } from 'react'
 
@@ -26,7 +26,7 @@ interface UseInViewOptions {
 
 /**
  * Hook to detect when an element enters the viewport
- * Wrapper around framer-motion's useInView with better defaults
+ * Wrapper around motion's useInView with better defaults
  */
 export function useInView(
 	ref: RefObject<Element | null>,

@@ -1,7 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { Award, Calendar } from 'lucide-react'
+import { motion } from 'motion/react'
 import Image from 'next/image'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 import { durations, easings, stagger } from '@/lib/animations'
