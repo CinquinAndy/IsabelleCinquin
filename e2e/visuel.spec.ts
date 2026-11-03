@@ -7,8 +7,8 @@ import { masquer, preparerContexte, stabiliser } from './outils/stabiliser'
 //
 // Masques, tous listés ici (le reste de la page est comparé) :
 // - canvas : shader WebGL du hero et étincelles du curseur « Compare », rendus différents à chaque image ;
-// - iframe de la carte OpenStreetMap (service tiers, coupé pendant les tests) ;
-// - ligne « © année » du pied de page : l'année est figée au build, elle changerait au 1er janvier.
+// - iframe de la carte OpenStreetMap (service tiers, coupé pendant les tests).
+// La ligne « © année » du pied de page est comparée : l'année vient de l'horloge du navigateur, figée au 02/11/2026.
 
 const PAGES = [
 	{ nom: 'accueil', route: '/', statut: 200 },
@@ -47,13 +47,10 @@ for (const { suffixe, reducedMotion } of MOUVEMENTS) {
 				largeur: document.documentElement.scrollWidth,
 				hauteur: document.documentElement.scrollHeight,
 			}))
-			const masques = [page.locator('footer p', { hasText: '©' })]
 			for (let y = 0, n = 1; y < hauteur; y += TRANCHE, n++) {
 				await expect(page).toHaveScreenshot(`${nom}${suffixe}-${n}.png`, {
 					fullPage: true,
 					clip: { x: 0, y, width: largeur, height: Math.min(TRANCHE, hauteur - y) },
-					mask: masques,
-					maskColor: '#ff00ff',
 				})
 			}
 		})

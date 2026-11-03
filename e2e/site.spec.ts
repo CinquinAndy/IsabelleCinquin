@@ -82,6 +82,34 @@ for (const route of pages) {
 	})
 }
 
+test("le pied de page affiche l'année en cours, sans erreur d'hydratation", async ({ page }) => {
+	// Le HTML prérendu porte l'année du build ; le navigateur la remplace par l'année de son horloge.
+	await page.clock.setFixedTime(new Date('2031-02-01T10:00:00+01:00'))
+	const erreurs: string[] = []
+	page.on('pageerror', e => erreurs.push(e.message))
+	page.on('console', m => {
+		if (m.type() === 'error' && !/umami|openstreetmap|ERR_FAILED/.test(m.text())) erreurs.push(m.text())
+	})
+	for (const route of ['/', '/blog']) {
+		await page.goto(route)
+		await expect(page.locator('footer p', { hasText: '©' })).toContainText('© 2031 Nounou Sciez')
+	}
+	expect(erreurs).toEqual([])
+})
+
+test('les étincelles du curseur « Compare » se chargent (tsParticles)', async ({ page }) => {
+	// Le canvas est masqué dans le test visuel (rendu différent à chaque image). On vérifie ce que SparklesCore rend
+	// visible : le conteneur passe de l'opacité 0 à 1 seulement quand tsParticles signale un conteneur chargé
+	// (particlesLoaded), avec son canvas. Le test vaut pour tsParticles 3 comme pour 4 (OffscreenCanvas illisible).
+	await page.goto('/')
+	const zone = page.locator('div[class*="mask-image:radial-gradient(100px_at_left"]')
+	await zone.scrollIntoViewIfNeeded()
+	await expect(zone.locator('canvas')).toHaveCount(1, { timeout: 20_000 })
+	await expect(zone.locator('> div').first()).toHaveCSS('opacity', '1', { timeout: 20_000 })
+	const taille = await zone.locator('canvas').evaluate((c: HTMLCanvasElement) => [c.width, c.height])
+	expect(taille[0] * taille[1]).toBeGreaterThan(0)
+})
+
 test('une adresse inconnue répond 404', async ({ page }) => {
 	const reponse = await page.goto('/page-qui-n-existe-pas')
 	expect(reponse?.status()).toBe(404)

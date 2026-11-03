@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { AnneeCourante } from './annee-courante'
 
 interface FooterProps {
 	settings?: {
@@ -7,9 +8,10 @@ interface FooterProps {
 	} | null
 }
 
-export function Footer({ settings }: FooterProps) {
-	const currentYear = new Date().getFullYear()
+// Même valeur côté serveur et côté client (next.config.mjs, env.ANNEE_BUILD) : pas d'écart à l'hydratation.
+const ANNEE_BUILD = Number(process.env.ANNEE_BUILD) || new Date().getFullYear()
 
+export function Footer({ settings }: FooterProps) {
 	return (
 		<footer className="section-dark py-8 px-4">
 			<div className="max-w-5xl mx-auto">
@@ -35,7 +37,7 @@ export function Footer({ settings }: FooterProps) {
 
 				<div className="mt-6 pt-6 border-t border-white/20 flex flex-col md:flex-row items-center justify-between gap-4 text-sm opacity-70">
 					<p>
-						&copy; {currentYear} Nounou Sciez - Site développé par{' '}
+						&copy; <AnneeCourante anneeServeur={ANNEE_BUILD} /> Nounou Sciez - Site développé par{' '}
 						<Link
 							href="https://andy-cinquin.fr"
 							target="_blank"
