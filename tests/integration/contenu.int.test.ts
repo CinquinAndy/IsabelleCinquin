@@ -27,7 +27,10 @@ const instantane = JSON.parse(
 
 let payload: Payload
 beforeAll(async () => {
-	payload = await getPayload({ config })
+	// Hors production, Payload régénère src/payload-types.ts au démarrage : pas pendant les tests.
+	const configuration = await config
+	configuration.typescript.autoGenerate = false
+	payload = await getPayload({ config: configuration })
 })
 
 describe('contenu semé', () => {

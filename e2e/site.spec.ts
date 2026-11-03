@@ -5,7 +5,7 @@ import { preparerContexte } from './outils/stabiliser'
 // moteurs de recherche sont servis. Contenu : l'instantané de e2e/instantane/.
 
 test.beforeEach(async ({ context }) => {
-	await preparerContexte(context)
+	await preparerContexte(context, { horloge: false })
 })
 
 const pages = ['/', '/blog', '/blog/peinturemagique', '/contact', '/mentions-legales']

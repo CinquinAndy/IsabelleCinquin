@@ -18,12 +18,17 @@ function graine() {
 	}
 }
 
-export async function preparerContexte(contexte: BrowserContext) {
+/**
+ * Coupe les services tiers et rejoue Math.random. Avec `horloge` (captures, animations pilotées), le temps est
+ * figé : il n'avance plus que par page.clock. Sans horloge, les minuteries tournent normalement (notifications).
+ */
+export async function preparerContexte(contexte: BrowserContext, { horloge = true } = {}) {
 	await contexte.route('**/*', route => {
 		const hote = new URL(route.request().url()).hostname
 		return TIERS.test(hote) ? route.abort() : route.continue()
 	})
 	await contexte.addInitScript(graine)
+	if (!horloge) return
 	await contexte.clock.install({ time: HEURE_FIXE })
 	await contexte.clock.pauseAt(HEURE_FIXE + 1000)
 }

@@ -11,7 +11,7 @@ async function remplir(page: Page) {
 }
 
 test.beforeEach(async ({ context, page }) => {
-	await preparerContexte(context)
+	await preparerContexte(context, { horloge: false })
 	await page.goto('/contact')
 })
 

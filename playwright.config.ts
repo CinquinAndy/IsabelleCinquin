@@ -20,6 +20,8 @@ export default defineConfig({
 	reporter: process.env.CI ? [['list'], ['html', { open: 'never' }]] : 'list',
 	snapshotPathTemplate: '{testDir}/__captures__/{projectName}/{arg}{ext}',
 	expect: {
+		// Machine chargée : une capture pleine page peut prendre plusieurs secondes.
+		timeout: 60_000,
 		toHaveScreenshot: { maxDiffPixels: 0, threshold: 0, animations: 'disabled', caret: 'hide', scale: 'css' },
 	},
 	use: {

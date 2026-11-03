@@ -56,7 +56,10 @@ interface Instantane {
 }
 
 const contenu = JSON.parse(readFileSync(path.join(ICI, 'contenu.json'), 'utf8')) as Instantane
-const payload = await getPayload({ config })
+// Hors production, Payload régénère src/payload-types.ts au démarrage : pas pendant un semis.
+const configuration = await config
+configuration.typescript.autoGenerate = false
+const payload = await getPayload({ config: configuration })
 
 const deja = await payload.count({ collection: 'media' })
 if (deja.totalDocs > 0) {
