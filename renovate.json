@@ -95,15 +95,20 @@
 			"allowedVersions": "<1"
 		},
 		{
-			"description": "framer-motion reste en 12.x : motion 13/14 (son nouveau nom) accélère depuis 14.2 les transformations x/y/rotate par le navigateur, et les gribouillis animés de la section « À propos » ne retombent plus au même endroit (écarts dans les captures de l'accueil, vérifié le 03/11/2026 avec motion 14.9.0). framer-motion 12.43 (accélération matérielle des SVG) fait déjà échouer l'accueil en CI à deux reprises (sections restées invisibles) : gardé en 12.42.x. Pas de remplacement automatique par motion.",
+			"description": "framer-motion reste en 12.x : motion 13/14 (son nouveau nom) accélère depuis 14.2 les transformations x/y/rotate par le navigateur, et les gribouillis animés de la section « À propos » ne retombent plus au même endroit (écarts dans les captures de l'accueil, vérifié le 03/11/2026 avec motion 14.9.0). Pas de remplacement automatique par motion.",
 			"matchPackageNames": ["framer-motion"],
-			"allowedVersions": "<12.43"
+			"allowedVersions": "<13"
 		},
 		{
 			"description": "Pas de PR de remplacement framer-motion → motion (même raison que ci-dessus).",
 			"matchPackageNames": ["framer-motion"],
 			"matchUpdateTypes": ["replacement"],
 			"enabled": false
+		},
+		{
+			"description": "tsParticles 4 reste de côté : il dessine via un OffscreenCanvas, et avec lui la non-régression visuelle de l'accueil devient instable (sections restées invisibles dans 4 lancements CI sur 6 le 03/11/2026, contre 2 sur 2 verts en v3 sur la même base). Migration v4 écrite et testée (SparklesCore : ParticlesProvider, couleur dans paint) : voir la PR #366, à reprendre quand la cause sera comprise.",
+			"matchPackageNames": ["/^@tsparticles\\//"],
+			"allowedVersions": "<4"
 		}
 	]
 }

@@ -98,9 +98,9 @@ test("le pied de page affiche l'année en cours, sans erreur d'hydratation", asy
 })
 
 test('les étincelles du curseur « Compare » se chargent (tsParticles)', async ({ page }) => {
-	// Le canvas est masqué dans le test visuel (rendu différent à chaque image), et tsParticles 4 dessine depuis un
-	// OffscreenCanvas illisible depuis la page. On vérifie ce que SparklesCore rend visible : le conteneur passe de
-	// l'opacité 0 à 1 seulement quand tsParticles signale un conteneur chargé (particlesLoaded), avec son canvas.
+	// Le canvas est masqué dans le test visuel (rendu différent à chaque image). On vérifie ce que SparklesCore rend
+	// visible : le conteneur passe de l'opacité 0 à 1 seulement quand tsParticles signale un conteneur chargé
+	// (particlesLoaded), avec son canvas. Le test vaut pour tsParticles 3 comme pour 4 (OffscreenCanvas illisible).
 	await page.goto('/')
 	const zone = page.locator('div[class*="mask-image:radial-gradient(100px_at_left"]')
 	await zone.scrollIntoViewIfNeeded()
