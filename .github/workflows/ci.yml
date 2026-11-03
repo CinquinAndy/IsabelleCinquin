@@ -64,7 +64,7 @@ jobs:
           --health-timeout 5s
           --health-retries 20
       s3:
-        image: adobe/s3mock:4.11.0
+        image: adobe/s3mock:4.12.4
         env:
           COM_ADOBE_TESTING_S3MOCK_STORE_INITIAL_BUCKETS: isabelle-e2e
     env:
