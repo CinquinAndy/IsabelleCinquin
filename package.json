@@ -41,7 +41,7 @@
 	"dependencies": {
 		"@ai-sdk/google": "4.0.111",
 		"@number-flow/react": "0.6.2",
-		"@paper-design/shaders-react": "0.0.82",
+		"@paper-design/shaders-react": "0.0.76",
 		"@payloadcms/db-postgres": "3.92.1",
 		"@payloadcms/live-preview-react": "3.92.1",
 		"@payloadcms/next": "3.92.1",
