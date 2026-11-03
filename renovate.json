@@ -95,9 +95,9 @@
 			"allowedVersions": "<1"
 		},
 		{
-			"description": "framer-motion reste en 12.x : motion 13/14 (son nouveau nom) accélère depuis 14.2 les transformations x/y/rotate par le navigateur, et les gribouillis animés de la section « À propos » ne retombent plus au même endroit (écarts dans les captures de l'accueil, vérifié le 03/11/2026 avec motion 14.9.0). Pas de remplacement automatique par motion.",
+			"description": "framer-motion reste en 12.x : motion 13/14 (son nouveau nom) accélère depuis 14.2 les transformations x/y/rotate par le navigateur, et les gribouillis animés de la section « À propos » ne retombent plus au même endroit (écarts dans les captures de l'accueil, vérifié le 03/11/2026 avec motion 14.9.0). framer-motion 12.43 (accélération matérielle des SVG) fait déjà échouer l'accueil en CI à deux reprises (sections restées invisibles) : gardé en 12.42.x. Pas de remplacement automatique par motion.",
 			"matchPackageNames": ["framer-motion"],
-			"allowedVersions": "<13"
+			"allowedVersions": "<12.43"
 		},
 		{
 			"description": "Pas de PR de remplacement framer-motion → motion (même raison que ci-dessus).",
