@@ -75,7 +75,12 @@
 		},
 		{
 			"description": "La production tourne sous Node 22 (RAILPACK_NODE_VERSION=22 dans Coolify) : la CI et les types de Node restent sur la 22. Changer de majeure de Node, c'est d'abord changer cette variable dans Coolify, puis ce réglage.",
-			"matchPackageNames": ["node", "@types/node"],
+			"matchPackageNames": ["@types/node"],
+			"allowedVersions": "<23"
+		},
+		{
+			"description": "Node de la CI (actions/setup-node, depName « node », paquet actions/node-versions) : même majeure que la production (22).",
+			"matchDepNames": ["node"],
 			"allowedVersions": "<23"
 		},
 		{
