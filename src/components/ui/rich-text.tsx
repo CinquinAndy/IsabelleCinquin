@@ -1,7 +1,7 @@
 import type { SerializedUploadNode } from '@payloadcms/richtext-lexical'
 import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 import { type JSXConvertersFunction, RichText as PayloadRichText } from '@payloadcms/richtext-lexical/react'
-import { motion } from 'motion/react'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { cn, formatMediaUrl } from '@/lib/utils'
 

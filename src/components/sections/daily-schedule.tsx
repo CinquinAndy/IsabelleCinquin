@@ -1,7 +1,7 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import { Baby, Clock, Moon, School, Sun, Utensils, Waves } from 'lucide-react'
-import { motion } from 'motion/react'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 
 import type { Landing } from '@/payload-types'

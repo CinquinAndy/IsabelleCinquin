@@ -2,7 +2,7 @@
 import type { Container, Engine, SingleOrMultiple } from '@tsparticles/engine'
 import Particles, { ParticlesProvider } from '@tsparticles/react'
 import { loadSlim } from '@tsparticles/slim'
-import { motion, useAnimation } from 'motion/react'
+import { motion, useAnimation } from 'framer-motion'
 import { useId } from 'react'
 import { cn } from '@/lib/utils'
 

@@ -1,4 +1,4 @@
-import type { Transition, Variants } from 'motion/react'
+import type { Transition, Variants } from 'framer-motion'
 
 /**
  * Custom easing curves following Disney animation principles

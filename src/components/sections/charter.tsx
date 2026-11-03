@@ -1,7 +1,7 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import { Clock, Heart, Home, MessageCircle, Stethoscope, Users, Wallet } from 'lucide-react'
-import { motion } from 'motion/react'
 import Link from 'next/link'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { SectionWrapper } from '@/components/ui/section-wrapper'

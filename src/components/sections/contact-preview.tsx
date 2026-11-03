@@ -1,7 +1,7 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import { ArrowRight, Heart, Phone, Plus } from 'lucide-react'
-import { motion } from 'motion/react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { SectionWrapper } from '@/components/ui/section-wrapper'

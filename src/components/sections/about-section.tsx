@@ -1,7 +1,7 @@
 'use client'
 
 import NumberFlow from '@number-flow/react'
-import { motion } from 'motion/react'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useState } from 'react'
 import { RichText } from '@/components/ui/rich-text'

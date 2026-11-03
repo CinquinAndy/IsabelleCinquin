@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'motion/react'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
 import { durations, easings } from '@/lib/animations'
