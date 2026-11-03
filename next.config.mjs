@@ -51,6 +51,8 @@ const nextConfig = {
 		qualities: [75, 90, 100],
 	},
 	experimental: {
+		// TypeScript 7 (compilateur natif) n'a plus l'API JavaScript : Next vérifie les types en lançant tsc.
+		useTypeScriptCli: true,
 		serverActions: {
 			bodySizeLimit: '10mb',
 		},
