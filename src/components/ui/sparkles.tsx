@@ -1,9 +1,9 @@
 'use client'
-import type { Container, Engine, SingleOrMultiple } from '@tsparticles/engine'
-import Particles, { ParticlesProvider } from '@tsparticles/react'
+import type { Container, SingleOrMultiple } from '@tsparticles/engine'
+import Particles, { initParticlesEngine } from '@tsparticles/react'
 import { loadSlim } from '@tsparticles/slim'
-import { motion, useAnimation } from 'framer-motion'
-import { useId } from 'react'
+import { motion, useAnimation } from 'motion/react'
+import { useEffect, useId, useState } from 'react'
 import { cn } from '@/lib/utils'
 
 type ParticlesProps = {
@@ -18,14 +18,18 @@ type ParticlesProps = {
 	particleDensity?: number
 }
 
-// Enregistrement des modules de tsParticles, une seule fois pour toute l'application : ParticlesProvider exige
-// une fonction stable (définie hors du composant).
-const chargerMoteur = async (engine: Engine) => {
-	await loadSlim(engine)
-}
-
 export const SparklesCore = (props: ParticlesProps) => {
 	const { id, className, background, minSize, maxSize, speed, particleColor, particleDensity } = props
+	const [init, setInit] = useState(false)
+
+	useEffect(() => {
+		initParticlesEngine(async engine => {
+			await loadSlim(engine)
+		}).then(() => {
+			setInit(true)
+		})
+	}, [])
+
 	const controls = useAnimation()
 
 	const particlesLoaded = async (container?: Container) => {
@@ -43,7 +47,7 @@ export const SparklesCore = (props: ParticlesProps) => {
 
 	return (
 		<motion.div animate={controls} className={cn('opacity-0', className)}>
-			<ParticlesProvider init={chargerMoteur}>
+			{init && (
 				<Particles
 					id={id || generatedId}
 					className={cn('h-full w-full')}
@@ -98,26 +102,24 @@ export const SparklesCore = (props: ParticlesProps) => {
 								mode: 'bounce',
 								overlap: { enable: true, retries: 0 },
 							},
-							// tsParticles 4 : la couleur et le remplissage passent dans « paint » (sans contour, comme stroke.width 0).
-							paint: {
-								color: {
-									value: particleColor || '#ffffff',
-									animation: {
-										h: { count: 0, enable: false, speed: 1, decay: 0, delay: 0, sync: true, offset: 0 },
-										s: { count: 0, enable: false, speed: 1, decay: 0, delay: 0, sync: true, offset: 0 },
-										l: { count: 0, enable: false, speed: 1, decay: 0, delay: 0, sync: true, offset: 0 },
-									},
+							color: {
+								value: particleColor || '#ffffff',
+								animation: {
+									h: { count: 0, enable: false, speed: 1, decay: 0, delay: 0, sync: true, offset: 0 },
+									s: { count: 0, enable: false, speed: 1, decay: 0, delay: 0, sync: true, offset: 0 },
+									l: { count: 0, enable: false, speed: 1, decay: 0, delay: 0, sync: true, offset: 0 },
 								},
-								fill: { enable: true },
 							},
 							effect: {
 								close: true,
+								fill: true,
 								options: {},
 								type: {} as SingleOrMultiple<string> | undefined,
 							},
 							groups: {},
 							move: {
 								angle: { offset: 0, value: 90 },
+								attract: { distance: 200, enable: false, rotate: { x: 3000, y: 3000 } },
 								center: { x: 50, y: 50, mode: 'percent', radius: 0 },
 								decay: 0,
 								distance: {},
@@ -132,6 +134,7 @@ export const SparklesCore = (props: ParticlesProps) => {
 								speed: { min: 0.1, max: 1 },
 								spin: { acceleration: 0, enable: false },
 								straight: false,
+								trail: { enable: false, length: 10, fill: {} },
 								vibrate: false,
 								warp: false,
 							},
@@ -163,6 +166,7 @@ export const SparklesCore = (props: ParticlesProps) => {
 							},
 							shape: {
 								close: true,
+								fill: true,
 								options: {},
 								type: 'circle',
 							},
@@ -180,6 +184,7 @@ export const SparklesCore = (props: ParticlesProps) => {
 									destroy: 'none',
 								},
 							},
+							stroke: { width: 0 },
 							zIndex: { value: 0, opacityRate: 1, sizeRate: 1, velocityRate: 1 },
 							destroy: {
 								bounds: {},
@@ -256,7 +261,7 @@ export const SparklesCore = (props: ParticlesProps) => {
 						detectRetina: true,
 					}}
 				/>
-			</ParticlesProvider>
+			)}
 		</motion.div>
 	)
 }
