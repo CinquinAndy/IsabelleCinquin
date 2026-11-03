@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs'
+import path from 'node:path'
 import type { BrowserContext, Page } from '@playwright/test'
 
 // Moment figé pour toutes les pages : Date, minuteries, requestAnimationFrame et performance suivent l'horloge de
@@ -6,6 +8,18 @@ export const HEURE_FIXE = new Date('2026-11-02T12:00:00+01:00').getTime()
 
 // Services tiers : statistiques et carte OpenStreetMap. Rien ne sort vers l'extérieur pendant les tests.
 const TIERS = /(^|\.)(umami\.wadefade\.fr|openstreetmap\.org|googletagmanager\.com|google-analytics\.com)$/i
+
+// Photos Unsplash du haut de /blog, écrites en dur dans le code : l'optimiseur d'images de Next les télécharge chez
+// Unsplash à chaque build, et le CDN d'Unsplash ne renvoie pas toujours les mêmes octets (écart vu en CI le 03/11).
+// Le navigateur reçoit donc une copie figée : la version optimisée servie par la production le 03/11/2026 (640 px, WebP).
+const UNSPLASH = /^https:\/\/images\.unsplash\.com\/(photo-[\w-]+)\?/
+const DOSSIER_TIERS = path.join(import.meta.dirname, '..', 'instantane', 'tiers')
+
+function photoUnsplashFigee(adresse: URL) {
+	if (adresse.pathname !== '/_next/image') return null
+	const nom = UNSPLASH.exec(adresse.searchParams.get('url') ?? '')?.[1]
+	return nom ? readFileSync(path.join(DOSSIER_TIERS, `${nom}.webp`)) : null
+}
 
 // Math.random rejoué à l'identique (particules, positions aléatoires).
 function graine() {
@@ -24,8 +38,10 @@ function graine() {
  */
 export async function preparerContexte(contexte: BrowserContext, { horloge = true } = {}) {
 	await contexte.route('**/*', route => {
-		const hote = new URL(route.request().url()).hostname
-		return TIERS.test(hote) ? route.abort() : route.continue()
+		const adresse = new URL(route.request().url())
+		const photo = photoUnsplashFigee(adresse)
+		if (photo) return route.fulfill({ body: photo, contentType: 'image/webp' })
+		return TIERS.test(adresse.hostname) ? route.abort() : route.continue()
 	})
 	await contexte.addInitScript(graine)
 	if (!horloge) return
