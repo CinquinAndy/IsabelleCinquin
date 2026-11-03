@@ -97,29 +97,17 @@ test("le pied de page affiche l'année en cours, sans erreur d'hydratation", asy
 	expect(erreurs).toEqual([])
 })
 
-test('les étincelles du curseur « Compare » sont dessinées (tsParticles)', async ({ page }) => {
-	// Le canvas est masqué dans le test visuel (rendu différent à chaque image) : on vérifie ici qu'il dessine.
+test('les étincelles du curseur « Compare » se chargent (tsParticles)', async ({ page }) => {
+	// Le canvas est masqué dans le test visuel (rendu différent à chaque image), et tsParticles 4 dessine depuis un
+	// OffscreenCanvas illisible depuis la page. On vérifie ce que SparklesCore rend visible : le conteneur passe de
+	// l'opacité 0 à 1 seulement quand tsParticles signale un conteneur chargé (particlesLoaded), avec son canvas.
 	await page.goto('/')
 	const zone = page.locator('div[class*="mask-image:radial-gradient(100px_at_left"]')
 	await zone.scrollIntoViewIfNeeded()
-	const canvas = zone.locator('canvas')
-	await expect(canvas).toHaveCount(1, { timeout: 20_000 })
-	await expect
-		.poll(
-			() =>
-				canvas.evaluate((c: HTMLCanvasElement) => {
-					const contexte = c.getContext('2d')
-					if (!contexte || !c.width || !c.height) return 0
-					const { data } = contexte.getImageData(0, 0, c.width, c.height)
-					let blancs = 0
-					for (let i = 0; i < data.length; i += 4) {
-						if (data[i + 3] > 0 && data[i] > 200 && data[i + 1] > 200 && data[i + 2] > 200) blancs++
-					}
-					return blancs
-				}),
-			{ timeout: 20_000 }
-		)
-		.toBeGreaterThan(20)
+	await expect(zone.locator('canvas')).toHaveCount(1, { timeout: 20_000 })
+	await expect(zone.locator('> div').first()).toHaveCSS('opacity', '1', { timeout: 20_000 })
+	const taille = await zone.locator('canvas').evaluate((c: HTMLCanvasElement) => [c.width, c.height])
+	expect(taille[0] * taille[1]).toBeGreaterThan(0)
 })
 
 test('une adresse inconnue répond 404', async ({ page }) => {
