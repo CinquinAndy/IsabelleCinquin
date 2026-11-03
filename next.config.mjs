@@ -2,6 +2,11 @@ import { withPayload } from '@payloadcms/next/withPayload'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+	// Année du build, inlinée à l'identique dans les bundles serveur et client : c'est l'année du HTML prérendu,
+	// que le pied de page remplace par l'année en cours après l'hydratation (src/components/footer/annee-courante.tsx).
+	env: {
+		ANNEE_BUILD: String(new Date().getFullYear()),
+	},
 	outputFileTracingRoot: import.meta.dirname,
 	webpack: webpackConfig => {
 		webpackConfig.resolve.extensionAlias = {

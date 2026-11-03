@@ -82,6 +82,21 @@ for (const route of pages) {
 	})
 }
 
+test("le pied de page affiche l'année en cours, sans erreur d'hydratation", async ({ page }) => {
+	// Le HTML prérendu porte l'année du build ; le navigateur la remplace par l'année de son horloge.
+	await page.clock.setFixedTime(new Date('2031-02-01T10:00:00+01:00'))
+	const erreurs: string[] = []
+	page.on('pageerror', e => erreurs.push(e.message))
+	page.on('console', m => {
+		if (m.type() === 'error' && !/umami|openstreetmap|ERR_FAILED/.test(m.text())) erreurs.push(m.text())
+	})
+	for (const route of ['/', '/blog']) {
+		await page.goto(route)
+		await expect(page.locator('footer p', { hasText: '©' })).toContainText('© 2031 Nounou Sciez')
+	}
+	expect(erreurs).toEqual([])
+})
+
 test('une adresse inconnue répond 404', async ({ page }) => {
 	const reponse = await page.goto('/page-qui-n-existe-pas')
 	expect(reponse?.status()).toBe(404)
