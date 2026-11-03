@@ -1,13 +1,109 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
 	"extends": ["config:recommended"],
+	"timezone": "Europe/Paris",
+	"schedule": ["* 0-6 * * *"],
+	"dependencyDashboard": true,
+	"rangeStrategy": "bump",
+	"minimumReleaseAge": "3 days",
+	"internalChecksFilter": "strict",
+	"automerge": true,
+	"automergeType": "pr",
+	"automergeStrategy": "squash",
+	"platformAutomerge": true,
+	"lockFileMaintenance": {
+		"enabled": true,
+		"automerge": true,
+		"schedule": ["* 0-6 * * 1"]
+	},
 	"packageRules": [
 		{
-			"matchUpdateTypes": ["minor", "patch"],
-			"matchCurrentVersion": "!/^0/",
-			"automerge": true,
-			"automergeType": "pr",
-			"automergeStrategy": "squash"
+			"description": "Next.js et ses paquets liés, ensemble.",
+			"matchPackageNames": ["next", "/^@next\\//"],
+			"groupName": "next"
+		},
+		{
+			"description": "Payload : le cœur et tous les paquets @payloadcms/* doivent avoir exactement la même version. Une montée qui change le schéma de la base demande une migration (src/migrations) : sans elle, la CI ne le voit pas (base de test créée par push) ; vérifier le schéma avant de fusionner une majeure.",
+			"matchPackageNames": ["payload", "/^@payloadcms\\//"],
+			"groupName": "payload"
+		},
+		{
+			"description": "React, React DOM et leurs types, ensemble.",
+			"matchPackageNames": ["react", "react-dom", "@types/react", "@types/react-dom"],
+			"groupName": "react"
+		},
+		{
+			"description": "Tailwind CSS et ses paquets.",
+			"matchPackageNames": ["tailwindcss", "/^@tailwindcss\\//", "tailwind-merge", "tw-animate-css"],
+			"groupName": "tailwind"
+		},
+		{
+			"description": "Radix UI.",
+			"matchPackageNames": ["/^@radix-ui\\//"],
+			"groupName": "radix"
+		},
+		{
+			"description": "tsParticles : le moteur, le préréglage slim et le composant React ont toujours la même version.",
+			"matchPackageNames": ["/^@tsparticles\\//"],
+			"groupName": "tsparticles"
+		},
+		{
+			"description": "Motion (animations).",
+			"matchPackageNames": ["motion", "framer-motion", "motion-dom", "motion-utils"],
+			"groupName": "motion"
+		},
+		{
+			"description": "SDK d'IA (génération SEO dans l'administration) : ai et son fournisseur Google.",
+			"matchPackageNames": ["ai", "/^@ai-sdk\\//"],
+			"groupName": "ai-sdk"
+		},
+		{
+			"description": "Vitest et ses paquets.",
+			"matchPackageNames": ["vitest", "/^@vitest\\//"],
+			"groupName": "vitest"
+		},
+		{
+			"description": "Playwright : le paquet npm et l'image Docker du job e2e doivent avoir la même version, sinon le job ne trouve pas ses navigateurs. Un nouveau Chromium peut changer le rendu au pixel près : le job e2e échoue alors et la PR attend qu'on régénère les captures (bun run test:e2e:maj-captures) et qu'on les relise.",
+			"matchPackageNames": ["@playwright/test", "mcr.microsoft.com/playwright"],
+			"groupName": "playwright"
+		},
+		{
+			"description": "Image Playwright : le tag est v<version>-noble.",
+			"matchDatasources": ["docker"],
+			"matchPackageNames": ["mcr.microsoft.com/playwright"],
+			"versioning": "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)(?<compatibility>-.+)?$"
+		},
+		{
+			"description": "La production tourne sous Node 22 (RAILPACK_NODE_VERSION=22 dans Coolify) : la CI et les types de Node restent sur la 22. Changer de majeure de Node, c'est d'abord changer cette variable dans Coolify, puis ce réglage.",
+			"matchPackageNames": ["node", "@types/node"],
+			"allowedVersions": "<23"
+		},
+		{
+			"description": "Postgres de la CI : même majeure que la production (postgres:17-alpine).",
+			"matchDatasources": ["docker"],
+			"matchPackageNames": ["postgres"],
+			"allowedVersions": "<18"
+		},
+		{
+			"description": "graphql 17 : Payload 3 exige graphql ^16.8.1 (dépendance paire de payload et de @payloadcms/next). À retirer quand Payload acceptera graphql 17.",
+			"matchPackageNames": ["graphql"],
+			"allowedVersions": "<17"
+		},
+		{
+			"description": "lucide-react 1 redessine des icônes utilisées par le site (calendrier, plus, cœur...) : écarts dans les captures de référence des articles et du blog (vérifié le 03/11/2026 avec 1.67.0). Gardé en 0.x tant que le rendu n'a pas été validé et les captures régénérées volontairement.",
+			"matchPackageNames": ["lucide-react"],
+			"allowedVersions": "<1"
+		},
+		{
+			"description": "framer-motion reste en 12.x : motion 13/14 (son nouveau nom) accélère depuis 14.2 les transformations x/y/rotate par le navigateur, et les gribouillis animés de la section « À propos » ne retombent plus au même endroit (écarts dans les captures de l'accueil, vérifié le 03/11/2026 avec motion 14.9.0). Pas de remplacement automatique par motion.",
+			"matchPackageNames": ["framer-motion"],
+			"allowedVersions": "<13"
+		},
+		{
+			"description": "Pas de PR de remplacement framer-motion → motion (même raison que ci-dessus).",
+			"matchPackageNames": ["framer-motion"],
+			"matchUpdateTypes": ["replacement"],
+			"enabled": false
 		}
 	]
 }
