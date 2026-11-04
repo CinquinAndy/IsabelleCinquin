@@ -68,7 +68,7 @@
     "fast-uri": "3.1.9",
     "fast-xml-parser": "5.11.2",
     "happy-dom": "21.0.4",
-    "immutable": "4.3.9",
+    "immutable": "5.1.9",
     "js-yaml": "4.3.2",
     "lodash": "4.18.1",
     "next": "16.4.5",
@@ -1122,7 +1122,7 @@
 
     "image-dimensions": ["image-dimensions@2.5.1", "", { "bin": { "image-dimensions": "cli.js" } }, "sha512-It7CkTNp7IYA8jhvGgz8K18OAbHF3/Juk8RNEyTyMFfolJOIU1Y2wGDnzDQPbGCjyxVF/++pwIZE0BKJUEOb1g=="],
 
-    "immutable": ["immutable@4.3.9", "", {}, "sha512-ObHy4YN7ycwZOUCLI1/6svfyAFu7vL8RhAvVu/bh/RZW9EPlOyDaQ9jDQWCtdqzaXUjgXZCW1migtHE7YI7UGQ=="],
+    "immutable": ["immutable@5.1.9", "", {}, "sha512-m8nVez3rwrgmWxtLMt1ZYXB2Lv7OKYn/disyxAlSDYAlKSlFoPPfIAmAM/M5xqL4m4C/wAPw7S2/CNaUii1Hxg=="],
 
     "import-fresh": ["import-fresh@3.3.1", "https://registry.npmjs.com/import-fresh/-/import-fresh-3.3.1.tgz", { "dependencies": { "parent-module": "1.0.1", "resolve-from": "4.0.0" } }, "sha512-TR3KfrTZTYLPB6jUjfx6MF9WcWrHL9su5TObK4ZkYgBdWKPOFoSoQIdEuTuR82pmtxH2spWG9h6etwfr1pLBqQ=="],
 
