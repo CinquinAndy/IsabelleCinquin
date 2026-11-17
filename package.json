@@ -28,7 +28,7 @@
 		"@dnd-kit/accessibility": "^3.1.1",
 		"dompurify": "3.4.17",
 		"fast-uri": "4.2.3",
-		"fast-xml-parser": "5.12.0",
+		"fast-xml-parser": "5.12.1",
 		"happy-dom": "21.0.4",
 		"immutable": "5.2.1",
 		"js-yaml": "5.5.0",
