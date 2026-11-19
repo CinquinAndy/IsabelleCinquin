@@ -33,6 +33,22 @@ function graine() {
 }
 
 /**
+ * Faux Turnstile de Cloudflare (formulaire de contact) : rend un cadre vide de taille fixe et donne tout de suite un
+ * jeton factice. Rien ne part chez Cloudflare et la capture reste stable ; /api/contact est intercepté ou refuse
+ * avant la vérification du jeton.
+ */
+const FAUX_TURNSTILE = `window.turnstile = {
+	render(element, options) {
+		element.style.width = '300px'
+		element.style.height = '65px'
+		setTimeout(() => options.callback('jeton-e2e'), 0)
+		return 'widget-e2e'
+	},
+	reset() {},
+	remove() {},
+}`
+
+/**
  * Coupe les services tiers et rejoue Math.random. Avec `horloge` (captures, animations pilotées), le temps est
  * figé : il n'avance plus que par page.clock. Sans horloge, les minuteries tournent normalement (notifications).
  */
@@ -41,6 +57,9 @@ export async function preparerContexte(contexte: BrowserContext, { horloge = tru
 		const adresse = new URL(route.request().url())
 		const photo = photoUnsplashFigee(adresse)
 		if (photo) return route.fulfill({ body: photo, contentType: 'image/webp' })
+		if (adresse.hostname === 'challenges.cloudflare.com') {
+			return route.fulfill({ body: FAUX_TURNSTILE, contentType: 'text/javascript' })
+		}
 		return TIERS.test(adresse.hostname) ? route.abort() : route.continue()
 	})
 	await contexte.addInitScript(graine)

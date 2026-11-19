@@ -28,8 +28,13 @@ describe('POST /api/contact', () => {
 	beforeEach(() => {
 		send.mockReset()
 		vi.spyOn(console, 'error').mockImplementation(() => {})
+		vi.spyOn(console, 'info').mockImplementation(() => {})
+		vi.spyOn(console, 'warn').mockImplementation(() => {})
 		process.env.RESEND_API_KEY = 're_test'
 		delete process.env.CONTACT_EMAIL
+		delete process.env.TURNSTILE_SECRET_KEY
+		vi.unstubAllEnvs()
+		vi.unstubAllGlobals()
 	})
 
 	it.each([
@@ -53,7 +58,7 @@ describe('POST /api/contact', () => {
 		expect(send).toHaveBeenCalledTimes(1)
 		const courriel = send.mock.calls[0][0]
 		expect(courriel).toMatchObject({
-			from: 'Nounou Sciez <contact@isabelle-cinquin.fr>',
+			from: 'Nounou Sciez <contact@andy-cinquin.com>',
 			to: 'andorma@gmail.com',
 			replyTo: 'camille@example.com',
 			subject: '[Nounou Sciez] Nouveau message de Camille',
@@ -80,6 +85,68 @@ describe('POST /api/contact', () => {
 	it('répond 500 sur un corps illisible', async () => {
 		const reponse = await POST(new Request('http://localhost/api/contact', { method: 'POST', body: 'pas du json' }))
 		expect(reponse.status).toBe(500)
+		expect(send).not.toHaveBeenCalled()
+	})
+
+	it('échappe le HTML saisi par le visiteur', async () => {
+		send.mockResolvedValue({ data: { id: 'x' }, error: null })
+		await POST(requete({ ...complet, name: '<b>Camille</b>', message: '<a href="https://x.example">clic</a>' }))
+		const html = send.mock.calls[0][0].html as string
+		expect(html).not.toContain('<b>Camille</b>')
+		expect(html).not.toContain('<a href="https://x.example">')
+		expect(html).toContain('&lt;b&gt;Camille&lt;/b&gt;')
+	})
+
+	it('signale dans l’objet un message qui contient un lien', async () => {
+		send.mockResolvedValue({ data: { id: 'x' }, error: null })
+		await POST(requete({ ...complet, message: 'Voir www.exemple.fr' }))
+		expect(send.mock.calls[0][0].subject).toBe('[Lien dans le message] [Nounou Sciez] Nouveau message de Camille')
+	})
+
+	it('refuse un email mal formé ou un message trop long (400)', async () => {
+		expect((await POST(requete({ ...complet, email: 'pas-un-email' }))).status).toBe(400)
+		expect((await POST(requete({ ...complet, message: 'a'.repeat(5001) }))).status).toBe(400)
+		expect(send).not.toHaveBeenCalled()
+	})
+
+	it('écarte en silence un robot qui remplit le champ piège', async () => {
+		const reponse = await POST(requete({ ...complet, website: 'https://spam.example' }))
+		expect(reponse.status).toBe(200)
+		expect(await reponse.json()).toEqual({ success: true })
+		expect(send).not.toHaveBeenCalled()
+	})
+
+	it('écarte en silence un nom et un message en lettres au hasard', async () => {
+		const reponse = await POST(requete({ ...complet, name: 'FzEwOOmxoOoDAyMmIDdgBtPG', message: 'oKcQzvnDkccQlIuC' }))
+		expect(reponse.status).toBe(200)
+		expect(send).not.toHaveBeenCalled()
+	})
+
+	it('refuse (403) quand Cloudflare rejette le jeton Turnstile', async () => {
+		process.env.TURNSTILE_SECRET_KEY = 'secret-de-test'
+		const verification = vi
+			.fn()
+			.mockResolvedValue(new Response(JSON.stringify({ success: false, 'error-codes': ['invalid-input-response'] })))
+		vi.stubGlobal('fetch', verification)
+		const reponse = await POST(requete({ ...complet, turnstileToken: 'jeton' }))
+		expect(reponse.status).toBe(403)
+		expect(verification).toHaveBeenCalledTimes(1)
+		expect(send).not.toHaveBeenCalled()
+	})
+
+	it('envoie quand Cloudflare valide le jeton Turnstile', async () => {
+		process.env.TURNSTILE_SECRET_KEY = 'secret-de-test'
+		vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response(JSON.stringify({ success: true }))))
+		send.mockResolvedValue({ data: { id: 'x' }, error: null })
+		const reponse = await POST(requete({ ...complet, turnstileToken: 'jeton' }))
+		expect(reponse.status).toBe(200)
+		expect(send).toHaveBeenCalledTimes(1)
+	})
+
+	it('refuse tout envoi en production quand TURNSTILE_SECRET_KEY manque', async () => {
+		vi.stubEnv('NODE_ENV', 'production')
+		const reponse = await POST(requete({ ...complet, turnstileToken: 'jeton' }))
+		expect(reponse.status).toBe(403)
 		expect(send).not.toHaveBeenCalled()
 	})
 })

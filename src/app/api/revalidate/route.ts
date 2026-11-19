@@ -5,7 +5,9 @@ export async function POST(request: NextRequest) {
 	try {
 		const { secret, collection, slug, global } = await request.json()
 
-		if (secret !== process.env.REVALIDATE_SECRET) {
+		// Sans REVALIDATE_SECRET, un corps sans secret passait (undefined === undefined) : refus.
+		const expected = process.env.REVALIDATE_SECRET
+		if (!expected || secret !== expected) {
 			return NextResponse.json({ message: 'Invalid secret' }, { status: 401 })
 		}
 
