@@ -1,9 +1,13 @@
 import type { NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
 import { getPayload } from 'payload'
+import { requireAdmin } from '@/lib/payload/require-admin'
 import config from '@/payload.config'
 
 export async function GET(req: NextRequest) {
+	const unauthorized = await requireAdmin(req.headers)
+	if (unauthorized) return unauthorized
+
 	try {
 		// Get query params
 		const searchParams = req.nextUrl.searchParams

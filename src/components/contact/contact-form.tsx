@@ -1,8 +1,40 @@
 'use client'
 
 import { Loader2, Send } from 'lucide-react'
-import { useState } from 'react'
+import Script from 'next/script'
+import { useEffect, useRef, useState } from 'react'
 import { toast } from 'sonner'
+import { HONEYPOT_FIELD } from '@/lib/security/spam'
+
+/**
+ * Clé publique du widget Turnstile « isabelle-cinquin.fr contact » (compte Cloudflare d'Andy).
+ * En développement : clé de test de Cloudflare, qui passe toujours (le serveur ignore alors la vérification).
+ */
+const TURNSTILE_SITE_KEY =
+	process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ||
+	(process.env.NODE_ENV === 'production' ? '0x4AAAAAAGJAI4gjPIGVNHso' : '1x00000000000000000000AA')
+
+interface TurnstileApi {
+	render: (
+		element: HTMLElement,
+		options: {
+			sitekey: string
+			callback: (token: string) => void
+			'expired-callback': () => void
+			'error-callback': () => void
+			language?: string
+			theme?: 'auto' | 'light' | 'dark'
+		}
+	) => string
+	reset: (widgetId?: string) => void
+	remove: (widgetId?: string) => void
+}
+
+declare global {
+	interface Window {
+		turnstile?: TurnstileApi
+	}
+}
 
 interface ContactFormData {
 	name: string
@@ -21,6 +53,44 @@ export function ContactForm() {
 		preferredDate: '',
 		message: '',
 	})
+	// Widget Turnstile : conteneur, identifiant et dernier jeton (à usage unique, valable environ 5 minutes).
+	const turnstileContainerRef = useRef<HTMLDivElement>(null)
+	const turnstileWidgetRef = useRef<string | null>(null)
+	const turnstileTokenRef = useRef<string | null>(null)
+	const honeypotRef = useRef<HTMLInputElement>(null)
+
+	/** Affiche le widget une fois le script chargé (aussi après une navigation côté client). */
+	function renderTurnstile() {
+		const container = turnstileContainerRef.current
+		if (!window.turnstile || !container || turnstileWidgetRef.current) return
+		turnstileWidgetRef.current = window.turnstile.render(container, {
+			sitekey: TURNSTILE_SITE_KEY,
+			language: 'fr',
+			theme: 'light',
+			callback: token => {
+				turnstileTokenRef.current = token
+			},
+			'expired-callback': () => {
+				turnstileTokenRef.current = null
+			},
+			'error-callback': () => {
+				turnstileTokenRef.current = null
+			},
+		})
+	}
+
+	/** Un jeton ne sert qu'une fois : on en redemande un après chaque tentative. */
+	function resetTurnstile() {
+		turnstileTokenRef.current = null
+		if (turnstileWidgetRef.current) window.turnstile?.reset(turnstileWidgetRef.current)
+	}
+
+	useEffect(() => {
+		return () => {
+			if (turnstileWidgetRef.current) window.turnstile?.remove(turnstileWidgetRef.current)
+			turnstileWidgetRef.current = null
+		}
+	}, [])
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 		const { name, value } = e.target
@@ -29,15 +99,26 @@ export function ContactForm() {
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault()
+		const turnstileToken = turnstileTokenRef.current
+		if (!turnstileToken) {
+			toast.info('Vérification anti-robot en cours', {
+				description: 'Patientez quelques secondes puis renvoyez le message.',
+			})
+			return
+		}
 		setIsSubmitting(true)
 
 		try {
 			const response = await fetch('/api/contact', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(formData),
+				body: JSON.stringify({ ...formData, turnstileToken, website: honeypotRef.current?.value ?? '' }),
 			})
 
+			if (response.status === 403) {
+				toast.error("La vérification anti-robot n'a pas abouti. Patientez quelques secondes puis renvoyez le message.")
+				return
+			}
 			if (!response.ok) {
 				throw new Error("Erreur lors de l'envoi")
 			}
@@ -53,6 +134,7 @@ export function ContactForm() {
 		} catch {
 			toast.error('Une erreur est survenue. Veuillez réessayer.')
 		} finally {
+			resetTurnstile()
 			setIsSubmitting(false)
 		}
 	}
@@ -139,6 +221,27 @@ export function ContactForm() {
 					placeholder="Décrivez votre besoin (âge de l'enfant, jours souhaités, etc.)"
 				/>
 			</div>
+
+			{/* Champ piège : invisible pour les visiteurs, rempli par les robots qui remplissent tout. */}
+			<div aria-hidden="true" className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden">
+				<label htmlFor={HONEYPOT_FIELD}>Ne pas remplir ce champ</label>
+				<input
+					ref={honeypotRef}
+					id={HONEYPOT_FIELD}
+					name={HONEYPOT_FIELD}
+					type="text"
+					tabIndex={-1}
+					autoComplete="off"
+				/>
+			</div>
+
+			{/* Cloudflare Turnstile : vérification anti-robot, le plus souvent invisible pour le visiteur. */}
+			<Script
+				src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+				strategy="afterInteractive"
+				onReady={renderTurnstile}
+			/>
+			<div ref={turnstileContainerRef} className="min-h-[65px]" />
 
 			<button
 				type="submit"

@@ -30,6 +30,8 @@ test('un message valide part vers /api/contact et le visiteur est prévenu', asy
 		phone: '06 00 00 00 00',
 		preferredDate: '',
 		message: 'Bonjour, une place en janvier ?',
+		turnstileToken: 'jeton-e2e',
+		website: '',
 	})
 	await expect(page.getByLabel(/Nom complet/)).toHaveValue('')
 })

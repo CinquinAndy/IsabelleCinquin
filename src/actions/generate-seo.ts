@@ -3,7 +3,7 @@
 import { createGoogleGenerativeAI } from '@ai-sdk/google'
 import configPromise from '@payload-config'
 import { generateObject } from 'ai'
-import { cookies } from 'next/headers'
+import { headers } from 'next/headers'
 import { getPayload } from 'payload'
 import { z } from 'zod'
 
@@ -27,11 +27,11 @@ const landingSeoSchema = z.object({
  */
 export async function generateSeoForPost(data: { content: string; previousTitle?: string; previousExcerpt?: string }) {
 	try {
-		// Check authentication via cookies
-		const cookieStore = await cookies()
-		const token = cookieStore.get('payload-token')
-
-		if (!token) {
+		// Session Payload vérifiée (et pas seulement la présence d'un cookie, qu'un robot pouvait inventer) :
+		// sans elle, n'importe qui lançait des générations Gemini payantes.
+		const payloadForAuth = await getPayload({ config: configPromise })
+		const { user } = await payloadForAuth.auth({ headers: await headers() })
+		if (!user) {
 			throw new Error('Non authentifié. Veuillez vous reconnecter.')
 		}
 
@@ -108,11 +108,11 @@ export async function generateSeoForLanding(data: {
 	location?: string
 }) {
 	try {
-		// Check authentication via cookies
-		const cookieStore = await cookies()
-		const token = cookieStore.get('payload-token')
-
-		if (!token) {
+		// Session Payload vérifiée (et pas seulement la présence d'un cookie, qu'un robot pouvait inventer) :
+		// sans elle, n'importe qui lançait des générations Gemini payantes.
+		const payloadForAuth = await getPayload({ config: configPromise })
+		const { user } = await payloadForAuth.auth({ headers: await headers() })
+		if (!user) {
 			throw new Error('Non authentifié. Veuillez vous reconnecter.')
 		}
 
