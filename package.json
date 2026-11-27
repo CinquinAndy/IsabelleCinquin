@@ -39,7 +39,7 @@
 		"ws": "8.23.0"
 	},
 	"dependencies": {
-		"@ai-sdk/google": "4.0.124",
+		"@ai-sdk/google": "4.0.125",
 		"@number-flow/react": "0.6.2",
 		"@paper-design/shaders-react": "0.0.82",
 		"@payloadcms/db-postgres": "3.94.1",
@@ -60,7 +60,7 @@
 		"@tsparticles/engine": "3.9.1",
 		"@tsparticles/react": "3.0.0",
 		"@tsparticles/slim": "3.9.1",
-		"ai": "7.0.179",
+		"ai": "7.0.181",
 		"class-variance-authority": "0.7.1",
 		"clsx": "2.1.1",
 		"framer-motion": "12.43.0",
