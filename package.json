@@ -39,7 +39,7 @@
 		"ws": "8.23.0"
 	},
 	"dependencies": {
-		"@ai-sdk/google": "4.0.125",
+		"@ai-sdk/google": "4.0.126",
 		"@number-flow/react": "0.6.2",
 		"@paper-design/shaders-react": "0.0.82",
 		"@payloadcms/db-postgres": "3.94.1",
